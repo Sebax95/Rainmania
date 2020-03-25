@@ -22,6 +22,8 @@ public class Arrow : MonoBehaviour
         if(collision.collider)
         {
             stop = true;
+            this.gameObject.layer = 9;
+            Destroy(GetComponent<Rigidbody>());
         }
     }
 }

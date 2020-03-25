@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            if (Input.GetAxis("Horizontal") != 0)
             {
                 if (Input.GetKeyDown(KeyCode.J))
                 {
