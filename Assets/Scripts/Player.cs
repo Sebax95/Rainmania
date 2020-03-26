@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CustomMSLibrary.Core;
+using CustomMSLibrary.Unity;
 
 public class Player : MonoBehaviour {
 	public float speed;
@@ -23,7 +25,12 @@ public class Player : MonoBehaviour {
 	bool isAttackingDiag;
 
 	public Material weaponColor;
+	private MeshRenderer weaponMesh;
+	public Material[] weaponMaterials;
 	bool changeWeapon;
+
+	private bool isTryingJump;
+	
 
 	private void Start() {
 		// weaponChange.SetColor("_EmissionColor",Color.red );
@@ -35,15 +42,19 @@ public class Player : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
 	}
-
 	private void FixedUpdate() {
-
 		if(rb.velocity.y < 0)
-			rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-		else if(rb.velocity.y > 0 && !Input.GetButton("Jump"))
-			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+			rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+		else if(rb.velocity.y > 0 && !isTryingJump)
+			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+	}
+
+	private void Update() {
 		if(Input.GetButtonDown("Jump"))
 			Jump();
+
+		isTryingJump = Input.GetButton("Jump");
+
 		//if(canMove)
 		Movement();
 
@@ -57,6 +68,7 @@ public class Player : MonoBehaviour {
 
 		WhipInput();
 	}
+
 	void Jump() {
 		if(Physics.Raycast(transform.position, Vector3.down, 1.1f, 1 << 9))
 		{
@@ -65,6 +77,7 @@ public class Player : MonoBehaviour {
 			rb.velocity = Vector3.up * forceJump;
 		}
 	}
+
 	void Movement() {
 		anim.SetFloat("SpeedX", movement.x);
 		movement = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
