@@ -37,8 +37,13 @@ public class Player : Character {
 	/// </summary>
 	private BoolByte lastFrameInput;
 
+	public Controller thisControllerPrefab; //temp
 
 	private void Start() {
+		//Temp, despues ver como SOLIDear asignacion de controller
+		ControllerHandler.Instance.RequestAssignation(Instantiate(thisControllerPrefab), this);
+
+
 		// weaponChange.SetColor("_EmissionColor",Color.red );
 		attacks[0].SetActive(false);
 		attacks[1].SetActive(false);
@@ -58,7 +63,7 @@ public class Player : Character {
 			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
 	}
 
-	public override void DoUpdate(Vector3 direction, BoolByte buttons) { 
+	public override void DoUpdate(Vector3 direction, BoolByte buttons) {
 		if(buttons[0] && !lastFrameInput[0])
 			Jump();
 
@@ -73,7 +78,7 @@ public class Player : Character {
 		//else
 		//	weaponMesh.material = weaponMaterials[1];
 
-		WhipInput(direction,buttons);
+		WhipInput(direction, buttons);
 
 		lastFrameInput = buttons;
 	}
@@ -88,14 +93,18 @@ public class Player : Character {
 	}
 
 	private void Movement(Vector3 direction) {
+		if(direction.x > 0)
+			transform.rotation = Quaternion.Euler(0, 90, 0);
+		else if(direction.x < 0)
+			transform.rotation = Quaternion.Euler(0, 270, 0);
 		anim.SetFloat("SpeedX", Mathf.Abs(direction.x));
 		rb.velocity = (new Vector3(direction.x * speed, rb.velocity.y, 0));
 	}
 
-	private void WhipInput(Vector3 direction,BoolByte inputs) {
-		bool triedAttack = inputs[1];
+	private void WhipInput(Vector3 direction, BoolByte inputs) {
+		bool triedAttack = inputs[1] && !lastFrameInput[1];
 		(bool isWhip, bool horizontal, bool up) attackDirection =
-			(weaponIsWhip, direction.x != 0, direction.y>0);
+			(weaponIsWhip, direction.x != 0, direction.y > 0);
 
 		#region deprec
 		//if(Input.GetKey(KeyCode.W))
@@ -235,5 +244,5 @@ public class Player : Character {
 			canMove = true;
 	}
 
-	
+
 }
