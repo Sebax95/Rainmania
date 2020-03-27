@@ -320,13 +320,18 @@ MonoBehaviour:
   forceJump: 10
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
-  movement: {x: 0, y: 0, z: 0}
-  attack1: {fileID: 1009942150}
-  attack2: {fileID: 756630633}
-  attack3: {fileID: 1546106831}
+  attacks:
+  - {fileID: 1009942150}
+  - {fileID: 756630633}
+  - {fileID: 1546106831}
   arrow: {fileID: 4315563089481237104, guid: 5f38174b55e92434293bf332aa820f39, type: 3}
-  timer: 0
-  weaponColor: {fileID: 2100000, guid: d5c0dc78f40c06c4e9356a3218da955b, type: 2}
+  whipDelay: 0.2
+  whipDuration: 0.4
+  attackCooldown: 0.8
+  weaponMesh: {fileID: 0}
+  weaponMaterials: []
+  thisControllerPrefab: {fileID: 6141289527529480240, guid: d41e54e9dc374ce42bebf7da281bb765,
+    type: 3}
 --- !u!136 &1080752400
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -479,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5870c81890a8816449687ff7230f3779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCamera: {fileID: 1396933494}
+  offset: {x: 0, y: 0, z: 0}
   player: {fileID: 5006512735291232688}
   smoothMovement: 10
 --- !u!81 &1357618288
