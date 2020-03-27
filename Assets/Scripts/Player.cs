@@ -5,7 +5,7 @@ using UnityEngine;
 using CustomMSLibrary.Core;
 using CustomMSLibrary.Unity;
 
-public class Player : MonoBehaviour {
+public class Player : Character {
 	public float speed;
 	public float forceJump;
 	public float fallMultiplier = 2.5f;
@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 
 	private Rigidbody rb;
 	private Animator anim;
-	public Vector3 movement;
+	//private Vector3 movement;
 	private bool canMove;
 
 	//Attack
@@ -32,7 +32,10 @@ public class Player : MonoBehaviour {
 	public Material[] weaponMaterials;
 	private bool weaponIsWhip;
 
-	private bool isTryingJump;
+	/// <summary>
+	/// 0: Jump. 1: Attack. 2: Switch weapon
+	/// </summary>
+	private BoolByte lastFrameInput;
 
 
 	private void Start() {
@@ -51,28 +54,28 @@ public class Player : MonoBehaviour {
 	private void FixedUpdate() {
 		if(rb.velocity.y < 0)
 			rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
-		else if(rb.velocity.y > 0 && !isTryingJump)
+		else if(rb.velocity.y > 0 && !lastFrameInput[0])
 			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
 	}
 
-	private void Update() {
-		if(Input.GetButtonDown("Jump"))
+	public override void DoUpdate(Vector3 direction, BoolByte buttons) { 
+		if(buttons[0] && !lastFrameInput[0])
 			Jump();
 
-		isTryingJump = Input.GetButton("Jump");
-
 		//if(canMove)
-		Movement();
+		Movement(direction);
 
-		if(Input.GetKeyDown(KeyCode.K))
+		if(lastFrameInput[2])
 			weaponIsWhip = !weaponIsWhip;
 
-		if(weaponIsWhip)
-			weaponMesh.material = weaponMaterials[0];
-		else
-			weaponMesh.material = weaponMaterials[1];
+		//if(weaponIsWhip)
+		//	weaponMesh.material = weaponMaterials[0];
+		//else
+		//	weaponMesh.material = weaponMaterials[1];
 
-		WhipInput();
+		WhipInput(direction,buttons);
+
+		lastFrameInput = buttons;
 	}
 
 	void Jump() {
@@ -84,16 +87,15 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	private void Movement() {
-		anim.SetFloat("SpeedX", movement.x);
-		movement = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-		rb.velocity = (new Vector3(movement.x * speed, rb.velocity.y, 0));
+	private void Movement(Vector3 direction) {
+		anim.SetFloat("SpeedX", Mathf.Abs(direction.x));
+		rb.velocity = (new Vector3(direction.x * speed, rb.velocity.y, 0));
 	}
 
-	private void WhipInput() {
-		bool triedAttack = Input.GetKeyDown(KeyCode.J);
+	private void WhipInput(Vector3 direction,BoolByte inputs) {
+		bool triedAttack = inputs[1];
 		(bool isWhip, bool horizontal, bool up) attackDirection =
-			(weaponIsWhip, (Input.GetAxisRaw("Horizontal") != 0), (Input.GetAxisRaw("Vertical") > 0));
+			(weaponIsWhip, direction.x != 0, direction.y>0);
 
 		#region deprec
 		//if(Input.GetKey(KeyCode.W))
@@ -233,5 +235,5 @@ public class Player : MonoBehaviour {
 			canMove = true;
 	}
 
-
+	
 }
