@@ -328,8 +328,9 @@ MonoBehaviour:
   whipDelay: 0.2
   whipDuration: 0.4
   attackCooldown: 0.8
-  weaponMesh: {fileID: 0}
-  weaponMaterials: []
+  weaponMesh: {fileID: 1009942152}
+  weaponMaterials:
+  - {fileID: 2100000, guid: bff79896aa7d8984f9c4218330b2d0b4, type: 2}
   thisControllerPrefab: {fileID: 6141289527529480240, guid: d41e54e9dc374ce42bebf7da281bb765,
     type: 3}
 --- !u!136 &1080752400
@@ -484,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5870c81890a8816449687ff7230f3779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 2, y: 2, z: -5}
   player: {fileID: 5006512735291232688}
   smoothMovement: 10
 --- !u!81 &1357618288
@@ -546,7 +547,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357618286}
   m_LocalRotation: {x: -0, y: -0.11188079, z: -0, w: 0.99372166}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: -12.98, y: 1, z: -12.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5799,6 +5800,7 @@ GameObject:
   - component: {fileID: 3166231813908888778}
   - component: {fileID: 1080752401}
   - component: {fileID: 1080752400}
+  - component: {fileID: 8296172669235504036}
   - component: {fileID: 1080752397}
   m_Layer: 0
   m_Name: Jammo_LowPoly
@@ -5807,6 +5809,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8296172669235504036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172669235504035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a01d02bc2c64c6340ad72c09b895d26d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8389181126218525688
 GameObject:
   m_ObjectHideFlags: 0

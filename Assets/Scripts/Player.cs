@@ -11,7 +11,7 @@ public class Player : Character {
 	public float fallMultiplier = 2.5f;
 	public float lowJumpMultiplier = 2f;
 
-	private Rigidbody rb;
+	Rigidbody rb;
 	private Animator anim;
 	//private Vector3 movement;
 	private bool canMove;
@@ -39,7 +39,10 @@ public class Player : Character {
 
 	public Controller thisControllerPrefab; //temp
 
-	private void Start() {
+	void Start() 
+	{
+		rb = GetComponent<Rigidbody>();
+		anim = GetComponent<Animator>();
 		//Temp, despues ver como SOLIDear asignacion de controller
 		ControllerHandler.Instance.RequestAssignation(Instantiate(thisControllerPrefab), this);
 
@@ -50,8 +53,7 @@ public class Player : Character {
 		attacks[2].SetActive(false);
 
 		canMove = true;
-		rb = GetComponent<Rigidbody>();
-		anim = GetComponent<Animator>();
+		
 
 		wait_attackCooldown = new WaitForSeconds(attackCooldown);
 	}
@@ -185,6 +187,14 @@ public class Player : Character {
 		yield return new WaitForSeconds(firstDuration);
 		yield return StartCoroutine(Coroutine_ObjectActiveBlinker(item, secondDuration));
 	}
+
+/*	private IEnumerator Coroutine_DelayedObjectActiveBlinker2(GameObject item, float firstDuration, float secondDuration)
+	{
+		yield return new WaitForSeconds(firstDuration);
+		item.SetActive(true);
+		yield return new WaitForSeconds(secondDuration);
+		item.SetActive(false);
+	}*/
 
 	private void WhipAttack(GameObject item) {
 		StartCoroutine(Coroutine_DelayedObjectActiveBlinker(item, whipDelay, whipDuration));
