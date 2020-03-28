@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class Player : MonoBehaviour
     public GameObject attack3;
     public GameObject arrow;
 
-    public float timer;
+    float aDisable = 0.2f;
+    float aEnable = 0.4f;
     bool isAttacking;
     bool isAttackingUp;
     bool isAttackingDiag;
@@ -108,11 +110,11 @@ public class Player : MonoBehaviour
         if (changeWeapon)
         {
             if (isAttacking)
-                WhipNormal();
+                StartCoroutine(AttackTime1());
             if (isAttackingUp)
-                WhipUp();
+                StartCoroutine(AttackTime2());
             if (isAttackingDiag)
-                WhipDiag();
+                StartCoroutine(AttackTime3());
         }
         else
         {
@@ -134,17 +136,17 @@ public class Player : MonoBehaviour
         }
      
 
-        if(timer > 0.7f)
+       /* if(timer > 0.7f)
         {
             isAttacking = false;
             isAttackingUp = false;
             isAttackingDiag = false;
 
             timer = 0;
-        }
+        }*/
     }
 
-    void WhipNormal()
+   /* void WhipNormal()
     {
         timer += 1 * Time.deltaTime;
         if (timer >= 0.4f && timer < 0.6f)
@@ -174,7 +176,7 @@ public class Player : MonoBehaviour
         {
             attack3.SetActive(false);
         }
-    }
+    }*/
 
     void BowNormal()
     {
@@ -203,5 +205,29 @@ public class Player : MonoBehaviour
             canMove = true;
     }
 
+    IEnumerator AttackTime1()
+    {
+        isAttacking = false;
+        yield return new WaitForSeconds(aEnable);
+        attack1.SetActive(true);
+        yield return new WaitForSeconds(aDisable);
+        attack1.SetActive(false);
+    }
+    IEnumerator AttackTime2()
+    {
+        isAttackingUp = false;
+        yield return new WaitForSeconds(aEnable);
+        attack2.SetActive(true);
+        yield return new WaitForSeconds(aDisable);
+        attack2.SetActive(false);
+    }
+    IEnumerator AttackTime3()
+    {
+        isAttackingDiag = false;
+        yield return new WaitForSeconds(aEnable);
+        attack3.SetActive(true);
+        yield return new WaitForSeconds(aDisable);
+        attack3.SetActive(false);
+    }
 
 }
