@@ -12,6 +12,9 @@ public class Swinger : MonoBehaviour {
 	private Vector3 anchorPos;
 
 	private float initialState; //Initial angle in rads * Sqrt(gravity / distance from anchor)
+	private float initialAngle;
+
+	float GetTime => Time.time - anchorTime;
 
 	public void SetupSwing(Transform anchor) {
 		anchorTransform = anchor;
@@ -29,18 +32,38 @@ public class Swinger : MonoBehaviour {
 	}
 
 	private void Internal_SetupSwing(Vector3 relativePos) {
-		float initialAngle = Vector3.SignedAngle(Vector3.down, -relativePos.ZeroZ(), Vector3.forward) * Mathf.Deg2Rad;
+		initialAngle = Vector3.SignedAngle(Vector3.down, -relativePos.ZeroZ(), Vector3.forward) * Mathf.Deg2Rad;
 		distanceFromAnchor = relativePos.magnitude;
 		anchorTime = Time.time;
 		initialState = initialAngle * Mathf.Sqrt(gravityMult / distanceFromAnchor);
 	}
 
 	public Vector3 UpdateSwing() {
-		float newAngle = initialState * Mathf.Cos(Time.time - anchorTime);
+		float newAngle = initialState * Mathf.Cos(GetTime);
 		var anchorPos = dependOnTransform ? anchorTransform.position : this.anchorPos;
 		return new Vector3(
 			anchorPos.x + (Mathf.Sin(newAngle) * distanceFromAnchor),
 			anchorPos.y - (Mathf.Cos(newAngle) * distanceFromAnchor),
 			transform.position.z);
 	}
+
+	//public Vector3 GetVelocity() {
+
+	//	Vector3 addedVelocity = Vector3.zero;
+	//	if(dependOnTransform)
+	//	{
+	//		var rb = anchorTransform?.GetComponent<Rigidbody>();
+	//		if(rb != null)
+	//			addedVelocity = rb.velocity.ZeroZ();
+	//	}
+	//	return new Vector3(
+	//		velocity * -Mathf.Cos(newAngle),
+	//		velocity * -Mathf.Sin(newAngle),
+	//		0f) + addedVelocity;
+	//}
+
+	//private void OnDrawGizmos() {
+	//	Gizmos.color = Color.green;
+	//	Gizmos.DrawLine(transform.position, transform.position + GetVelocity());
+	//}
 }
