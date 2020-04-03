@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     private Vector3 _dirToTarget;
     private float _anglesToAngle;
     private float _distanceToTarget;
+    public Vector3 lastPosition;
 
     [HideInInspector]
     public Rigidbody rb;
@@ -28,6 +29,8 @@ public class Enemy : MonoBehaviour
         fsm = new FSM<Enemy>(this);
         fsm.AddState("Idle", new IdleState(this, fsm));
         fsm.AddState("SimplePatrol", new SimplePatrolState(this, fsm));
+        fsm.AddState("ChaseState", new ChaseState(this, fsm));
+        fsm.AddState("Evade", new EvadeState(this, fsm));
     }
 
     private void Start()
@@ -37,11 +40,14 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         fsm.Update();
+        fsm.GetState();
+        if (Input.GetKeyDown(KeyCode.P))
+            fsm.SetState("Evade");
     }
     private void FixedUpdate()
     {
         fsm.FixedUpdate();
-    }
+    } 
 
     public bool LineOfSight()
     {
@@ -56,7 +62,10 @@ public class Enemy : MonoBehaviour
                 if (rch.collider.gameObject.layer == Layers.Wall)
                     obstacleBetween = true;
             if (!obstacleBetween)
+            {
+                lastPosition = target.transform.position;
                 return true;
+            }
             else
                 return false;
         }
@@ -67,7 +76,7 @@ public class Enemy : MonoBehaviour
     public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
         if (!angleIsGlobal)
-            angleInDegrees += transform.eulerAngles.x;
-        return new Vector3(Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0);
+            angleInDegrees += transform.eulerAngles.z;
+        return new Vector3(Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), transform.eulerAngles.z);
     }
 }

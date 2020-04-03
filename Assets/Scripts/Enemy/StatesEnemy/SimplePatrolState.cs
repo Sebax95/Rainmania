@@ -22,11 +22,14 @@ public class SimplePatrolState : State<Enemy>
 
     public override void FixedUpdateState()
     {
-        _owner.rb.MovePosition(_owner.transform.position + _owner.transform.right * _owner.speed * Time.deltaTime);
+        _owner.rb.MovePosition(_owner.transform.position + _owner.transform.forward * _owner.speed * Time.deltaTime);
     }
 
     public override void UpdateState()
     {
+        if (_owner.LineOfSight())
+            _owner.fsm.SetState("ChaseState");
+
         if (Vector3.Distance(_owner.transform.position, startpos) >= distMax)
             _owner.transform.Rotate(Vector3.up, 180);
     }

@@ -14,6 +14,11 @@ public class FSM<T>
         _states = new Dictionary<string, State<T>>();
     }
 
+    public string GetState()
+    {
+        return _currentState.ToString();
+    }
+
     public void AddState(string stateName, State<T> state)
     {
         _states.Add(stateName, state);

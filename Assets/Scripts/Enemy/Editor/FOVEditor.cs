@@ -20,9 +20,5 @@ public class FOVEditor : Editor
         
         Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngleA * fov.viewDistance);
         Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngleB * fov.viewDistance);
-
-
-        Handles.DrawLine(fov.transform.position, fov.target.transform.position);
-    }
-    
+    }    
 }
