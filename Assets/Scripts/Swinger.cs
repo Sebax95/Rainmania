@@ -47,20 +47,22 @@ public class Swinger : MonoBehaviour {
 			transform.position.z);
 	}
 
-	//public Vector3 GetVelocity() {
+	public Vector3 GetVelocity() {
+		float velocity = initialAngle * Mathf.Sqrt(distanceFromAnchor * gravityMult) * Mathf.Sin(initialState * GetTime);
+		float newAngle = initialAngle * Mathf.Cos(initialState * GetTime);
 
-	//	Vector3 addedVelocity = Vector3.zero;
-	//	if(dependOnTransform)
-	//	{
-	//		var rb = anchorTransform?.GetComponent<Rigidbody>();
-	//		if(rb != null)
-	//			addedVelocity = rb.velocity.ZeroZ();
-	//	}
-	//	return new Vector3(
-	//		velocity * -Mathf.Cos(newAngle),
-	//		velocity * -Mathf.Sin(newAngle),
-	//		0f) + addedVelocity;
-	//}
+		Vector3 addedVelocity = Vector3.zero;
+		if(dependOnTransform)
+		{
+			var rb = anchorTransform?.GetComponent<Rigidbody>();
+			if(rb != null)
+				addedVelocity = rb.velocity.ZeroZ();
+		}
+		return new Vector3(
+			velocity * -Mathf.Cos(newAngle),
+			velocity * -Mathf.Sin(newAngle),
+			0f) + addedVelocity;
+	}
 
 	//private void OnDrawGizmos() {
 	//	Gizmos.color = Color.green;
