@@ -35,11 +35,11 @@ public class Swinger : MonoBehaviour {
 		initialAngle = Vector3.SignedAngle(Vector3.down, -relativePos.ZeroZ(), Vector3.forward) * Mathf.Deg2Rad;
 		distanceFromAnchor = relativePos.magnitude;
 		anchorTime = Time.time;
-		initialState = initialAngle * Mathf.Sqrt(gravityMult / distanceFromAnchor);
+		initialState = Mathf.Sqrt(gravityMult / distanceFromAnchor);
 	}
 
 	public Vector3 UpdateSwing() {
-		float newAngle = initialState * Mathf.Cos(GetTime);
+		float newAngle = initialAngle * Mathf.Cos(initialState * GetTime);
 		var anchorPos = dependOnTransform ? anchorTransform.position : this.anchorPos;
 		return new Vector3(
 			anchorPos.x + (Mathf.Sin(newAngle) * distanceFromAnchor),
