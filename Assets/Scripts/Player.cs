@@ -6,13 +6,17 @@ using CustomMSLibrary.Core;
 using CustomMSLibrary.Unity;
 
 public class Player : Character {
+	private const float GROUNDED_DISTANCE = 1.1f;
+
+
 	public float speed;
 	public float forceJump;
 	public float fallMultiplier = 2.5f;
 	public float lowJumpMultiplier = 2f;
+	public LayerMask validFloorLayers;
 
 	private Rigidbody rb;
-	private Animator anim;
+	private PlayerAnim playerAnimator;
 	//private Vector3 movement;
 	private bool canMove;
 
@@ -39,7 +43,9 @@ public class Player : Character {
 
 	public Controller thisControllerPrefab; //temp
 
-	private void Start() {
+	protected override void Start() {
+		base.Start();
+
 		//Temp, despues ver como SOLIDear asignacion de controller
 		ControllerHandler.Instance.RequestAssignation(Instantiate(thisControllerPrefab), this);
 
@@ -51,7 +57,7 @@ public class Player : Character {
 
 		canMove = true;
 		rb = GetComponent<Rigidbody>();
-		anim = GetComponent<Animator>();
+		playerAnimator = GetComponent<PlayerAnim>();
 
 		wait_attackCooldown = new WaitForSeconds(attackCooldown);
 	}
@@ -63,105 +69,52 @@ public class Player : Character {
 			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
 	}
 
-	public override void DoUpdate(Vector3 direction, BoolByte buttons) {
-		if(buttons[0] && !lastFrameInput[0])
-			Jump();
-
-		//if(canMove)
-		Movement(direction);
-
-		if(lastFrameInput[2])
-			weaponIsWhip = !weaponIsWhip;
-
-		//if(weaponIsWhip)
-		//	weaponMesh.material = weaponMaterials[0];
-		//else
-		//	weaponMesh.material = weaponMaterials[1];
-
-		WhipInput(direction, buttons);
-
-		lastFrameInput = buttons;
-	}
-
-	void Jump() {
-		if(Physics.Raycast(transform.position, Vector3.down, 1.1f, 1 << 9))
+	public void Jump() {
+		if(Physics.Raycast(transform.position, Vector3.down, GROUNDED_DISTANCE, validFloorLayers))
 		{
-			/*canMove = false;
-			rb.velocity = new Vector3(rb.velocity.x, 0, 0);*/
 			rb.velocity = Vector3.up * forceJump;
+			playerAnimator.TriggerAction(0);
 		}
 	}
 
-	private void Movement(Vector3 direction) {
-		if(direction.x > 0)
-			transform.rotation = Quaternion.Euler(0, 90, 0);
-		else if(direction.x < 0)
-			transform.rotation = Quaternion.Euler(0, 270, 0);
-		anim.SetFloat("SpeedX", Mathf.Abs(direction.x));
+	public override void Move(Vector2 direction) {
 		rb.velocity = (new Vector3(direction.x * speed, rb.velocity.y, 0));
+		playerAnimator.SetSpeeds(direction);
 	}
 
-	private void WhipInput(Vector3 direction, BoolByte inputs) {
-		bool triedAttack = inputs[1] && !lastFrameInput[1];
-		(bool isWhip, bool horizontal, bool up) attackDirection =
-			(weaponIsWhip, direction.x != 0, direction.y > 0);
+	public void Attack(Vector2 direction) {
+		if(weaponIsWhip)
+			WhipAttack(direction);
+		//TODO: else attacke arco
+	}
 
-		#region deprec
-		//if(Input.GetKey(KeyCode.W))
-		//{
-		//	if(Input.GetAxis("Horizontal") != 0)
-		//	{
-		//		if(triedAttack)
-		//		{
-		//			isAttackingUp = false;
-		//			isAttacking = false;
-		//			isAttackingDiag = true;
-		//		}
-		//	} else if(triedAttack)
-		//	{
-		//		isAttackingUp = true;
-		//		isAttacking = false;
-		//		isAttackingDiag = false;
-		//	}
-		//} else if(triedAttack)
-		//{
-		//	isAttackingUp = false;
-		//	isAttacking = true;
-		//	isAttackingDiag = false;
-		//}
-		#endregion
+	public void SwitchWeapons() {
+		//TODO: una vez implementado los componentes de armas, cambiar logica
+		weaponIsWhip = !weaponIsWhip;
+	}
 
-		if(triedAttack && canAttack)
+	public void WhipAttack(Vector2 direction) {
+		//bool triedAttack = inputs[1] && !lastFrameInput[1];
+		(bool horizontal, bool up) attackDirection = (direction.x != 0, direction.y > 0);
+
+		if(canAttack)
 		{
 			switch(attackDirection)
 			{
-				//Order: isWhip, horizontal, vertical
-				//whip
-				case var t when t == (true, false, false):
-					WhipAttack(attacks[0]);
-					break;
-				case var t when t == (true, true, false):
-					WhipAttack(attacks[0]);
-					break;
-				case var t when t == (true, false, true):
-					WhipAttack(attacks[1]);
-					break;
-				case var t when t == (true, true, true):
-					WhipAttack(attacks[2]);
-					break;
+				//TODO: Usar componente whip una vez hecho 
 
-				//bow
-				case var t when t == (false, false, false):
-					BowNormal();
+				//Order: horizontal, vertical
+				case var t when t == (false, false):
+					DoWhipAttack(attacks[0]);
 					break;
-				case var t when t == (false, true, false):
-					BowNormal();
+				case var t when t == (true, false):
+					DoWhipAttack(attacks[0]);
 					break;
-				case var t when t == (false, false, true):
-					BowUp();
+				case var t when t == (false, true):
+					DoWhipAttack(attacks[1]);
 					break;
-				case var t when t == (false, true, true):
-					BowDiag();
+				case var t when t == (true, true):
+					DoWhipAttack(attacks[2]);
 					break;
 			}
 			StartCoroutine(Coroutine_AttackCooldown());
@@ -186,40 +139,9 @@ public class Player : Character {
 		yield return StartCoroutine(Coroutine_ObjectActiveBlinker(item, secondDuration));
 	}
 
-	private void WhipAttack(GameObject item) {
+	private void DoWhipAttack(GameObject item) {
 		StartCoroutine(Coroutine_DelayedObjectActiveBlinker(item, whipDelay, whipDuration));
 	}
-
-	#region depec
-	//void WhipNormal() {
-	//	timer += 1 * Time.deltaTime;
-	//	if(timer >= 0.4f && timer < 0.6f)
-	//		attacks[0].SetActive(true);
-	//	else if(timer > 0.6f)
-	//	{
-	//		attacks[0].SetActive(false);
-	//	}
-	//}
-
-	//void WhipUp() {
-	//	timer += 1 * Time.deltaTime;
-	//	if(timer >= 0.4f && timer < 0.6f)
-	//		attacks[1].SetActive(true);
-	//	else if(timer > 0.6f)
-	//	{
-	//		attacks[1].SetActive(false);
-	//	}
-	//}
-	//void WhipDiag() {
-	//	timer += 1 * Time.deltaTime;
-	//	if(timer >= 0.4f && timer < 0.6f)
-	//		attacks[2].SetActive(true);
-	//	else if(timer > 0.6f)
-	//	{
-	//		attacks[2].SetActive(false);
-	//	}
-	//}
-	#endregion
 
 	void BowNormal() {
 		var _arrow = Instantiate(arrow);
@@ -244,5 +166,17 @@ public class Player : Character {
 			canMove = true;
 	}
 
+	public override void Damage(int amount, IDamager source) {
+		health -= amount;
+		if(health < 0)
+			Die(source);
+	}
 
+	public override void Heal(int amount, IHealer source) {
+		health = Mathf.Min(health + amount, maxHealth);
+	}
+
+	public override int GetTeam() => GameManager.TEAM_PLAYER;
+
+	public override void Die(IDamager source) => throw new System.NotImplementedException();
 }

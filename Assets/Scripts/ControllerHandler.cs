@@ -19,15 +19,7 @@ public class ControllerHandler : MonoBehaviour
         controllerToCharacter = new Dictionary<Controller, Character>();
     }
 
-    private void Update() {
-        foreach(var character in controllerToCharacter)
-        {
-            var control = character.Key;
-            control.DoUpdate();
 
-            character.Value.DoUpdate(control.Direction, control.Buttons);
-        }
-    }
 
     public void RequestAssignation(Controller control, Character user) {
         if(controllerToCharacter.ContainsValue(user))
