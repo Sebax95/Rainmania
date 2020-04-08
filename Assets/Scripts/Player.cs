@@ -17,7 +17,7 @@ public class Player : Character {
 	private bool canMove;
 
 	//Attack
-	public GameObject[] attacks;
+	public GameObject[] attacksWhip;
 	public GameObject arrow;
 	public float whipDelay;
 	public float whipDuration;
@@ -31,6 +31,8 @@ public class Player : Character {
 	public MeshRenderer weaponMesh;
 	public Material[] weaponMaterials;
 	private bool weaponIsWhip;
+	Bow _bow;
+	Whip _whip;
 
 	/// <summary>
 	/// 0: Jump. 1: Attack. 2: Switch weapon
@@ -41,16 +43,18 @@ public class Player : Character {
 
 	void Start() 
 	{
+		_bow = GetComponent<Bow>();
+		_whip = GetComponent<Whip>();
 		rb = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
 		//Temp, despues ver como SOLIDear asignacion de controller
 		ControllerHandler.Instance.RequestAssignation(Instantiate(thisControllerPrefab), this);
 
 
-		// weaponChange.SetColor("_EmissionColor",Color.red );
-		attacks[0].SetActive(false);
-		attacks[1].SetActive(false);
-		attacks[2].SetActive(false);
+		//weaponChange.SetColor("_EmissionColor",Color.red );
+		attacksWhip[0].SetActive(false);
+		attacksWhip[1].SetActive(false);
+		attacksWhip[2].SetActive(false);
 
 		canMove = true;
 		
@@ -63,6 +67,17 @@ public class Player : Character {
 			rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
 		else if(rb.velocity.y > 0 && !lastFrameInput[0])
 			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+
+		if (Input.GetKeyDown(KeyCode.L))
+		{
+		}
+		if (Input.GetKey(KeyCode.L))
+		{
+			_whip.Gocha(rb);
+			_whip.GetCloseNode();
+
+		}
+
 	}
 
 	public override void DoUpdate(Vector3 direction, BoolByte buttons) {
@@ -83,6 +98,9 @@ public class Player : Character {
 		WhipInput(direction, buttons);
 
 		lastFrameInput = buttons;
+
+
+		
 	}
 
 	void Jump() {
@@ -101,6 +119,7 @@ public class Player : Character {
 			transform.rotation = Quaternion.Euler(0, 270, 0);
 		anim.SetFloat("SpeedX", Mathf.Abs(direction.x));
 		rb.velocity = (new Vector3(direction.x * speed, rb.velocity.y, 0));
+
 	}
 
 	private void WhipInput(Vector3 direction, BoolByte inputs) {
@@ -140,30 +159,30 @@ public class Player : Character {
 				//Order: isWhip, horizontal, vertical
 				//whip
 				case var t when t == (true, false, false):
-					WhipAttack(attacks[0]);
+					_whip.WhipAttack(attacksWhip[0], whipDelay, whipDuration);
 					break;
 				case var t when t == (true, true, false):
-					WhipAttack(attacks[0]);
+					_whip.WhipAttack(attacksWhip[0], whipDelay, whipDuration);
 					break;
 				case var t when t == (true, false, true):
-					WhipAttack(attacks[1]);
+					_whip.WhipAttack(attacksWhip[1], whipDelay, whipDuration);
 					break;
 				case var t when t == (true, true, true):
-					WhipAttack(attacks[2]);
+					_whip.WhipAttack(attacksWhip[2], whipDelay, whipDuration);
 					break;
 
 				//bow
 				case var t when t == (false, false, false):
-					BowNormal();
+					_bow.BowNormal(transform);
 					break;
 				case var t when t == (false, true, false):
-					BowNormal();
+					_bow.BowNormal(transform);
 					break;
 				case var t when t == (false, false, true):
-					BowUp();
+					_bow.BowUp(transform);
 					break;
 				case var t when t == (false, true, true):
-					BowDiag();
+					_bow.BowDiag(transform);
 					break;
 			}
 			StartCoroutine(Coroutine_AttackCooldown());
@@ -176,30 +195,6 @@ public class Player : Character {
 		yield return wait_attackCooldown;
 		canAttack = true;
 	}
-
-	private IEnumerator Coroutine_ObjectActiveBlinker(GameObject item, float duration) {
-		item.SetActive(true);
-		yield return new WaitForSeconds(duration);
-		item.SetActive(false);
-	}
-
-	private IEnumerator Coroutine_DelayedObjectActiveBlinker(GameObject item, float firstDuration, float secondDuration) {
-		yield return new WaitForSeconds(firstDuration);
-		yield return StartCoroutine(Coroutine_ObjectActiveBlinker(item, secondDuration));
-	}
-
-/*	private IEnumerator Coroutine_DelayedObjectActiveBlinker2(GameObject item, float firstDuration, float secondDuration)
-	{
-		yield return new WaitForSeconds(firstDuration);
-		item.SetActive(true);
-		yield return new WaitForSeconds(secondDuration);
-		item.SetActive(false);
-	}*/
-
-	private void WhipAttack(GameObject item) {
-		StartCoroutine(Coroutine_DelayedObjectActiveBlinker(item, whipDelay, whipDuration));
-	}
-
 	#region depec
 	//void WhipNormal() {
 	//	timer += 1 * Time.deltaTime;
@@ -230,24 +225,6 @@ public class Player : Character {
 	//	}
 	//}
 	#endregion
-
-	void BowNormal() {
-		var _arrow = Instantiate(arrow);
-		_arrow.transform.position = transform.position + new Vector3(1, 1, 0);
-		_arrow.transform.forward = transform.forward;
-	}
-
-	void BowUp() {
-		var _arrow = Instantiate(arrow);
-		_arrow.transform.position = transform.position + new Vector3(0, 2.25f, 0);
-		_arrow.transform.forward = transform.up;
-	}
-	void BowDiag() {
-		var _arrow = Instantiate(arrow);
-		_arrow.transform.position = transform.position + new Vector3(1.25f, 2, 0);
-		_arrow.transform.forward = transform.forward + transform.up;
-	}
-
 
 	private void OnCollisionEnter(Collision collision) {
 		if(collision.collider.gameObject.layer == 9)
