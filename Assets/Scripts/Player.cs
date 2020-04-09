@@ -21,7 +21,7 @@ public class Player : Character {
 	private bool canMove;
 
 	//Attack
-	public GameObject[] attacks;
+	public GameObject[] attacksWhip;
 	public GameObject arrow;
 	public float whipDelay;
 	public float whipDuration;
@@ -35,6 +35,8 @@ public class Player : Character {
 	public MeshRenderer weaponMesh;
 	public Material[] weaponMaterials;
 	private bool weaponIsWhip;
+	Bow _bow;
+	Whip _whip;
 
 	/// <summary>
 	/// 0: Jump. 1: Attack. 2: Switch weapon
@@ -43,9 +45,12 @@ public class Player : Character {
 
 	public Controller thisControllerPrefab; //temp
 
-	protected override void Start() {
-		base.Start();
-
+	void Start() 
+	{
+		_bow = GetComponent<Bow>();
+		_whip = GetComponent<Whip>();
+		rb = GetComponent<Rigidbody>();
+		anim = GetComponent<Animator>();
 		//Temp, despues ver como SOLIDear asignacion de controller
 		ControllerHandler.Instance.RequestAssignation(Instantiate(thisControllerPrefab), this);
 
@@ -127,39 +132,36 @@ public class Player : Character {
 		yield return wait_attackCooldown;
 		canAttack = true;
 	}
+	#region depec
+	//void WhipNormal() {
+	//	timer += 1 * Time.deltaTime;
+	//	if(timer >= 0.4f && timer < 0.6f)
+	//		attacks[0].SetActive(true);
+	//	else if(timer > 0.6f)
+	//	{
+	//		attacks[0].SetActive(false);
+	//	}
+	//}
 
-	private IEnumerator Coroutine_ObjectActiveBlinker(GameObject item, float duration) {
-		item.SetActive(true);
-		yield return new WaitForSeconds(duration);
-		item.SetActive(false);
-	}
-
-	private IEnumerator Coroutine_DelayedObjectActiveBlinker(GameObject item, float firstDuration, float secondDuration) {
-		yield return new WaitForSeconds(firstDuration);
-		yield return StartCoroutine(Coroutine_ObjectActiveBlinker(item, secondDuration));
-	}
-
-	private void DoWhipAttack(GameObject item) {
-		StartCoroutine(Coroutine_DelayedObjectActiveBlinker(item, whipDelay, whipDuration));
-	}
-
-	void BowNormal() {
-		var _arrow = Instantiate(arrow);
-		_arrow.transform.position = transform.position + new Vector3(1, 1, 0);
-		_arrow.transform.forward = transform.forward;
-	}
-
-	void BowUp() {
-		var _arrow = Instantiate(arrow);
-		_arrow.transform.position = transform.position + new Vector3(0, 2.25f, 0);
-		_arrow.transform.forward = transform.up;
-	}
-	void BowDiag() {
-		var _arrow = Instantiate(arrow);
-		_arrow.transform.position = transform.position + new Vector3(1.25f, 2, 0);
-		_arrow.transform.forward = transform.forward + transform.up;
-	}
-
+	//void WhipUp() {
+	//	timer += 1 * Time.deltaTime;
+	//	if(timer >= 0.4f && timer < 0.6f)
+	//		attacks[1].SetActive(true);
+	//	else if(timer > 0.6f)
+	//	{
+	//		attacks[1].SetActive(false);
+	//	}
+	//}
+	//void WhipDiag() {
+	//	timer += 1 * Time.deltaTime;
+	//	if(timer >= 0.4f && timer < 0.6f)
+	//		attacks[2].SetActive(true);
+	//	else if(timer > 0.6f)
+	//	{
+	//		attacks[2].SetActive(false);
+	//	}
+	//}
+	#endregion
 
 	private void OnCollisionEnter(Collision collision) {
 		if(collision.collider.gameObject.layer == 9)
