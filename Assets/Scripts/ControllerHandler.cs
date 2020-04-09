@@ -27,6 +27,7 @@ public class ControllerHandler : MonoBehaviour
 
             character.Value.DoUpdate(control.Direction, control.Buttons);
         }
+        
     }
 
     public void RequestAssignation(Controller control, Character user) {
