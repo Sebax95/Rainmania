@@ -3,17 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Core;
 
-public class PlayerController : Controller
-{
-    private const KeyCode ATTACK_KEY = KeyCode.J;
-    private const KeyCode SWITCH_KEY = KeyCode.K;
+public class PlayerController : Controller {
 
-    protected override void SetDirection() {
-        Direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-    }
+	private Player playerPawn;
+	private Vector2 direction;
 
-    protected override void SetButtons() {
-        Buttons = new BoolByte(Input.GetButton("Jump"), Input.GetKey(ATTACK_KEY), Input.GetKey(SWITCH_KEY));
-    }
+	public KeyCode JumpKey;
+	public KeyCode AttackKey;
+	public KeyCode SwitchWeaponKey;
+
+	private void Start() {
+		
+	}
+
+	protected override void DoMovement() {
+		direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+		playerPawn.Move(direction);
+		if(Input.GetKeyDown(JumpKey))
+			playerPawn.Jump();
+		else if(Input.GetKeyUp(JumpKey))
+			playerPawn.ReleaseJump();
+	}
+
+	protected override void DoActions() {
+		if(Input.GetKeyDown(AttackKey))
+			playerPawn.Attack(direction);
+
+		if(Input.GetKeyDown(SwitchWeaponKey))
+			playerPawn.SwitchWeapons();
+	}
 
 }

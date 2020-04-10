@@ -6,19 +6,14 @@ using CustomMSLibrary.Core;
 
 public abstract class Controller : MonoBehaviour
 {
-    public Vector3 Direction { get; protected set; }
-    public BoolByte Buttons { get; protected set; }
     public int ID { get; protected set; }
+    protected Character basePawn;
 
-    protected abstract void SetDirection();
-    protected abstract void SetButtons();
+    protected abstract void DoMovement();
+    protected abstract void DoActions();
 
-    public virtual void DoUpdate() {
-        SetDirection();
-        SetButtons();
-    }
-
-    protected void SendInput() {
-        throw new NotImplementedException();
+    protected virtual void Update() {
+        DoMovement();
+        DoActions();
     }
 }
