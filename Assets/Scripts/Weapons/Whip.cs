@@ -48,13 +48,14 @@ public class Whip : Weapon {
 		//StartCoroutine(Coroutine_DelayedObjectActiveBlinker(item, firstDuration, secondDuration));
 		int c = Physics.OverlapBoxNonAlloc(transform.position + hitbox.centerOffset, hitbox.halfExtends,
 			boxcastCache, hitbox.GetAdjustedOrientation(transform.rotation));
-		if(c > boxcastCache.Length)
 
+		if(c > boxcastCache.Length)
 		{
 			boxcastCache = new Collider[c];
 			Physics.OverlapBoxNonAlloc(transform.position + hitbox.centerOffset, hitbox.halfExtends,
 				boxcastCache, hitbox.GetAdjustedOrientation(transform.rotation));
 		}
+
 		bool anchorAssigned = false;
 		foreach(var item in boxcastCache)
 		{
@@ -63,18 +64,18 @@ public class Whip : Weapon {
 				dmg.Damage(damage, this);
 
 
-				if(!anchorAssigned)
-				{
-					var anchor = item.GetComponent<SwingAnchor>();
-					if(anchor == null)
-						continue;
+			if(!anchorAssigned)
+			{
+				var anchor = item.GetComponent<SwingAnchor>();
+				if(anchor == null)
+					continue;
 
-					if(anchor.transformDependant)
-						swinger.SetupSwing(item.transform);
-					else
-						swinger.SetupSwing(item.transform.position);
-					anchorAssigned = true;
-				}
+				if(anchor.transformDependant)
+					swinger.SetupSwing(item.transform);
+				else
+					swinger.SetupSwing(item.transform.position);
+				anchorAssigned = true;
+			}
 		}
 	}
 
