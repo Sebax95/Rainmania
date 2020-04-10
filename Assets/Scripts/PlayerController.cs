@@ -5,7 +5,7 @@ using CustomMSLibrary.Core;
 
 public class PlayerController : Controller {
 
-	new private Player pawn;
+	private Player playerPawn;
 	private Vector2 direction;
 
 	public KeyCode JumpKey;
@@ -18,17 +18,19 @@ public class PlayerController : Controller {
 
 	protected override void DoMovement() {
 		direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-		pawn.Move(direction);
+		playerPawn.Move(direction);
 		if(Input.GetKeyDown(JumpKey))
-			pawn.Jump();
+			playerPawn.Jump();
+		else if(Input.GetKeyUp(JumpKey))
+			playerPawn.ReleaseJump();
 	}
 
 	protected override void DoActions() {
 		if(Input.GetKeyDown(AttackKey))
-			pawn.Attack(direction);
+			playerPawn.Attack(direction);
 
 		if(Input.GetKeyDown(SwitchWeaponKey))
-			pawn.SwitchWeapons();
+			playerPawn.SwitchWeapons();
 	}
 
 }

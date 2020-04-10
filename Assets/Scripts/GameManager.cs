@@ -1,12 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
-	public const int TEAM_NULL = 0;
-	public const int TEAM_PLAYER = 1;
-	public const int TEAM_ALLY = 2;
-	public const int TEAM_ENEMY = -1;
+public class GameManager : MonoBehaviour {
+
+	public static GameManager Instance { get; private set; }
+
+
+	private void Awake() {
+		if(Instance != null)
+		{
+			Destroy(gameObject);
+			return;
+		}
+		Instance = this;
+		DontDestroyOnLoad(gameObject);
+	}
 
 }

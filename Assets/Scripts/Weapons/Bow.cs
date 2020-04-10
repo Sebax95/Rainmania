@@ -2,54 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bow : MonoBehaviour
-{
+public class Bow : Weapon {
 	public Arrow arrownPrefab;
 	private ObjectPool<Arrow> pool;
-	public static Bow Instance
-	{
-		get { return _Instance; }
-	}
-	private static Bow _Instance;
+	private IWielder wielder;
+	public Transform[] arrowSources;
 
-	private void Start()
-	{
-		_Instance = this;
-		pool = new ObjectPool<Arrow>(ArrownFactory,Arrow.TurnOn,Arrow.TurnOff, 5 , true);
-	}
+	public override Team GetTeam => wielder.GetTeam;
+	public override GameObject SourceObject => gameObject;
 
-	public Arrow ArrownFactory()
-	{
-		return Instantiate(arrownPrefab);
+	private void Start() {
+		wielder = GetComponent<IWielder>();
+		pool = new ObjectPool<Arrow>(ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, 5, true);
 	}
 
-	public void ReturnArrow(Arrow a)
-	{
-		pool.ReturnObject(a);
+	public Arrow ArrownFactory() => Instantiate(arrownPrefab);
+
+	public void ReturnArrow(Arrow item) => pool.ReturnObject(item);
+
+	public void BowNormal() {
+		var arrow = pool.GetObject();
+		arrow.SetShooter(this);
+		arrow.transform.position = transform.position + arrowSources[0].position;
+		arrow.transform.forward = arrowSources[0].forward;
+	}
+	
+	public void BowDiag() {
+		var arrow = pool.GetObject();
+		arrow.SetShooter(this);
+		arrow.transform.position = transform.position + arrowSources[1].position;
+		arrow.transform.forward = transform.position + arrowSources[1].position;
 	}
 
-	public void BowNormal(Transform PJ/*, GameObject arrow*/)
-	{
-		//var _arrow = Instantiate(arrow);
-		var _arrow = pool.GetObject();
-		_arrow.transform.position = PJ.position + PJ.up + PJ.forward;
-		_arrow.transform.forward = PJ.forward;
+	public void BowUp() {
+		var arrow = pool.GetObject();
+		arrow.SetShooter(this);
+		arrow.transform.position = transform.position + arrowSources[2].position;
+		arrow.transform.forward = arrowSources[2].forward;
 	}
-	public void BowUp(Transform PJ/*, GameObject arrow*/)
-	{
-		//var _arrow = Instantiate(arrow);
-		var _arrow = pool.GetObject();
 
-		_arrow.transform.position = PJ.position + new Vector3(0, 2.25f, 0);
-		_arrow.transform.forward = PJ.up;
-	}
-	public void BowDiag(Transform PJ/*, GameObject arrow*/)
-	{
-		//var _arrow = Instantiate(arrow);
-		var _arrow = pool.GetObject();
+	public override void Attack(Vector2 direction) {
+		byte byteDirection = (byte)((direction.x == 0 ? 0 : 1 << 0) & (direction.y <= 0 ? 0 : 1 << 1));
 
-		_arrow.transform.position = PJ.position + (PJ.up * 2) + (PJ.forward);
-		_arrow.transform.forward = PJ.forward + PJ.up;
+		switch(byteDirection)
+		{
+			case 0: //No direction axis
+				BowNormal();
+				break;
+			case 1: //Forward axis
+				BowNormal();
+				break;
+			case 2: //Up axis
+				BowUp();
+				break;
+			case 3: //Forward + Up axises
+				BowDiag();
+				break;
+		}
 	}
+
 
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public interface ITeam {
-	int GetTeam();
+	Team GetTeam { get; }
 }
 
 public interface IDamager : ITeam {
@@ -20,3 +20,9 @@ public interface IHealer : ITeam {
 public interface IHealable {
 	void Heal(int amount, IHealer source);
 }
+
+public interface IWeapon {
+	void Attack(Vector2 direction);
+}
+
+public interface IWielder : ITeam{}

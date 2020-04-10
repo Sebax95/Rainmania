@@ -7,7 +7,7 @@ using CustomMSLibrary.Core;
 public abstract class Controller : MonoBehaviour
 {
     public int ID { get; protected set; }
-    protected Character pawn;
+    protected Character basePawn;
 
     protected abstract void DoMovement();
     protected abstract void DoActions();
