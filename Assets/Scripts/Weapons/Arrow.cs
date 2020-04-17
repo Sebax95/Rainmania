@@ -7,33 +7,34 @@ public class Arrow : MonoBehaviour {
 	public float speed;
 	private bool stop;
 	private Rigidbody rigid;
+	public float lifetime = 3;
 	private float timer;
 	private bool secondTime = false;
 	private Bow shooter;
+	private RigidbodyConstraints constraints;
 
 	private void Awake() {
 		rigid = GetComponent<Rigidbody>();
 	}
 
+	private void Start() {
+		constraints = rigid.constraints;
+	}
+
 	void Update() {
 		if(!stop)
-			transform.position += transform.forward * speed * Time.deltaTime;
+			rigid.velocity = transform.forward * speed;
 		else
-			timer += 1 * Time.deltaTime;
-		if(timer > 3)
+			timer += Time.deltaTime;
+		if(timer > lifetime)
 			shooter.ReturnArrow(this);
 	}
 
 	public void Reset() {
-		gameObject.layer = 10;
 		stop = false;
 		timer = 0;
-		if(secondTime)
-		{
-			rigid = gameObject.AddComponent<Rigidbody>();
-			rigid.constraints = RigidbodyConstraints.FreezeAll;
+		rigid.isKinematic = false;
 
-		}
 	}
 	public static void TurnOn(Arrow a) {
 		a.Reset();
@@ -48,22 +49,25 @@ public class Arrow : MonoBehaviour {
 	public void SetShooter(Bow source) => shooter = source;
 
 	private void OnCollisionEnter(Collision collision) {
-		if(collision.collider.gameObject)
-		{
-			secondTime = true;
-			stop = true;
-			if(collision.collider.gameObject.layer == 9 && this.gameObject.layer != 9 && this.gameObject.layer != 1)
-			{
-				this.gameObject.layer = 9;
-				Destroy(GetComponent<Rigidbody>());
-			} else if(this.gameObject.layer != 9 && this.gameObject.layer != 1)
-			{
-				this.gameObject.layer = 1;
-				rigid.constraints = RigidbodyConstraints.None;
-				rigid.constraints = RigidbodyConstraints.FreezePositionZ;
-				rigid.constraints = RigidbodyConstraints.FreezeRotationZ;
+		if(!collision.collider.gameObject)
+			return;
 
-			}
+		secondTime = true;
+		stop = true;
+		if(gameObject.layer == 9 || gameObject.layer == 1)
+			return;
+		if(collision.collider.gameObject.layer == 9)
+		{
+			rigid.isKinematic = true;
+			rigid.velocity = Vector3.zero;
+		} else
+		{
+			this.gameObject.layer = 1;
+			rigid.constraints = RigidbodyConstraints.None;
+			rigid.constraints = RigidbodyConstraints.FreezePositionZ;
+			rigid.constraints = RigidbodyConstraints.FreezeRotationZ;
+
 		}
+
 	}
 }
