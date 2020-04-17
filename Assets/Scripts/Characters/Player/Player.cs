@@ -67,7 +67,8 @@ public class Player : Character, IWielder, IMoveOverrideable {
 
 	public void ForceJump() {
 		rb.AddForce(Vector3.up * forceJump,ForceMode.VelocityChange);
-		playerAnimator.TriggerAction(0);
+        //playerAnimator.TriggerAction(0);
+        playerAnimator.thisAnimator.SetBool("inGround", false);
 		holdingJump = true;
 	}
 
@@ -104,4 +105,23 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	public void Release(IMoveOverride controller) {
 		overriding = null;
 	}
+
+    public void DetectGround()
+    {
+        RaycastHit rch;
+        if(Physics.Raycast(transform.position, -transform.up * 1, out rch, validFloorLayers))
+        {
+            if (rch.distance < 2)
+                playerAnimator.thisAnimator.SetBool("inGround", true);
+            else
+                playerAnimator.thisAnimator.SetBool("inGround", false);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {        
+        if (collision.gameObject.layer == 9)
+        {
+            playerAnimator.thisAnimator.SetBool("inGround", true);
+        }
+    }
 }
