@@ -5,7 +5,8 @@ using UnityEngine;
 using CustomMSLibrary.Core;
 using CustomMSLibrary.Unity;
 
-public class Player : Character {
+public class Player : Character 
+{
 	public float speed;
 	public float forceJump;
 	public float fallMultiplier = 2.5f;
@@ -21,7 +22,7 @@ public class Player : Character {
 	public GameObject arrow;
 	public float whipDelay;
 	public float whipDuration;
-
+	public GameObject bow;
 	//public float timer;
 	public float attackCooldown;
 	private WaitForSeconds wait_attackCooldown;
@@ -34,6 +35,9 @@ public class Player : Character {
 	Bow _bow;
 	Whip _whip;
 
+	//Jump conditions
+	bool _jump;
+
 	/// <summary>
 	/// 0: Jump. 1: Attack. 2: Switch weapon
 	/// </summary>
@@ -43,6 +47,8 @@ public class Player : Character {
 
 	void Start() 
 	{
+		bow.SetActive(false);
+
 		_bow = GetComponent<Bow>();
 		_whip = GetComponent<Whip>();
 		rb = GetComponent<Rigidbody>();
@@ -57,7 +63,7 @@ public class Player : Character {
 		attacksWhip[2].SetActive(false);
 
 		canMove = true;
-		
+		_jump = true;
 
 		wait_attackCooldown = new WaitForSeconds(attackCooldown);
 	}
@@ -68,14 +74,11 @@ public class Player : Character {
 		else if(rb.velocity.y > 0 && !lastFrameInput[0])
 			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
 
-		if (Input.GetKeyDown(KeyCode.L))
-		{
-		}
 		if (Input.GetKey(KeyCode.L))
 		{
 			_whip.Gocha(rb);
 			_whip.GetCloseNode();
-
+			_jump = true;
 		}
 
 	}
@@ -99,19 +102,22 @@ public class Player : Character {
 
 		lastFrameInput = buttons;
 
+		if (rb.velocity.y >= 0.5f)
+			anim.SetBool("IsJump", true);
+		anim.SetFloat("Fall", rb.velocity.y);
 
-		
 	}
 
 	void Jump() {
-		if(Physics.Raycast(transform.position, Vector3.down, 1.1f, 1 << 9))
+		if(_jump)
 		{
 			/*canMove = false;
 			rb.velocity = new Vector3(rb.velocity.x, 0, 0);*/
 			rb.velocity = Vector3.up * forceJump;
+			_jump = false;
 		}
 	}
-
+	
 	private void Movement(Vector3 direction) {
 		if(direction.x > 0)
 			transform.rotation = Quaternion.Euler(0, 90, 0);
@@ -154,6 +160,7 @@ public class Player : Character {
 
 		if(triedAttack && canAttack)
 		{
+			bow.SetActive(true);
 			switch(attackDirection)
 			{
 				//Order: isWhip, horizontal, vertical
@@ -174,25 +181,40 @@ public class Player : Character {
 				//bow
 				case var t when t == (false, false, false):
 					_bow.BowNormal(transform);
+					anim.SetBool("IsAttack", true);
+					anim.SetTrigger("Attack");
 					break;
 				case var t when t == (false, true, false):
 					_bow.BowNormal(transform);
+					anim.SetBool("IsAttack", true);
+					anim.SetTrigger("Attack");
 					break;
 				case var t when t == (false, false, true):
 					_bow.BowUp(transform);
+					anim.SetBool("IsAttack", true);
+					anim.SetTrigger("Attack 1");
 					break;
 				case var t when t == (false, true, true):
 					_bow.BowDiag(transform);
+					anim.SetBool("IsAttack", true);
+					anim.SetTrigger("Attack 0");
 					break;
 			}
 			StartCoroutine(Coroutine_AttackCooldown());
 		}
+		else
+		{
+			anim.SetBool("IsAttack", false);
+			//bow.SetActive(false);
+		}
+
 
 	}
 
 	private IEnumerator Coroutine_AttackCooldown() {
 		canAttack = false;
 		yield return wait_attackCooldown;
+		bow.SetActive(false);
 		canAttack = true;
 	}
 	#region depec
@@ -226,9 +248,14 @@ public class Player : Character {
 	//}
 	#endregion
 
-	private void OnCollisionEnter(Collision collision) {
-		if(collision.collider.gameObject.layer == 9)
-			canMove = true;
+	private void OnCollisionEnter(Collision collision) 
+	{
+		if(collision.gameObject.layer == 9)
+		{
+			//canMove = true;
+			anim.SetBool("IsJump", false);
+			_jump = true;
+		}
 	}
 
 

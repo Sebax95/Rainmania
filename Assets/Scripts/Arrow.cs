@@ -9,6 +9,7 @@ public class Arrow : MonoBehaviour
     bool stop;
     Rigidbody rigid;
     float timer;
+    public float lifeTime;
     bool seconTime = false;
 
     private void Awake()
@@ -21,7 +22,7 @@ public class Arrow : MonoBehaviour
         transform.position += transform.forward * speed * Time.deltaTime;
         else
             timer += 1 * Time.deltaTime;
-        if(timer > 3)
+        if(timer > lifeTime)
             Bow.Instance.ReturnArrow(this);
     }
     public void Reset()
@@ -53,10 +54,11 @@ public class Arrow : MonoBehaviour
         {
             seconTime = true;
             stop = true;
-            if(collision.collider.gameObject.layer == 9 && this.gameObject.layer != 9 && this.gameObject.layer != 1)
+            if(collision.collider.gameObject.layer == 9 && this.gameObject.layer != 9 && this.gameObject.layer != 1 && collision.collider.gameObject.tag != "UnsusedArrow")
             {
                 this.gameObject.layer = 9;
                 Destroy(GetComponent<Rigidbody>());
+                this.gameObject.tag = "UnsusedArrow";
             }
             else if (this.gameObject.layer != 9 && this.gameObject.layer != 1)
             {
