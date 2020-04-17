@@ -31,6 +31,10 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	public Controller thisControllerPrefab; //temp
 	private IMoveOverride overriding;
 
+	private void Awake() {
+		ControllerHandler.Instance.RequestAssignation(Instantiate(thisControllerPrefab), this);
+	}
+
 	protected override void Start() {
 		weapons.Add(GetComponent<Whip>());
 		weapons.Add(GetComponent<Bow>());
@@ -40,7 +44,7 @@ public class Player : Character, IWielder, IMoveOverrideable {
 		rb = GetComponent<Rigidbody>();
 		playerAnimator = GetComponent<PlayerAnim>();
 		//Temp, despues ver como SOLIDear asignacion de controller
-		ControllerHandler.Instance.RequestAssignation(Instantiate(thisControllerPrefab), this);
+		
 
 		rb = GetComponent<Rigidbody>();
 		playerAnimator = GetComponent<PlayerAnim>();
