@@ -88,7 +88,8 @@ public class ControllerHandler : MonoBehaviour {
 		if(!characterToController.ContainsKey(item))
 			return;
 		var control = characterToController[item];
-		characterToController[item].DestroyController();
+		if(control)
+			control.DestroyController();
 		RemoveAssociation(item);
 	}
 

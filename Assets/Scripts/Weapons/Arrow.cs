@@ -5,7 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour {
 
 	public float speed;
-	private bool stop;
+	private bool stop = false;
 	private Rigidbody rigid;
 	public float lifetime = 3;
 	private float timer;
@@ -15,10 +15,10 @@ public class Arrow : MonoBehaviour {
 
 	private void Awake() {
 		rigid = GetComponent<Rigidbody>();
+		constraints = rigid.constraints;
 	}
 
 	private void Start() {
-		constraints = rigid.constraints;
 	}
 
 	void Update() {
@@ -34,6 +34,8 @@ public class Arrow : MonoBehaviour {
 		stop = false;
 		timer = 0;
 		rigid.isKinematic = false;
+		rigid.constraints = constraints;
+		rigid.velocity = transform.forward * speed;
 
 	}
 	public static void TurnOn(Arrow a) {
@@ -42,7 +44,6 @@ public class Arrow : MonoBehaviour {
 	}
 
 	public static void TurnOff(Arrow a) {
-
 		a.gameObject.SetActive(false);
 	}
 
@@ -63,9 +64,7 @@ public class Arrow : MonoBehaviour {
 		} else
 		{
 			this.gameObject.layer = 1;
-			rigid.constraints = RigidbodyConstraints.None;
-			rigid.constraints = RigidbodyConstraints.FreezePositionZ;
-			rigid.constraints = RigidbodyConstraints.FreezeRotationZ;
+			rigid.constraints = constraints;
 
 		}
 

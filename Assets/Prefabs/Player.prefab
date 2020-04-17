@@ -1997,6 +1997,7 @@ MonoBehaviour:
   validFloorLayers:
     serializedVersion: 2
     m_Bits: 513
+  groundedTreshold: 0
   thisControllerPrefab: {fileID: 6141289527529480240, guid: d41e54e9dc374ce42bebf7da281bb765,
     type: 3}
 --- !u!114 &4180079027696053886
@@ -2057,12 +2058,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a591cd5b7b312347b7ad2f0d20dbeb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisAnimator: {fileID: 7121252743085322514}
   directionAnimMultiplier: {x: 1, y: 1}
   param_horizontalSpeed: SpeedX
   param_verticalSpeed: SpeedY
   param_triggers:
   - inGround
+  param_bools:
+  - jump
 --- !u!114 &4180079027696053881
 MonoBehaviour:
   m_ObjectHideFlags: 0
