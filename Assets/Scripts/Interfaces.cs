@@ -26,3 +26,16 @@ public interface IWeapon {
 }
 
 public interface IWielder : ITeam{}
+
+public interface IMoveOverride {
+	void Attach(IMoveOverrideable user);
+	void Release(IMoveOverrideable user);
+}
+
+public interface IMoveOverrideable {
+	void Attach(IMoveOverride controller);
+	void Release(IMoveOverride controller);
+}
+
+public interface IMainController {
+}

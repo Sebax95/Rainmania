@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using CustomMSLibrary.Unity;
 
-public class Swinger : MonoBehaviour {
+public class Swinger : Controllable, IMoveOverride {
 	public float gravityMult;
 
 	private float anchorTime;
@@ -14,7 +14,23 @@ public class Swinger : MonoBehaviour {
 	private float initialState; //Initial angle in rads * Sqrt(gravity / distance from anchor)
 	private float initialAngle;
 
+	private bool overriding;
+	private IMoveOverrideable swingOverrider;
+
+
+	private Rigidbody thisRB;
+	private MomentumKeeper momentum;
+	private bool prevGravitystate;
+
 	float GetTime => Time.time - anchorTime;
+
+	private void Awake() {
+		thisRB = GetComponent<Rigidbody>();
+		momentum = GetComponent<MomentumKeeper>();
+		swingOverrider = GetComponent<IMoveOverrideable>();
+
+		ControllerHandler.Instance.RequestAssignation(Controller.Create<PlayerSwingerController>(), this);
+	}
 
 	public void SetupSwing(Transform anchor) {
 		anchorTransform = anchor;
@@ -36,6 +52,12 @@ public class Swinger : MonoBehaviour {
 		distanceFromAnchor = relativePos.magnitude;
 		anchorTime = Time.time;
 		initialState = Mathf.Sqrt(gravityMult / distanceFromAnchor);
+	}
+
+	private void FixedUpdate() {
+		if(!overriding)
+			return;
+		thisRB.position = UpdateSwing();
 	}
 
 	public Vector3 UpdateSwing() {
@@ -64,8 +86,52 @@ public class Swinger : MonoBehaviour {
 			0f) + addedVelocity;
 	}
 
-	//private void OnDrawGizmos() {
-	//	Gizmos.color = Color.green;
-	//	Gizmos.DrawLine(transform.position, transform.position + GetVelocity());
-	//}
+	public void BreakSwing() {
+		Release(swingOverrider);
+	}
+
+	public void Attach(IMoveOverrideable user) {
+		user.Attach(this);
+
+		var player = user as Controllable;
+		if(player!= null)
+			ControllerHandler.Instance.OverrideWithUser(this,player);
+
+		overriding = true;
+		prevGravitystate = thisRB.useGravity;
+		thisRB.useGravity = false;
+		thisRB.isKinematic = true;
+	}
+
+	public void Release(IMoveOverrideable user) {
+		var velocity = GetVelocity();
+		user.Release(this);
+
+		var player = user as Controllable;
+		if(player != null)
+			ControllerHandler.Instance.UndoOverrideWithUser(this, player, true);
+
+		overriding = false;
+		thisRB.useGravity = prevGravitystate;
+		thisRB.velocity = velocity;
+		momentum.velocity = velocity;
+		thisRB.isKinematic = false;
+	}
+
+	public void StartSwing() {
+		Attach(swingOverrider);
+	}
+
+	public override void Move(Vector2 direction) {
+		if(direction.x == 0)
+			return;
+		if(direction.x > 0)
+			transform.localRotation = Quaternion.Euler(0, 90,0);
+		else
+			transform.localRotation = Quaternion.Euler(0, -90,0);
+	}
+}
+
+public class InertiaOverride  {
+
 }

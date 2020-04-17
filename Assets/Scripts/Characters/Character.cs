@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Core;
 
-public abstract class Character : MonoBehaviour, IDamageable, IHealable, ITeam {
+[DisallowMultipleComponent]
+public abstract class Character : Controllable, IDamageable, IHealable, ITeam {
 	[SerializeField]
 	protected Team myTeam;
 	public float maxHealth;
@@ -14,8 +15,6 @@ public abstract class Character : MonoBehaviour, IDamageable, IHealable, ITeam {
 	protected virtual void Start() {
 		health = maxHealth;
 	}
-
-	public abstract void Move(Vector2 direction);
 
 	public virtual void Damage(int amount, IDamager source) {
 		if(!source.GetTeam.CanDamage(myTeam))
@@ -30,4 +29,12 @@ public abstract class Character : MonoBehaviour, IDamageable, IHealable, ITeam {
 
 	public abstract void Die(IDamager source);
 
+}
+
+public abstract class Controllable : MonoBehaviour {
+	public abstract void Move(Vector2 direction);
+
+	protected virtual void OnDestroy() {
+		ControllerHandler.Instance.DestroyController(this);
+	}
 }

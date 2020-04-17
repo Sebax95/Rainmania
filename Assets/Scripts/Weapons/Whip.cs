@@ -46,19 +46,29 @@ public class Whip : Weapon {
 
 	public void WhipAttack(BoxCastParams hitbox) {
 		//StartCoroutine(Coroutine_DelayedObjectActiveBlinker(item, firstDuration, secondDuration));
-		int c = Physics.OverlapBoxNonAlloc(transform.position + hitbox.centerOffset, hitbox.halfExtends,
-			boxcastCache, hitbox.GetAdjustedOrientation(transform.rotation));
+		var pos = transform.position;
+		var rot = transform.rotation;
+
+		int c = boxcastCache.Length;
+		for(int i = 0; i < c; i++)
+			boxcastCache[i] = null;
+
+		c = Physics.OverlapBoxNonAlloc(pos + rot * hitbox.centerOffset, hitbox.halfExtends,
+			boxcastCache, hitbox.GetAdjustedOrientation(rot));
 
 		if(c > boxcastCache.Length)
 		{
 			boxcastCache = new Collider[c];
-			Physics.OverlapBoxNonAlloc(transform.position + hitbox.centerOffset, hitbox.halfExtends,
-				boxcastCache, hitbox.GetAdjustedOrientation(transform.rotation));
+			Physics.OverlapBoxNonAlloc(pos + rot * hitbox.centerOffset, hitbox.halfExtends,
+				boxcastCache, hitbox.GetAdjustedOrientation(rot));
 		}
 
 		bool anchorAssigned = false;
 		foreach(var item in boxcastCache)
 		{
+			if(item == null)
+				continue;
+
 			var dmg = item.GetComponent<IDamageable>();
 			if(dmg != null)
 				dmg.Damage(damage, this);
@@ -75,6 +85,8 @@ public class Whip : Weapon {
 				else
 					swinger.SetupSwing(item.transform.position);
 				anchorAssigned = true;
+
+				swinger.StartSwing();
 			}
 		}
 	}
@@ -109,6 +121,8 @@ public class Whip : Weapon {
 		yield return new WaitForSeconds(secondDuration);
 		item.SetActive(false);
 	}
+
+
 
 	private void OnDrawGizmosSelected() {
 		Gizmos.color = Color.yellow;
