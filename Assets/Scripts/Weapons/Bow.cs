@@ -20,46 +20,31 @@ public class Bow : Weapon {
 
 	public void ReturnArrow(Arrow item) => pool.ReturnObject(item);
 
-	public void BowNormal() {
+	private void Shoot(int index) {
 		var arrow = pool.GetObject();
+		if(!arrow)
+			return;
 		arrow.SetShooter(this);
-		arrow.transform.position = transform.position + arrowSources[0].position;
-		arrow.transform.forward = arrowSources[0].forward;
-	}
-	
-	public void BowDiag() {
-		var arrow = pool.GetObject();
-		arrow.SetShooter(this);
-		arrow.transform.position = transform.position + arrowSources[1].position;
-		arrow.transform.forward = transform.position + arrowSources[1].position;
-	}
-
-	public void BowUp() {
-		var arrow = pool.GetObject();
-		arrow.SetShooter(this);
-		arrow.transform.position = transform.position + arrowSources[2].position;
-		arrow.transform.forward = arrowSources[2].forward;
+		var trans = arrow.transform;
+		trans.position = arrowSources[index].position;
+		trans.forward = arrowSources[index].forward;
 	}
 
 	public override void Attack(Vector2 direction) {
-		byte byteDirection = (byte)((direction.x == 0 ? 0 : 1 << 0) & (direction.y <= 0 ? 0 : 1 << 1));
+		bool vertical = direction.y > 0;
+		bool horizontal = direction.x != 0;
+		int directionIndex;
 
-		switch(byteDirection)
-		{
-			case 0: //No direction axis
-				BowNormal();
-				break;
-			case 1: //Forward axis
-				BowNormal();
-				break;
-			case 2: //Up axis
-				BowUp();
-				break;
-			case 3: //Forward + Up axises
-				BowDiag();
-				break;
-		}
+		if(vertical)
+			if(horizontal)
+				directionIndex = 1; //Diag
+			else
+				directionIndex = 2; //Vert
+		else
+			directionIndex = 0; //Horiz
+
+		Shoot(directionIndex);
+
 	}
-
 
 }
