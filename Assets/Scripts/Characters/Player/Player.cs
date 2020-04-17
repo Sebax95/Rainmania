@@ -106,6 +106,17 @@ public class Player : Character, IWielder, IMoveOverrideable {
 		overriding = null;
 	}
 
+    public void DetectGround()
+    {
+        RaycastHit rch;
+        if(Physics.Raycast(transform.position, -transform.up * 1, out rch, validFloorLayers))
+        {
+            if (rch.distance < 2)
+                playerAnimator.thisAnimator.SetBool("inGround", true);
+            else
+                playerAnimator.thisAnimator.SetBool("inGround", false);
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {        
         if (collision.gameObject.layer == 9)
