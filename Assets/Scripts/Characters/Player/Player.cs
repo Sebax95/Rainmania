@@ -73,6 +73,7 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	public void ForceJump() {
 		rb.AddForce(Vector3.up * forceJump,ForceMode.VelocityChange);
 		playerAnimator.TriggerAction(0);
+		playerAnimator.ChangeBool(0, false);
 		//playerAnimator.thisAnimator.SetBool("inGround", false);
 		holdingJump = true;
 	}
