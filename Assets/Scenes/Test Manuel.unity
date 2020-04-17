@@ -9720,7 +9720,7 @@ MonoBehaviour:
   param_horizontalSpeed: SpeedX
   param_verticalSpeed: SpeedY
   param_triggers:
-  - Jump
+  - inGround
 --- !u!114 &8296172667649609700
 MonoBehaviour:
   m_ObjectHideFlags: 0
