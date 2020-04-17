@@ -33,8 +33,6 @@ public class PlayerController : Controller, IMainController {
 
 		if(Input.GetKeyDown(SwitchWeaponKey))
 			User?.SwitchWeapons();
-
-        User.DetectGround();
 	}
 
 	public Vector2 GetAxises() => new Vector2(Input.GetAxis(horizontalAxis), Input.GetAxis(verticalAxis));

@@ -14,6 +14,8 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	public float lowJumpMultiplier = 2f;
 	public LayerMask validFloorLayers;
 	private bool holdingJump = false;
+	public float groundedTreshold;
+	public bool Grounded { get; private set; }
 
 	private Rigidbody rb;
 	private MomentumKeeper momentum;
@@ -43,6 +45,9 @@ public class Player : Character, IWielder, IMoveOverrideable {
 		rb = GetComponent<Rigidbody>();
 		playerAnimator = GetComponent<PlayerAnim>();
 	}
+	private void Update() {
+		DetectGround();
+	}
 
 	/*
 	private void FixedUpdate() {
@@ -67,8 +72,8 @@ public class Player : Character, IWielder, IMoveOverrideable {
 
 	public void ForceJump() {
 		rb.AddForce(Vector3.up * forceJump,ForceMode.VelocityChange);
-        //playerAnimator.TriggerAction(0);
-        playerAnimator.thisAnimator.SetBool("inGround", false);
+		playerAnimator.TriggerAction(0);
+		//playerAnimator.thisAnimator.SetBool("inGround", false);
 		holdingJump = true;
 	}
 
@@ -106,22 +111,7 @@ public class Player : Character, IWielder, IMoveOverrideable {
 		overriding = null;
 	}
 
-    public void DetectGround()
-    {
-        RaycastHit rch;
-        if(Physics.Raycast(transform.position, -transform.up * 1, out rch, validFloorLayers))
-        {
-            if (rch.distance < 2)
-                playerAnimator.thisAnimator.SetBool("inGround", true);
-            else
-                playerAnimator.thisAnimator.SetBool("inGround", false);
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {        
-        if (collision.gameObject.layer == 9)
-        {
-            playerAnimator.thisAnimator.SetBool("inGround", true);
-        }
-    }
+	public void DetectGround() =>
+		Grounded = Physics.Raycast(transform.position, Vector3.down, out _, groundedTreshold, validFloorLayers);
+
 }
