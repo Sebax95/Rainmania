@@ -6,6 +6,7 @@ using CustomMSLibrary.Core;
 
 public class Whip : Weapon {
 
+	
 	public BoxCastParams[] whipHitboxes;
 	public GameObject nearGrappleable;
 	private Swinger swinger;
@@ -44,8 +45,9 @@ public class Whip : Weapon {
 		}
 	}
 
-	public void WhipAttack(BoxCastParams hitbox) {
-		//StartCoroutine(Coroutine_DelayedObjectActiveBlinker(item, firstDuration, secondDuration));
+	public void WhipAttack(TargetDirection direction) {
+		var hitbox = whipHitboxes[(int)direction];
+
 		var pos = transform.position;
 		var rot = transform.rotation;
 
@@ -92,28 +94,22 @@ public class Whip : Weapon {
 	}
 
 	public override void Attack(Vector2 direction) {
-		(bool horizontal, bool up) attackDirection = (direction.x != 0, direction.y > 0);
 
-		switch(attackDirection)
-		{
-			//TODO: Usar componente whip una vez hecho 
+		bool vertical = direction.y > 0;
+		bool horizontal = direction.x != 0;
+		TargetDirection directionIndex;
 
-			//Order: horizontal, vertical
-			case var t when t == (false, false):
-				WhipAttack(whipHitboxes[0]);
-				break;
-			case var t when t == (true, false):
-				WhipAttack(whipHitboxes[0]);
-				break;
-			case var t when t == (false, true):
-				WhipAttack(whipHitboxes[2]);
-				break;
-			case var t when t == (true, true):
-				WhipAttack(whipHitboxes[1]);
-				break;
-		}
-		//StartCoroutine(Coroutine_AttackCooldown());
+		if(vertical)
+			if(horizontal)
+				directionIndex = TargetDirection.Diagonal;
+			else
+				directionIndex = TargetDirection.Vertical; 
+		else
+			directionIndex = TargetDirection.Horizontal; 
+
+		WhipAttack(directionIndex);
 	}
+
 
 	private IEnumerator Coroutine_DelayedObjectActiveBlinker(GameObject item, float firstDuration, float secondDuration) {
 		yield return new WaitForSeconds(firstDuration);

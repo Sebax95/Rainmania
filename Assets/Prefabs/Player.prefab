@@ -1956,10 +1956,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.21
-  m_Height: 1
+  m_Radius: 0.07145046
+  m_Height: 0.8481325
   m_Direction: 1
-  m_Center: {x: 0.06, y: 0.35, z: -0.16}
+  m_Center: {x: 0.06, y: 0.37952974, z: -0.16000001}
 --- !u!54 &4180079027696053884
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6cfc5ecc1dd52248a0602ba61aa3fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTeam: {fileID: 0}
+  myTeam: {fileID: 11400000, guid: 30121d8074a878c44a47b4b36ed20b8c, type: 2}
   maxHealth: 5
   speed: 5
   forceJump: 10
@@ -1997,7 +1997,7 @@ MonoBehaviour:
   validFloorLayers:
     serializedVersion: 2
     m_Bits: 513
-  groundedTreshold: 0
+  groundedTreshold: 1
   thisControllerPrefab: {fileID: 6141289527529480240, guid: d41e54e9dc374ce42bebf7da281bb765,
     type: 3}
 --- !u!114 &4180079027696053886
@@ -2014,13 +2014,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   whipHitboxes:
-  - centerOffset: {x: 0, y: 0.9, z: 2.91}
+  - centerOffset: {x: 0.17, y: 1.01, z: 2.21}
     halfExtends: {x: 0.2, y: 0.2, z: 2}
     orientation: {x: 0, y: 0, z: 0}
-  - centerOffset: {x: 0, y: 3.5, z: 2.5}
+  - centerOffset: {x: 0.17, y: 3.57, z: 1.5}
     halfExtends: {x: 0.2, y: 0.2, z: 2}
     orientation: {x: -45, y: 0, z: 0}
-  - centerOffset: {x: 0, y: 4, z: 0}
+  - centerOffset: {x: 0.17, y: 4.36, z: -0.45}
     halfExtends: {x: 0.2, y: 0.2, z: 2}
     orientation: {x: -90, y: 0, z: 0}
   nearGrappleable: {fileID: 0}

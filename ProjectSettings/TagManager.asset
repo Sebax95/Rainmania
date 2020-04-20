@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PlayerEyes
   - Gancho
+  - Arrow
+  - UnsusedArrow
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Character
   - Ground
   - Arrow
-  - 
+  - Non-Interactable
   - 
   - 
   - 
