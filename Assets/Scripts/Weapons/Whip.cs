@@ -6,9 +6,7 @@ using CustomMSLibrary.Core;
 
 public class Whip : Weapon {
 
-	
 	public BoxCastParams[] whipHitboxes;
-	public GameObject nearGrappleable;
 	private Swinger swinger;
 
 	public float speed;
@@ -30,20 +28,7 @@ public class Whip : Weapon {
 
 	}
 
-	public void GrabAndPull(Rigidbody rigid) {
-		if(nearGrappleable != null)
-		{
-			if((nearGrappleable.transform.position - transform.position).sqrMagnitude > 10f.Squared())
-			{
-				nearGrappleable = null;
-			} else
-			{
-				dir = nearGrappleable.transform.position - transform.position;
-
-				rigid.velocity = new Vector3(dir.x, dir.y, dir.z) * speed;
-			}
-		}
-	}
+	
 
 	public void WhipAttack(TargetDirection direction) {
 		var hitbox = whipHitboxes[(int)direction];
@@ -142,6 +127,24 @@ public class Whip : Weapon {
 					Gizmos.DrawLine(points[i], points[j]);
 		}
 	}
+	#region Unused
+	/*
+	public void GrabAndPull(Rigidbody rigid) {
+		if(nearGrappleable != null)
+		{
+			if((nearGrappleable.transform.position - transform.position).sqrMagnitude > 10f.Squared())
+			{
+				nearGrappleable = null;
+			} else
+			{
+				dir = nearGrappleable.transform.position - transform.position;
+
+				rigid.velocity = new Vector3(dir.x, dir.y, dir.z) * speed;
+			}
+		}
+	}
+	*/
+	#endregion
 }
 
 [Serializable]
