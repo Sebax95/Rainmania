@@ -13,12 +13,10 @@ public class Arrow : MonoBehaviour {
 	private float timer;
 	private bool isStair;
 	private Bow shooter;
-	private RigidbodyConstraints constraints;
 	private int originalLayer;
 
 	private void Awake() {
 		rigid = GetComponent<Rigidbody>();
-		constraints = rigid.constraints;
 		originalLayer = gameObject.layer;
 	}
 
@@ -42,8 +40,8 @@ public class Arrow : MonoBehaviour {
 		stop = false;
 		timer = 0;
 		rigid.isKinematic = false;
-		rigid.constraints = constraints;
 		rigid.velocity = transform.forward * speed;
+		rigid.constraints = (RigidbodyConstraints)104;
 		this.gameObject.tag = "Arrow";
 		gameObject.layer = originalLayer;
 		rigid.useGravity = false;
