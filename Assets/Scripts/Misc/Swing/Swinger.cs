@@ -5,7 +5,7 @@ public class Swinger : Controllable, IMoveOverride {
 	public float gravityMult;
 
 	private float anchorTime;
-	private float distanceFromAnchor;
+	public float whipDistance;
 
 	private bool dependOnTransform;
 	private Transform anchorTransform;
@@ -49,9 +49,9 @@ public class Swinger : Controllable, IMoveOverride {
 
 	private void Internal_SetupSwing(Vector3 relativePos) {
 		initialAngle = Vector3.SignedAngle(Vector3.down, -relativePos.ZeroZ(), Vector3.forward) * Mathf.Deg2Rad;
-		distanceFromAnchor = relativePos.magnitude;
+		//distanceFromAnchor = relativePos.magnitude;
 		anchorTime = Time.time;
-		initialState = Mathf.Sqrt(gravityMult / distanceFromAnchor);
+		initialState = Mathf.Sqrt(gravityMult / whipDistance);
 	}
 
 	private void FixedUpdate() {
@@ -64,13 +64,13 @@ public class Swinger : Controllable, IMoveOverride {
 		float newAngle = initialAngle * Mathf.Cos(initialState * GetTime);
 		var anchorPos = dependOnTransform ? anchorTransform.position : this.anchorPos;
 		return new Vector3(
-			anchorPos.x + (Mathf.Sin(newAngle) * distanceFromAnchor),
-			anchorPos.y - (Mathf.Cos(newAngle) * distanceFromAnchor),
+			anchorPos.x + (Mathf.Sin(newAngle) * whipDistance),
+			anchorPos.y - (Mathf.Cos(newAngle) * whipDistance),
 			transform.position.z);
 	}
 
 	public Vector3 GetVelocity() {
-		float velocity = initialAngle * Mathf.Sqrt(distanceFromAnchor * gravityMult) * Mathf.Sin(initialState * GetTime);
+		float velocity = initialAngle * Mathf.Sqrt(whipDistance * gravityMult) * Mathf.Sin(initialState * GetTime);
 		float newAngle = initialAngle * Mathf.Cos(initialState * GetTime);
 
 		Vector3 addedVelocity = Vector3.zero;
