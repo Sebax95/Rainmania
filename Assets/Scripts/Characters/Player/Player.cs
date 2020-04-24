@@ -69,6 +69,7 @@ public class Player : Character, IWielder, IMoveOverrideable {
 		if(Grounded)
 		{
 			rb.velocity = rb.velocity.ZeroY();
+			playerAnimator.TriggerAction(0);
 			ForceJump();
 		}
 		//} else
