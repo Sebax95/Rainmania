@@ -261,7 +261,7 @@ MonoBehaviour:
   lowJumpMultiplier: 2
   validFloorLayers:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 512
   groundedTreshold: 1
   thisControllerPrefab: {fileID: 6141289527529480240, guid: d41e54e9dc374ce42bebf7da281bb765,
     type: 3}
@@ -326,9 +326,9 @@ MonoBehaviour:
   param_horizontalSpeed: SpeedX
   param_verticalSpeed: SpeedY
   param_triggers:
-  - inGround
-  param_bools:
   - jump
+  param_bools:
+  - isGrounded
 --- !u!114 &417254774800977179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityMult: 9
-  whipDistance: 0
+  whipDistance: 5
 --- !u!114 &417254774800977176
 MonoBehaviour:
   m_ObjectHideFlags: 0

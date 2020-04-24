@@ -65,7 +65,7 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	*/
 
 	public void Jump() {
-		if(Physics.Raycast(transform.position, Vector3.down, GROUNDED_DISTANCE, validFloorLayers))
+		if(Grounded)
 		{
 			rb.velocity = rb.velocity.ZeroY();
 			ForceJump();
@@ -117,6 +117,6 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	}
 
 	public void DetectGround() =>
-		Grounded = Physics.Raycast(transform.position, Vector3.down, out _, groundedTreshold, validFloorLayers);
+		Grounded = Physics.Raycast(transform.position + new Vector3(0,0.5f,0), Vector3.down, out _, groundedTreshold, validFloorLayers);
 
 }

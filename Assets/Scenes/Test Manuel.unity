@@ -465,6 +465,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Fixed
       objectReference: {fileID: 0}
+    - target: {fileID: 417254774800977178, guid: 5dea9778e137645449a37929b892c8cf,
+        type: 3}
+      propertyPath: param_triggers.Array.data[0]
+      value: jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 417254774800977178, guid: 5dea9778e137645449a37929b892c8cf,
+        type: 3}
+      propertyPath: param_bools.Array.data[0]
+      value: isGrounded
+      objectReference: {fileID: 0}
+    - target: {fileID: 417254774800977179, guid: 5dea9778e137645449a37929b892c8cf,
+        type: 3}
+      propertyPath: whipDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 417254774800977183, guid: 5dea9778e137645449a37929b892c8cf,
         type: 3}
       propertyPath: groundedTreshold
