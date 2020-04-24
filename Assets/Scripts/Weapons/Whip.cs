@@ -28,7 +28,7 @@ public class Whip : Weapon {
 
 	}
 
-	
+
 
 	public void WhipAttack(TargetDirection direction) {
 		var hitbox = whipHitboxes[(int)direction];
@@ -88,9 +88,9 @@ public class Whip : Weapon {
 			if(horizontal)
 				directionIndex = TargetDirection.Diagonal;
 			else
-				directionIndex = TargetDirection.Vertical; 
+				directionIndex = TargetDirection.Vertical;
 		else
-			directionIndex = TargetDirection.Horizontal; 
+			directionIndex = TargetDirection.Horizontal;
 
 		WhipAttack(directionIndex);
 	}
@@ -103,16 +103,16 @@ public class Whip : Weapon {
 		item.SetActive(false);
 	}
 
-
-
+#if UNITY_EDITOR
+	Vector3[] points = new Vector3[8];
 	private void OnDrawGizmosSelected() {
 		Gizmos.color = Color.yellow;
 		Quaternion rotation = transform.rotation;
 		Vector3 position = transform.position;
-		Vector3[] points = new Vector3[8];
 		foreach(var item in whipHitboxes)
 		{
 			Vector3 centre = position + rotation * item.centerOffset;
+			#region points
 			points[0] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, item.halfExtends.y, item.halfExtends.z);
 			points[1] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, item.halfExtends.y, -item.halfExtends.z);
 			points[2] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, -item.halfExtends.y, item.halfExtends.z);
@@ -121,12 +121,15 @@ public class Whip : Weapon {
 			points[5] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(-item.halfExtends.x, item.halfExtends.y, -item.halfExtends.z);
 			points[6] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(-item.halfExtends.x, -item.halfExtends.y, item.halfExtends.z);
 			points[7] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(-item.halfExtends.x, -item.halfExtends.y, -item.halfExtends.z);
+			#endregion
 
-			for(int i = 0; i < 7; i++)
-				for(int j = 1; j < 8; j++)
-					Gizmos.DrawLine(points[i], points[j]);
+			for(byte i = 0; i < 7; i++)
+				for(byte j = 1; j < 8; j++)
+					if((i.GetBit(0).XNOR(j.GetBit(0)) ^ i.GetBit(1).XNOR(j.GetBit(1)) ^ !i.GetBit(2).XNOR(j.GetBit(2))) && !(i + j == 7))
+						Gizmos.DrawLine(points[i], points[j]);
 		}
 	}
+#endif
 	#region Unused
 	/*
 	public void GrabAndPull(Rigidbody rigid) {
@@ -145,6 +148,7 @@ public class Whip : Weapon {
 	}
 	*/
 	#endregion
+
 }
 
 [Serializable]

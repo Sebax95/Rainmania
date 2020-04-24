@@ -131,7 +131,3 @@ public class Swinger : Controllable, IMoveOverride {
 			transform.localRotation = Quaternion.Euler(0, -90,0);
 	}
 }
-
-public class InertiaOverride  {
-
-}
