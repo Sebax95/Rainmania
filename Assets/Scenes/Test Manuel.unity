@@ -467,13 +467,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 417254774800977183, guid: 5dea9778e137645449a37929b892c8cf,
         type: 3}
-      propertyPath: groundedTreshold
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 417254774800977183, guid: 5dea9778e137645449a37929b892c8cf,
-        type: 3}
       propertyPath: validFloorLayers.m_Bits
-      value: 4294967295
+      value: 513
       objectReference: {fileID: 0}
     - target: {fileID: 3715815871899238154, guid: 5dea9778e137645449a37929b892c8cf,
         type: 3}
@@ -560,6 +555,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 513
   groundedTreshold: 0
+  groundCheckOffset: {x: 0, y: 0, z: 0}
   thisControllerPrefab: {fileID: 6141289527529480240, guid: d41e54e9dc374ce42bebf7da281bb765,
     type: 3}
 --- !u!136 &1080752400
@@ -10258,6 +10254,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 513
   groundedTreshold: 2
+  groundCheckOffset: {x: 0, y: 0, z: 0}
   thisControllerPrefab: {fileID: 6141289527529480240, guid: d41e54e9dc374ce42bebf7da281bb765,
     type: 3}
 --- !u!54 &8296172667649609703
