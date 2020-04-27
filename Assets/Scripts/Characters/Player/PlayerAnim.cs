@@ -8,6 +8,9 @@ public class PlayerAnim : MonoBehaviour {
 	private Animator thisAnimator;
 	public Vector2 directionAnimMultiplier;
 
+	public GameObject whip;
+	public GameObject bow;
+
 	public string param_horizontalSpeed;
 	public string param_verticalSpeed;
 
@@ -17,6 +20,8 @@ public class PlayerAnim : MonoBehaviour {
 	private void Awake() {
 		thisAnimator = GetComponent<Animator>();
 		player = GetComponent<Player>();
+		whip.SetActive(false);
+		bow.SetActive(false);
 	}
 
 	private void Update() {
@@ -44,13 +49,66 @@ public class PlayerAnim : MonoBehaviour {
 	public void ChangeBool(int index, bool value) =>
 		thisAnimator.SetBool(param_bools[index], value);
 
+	public void Attack(Vector2 direction, string name) {
+		switch(name)
+		{
+			case Whip.NAME:
+				WhipAttack(direction);
+				break;
+			case Bow.NAME:
+				BowAttack(direction);
+				break;
+			default:
+				Debug.LogWarning("Missing animation for weapon " + name);
+				break;
+		}
+	}
+
+	public void BowAttack(Vector2 direction)
+	{
+		bool vertical = direction.y > 0;
+		bool horizontal = direction.x != 0;
+		bow.SetActive(true);
+		if (vertical)
+			if (horizontal)
+				TriggerAction(2);
+			else
+				TriggerAction(3);
+		else
+			TriggerAction(1);
+	}
+
+	public void WhipAttack(Vector2 direction)
+	{
+		bool vertical = direction.y > 0;
+		bool horizontal = direction.x != 0;
+		whip.SetActive(true);
+		if(vertical)
+			if(horizontal)
+				TriggerAction(5);
+			else
+				TriggerAction(6);
+		else
+			TriggerAction(4);
+	}
+
+	public void WeaponsActive()
+	{
+		whip.SetActive(false);
+		bow.SetActive(false);
+	}
+
 	private void OnCollisionEnter(Collision collision) {
 		if(collision.gameObject.layer == 9)
 			ChangeBool(0,true);
-		
 	}
 
 	public void DetectGround() {
 		ChangeBool(0, player.Grounded);
+	}
+
+	public void Jump() {
+		TriggerAction(0);
+		ChangeBool(0, false);
 	}
 }

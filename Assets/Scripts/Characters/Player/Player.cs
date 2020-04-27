@@ -26,8 +26,10 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	private bool canAttack = true;
 
 
-	private IWeapon activeWeapon;
+	private Weapon activeWeapon;
 	private LoopingList<Weapon> weapons = new LoopingList<Weapon>();
+	public float attackWindupTime;
+	public float attackDurationTime;
 
 	public Controller thisControllerPrefab; //temp
 	private IMoveOverride overriding;
@@ -50,20 +52,10 @@ public class Player : Character, IWielder, IMoveOverrideable {
 		rb = GetComponent<Rigidbody>();
 		playerAnimator = GetComponent<PlayerAnim>();
 	}
-	private void Update() {
+	private void Update() 
+	{
 		DetectGround();
 	}
-
-	/*
-	private void FixedUpdate() {
-		if(overriding != null)
-			return;
-		if(rb.velocity.y < 0)
-			rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
-		else if(rb.velocity.y > 0 && !holdingJump)
-			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
-	}
-	*/
 
 	public void Jump() {
 		if(Grounded)
@@ -78,8 +70,7 @@ public class Player : Character, IWielder, IMoveOverrideable {
 
 	public void ForceJump() {
 		rb.AddForce(Vector3.up * forceJump,ForceMode.VelocityChange);
-		playerAnimator.TriggerAction(0);
-		playerAnimator.ChangeBool(0, false);
+		playerAnimator.Jump();
 		//playerAnimator.thisAnimator.SetBool("inGround", false);
 		holdingJump = true;
 	}
@@ -100,13 +91,18 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	}
 
 	public void Attack(Vector2 direction) {
-		if(canAttack)
+		if (canAttack)
+		{
+			canAttack = false;
 			activeWeapon.Attack(direction);
+			playerAnimator.Attack(direction, activeWeapon.Name);
+		}
+			
 	}
 
-	public void SwitchWeapons() =>
+	public void SwitchWeapons() {
 		activeWeapon = weapons.Next;
-
+	}
 
 	public override void Die(IDamager source) => throw new System.NotImplementedException();
 
@@ -120,5 +116,7 @@ public class Player : Character, IWielder, IMoveOverrideable {
 
 	public void DetectGround() =>
 		Grounded = Physics.Raycast(transform.position + groundCheckOffset, Vector3.down, out _, groundedTreshold, validFloorLayers);
+
+	public string ActiveWeaponName => activeWeapon.Name;
 
 }

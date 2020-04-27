@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bow : Weapon {
+
+	private int INITAL_ARROW_COUNT = 5;
 	public Arrow arrownPrefab;
-	private ObjectPool<Arrow> pool;
+	private Pool<Arrow> pool;
 	private IWielder wielder;
 	public Transform[] arrowSources;
 
 	public override Team GetTeam => wielder.GetTeam;
 	public override GameObject SourceObject => gameObject;
 
-
+	public const string NAME = "Bow";
+	public override string Name => NAME;
 
 	private void Start() {
 		wielder = GetComponent<IWielder>();
-		pool = new ObjectPool<Arrow>(ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, 5, false);
+		pool = new Pool<Arrow>(INITAL_ARROW_COUNT ,ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, false);
 	}
 
 	public Arrow ArrownFactory() => Instantiate(arrownPrefab);
 
-	public void ReturnArrow(Arrow item) => pool.ReturnObject(item);
+	public void ReturnArrow(Arrow item) => pool.DisableObject(item);
 
 	private void Shoot(TargetDirection direction) {
 		var arrow = pool.GetObject();
