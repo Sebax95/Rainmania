@@ -264,6 +264,8 @@ MonoBehaviour:
     m_Bits: 512
   groundedTreshold: 1
   groundCheckOffset: {x: 0, y: 0.5, z: 0}
+  attackWindupTime: 0
+  attackDurationTime: 0
   thisControllerPrefab: {fileID: 6141289527529480240, guid: d41e54e9dc374ce42bebf7da281bb765,
     type: 3}
 --- !u!114 &417254774800977180
@@ -281,13 +283,13 @@ MonoBehaviour:
   damage: 3
   whipHitboxes:
   - centerOffset: {x: 0, y: 1.33, z: 2.4}
-    halfExtends: {x: 0.2, y: 0.2, z: 2}
+    halfExtends: {x: 1, y: 0.2, z: 2}
     orientation: {x: 0, y: 0, z: 0}
   - centerOffset: {x: 0, y: 3.71, z: 1.79}
-    halfExtends: {x: 0.2, y: 0.2, z: 2}
+    halfExtends: {x: 1, y: 0.2, z: 2}
     orientation: {x: -45, y: 0, z: 0}
   - centerOffset: {x: 0, y: 4.51, z: 0}
-    halfExtends: {x: 0.2, y: 0.2, z: 2}
+    halfExtends: {x: 1, y: 0.2, z: 2}
     orientation: {x: -90, y: 0, z: 0}
   speed: 2.5
   whipDelay: 1
@@ -324,6 +326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionAnimMultiplier: {x: 1, y: 1}
+  whip: {fileID: 0}
+  bow: {fileID: 0}
   param_horizontalSpeed: SpeedX
   param_verticalSpeed: SpeedY
   param_triggers:
