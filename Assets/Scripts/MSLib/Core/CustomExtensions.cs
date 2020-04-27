@@ -99,6 +99,8 @@ namespace CustomMSLibrary {
 			/// <returns></returns>
 			public static float Squared(this float num) => num * num;
 
+			public static bool XNOR(this bool a, bool b) => !(a ^ b);
+
 		}
 
 	}

@@ -2,54 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bow : MonoBehaviour
-{
+public class Bow : Weapon {
 	public Arrow arrownPrefab;
 	private ObjectPool<Arrow> pool;
-	public static Bow Instance
-	{
-		get { return _Instance; }
-	}
-	private static Bow _Instance;
+	private IWielder wielder;
+	public Transform[] arrowSources;
 
-	private void Start()
-	{
-		_Instance = this;
-		pool = new ObjectPool<Arrow>(ArrownFactory,Arrow.TurnOn,Arrow.TurnOff, 5 , true);
-	}
+	public override Team GetTeam => wielder.GetTeam;
+	public override GameObject SourceObject => gameObject;
 
-	public Arrow ArrownFactory()
-	{
-		return Instantiate(arrownPrefab);
+
+
+	private void Start() {
+		wielder = GetComponent<IWielder>();
+		pool = new ObjectPool<Arrow>(ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, 200, false);
 	}
 
-	public void ReturnArrow(Arrow a)
-	{
-		pool.ReturnObject(a);
+	public Arrow ArrownFactory() => Instantiate(arrownPrefab);
+
+	public void ReturnArrow(Arrow item) => pool.ReturnObject(item);
+
+	private void Shoot(TargetDirection direction) {
+		var arrow = pool.GetObject();
+		if(!arrow)
+			return;
+		arrow.SetShooter(this);
+		var trans = arrow.transform;
+
+		int index = (int)direction;
+		trans.position = arrowSources[index].position;
+		trans.forward = arrowSources[index].forward;
 	}
 
-	public void BowNormal(Transform PJ/*, GameObject arrow*/)
-	{
-		//var _arrow = Instantiate(arrow);
-		var _arrow = pool.GetObject();
-		_arrow.transform.position = PJ.position + PJ.up + PJ.forward;
-		_arrow.transform.forward = PJ.forward;
-	}
-	public void BowUp(Transform PJ/*, GameObject arrow*/)
-	{
-		//var _arrow = Instantiate(arrow);
-		var _arrow = pool.GetObject();
+	public override void Attack(Vector2 direction) {
+		bool vertical = direction.y > 0;
+		bool horizontal = direction.x != 0;
+		TargetDirection directionIndex;
 
-		_arrow.transform.position = PJ.position + new Vector3(0, 2.25f, 0);
-		_arrow.transform.forward = PJ.up;
-	}
-	public void BowDiag(Transform PJ/*, GameObject arrow*/)
-	{
-		//var _arrow = Instantiate(arrow);
-		var _arrow = pool.GetObject();
+		if(vertical)
+			if(horizontal)
+				directionIndex = TargetDirection.Diagonal;
+			else
+				directionIndex = TargetDirection.Vertical;
+		else
+			directionIndex = TargetDirection.Horizontal; 
 
-		_arrow.transform.position = PJ.position + (PJ.up * 2) + (PJ.forward);
-		_arrow.transform.forward = PJ.forward + PJ.up;
+		Shoot(directionIndex);
+
 	}
 
 }
