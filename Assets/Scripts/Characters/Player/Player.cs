@@ -14,8 +14,11 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	public float lowJumpMultiplier = 2f;
 	public LayerMask validFloorLayers;
 	private bool holdingJump = false;
+
 	public float groundedTreshold;
 	public Vector3 groundCheckOffset;
+	private const int GROUND_FRAMES_PERIOD = 5;
+	private int groundedFramesCounter;
 	public bool Grounded { get; private set; }
 
 	private Rigidbody rb;
@@ -24,9 +27,10 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	private PlayerAnim playerAnimator;
 
 	private bool canAttack = true;
+	private float currentCooldown;
+	private float attackCooldownTimer = 0;
 
-
-	private IWeapon activeWeapon;
+	private Weapon activeWeapon;
 	private LoopingList<Weapon> weapons = new LoopingList<Weapon>();
 
 	public Controller thisControllerPrefab; //temp
@@ -45,25 +49,15 @@ public class Player : Character, IWielder, IMoveOverrideable {
 		rb = GetComponent<Rigidbody>();
 		playerAnimator = GetComponent<PlayerAnim>();
 		//Temp, despues ver como SOLIDear asignacion de controller
-		
+
 
 		rb = GetComponent<Rigidbody>();
 		playerAnimator = GetComponent<PlayerAnim>();
 	}
 	private void Update() {
 		DetectGround();
+		AttackTimer();
 	}
-
-	/*
-	private void FixedUpdate() {
-		if(overriding != null)
-			return;
-		if(rb.velocity.y < 0)
-			rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
-		else if(rb.velocity.y > 0 && !holdingJump)
-			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
-	}
-	*/
 
 	public void Jump() {
 		if(Grounded)
@@ -77,9 +71,8 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	}
 
 	public void ForceJump() {
-		rb.AddForce(Vector3.up * forceJump,ForceMode.VelocityChange);
-		playerAnimator.TriggerAction(0);
-		playerAnimator.ChangeBool(0, false);
+		rb.AddForce(Vector3.up * forceJump, ForceMode.VelocityChange);
+		playerAnimator.Jump();
 		//playerAnimator.thisAnimator.SetBool("inGround", false);
 		holdingJump = true;
 	}
@@ -101,12 +94,18 @@ public class Player : Character, IWielder, IMoveOverrideable {
 
 	public void Attack(Vector2 direction) {
 		if(canAttack)
+		{
+			SetCooldown();
 			activeWeapon.Attack(direction);
+			playerAnimator.Attack(direction, activeWeapon.Name);
+
+		}
+
 	}
 
-	public void SwitchWeapons() =>
+	public void SwitchWeapons() {
 		activeWeapon = weapons.Next;
-
+	}
 
 	public override void Die(IDamager source) => throw new System.NotImplementedException();
 
@@ -118,7 +117,29 @@ public class Player : Character, IWielder, IMoveOverrideable {
 		overriding = null;
 	}
 
-	public void DetectGround() =>
+	public void DetectGround() {
+		groundedFramesCounter++;
+		if(!(groundedFramesCounter > GROUND_FRAMES_PERIOD))
+			return;
+		groundedFramesCounter = 0;
 		Grounded = Physics.Raycast(transform.position + groundCheckOffset, Vector3.down, out _, groundedTreshold, validFloorLayers);
+	}
+
+	public string ActiveWeaponName => activeWeapon.Name;
+
+	private void AttackTimer() {
+		if(canAttack)
+			return;
+
+		attackCooldownTimer += Time.deltaTime;
+		if(attackCooldownTimer > currentCooldown)
+			canAttack = true;
+	}
+
+	private void SetCooldown() {
+		canAttack = false;
+		attackCooldownTimer = 0;
+		currentCooldown = activeWeapon.FullAttackDuration;
+	}
 
 }

@@ -15,6 +15,8 @@ public class Arrow : MonoBehaviour {
 	private Bow shooter;
 	private int originalLayer;
 
+	private const int FLIGHT_CONSTRAINTS = 104;//8 + 32 + 64. 8 = Freeze Z position. 32 & 64 = Freeze YZ rotation.
+
 	private void Awake() {
 		rigid = GetComponent<Rigidbody>();
 		originalLayer = gameObject.layer;
@@ -41,7 +43,7 @@ public class Arrow : MonoBehaviour {
 		timer = 0;
 		rigid.isKinematic = false;
 		rigid.velocity = transform.forward * speed;
-		rigid.constraints = (RigidbodyConstraints)104;
+		rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS;
 		this.gameObject.tag = "Arrow";
 		gameObject.layer = originalLayer;
 		rigid.useGravity = false;
@@ -76,9 +78,7 @@ public class Arrow : MonoBehaviour {
 		{
 			this.gameObject.layer = 11;
 			rigid.useGravity = true;
-			rigid.constraints = (RigidbodyConstraints)104; //8 + 32 + 64. 8 = Freeze Z position. 32 & 64 = Freeze YZ rotation.
-			//rigid.constraints = (RigidbodyConstraints)56; //8 + 16 + 32. 8 = Freeze Z position. 16 & 32 = Freeze XY rotation.
-			//rigid.constraints = (RigidbodyConstraints)72; //8 + 64. 8 = Freeze Z position. 64 = Freeze Z rotation.
+			rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS; 
 
 		}
 

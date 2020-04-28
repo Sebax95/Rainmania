@@ -5,6 +5,7 @@ using UnityEngine;
 using CustomMSLibrary.Core;
 
 public class Whip : Weapon {
+	
 
 	public BoxCastParams[] whipHitboxes;
 	private Swinger swinger;
@@ -14,21 +15,24 @@ public class Whip : Weapon {
 
 	private IWielder wielder;
 
-	public float whipDelay;
-	public float whipDuration;
+	public float attackDelay;
+	public float attackDuration;
+	public float attackCooldown;
+	public override float FullAttackDuration => attackDelay + attackDuration + attackCooldown;
 
 	private Collider[] boxcastCache = new Collider[1];
 
 	public override GameObject SourceObject => throw new System.NotImplementedException();
 	public override Team GetTeam => wielder.GetTeam;
 
+	public const string NAME = "Whip";
+	public override string Name => NAME;
+
 	private void Awake() {
 		swinger = GetComponent<Swinger>();
 		wielder = GetComponent<IWielder>();
 
 	}
-
-
 
 	public void WhipAttack(TargetDirection direction) {
 		var hitbox = whipHitboxes[(int)direction];
