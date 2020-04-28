@@ -13,6 +13,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon, IDamager {
 
 	public abstract GameObject SourceObject { get; }
 	public abstract Team GetTeam { get; }
+	public abstract float FullAttackDuration { get; }
 
 	public abstract void Attack(Vector2 direction);
 

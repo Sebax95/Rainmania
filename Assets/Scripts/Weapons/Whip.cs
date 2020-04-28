@@ -15,8 +15,10 @@ public class Whip : Weapon {
 
 	private IWielder wielder;
 
-	public float whipDelay;
-	public float whipDuration;
+	public float attackDelay;
+	public float attackDuration;
+	public float attackCooldown;
+	public override float FullAttackDuration => attackDelay + attackDuration + attackCooldown;
 
 	private Collider[] boxcastCache = new Collider[1];
 

@@ -17,6 +17,13 @@ public class PlayerAnim : MonoBehaviour {
 	public string[] param_triggers;
 	public string[] param_bools;
 
+	private WaitForSeconds[] wait_whipAnimDuration = new WaitForSeconds[] {
+		new WaitForSeconds(0.3f), new WaitForSeconds(0.21f), new WaitForSeconds(0.15f)
+	};
+	private WaitForSeconds[] wait_bowAnimDuration = new WaitForSeconds[] {
+		new WaitForSeconds(0.6f), new WaitForSeconds(0.5f), new WaitForSeconds(0.6f)
+	};
+
 	private void Awake() {
 		thisAnimator = GetComponent<Animator>();
 		player = GetComponent<Player>();
@@ -64,43 +71,50 @@ public class PlayerAnim : MonoBehaviour {
 		}
 	}
 
-	public void BowAttack(Vector2 direction)
-	{
+	public void BowAttack(Vector2 direction) {
 		bool vertical = direction.y > 0;
 		bool horizontal = direction.x != 0;
 		bow.SetActive(true);
-		if (vertical)
-			if (horizontal)
-				TriggerAction(2);
+		if(vertical)
+			if(horizontal)
+				Activate(2, 1);
 			else
-				TriggerAction(3);
+				Activate(3, 2);
 		else
-			TriggerAction(1);
+			Activate(1, 0);
+		
+		void Activate(int animIndex, int waiterIndex) {
+			TriggerAction(animIndex);
+			StartCoroutine(Coroutine_DelayedHiding(bow, wait_bowAnimDuration[waiterIndex]));
+		}
 	}
 
-	public void WhipAttack(Vector2 direction)
-	{
+	public void WhipAttack(Vector2 direction) {
 		bool vertical = direction.y > 0;
 		bool horizontal = direction.x != 0;
 		whip.SetActive(true);
 		if(vertical)
 			if(horizontal)
-				TriggerAction(5);
+				Activate(5, 1);
 			else
-				TriggerAction(6);
+				Activate(6, 1);
 		else
-			TriggerAction(4);
+			Activate(4, 0);
+
+		void Activate(int animIndex, int waiterIndex) {
+			TriggerAction(animIndex);
+			StartCoroutine(Coroutine_DelayedHiding(whip, wait_whipAnimDuration[waiterIndex]));
+		}
 	}
 
-	public void WeaponsActive()
-	{
+	public void WeaponsActive() {
 		whip.SetActive(false);
 		bow.SetActive(false);
 	}
 
 	private void OnCollisionEnter(Collision collision) {
 		if(collision.gameObject.layer == 9)
-			ChangeBool(0,true);
+			ChangeBool(0, true);
 	}
 
 	public void DetectGround() {
@@ -110,5 +124,11 @@ public class PlayerAnim : MonoBehaviour {
 	public void Jump() {
 		TriggerAction(0);
 		ChangeBool(0, false);
+	}
+
+	private IEnumerator Coroutine_DelayedHiding(GameObject item, WaitForSeconds waiter) {
+		item.SetActive(true);
+		yield return waiter;
+		item.SetActive(false);
 	}
 }

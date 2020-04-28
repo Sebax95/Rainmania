@@ -3375,6 +3375,8 @@ MonoBehaviour:
     m_Bits: 512
   groundedTreshold: 1
   groundCheckOffset: {x: 0, y: 0.5, z: 0}
+  attackWindupTime: 0
+  attackDurationTime: 0
   thisControllerPrefab: {fileID: 6141289527529480240, guid: d41e54e9dc374ce42bebf7da281bb765,
     type: 3}
 --- !u!114 &4760289614929991802
