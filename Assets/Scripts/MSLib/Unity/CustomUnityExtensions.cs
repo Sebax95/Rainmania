@@ -101,7 +101,7 @@ namespace CustomMSLibrary.Unity {
 			return rect;
 		}
 
-		public static object IntermediaryPrint(this object item, string message) {
+		public static T IntermediaryPrint<T>(this T item, string message) {
 			Debug.Log(message);
 			return item;
 		}
