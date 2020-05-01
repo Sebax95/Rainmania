@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212307f4c6b3ba544b48beca9881735a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 30
   asPlatformLifetime: 5
   droppedArrowLifetime: 2
   maxFlightTime: 7
