@@ -465,15 +465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Fixed
       objectReference: {fileID: 0}
-    - target: {fileID: 417254774800977183, guid: 5dea9778e137645449a37929b892c8cf,
-        type: 3}
-      propertyPath: validFloorLayers.m_Bits
-      value: 513
-      objectReference: {fileID: 0}
     - target: {fileID: 3715815871899238154, guid: 5dea9778e137645449a37929b892c8cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.7
+      value: 6.61
       objectReference: {fileID: 0}
     - target: {fileID: 3715815871899238154, guid: 5dea9778e137645449a37929b892c8cf,
         type: 3}
@@ -556,8 +551,6 @@ MonoBehaviour:
     m_Bits: 513
   groundedTreshold: 0
   groundCheckOffset: {x: 0, y: 0, z: 0}
-  attackWindupTime: 0
-  attackDurationTime: 0
   thisControllerPrefab: {fileID: 6141289527529480240, guid: d41e54e9dc374ce42bebf7da281bb765,
     type: 3}
 --- !u!136 &1080752400
@@ -10111,6 +10104,8 @@ MonoBehaviour:
   - {fileID: 1768084421}
   - {fileID: 836739718}
   - {fileID: 1584581173}
+  attackWindup: 0
+  attackCooldown: 0
 --- !u!114 &8296172667649609701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10135,8 +10130,9 @@ MonoBehaviour:
     halfExtends: {x: 0.2, y: 0.2, z: 2}
     orientation: {x: -90, y: 0, z: 0}
   speed: 2.5
-  whipDelay: 1
-  whipDuration: 1
+  attackDelay: 0
+  attackDuration: 0
+  attackCooldown: 0
 --- !u!114 &8296172667649609702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10160,8 +10156,6 @@ MonoBehaviour:
     m_Bits: 513
   groundedTreshold: 2
   groundCheckOffset: {x: 0, y: 0, z: 0}
-  attackWindupTime: 0
-  attackDurationTime: 0
   thisControllerPrefab: {fileID: 6141289527529480240, guid: d41e54e9dc374ce42bebf7da281bb765,
     type: 3}
 --- !u!54 &8296172667649609703
@@ -10257,6 +10251,8 @@ MonoBehaviour:
   - {fileID: 1768084421}
   - {fileID: 836739718}
   - {fileID: 1584581173}
+  attackWindup: 0
+  attackCooldown: 0
 --- !u!114 &8296172669235504038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10281,8 +10277,9 @@ MonoBehaviour:
     halfExtends: {x: 0.2, y: 0.2, z: 2}
     orientation: {x: -90, y: 0, z: 0}
   speed: 2.5
-  whipDelay: 1
-  whipDuration: 1
+  attackDelay: 0
+  attackDuration: 0
+  attackCooldown: 0
 --- !u!114 &8296172669235504039
 MonoBehaviour:
   m_ObjectHideFlags: 0

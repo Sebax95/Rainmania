@@ -60,6 +60,9 @@ public class Whip : Weapon {
 			if(item == null)
 				continue;
 
+			if(item.gameObject == gameObject)
+				continue;
+
 			var dmg = item.GetComponent<IDamageable>();
 			if(dmg != null)
 				dmg.Damage(damage, this);

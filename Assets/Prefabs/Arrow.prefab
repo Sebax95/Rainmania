@@ -93,7 +93,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0956635, y: 0.05858179, z: 1.1374336}
+  m_Size: {x: 1.0956635, y: 0.1, z: 1.1374336}
   m_Center: {x: -0.0022793757, y: -0.003286014, z: 0.5496924}
 --- !u!114 &9028882139883628001
 MonoBehaviour:
@@ -213,6 +213,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArrowFinal
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c6248bb1e4a853b4b969007c5159d051,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6248bb1e4a853b4b969007c5159d051, type: 3}

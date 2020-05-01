@@ -61,6 +61,12 @@ public class Arrow : MonoBehaviour {
 	public void SetShooter(Bow source) => shooter = source;
 
 	private void OnCollisionEnter(Collision collision) {
+		if(!enabled) //Por alguna razon, este metodo se activa aun cuando esta desactivado
+			return;
+
+		if(isStair) //Es plataforma, no cambies nada
+			return;
+
 		if(!collision.collider.gameObject || gameObject.layer == 1)
 			return;
 
