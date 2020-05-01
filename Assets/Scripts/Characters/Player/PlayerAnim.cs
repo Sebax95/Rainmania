@@ -18,7 +18,9 @@ public class PlayerAnim : MonoBehaviour {
 	public string[] param_bools;
 
 	private WaitForSeconds[] wait_whipAnimDuration = new WaitForSeconds[] {
-		new WaitForSeconds(0.3f), new WaitForSeconds(0.21f), new WaitForSeconds(0.15f)
+		//normal atck, , up,diagonal
+		new WaitForSeconds(0.3f), new WaitForSeconds(0.65f), new WaitForSeconds(0.15f)
+
 	};
 	private WaitForSeconds[] wait_bowAnimDuration = new WaitForSeconds[] {
 		new WaitForSeconds(0.6f), new WaitForSeconds(0.5f), new WaitForSeconds(0.6f)

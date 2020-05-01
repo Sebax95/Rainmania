@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 706788138764040036}
   - component: {fileID: 509942093899183493}
   m_Layer: 10
-  m_Name: Arrow 1
+  m_Name: Arrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  asPlatformLifetime: 3
+  asPlatformLifetime: 10
   droppedArrowLifetime: 1
   maxFlightTime: 5
 --- !u!54 &706788138764040036
