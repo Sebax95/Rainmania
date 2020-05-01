@@ -41,7 +41,7 @@ public class Pool<T> {
 
 	public void DisableObject(T obj) {
 		foreach (var item in thisPool) {
-			if (item.Equals(obj)) {
+			if (item.GetObject.Equals(obj)) {
 				item.IsActive = false;
 				return;
 			}

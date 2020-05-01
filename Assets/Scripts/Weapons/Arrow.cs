@@ -23,23 +23,29 @@ public class Arrow : MonoBehaviour {
 	}
 
 	void Update() {
+
 		if(!stop)
 			rigid.velocity = transform.forward * speed;
-		else
-		{
-			timer += Time.deltaTime;
 
-			if(isStair && timer > asPlatformLifetime)
-				shooter.ReturnArrow(this);
-			else if(!isStair && timer > droppedArrowLifetime)
-				shooter.ReturnArrow(this);
-		}
-		if(timer > asPlatformLifetime)
-			shooter.ReturnArrow(this);
+		ExpirationTimers();
+
+	}
+
+	private void ExpirationTimers() {
+		timer += Time.deltaTime;
+		if(!isStair)
+		{
+			if((!stop && timer > maxFlightTime) || (stop && timer > droppedArrowLifetime)) //If flying and expire, or dropped and expire
+				shooter.ReturnArrow(this); //Return to pool
+			return;
+		} 
+		if(timer > asPlatformLifetime) //If platform and expire
+			shooter.ReturnArrow(this); //Return to pool
 	}
 
 	public void Reset() {
 		stop = false;
+		isStair = false;
 		timer = 0;
 		rigid.isKinematic = false;
 		rigid.velocity = transform.forward * speed;
@@ -47,7 +53,7 @@ public class Arrow : MonoBehaviour {
 		this.gameObject.tag = "Arrow";
 		gameObject.layer = originalLayer;
 		rigid.useGravity = false;
-		
+
 	}
 	public static void TurnOn(Arrow a) {
 		a.Reset();
@@ -71,6 +77,7 @@ public class Arrow : MonoBehaviour {
 			return;
 
 		stop = true;
+		timer = 0;
 		if(gameObject.layer == 9 || gameObject.layer == 1)
 			return;
 
@@ -84,7 +91,7 @@ public class Arrow : MonoBehaviour {
 		{
 			this.gameObject.layer = 11;
 			rigid.useGravity = true;
-			rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS; 
+			rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS;
 
 		}
 

@@ -108,9 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  asPlatformLifetime: 3
-  droppedArrowLifetime: 1
-  maxFlightTime: 5
+  asPlatformLifetime: 5
+  droppedArrowLifetime: 2
+  maxFlightTime: 7
 --- !u!54 &5111419363939752233
 Rigidbody:
   m_ObjectHideFlags: 0

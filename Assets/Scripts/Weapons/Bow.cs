@@ -31,7 +31,11 @@ public class Bow : Weapon {
 		
 	}
 
-	public Arrow ArrownFactory() => Instantiate(arrownPrefab);
+	public Arrow ArrownFactory() {
+		var item = Instantiate(arrownPrefab);
+		item.gameObject.SetActive(false);
+		return item;
+	}
 
 	public void ReturnArrow(Arrow item) => pool.DisableObject(item);
 

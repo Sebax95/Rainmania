@@ -314,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   whipHitboxes:
-  - centerOffset: {x: 0, y: 1.33, z: 2.4}
+  - centerOffset: {x: 0, y: 1.33, z: 2.57}
     halfExtends: {x: 1, y: 0.2, z: 2}
     orientation: {x: 0, y: 0, z: 0}
   - centerOffset: {x: 0, y: 3.71, z: 1.79}
