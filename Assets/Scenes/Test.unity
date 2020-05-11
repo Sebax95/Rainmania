@@ -21760,16 +21760,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 417254774800977169, guid: 5dea9778e137645449a37929b892c8cf,
-        type: 3}
-      propertyPath: m_Height
-      value: 0.7465079
-      objectReference: {fileID: 0}
-    - target: {fileID: 417254774800977169, guid: 5dea9778e137645449a37929b892c8cf,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.3279837
-      objectReference: {fileID: 0}
     - target: {fileID: 417254774800977177, guid: 5dea9778e137645449a37929b892c8cf,
         type: 3}
       propertyPath: m_Name
