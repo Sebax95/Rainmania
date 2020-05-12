@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3343641406739381021}
   - component: {fileID: 706788138764040036}
   - component: {fileID: 509942093899183493}
+  - component: {fileID: 5189089673016492298}
   m_Layer: 10
   m_Name: Arrow
   m_TagString: Arrow
@@ -96,7 +97,7 @@ MonoBehaviour:
   speed: 15
   asPlatformLifetime: 10
   droppedArrowLifetime: 1
-  maxFlightTime: 5
+  maxFlightTime: 10
 --- !u!54 &706788138764040036
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,3 +127,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01649189, y: 0.013347149, z: 0.38644028}
   m_Center: {x: 0.0082707405, y: -0.00071272627, z: -0.0039748847}
+--- !u!114 &5189089673016492298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5008439890583218472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fddbef04bcc9c74485b5a3d73c1bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformDependant: 0
