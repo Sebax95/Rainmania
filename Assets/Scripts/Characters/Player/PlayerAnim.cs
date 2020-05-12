@@ -23,7 +23,7 @@ public class PlayerAnim : MonoBehaviour {
 
 	};
 	private WaitForSeconds[] wait_bowAnimDuration = new WaitForSeconds[] {
-		new WaitForSeconds(0.6f), new WaitForSeconds(0.5f), new WaitForSeconds(0.6f)
+		new WaitForSeconds(0.3f), new WaitForSeconds(0.3f), new WaitForSeconds(0.3f)
 	};
 
 	private void Awake() {
