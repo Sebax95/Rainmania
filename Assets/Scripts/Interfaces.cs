@@ -37,5 +37,10 @@ public interface IMoveOverrideable {
 	void Release(IMoveOverride controller);
 }
 
+public interface IAppliableForce
+{
+    void ApplyForce(Vector3 direction, ForceMode mode);
+}
+
 public interface IMainController {
 }

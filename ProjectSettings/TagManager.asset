@@ -21,8 +21,8 @@ TagManager:
   - Ground
   - Arrow
   - Non-Interactable
-  - 
-  - 
+  - PostProcessing
+  - Bullet
   - 
   - 
   - 

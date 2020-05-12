@@ -6,7 +6,9 @@ public class CameraMovement : MonoBehaviour
 {
     public Vector3 offset;
     public Transform player;
+    public LayerMask validFloorLayers;
     public float smoothMovement = 7;
+    public float sumDistance, clampDistance;
 
     public void Start()
     {
@@ -17,6 +19,20 @@ public class CameraMovement : MonoBehaviour
     {
         var smooth = Vector3.Slerp(transform.position, player.position + offset, Time.deltaTime * smoothMovement);
         transform.position = smooth;
-        //transform.LookAt(player);
+        ModifyingOffsetZ();        
+    }
+
+    public void ModifyingOffsetZ()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(player.transform.position + Vector3.up * 1, Vector3.down, out hit, Mathf.Infinity, validFloorLayers))
+        {
+            var distance = hit.distance * sumDistance;
+            distance = Mathf.Clamp(distance, -19, clampDistance);
+            if (hit.distance >= 4.5f)
+                offset.z = Mathf.Lerp(offset.z, distance, Time.deltaTime * 5);
+            else
+                offset.z = Mathf.Lerp(offset.z, -19, Time.deltaTime * 5);
+        }
     }
 }

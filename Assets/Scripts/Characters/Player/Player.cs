@@ -5,7 +5,7 @@ using UnityEngine;
 using CustomMSLibrary.Core;
 using CustomMSLibrary.Unity;
 
-public class Player : Character, IWielder, IMoveOverrideable {
+public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 	private const float GROUNDED_DISTANCE = 1.1f;
 
 	public float speed;
@@ -123,13 +123,15 @@ public class Player : Character, IWielder, IMoveOverrideable {
 
 	public void Attach(IMoveOverride controller) {
 		overriding = controller;
-	}
+        //playerAnimator.TriggerAction(7);
+    }
 
-	public void Release(IMoveOverride controller) {
+    public void Release(IMoveOverride controller) {
 		overriding = null;
-	}
+        //playerAnimator.TriggerAction(7);
+    }
 
-	public void DetectGround() {
+    public void DetectGround() {
 		groundedFramesCounter++;
 		if(!(groundedFramesCounter > GROUND_FRAMES_PERIOD))
 			return;
@@ -158,4 +160,9 @@ public class Player : Character, IWielder, IMoveOverrideable {
 		
 	}
 
+    public void ApplyForce(Vector3 direction, ForceMode mode)
+    {
+        rb.AddForce(direction, mode);
+        playerAnimator.TriggerAction(0);
+    }
 }
