@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7938341547704352
+--- !u!1 &5101506354169841962
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3911211597721793075}
-  - component: {fileID: 5412320178553178117}
-  - component: {fileID: 1738642264812205308}
-  - component: {fileID: 3754434880075115499}
-  - component: {fileID: 4839327519694827715}
-  - component: {fileID: 2604964465696124925}
-  m_Layer: 0
-  m_Name: ArrowFinal
+  - component: {fileID: 8113068534481287993}
+  - component: {fileID: 994291010478063887}
+  - component: {fileID: 6841221875891387894}
+  - component: {fileID: 6693357679457729707}
+  - component: {fileID: -335030869947608966}
+  - component: {fileID: 5142224958579746064}
+  m_Layer: 10
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3911211597721793075
+--- !u!4 &8113068534481287993
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7938341547704352}
-  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.55961466, y: 0.03426221, z: -0.06954344}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_GameObject: {fileID: 5101506354169841962}
+  m_LocalRotation: {x: -0.0000000059624403, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.44392347, y: 0.034260936, z: 0.22612192}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 90}
---- !u!33 &5412320178553178117
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &994291010478063887
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7938341547704352}
-  m_Mesh: {fileID: -5208879343037863941, guid: 49405b32a7a13a540aa221175e21192f, type: 3}
---- !u!23 &1738642264812205308
+  m_GameObject: {fileID: 5101506354169841962}
+  m_Mesh: {fileID: -5208879343037863941, guid: 01b8db6cbd9af07468d32442b57bad95, type: 3}
+--- !u!23 &6841221875891387894
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7938341547704352}
+  m_GameObject: {fileID: 5101506354169841962}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6bd73ff8ffe9a2745a2a65791d5c63e3, type: 2}
+  - {fileID: 670224309865224971, guid: 01b8db6cbd9af07468d32442b57bad95, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,26 +81,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3754434880075115499
+--- !u!65 &6693357679457729707
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7938341547704352}
+  m_GameObject: {fileID: 5101506354169841962}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02416262, y: 0.31653285, z: 0.023584835}
-  m_Center: {x: -0.00040955842, y: -0.17941435, z: 0.00132054}
---- !u!114 &4839327519694827715
+  m_Size: {x: 0.022320226, y: 0.025434405, z: 0.31099844}
+  m_Center: {x: 0.008802421, y: -0.0016232021, z: -0.020788193}
+--- !u!114 &-335030869947608966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7938341547704352}
+  m_GameObject: {fileID: 5101506354169841962}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 212307f4c6b3ba544b48beca9881735a, type: 3}
@@ -110,13 +110,13 @@ MonoBehaviour:
   asPlatformLifetime: 10
   droppedArrowLifetime: 2
   maxFlightTime: 10
---- !u!54 &2604964465696124925
+--- !u!54 &5142224958579746064
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7938341547704352}
+  m_GameObject: {fileID: 5101506354169841962}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0

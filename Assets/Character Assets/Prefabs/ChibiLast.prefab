@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  arrownPrefab: {fileID: 4839327519694827715, guid: d78496785a8b4934d951981353940383,
+  arrownPrefab: {fileID: -335030869947608966, guid: 8bb3437b9c69b0f47abbde53c37ef009,
     type: 3}
   arrowSources:
   - {fileID: 7497389988592228985}
