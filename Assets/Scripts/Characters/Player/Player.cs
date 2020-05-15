@@ -119,16 +119,14 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		activeWeapon = weapons.Next;
 	}
 
-	public override void Die(IDamager source) => throw new System.NotImplementedException();
+    public override void Die(IDamager source) => Debug.Log("auch, morí");
 
 	public void Attach(IMoveOverride controller) {
 		overriding = controller;
-        //playerAnimator.TriggerAction(7);
     }
 
     public void Release(IMoveOverride controller) {
 		overriding = null;
-        //playerAnimator.TriggerAction(7);
     }
 
     public void DetectGround() {

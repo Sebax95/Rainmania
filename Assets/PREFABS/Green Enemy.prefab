@@ -182,7 +182,7 @@ Animator:
   m_GameObject: {fileID: 929282897438584988}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 55b5455380d2b434290dda54eaf3a5e7, type: 3}
-  m_Controller: {fileID: 9100000, guid: cc658ec4e6973134fb2147725b70e108, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -202,10 +202,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!136 &630640821487112360
 CapsuleCollider:
@@ -235,7 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
   maxHealth: 100
-  health: 0
   speed: 5
   cdTimer: 2
   output: {fileID: 7202823243083157288}
@@ -254,7 +253,7 @@ MonoBehaviour:
   bulletPref: {fileID: 2614553126292014056, guid: f178021dc4e78b748b77863bff571347,
     type: 3}
   jumpingPad: {fileID: 0}
-  forceJump: 10
+  forceJump: 3
   altBullet: 0
   shootWithGravity: 0
   canShoot: 0
