@@ -22,7 +22,8 @@ public class Bow : Weapon {
 	public override string Name => NAME;
 
 	private void Start() {
-		wait_shootWindup = new WaitForSeconds(attackWindup);
+		// motivo por el cual no ataca al tpque.
+		//wait_shootWindup = new WaitForSeconds(attackWindup);
 		wielder = GetComponent<IWielder>();
 		pool = new Pool<Arrow>(INITAL_ARROW_COUNT ,ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, false);
 	}

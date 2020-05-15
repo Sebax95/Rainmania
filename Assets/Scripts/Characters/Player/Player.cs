@@ -5,7 +5,7 @@ using UnityEngine;
 using CustomMSLibrary.Core;
 using CustomMSLibrary.Unity;
 
-public class Player : Character, IWielder, IMoveOverrideable {
+public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 	private const float GROUNDED_DISTANCE = 1.1f;
 
 	public float speed;
@@ -36,6 +36,9 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	public Controller thisControllerPrefab; //temp
 	private IMoveOverride overriding;
 
+	//agregueyo mati.
+	bool canMove = true;
+
 	private void Awake() {
 		ControllerHandler.Instance.RequestAssignation(Instantiate(thisControllerPrefab), this);
 	}
@@ -57,6 +60,8 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	private void Update() {
 		DetectGround();
 		AttackTimer();
+
+	
 	}
 
 	public void Jump() {
@@ -71,35 +76,45 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	}
 
 	public void ForceJump() {
-		rb.AddForce(Vector3.up * forceJump, ForceMode.VelocityChange);
-		playerAnimator.Jump();
-		//playerAnimator.thisAnimator.SetBool("inGround", false);
-		holdingJump = true;
+		if (canMove)
+		{
+			rb.AddForce(Vector3.up * forceJump, ForceMode.VelocityChange);
+			playerAnimator.Jump();
+			//playerAnimator.thisAnimator.SetBool("inGround", false);
+			holdingJump = true;
+		}
 	}
 
 	public void ReleaseJump() => holdingJump = false;
 
 	public override void Move(Vector2 direction) {
+		
 		if(overriding != null || !canAttack)
 			return;
 
-		//rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, 0);
-		var vel = rb.velocity;
-		Vector3 newVel = new Vector3(direction.x * speed, vel.y);
+		if (canMove)
+		{
+			if (overriding != null)
+				return;
 
-		rb.velocity = newVel + momentum.velocity.ZeroY();
+			//rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, 0);
+			var vel = rb.velocity;
+			Vector3 newVel = new Vector3(direction.x * speed, vel.y);
 
-		playerAnimator.SetSpeeds(direction);
+			rb.velocity = newVel + momentum.velocity.ZeroY();
+
+			playerAnimator.SetSpeeds(direction);
+		}
+
 	}
 
 	public void Attack(Vector2 direction) {
-		if(canAttack)
-		{
+			canMove = false;
+			rb.velocity = new Vector3(0,rb.velocity.y, rb.velocity.z);
 			SetCooldown();
 			activeWeapon.Attack(direction);
 			playerAnimator.Attack(direction, activeWeapon.Name);
-
-		}
+		
 
 	}
 
@@ -111,13 +126,15 @@ public class Player : Character, IWielder, IMoveOverrideable {
 
 	public void Attach(IMoveOverride controller) {
 		overriding = controller;
-	}
+        //playerAnimator.TriggerAction(7);
+    }
 
-	public void Release(IMoveOverride controller) {
+    public void Release(IMoveOverride controller) {
 		overriding = null;
-	}
+        //playerAnimator.TriggerAction(7);
+    }
 
-	public void DetectGround() {
+    public void DetectGround() {
 		groundedFramesCounter++;
 		if(!(groundedFramesCounter > GROUND_FRAMES_PERIOD))
 			return;
@@ -132,14 +149,23 @@ public class Player : Character, IWielder, IMoveOverrideable {
 			return;
 
 		attackCooldownTimer += Time.deltaTime;
-		if(attackCooldownTimer > currentCooldown)
+		if (attackCooldownTimer > currentCooldown) 
+		{
+			canMove = true;
 			canAttack = true;
+		}
 	}
 
 	private void SetCooldown() {
 		canAttack = false;
 		attackCooldownTimer = 0;
 		currentCooldown = activeWeapon.FullAttackDuration;
+		
 	}
 
+    public void ApplyForce(Vector3 direction, ForceMode mode)
+    {
+        rb.AddForce(direction, mode);
+        playerAnimator.TriggerAction(0);
+    }
 }
