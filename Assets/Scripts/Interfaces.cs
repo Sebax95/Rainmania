@@ -39,3 +39,7 @@ public interface IMoveOverrideable {
 
 public interface IMainController {
 }
+
+public interface IAppliableForce {
+	void ApplyForce(Vector3 direction, ForceMode mode);
+}

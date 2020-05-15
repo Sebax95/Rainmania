@@ -80,7 +80,7 @@ public class Player : Character, IWielder, IMoveOverrideable {
 	public void ReleaseJump() => holdingJump = false;
 
 	public override void Move(Vector2 direction) {
-		if(overriding != null)
+		if(overriding != null || !canAttack)
 			return;
 
 		//rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, 0);
