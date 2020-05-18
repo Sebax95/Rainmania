@@ -111,17 +111,17 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 			SetCooldown();
 			activeWeapon.Attack(direction);
 			playerAnimator.Attack(direction, activeWeapon.Name);
-		
-
 	}
 
-	public void SwitchWeapons() {
+	public void SwitchWeapons() 
+	{
 		activeWeapon = weapons.Next;
 	}
 
     public override void Die(IDamager source) => Debug.Log("auch, morí");
 
-	public void Attach(IMoveOverride controller) {
+	public void Attach(IMoveOverride controller) 
+	{
 		overriding = controller;
     }
 
@@ -139,7 +139,8 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 
 	public string ActiveWeaponName => activeWeapon.Name;
 
-	private void AttackTimer() {
+	private void AttackTimer() 
+	{
 		if(canAttack)
 			return;
 

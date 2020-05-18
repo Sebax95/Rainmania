@@ -5,13 +5,13 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Take 001
+    second: Balanceo 1
   - first:
       74: -5405653242291790180
-    second: mid
+    second: Balanceo 2
   - first:
       74: 4854180139978558704
-    second: 3
+    second: Balanceo 3
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -41,7 +41,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Balanceo 1
       takeName: Take 001
       internalID: 0
       firstFrame: 1
@@ -70,7 +70,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: mid
+      name: Balanceo 2
       takeName: Take 001
       internalID: 0
       firstFrame: 15
@@ -99,7 +99,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 3
+      name: Balanceo 3
       takeName: Take 001
       internalID: 0
       firstFrame: 15
