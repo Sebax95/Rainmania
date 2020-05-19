@@ -14,6 +14,7 @@ public class Arrow : MonoBehaviour {
 	private bool isStair;
 	private Bow shooter;
 	private int originalLayer;
+	
 
 	private const int FLIGHT_CONSTRAINTS = 104;//8 + 32 + 64. 8 = Freeze Z position. 32 & 64 = Freeze YZ rotation.
 
@@ -78,10 +79,10 @@ public class Arrow : MonoBehaviour {
 
 		stop = true;
 		timer = 0;
-		if(gameObject.layer == 9 || gameObject.layer == 1)
+		if(gameObject.layer == 14 || gameObject.layer == 1)
 			return;
 
-		if(collision.collider.gameObject.layer == 9 && !collision.collider.gameObject.CompareTag("UnsusedArrow"))
+		if(collision.collider.gameObject.layer == 14 && !collision.collider.gameObject.CompareTag("UnsusedArrow"))
 		{
 			rigid.isKinematic = true;
 			rigid.velocity = Vector3.zero;

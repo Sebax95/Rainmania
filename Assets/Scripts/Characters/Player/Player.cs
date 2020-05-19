@@ -38,6 +38,9 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 
 	//agregueyo mati.
 	bool canMove = true;
+	////collider salto.
+	//public CapsuleCollider legsCollider;
+	//public CapsuleCollider bodyUpCollider;
 
 	private void Awake() {
 		ControllerHandler.Instance.RequestAssignation(Instantiate(thisControllerPrefab), this);
@@ -58,6 +61,10 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		playerAnimator = GetComponent<PlayerAnim>();
 	}
 	private void Update() {
+		////legs
+		//legsCollider.enabled = (Grounded) ? true : false;
+		//bodyUpCollider.enabled = (Grounded) ? false : true;
+
 		DetectGround();
 		AttackTimer();
 
@@ -67,22 +74,31 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 	public void Jump() {
 		if(Grounded)
 		{
+			
 			rb.velocity = rb.velocity.ZeroY();
 			playerAnimator.TriggerAction(0);
 			ForceJump();
+			//colliders legs off
+			
 		}
+		
 		//} else
 		//overriding.Release(this);
 	}
 
 	public void ForceJump() {
-		if(canMove)
+		if (canMove)
 		{
 			rb.AddForce(Vector3.up * forceJump, ForceMode.VelocityChange);
 			playerAnimator.Jump();
 			//playerAnimator.thisAnimator.SetBool("inGround", false);
 			holdingJump = true;
+			//bodyUpCollider.enabled = true;
+			//legsCollider.enabled = false;
+
+
 		}
+		
 	}
 
 	public void ReleaseJump() => holdingJump = false;
@@ -137,7 +153,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 
 	public void DetectGround() {
 		groundedFramesCounter++;
-		if(!(groundedFramesCounter > GROUND_FRAMES_PERIOD))
+		if (!(groundedFramesCounter > GROUND_FRAMES_PERIOD))
 			return;
 		groundedFramesCounter = 0;
 		Grounded = Physics.Raycast(transform.position + groundCheckOffset, Vector3.down, out _, groundedTreshold, validFloorLayers);

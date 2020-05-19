@@ -40,19 +40,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   focusDistance:
     overrideState: 1
-    value: 0.1
+    value: 4.47
   aperture:
     overrideState: 1
-    value: 10.7
+    value: 11.3
   focalLength:
     overrideState: 1
-    value: 109
+    value: 57
   kernelSize:
     overrideState: 1
     value: 1
@@ -74,7 +74,7 @@ MonoBehaviour:
     value: 1
   gradingMode:
     overrideState: 1
-    value: 1
+    value: 0
   externalLut:
     overrideState: 0
     value: {fileID: 0}
@@ -108,29 +108,29 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 0
-    value: -23
+    overrideState: 1
+    value: -41
   tint:
     overrideState: 0
-    value: 73
+    value: 13
   colorFilter:
-    overrideState: 0
+    overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     overrideState: 0
     value: 108
   saturation:
     overrideState: 1
-    value: 45
+    value: 87
   brightness:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 100
   postExposure:
     overrideState: 0
     value: 0.61
   contrast:
     overrideState: 1
-    value: -14
+    value: -5
   mixerRedOutRedIn:
     overrideState: 0
     value: 184
@@ -160,13 +160,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 1, y: 0.90522426, z: 0.9283193, w: 0}
   gamma:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 0.73455596, y: 1, z: 0.74665684, w: 0}
   gain:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 1, y: 0.936956, z: 0.9950665, w: 0}
   masterCurve:
     overrideState: 0
     value:
@@ -1400,7 +1400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -1422,33 +1422,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   intensity:
     overrideState: 1
-    value: 4.42
+    value: 5
   threshold:
-    overrideState: 1
+    overrideState: 0
     value: 14.95
   softKnee:
-    overrideState: 1
+    overrideState: 0
     value: 0
   clamp:
     overrideState: 0
     value: 65477.28
   diffusion:
-    overrideState: 1
+    overrideState: 0
     value: 5.9
   anamorphicRatio:
-    overrideState: 1
+    overrideState: 0
     value: 0.32
   color:
-    overrideState: 1
+    overrideState: 0
     value: {r: 0.23584908, g: 0.15018691, b: 0.17141293, a: 1}
   fastMode:
-    overrideState: 1
+    overrideState: 0
     value: 1
   dirtTexture:
     overrideState: 0
@@ -1478,10 +1478,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 3.58
+    value: 0.43
   color:
     overrideState: 1
-    value: {r: 0.056069765, g: 0.1968685, b: 0.33962262, a: 1}
+    value: {r: 0, g: 0, b: 0, a: 1}
   ambientOnly:
     overrideState: 1
     value: 1
@@ -1496,7 +1496,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 10
+    value: 4.78
   directLightingStrength:
     overrideState: 0
     value: 0
