@@ -20,8 +20,8 @@ public class PlayerAnim : MonoBehaviour {
 	private WaitForSeconds[] wait_whipAnimDuration = new WaitForSeconds[] {
 		//normal atck, , up,diagonal
 		new WaitForSeconds(0.3f), new WaitForSeconds(0.65f), new WaitForSeconds(0.15f)
-
 	};
+
 	private WaitForSeconds[] wait_bowAnimDuration = new WaitForSeconds[] {
 		new WaitForSeconds(0.3f), new WaitForSeconds(0.3f), new WaitForSeconds(0.3f)
 	};
@@ -79,11 +79,11 @@ public class PlayerAnim : MonoBehaviour {
 		bow.SetActive(true);
 		if(vertical)
 			if(horizontal)
-				Activate(2, 1);
+				Activate(2, 1); //Diagonal
 			else
-				Activate(3, 2);
+				Activate(3, 2); //Vertical
 		else
-			Activate(1, 0);
+			Activate(1, 0); //Horizontal
 		
 		void Activate(int animIndex, int waiterIndex) {
 			TriggerAction(animIndex);
@@ -129,8 +129,17 @@ public class PlayerAnim : MonoBehaviour {
 	}
 
 	private IEnumerator Coroutine_DelayedHiding(GameObject item, WaitForSeconds waiter) {
+		yield break;
 		item.SetActive(true);
 		yield return waiter;
 		item.SetActive(false);
+	}
+
+	public void BowOn() {
+		bow.SetActive(true);
+	}
+
+	public void BowOff() {
+		bow.SetActive(false);
 	}
 }
