@@ -132,7 +132,6 @@ public class Swinger : Controllable, IMoveOverride {
 	}
 
 	private void OnCollisionEnter() {
-		print("Collide");
 		if(overriding)
 			BreakSwing();
 	}
