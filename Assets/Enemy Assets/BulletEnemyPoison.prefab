@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   force: 10
-  damage: 10
+  damage: 1
   AssignTeam: {fileID: 0}
   gravity: {x: 0, y: 0, z: 0}
 --- !u!1001 &1946636379539764100
