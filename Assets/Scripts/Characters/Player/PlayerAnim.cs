@@ -17,16 +17,7 @@ public class PlayerAnim : MonoBehaviour {
 	public string[] param_triggers;
 	public string[] param_bools;
 
-	private WaitForSeconds[] wait_whipAnimDuration = new WaitForSeconds[] {
 
-        //Ataque Normal, Ataque Diagonal, Ataque Arriba
-		new WaitForSeconds(0.5f), new WaitForSeconds(0.35f), new WaitForSeconds(0.1f)
-	};
-
-	private WaitForSeconds[] wait_bowAnimDuration = new WaitForSeconds[] {
-		//Ataque Normal, Ataque Diagonal, Ataque Arriba
-		new WaitForSeconds(0.3f), new WaitForSeconds(0.3f), new WaitForSeconds(0.3f)
-	};
 
 	private void Awake() {
 		thisAnimator = GetComponent<Animator>();
@@ -89,7 +80,6 @@ public class PlayerAnim : MonoBehaviour {
 		
 		void Activate(int animIndex, int waiterIndex) {
 			TriggerAction(animIndex);
-			StartCoroutine(Coroutine_DelayedHiding(bow, wait_bowAnimDuration[waiterIndex]));
 		}
 	}
 
@@ -107,7 +97,6 @@ public class PlayerAnim : MonoBehaviour {
 
 		void Activate(int animIndex, int waiterIndex) {
 			TriggerAction(animIndex);
-			StartCoroutine(Coroutine_DelayedHiding(whip, wait_whipAnimDuration[waiterIndex]));
 		}
 	}
 
@@ -130,18 +119,10 @@ public class PlayerAnim : MonoBehaviour {
 		ChangeBool(0, false);
 	}
 
-	private IEnumerator Coroutine_DelayedHiding(GameObject item, WaitForSeconds waiter) {
-		yield break;
-		item.SetActive(true);
-		yield return waiter;
-		item.SetActive(false);
-	}
+	//Eventos de animation
+	public void BowOn() => bow.SetActive(true);
+	public void BowOff() => bow.SetActive(false);
 
-	public void BowOn() {
-		bow.SetActive(true);
-	}
-
-	public void BowOff() {
-		bow.SetActive(false);
-	}
+	public void WhipOn() => whip.SetActive(true);
+	public void WhipOff() => whip.SetActive(false);
 }
