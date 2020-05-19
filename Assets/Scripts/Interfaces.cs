@@ -45,6 +45,3 @@ public interface IAppliableForce
 public interface IMainController {
 }
 
-public interface IAppliableForce {
-	void ApplyForce(Vector3 direction, ForceMode mode);
-}
