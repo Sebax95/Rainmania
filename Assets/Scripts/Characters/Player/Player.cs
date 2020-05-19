@@ -119,21 +119,21 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		playerAnimator.Attack(direction, activeWeapon.Name);
 	}
 
-	public void SwitchWeapons() {
+	public void SwitchWeapons() 
+	{
 		activeWeapon = weapons.Next;
 	}
 
 	public override void Die(IDamager source) => print(name + "die.");
 
-	public void Attach(IMoveOverride controller) {
+	public void Attach(IMoveOverride controller) 
+	{
 		overriding = controller;
-		//playerAnimator.TriggerAction(7);
-	}
+    }
 
 	public void Release(IMoveOverride controller) {
 		overriding = null;
-		//playerAnimator.TriggerAction(7);
-	}
+    }
 
 	public void DetectGround() {
 		groundedFramesCounter++;
@@ -145,7 +145,8 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 
 	public string ActiveWeaponName => activeWeapon.Name;
 
-	private void AttackTimer() {
+	private void AttackTimer() 
+	{
 		if(canAttack)
 			return;
 

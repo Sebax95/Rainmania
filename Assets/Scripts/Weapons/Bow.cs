@@ -23,7 +23,7 @@ public class Bow : Weapon {
 
 	private void Start() {
 		// motivo por el cual no ataca al tpque.
-		//wait_shootWindup = new WaitForSeconds(attackWindup);
+		wait_shootWindup = new WaitForSeconds(attackWindup);
 		wielder = GetComponent<IWielder>();
 		pool = new Pool<Arrow>(INITAL_ARROW_COUNT ,ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, false);
 	}
