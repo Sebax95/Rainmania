@@ -94,8 +94,8 @@ public class Swinger : Controllable, IMoveOverride {
 		user.Attach(this);
 
 		var player = user as Controllable;
-		if(player!= null)
-			ControllerHandler.Instance.OverrideWithUser(this,player);
+		if(player != null)
+			ControllerHandler.Instance.OverrideWithUser(this, player);
 
 		overriding = true;
 		prevGravitystate = thisRB.useGravity;
@@ -126,8 +126,14 @@ public class Swinger : Controllable, IMoveOverride {
 		if(direction.x == 0)
 			return;
 		if(direction.x > 0)
-			transform.localRotation = Quaternion.Euler(0, 90,0);
+			transform.localRotation = Quaternion.Euler(0, 90, 0);
 		else
-			transform.localRotation = Quaternion.Euler(0, -90,0);
+			transform.localRotation = Quaternion.Euler(0, -90, 0);
+	}
+
+	private void OnCollisionEnter() {
+		print("Collide");
+		if(overriding)
+			BreakSwing();
 	}
 }

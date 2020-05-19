@@ -119,7 +119,7 @@ public class Whip : Weapon {
 		foreach(var item in whipHitboxes)
 		{
 			Vector3 centre = position + rotation * item.centerOffset;
-			#region points
+	#region points
 			points[0] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, item.halfExtends.y, item.halfExtends.z);
 			points[1] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, item.halfExtends.y, -item.halfExtends.z);
 			points[2] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, -item.halfExtends.y, item.halfExtends.z);
@@ -128,7 +128,7 @@ public class Whip : Weapon {
 			points[5] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(-item.halfExtends.x, item.halfExtends.y, -item.halfExtends.z);
 			points[6] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(-item.halfExtends.x, -item.halfExtends.y, item.halfExtends.z);
 			points[7] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(-item.halfExtends.x, -item.halfExtends.y, -item.halfExtends.z);
-			#endregion
+	#endregion
 
 			for(byte i = 0; i < 7; i++)
 				for(byte j = 1; j < 8; j++)

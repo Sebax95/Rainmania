@@ -303,13 +303,13 @@ MonoBehaviour:
   damage: 3
   whipHitboxes:
   - centerOffset: {x: 0, y: 0.5, z: 1.5}
-    halfExtends: {x: 0.1, y: 0.1, z: 1}
+    halfExtends: {x: 0.3, y: 0.3, z: 1}
     orientation: {x: 0, y: 0, z: 0}
   - centerOffset: {x: 0, y: 2, z: 1.2}
-    halfExtends: {x: 0.1, y: 0.1, z: 1}
+    halfExtends: {x: 0.3, y: 0.3, z: 1}
     orientation: {x: -45, y: 0, z: 0}
   - centerOffset: {x: 0, y: 2.5, z: 0}
-    halfExtends: {x: 0.1, y: 0.1, z: 1}
+    halfExtends: {x: 0.3, y: 0.3, z: 1}
     orientation: {x: -90, y: 0, z: 0}
   speed: 2.5
   attackDelay: 0.2

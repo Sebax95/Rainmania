@@ -10,10 +10,13 @@ public class Arrow : MonoBehaviour {
 	public float asPlatformLifetime = 3;
 	public float droppedArrowLifetime = 1;
 	public float maxFlightTime = 5;
+	public float grappleTime = 10;
 	private float timer;
 	private bool isStair;
+	private bool isAnchor;
 	private Bow shooter;
 	private int originalLayer;
+	
 
 	private const int FLIGHT_CONSTRAINTS = 104;//8 + 32 + 64. 8 = Freeze Z position. 32 & 64 = Freeze YZ rotation.
 
@@ -31,21 +34,28 @@ public class Arrow : MonoBehaviour {
 
 	}
 
+	//TODO: set timer to countDOWN, set timer time on corresponding event, then simply check to 0
 	private void ExpirationTimers() {
-		timer += Time.deltaTime;
+		timer = Time.deltaTime;
 		if(!isStair)
 		{
 			if((!stop && timer > maxFlightTime) || (stop && timer > droppedArrowLifetime)) //If flying and expire, or dropped and expire
 				shooter.ReturnArrow(this); //Return to pool
 			return;
-		} 
-		if(timer > asPlatformLifetime) //If platform and expire
+		}
+		if(isAnchor)
+		{
+			if(timer > grappleTime)
+				shooter.ReturnArrow(this);
+		}
+		else if(timer > asPlatformLifetime) //If platform and expire
 			shooter.ReturnArrow(this); //Return to pool
 	}
 
 	public void Reset() {
 		stop = false;
 		isStair = false;
+		isAnchor = false;
 		timer = 0;
 		rigid.isKinematic = false;
 		rigid.velocity = transform.forward * speed;
@@ -78,10 +88,10 @@ public class Arrow : MonoBehaviour {
 
 		stop = true;
 		timer = 0;
-		if(gameObject.layer == 9 || gameObject.layer == 1)
+		if(gameObject.layer == 14 || gameObject.layer == 1)
 			return;
 
-		if(collision.collider.gameObject.layer == 9 && !collision.collider.gameObject.CompareTag("UnsusedArrow"))
+		if(collision.collider.gameObject.layer == 14 && !collision.collider.gameObject.CompareTag("UnsusedArrow"))
 		{
 			rigid.isKinematic = true;
 			rigid.velocity = Vector3.zero;
@@ -95,5 +105,9 @@ public class Arrow : MonoBehaviour {
 
 		}
 
+	}
+
+	public void OnGrapple() {
+		isAnchor = true;
 	}
 }
