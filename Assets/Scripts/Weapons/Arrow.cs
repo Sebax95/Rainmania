@@ -106,7 +106,7 @@ public class Arrow : MonoBehaviour, IDamager {
 			gameObject.tag = BAD_ARROW_TAG;
 			//isStair = true;
 			timer = asPlatformLifetime;
-			if(collision.collider.gameObject.CompareTag(ANCHORABLE_TAG))
+			if(collision.collider.gameObject.tag == ANCHORABLE_TAG)
 				anchor.enabled = true;
 		} else
 		{
