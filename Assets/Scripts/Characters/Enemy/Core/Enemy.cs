@@ -58,10 +58,7 @@ public class Enemy : Character
             return false;
     }
 
-    public override void Die(IDamager source)
-    {
-        Destroy(this.gameObject);
-    }
+    public override void Die(IDamager source)    {    }
 
     public override void Move(Vector2 direction)
     {

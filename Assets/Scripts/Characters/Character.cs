@@ -8,6 +8,7 @@ public abstract class Character : Controllable, IDamageable, IHealable, ITeam {
 	[SerializeField]
 	protected Team myTeam;
 	public float maxHealth;
+	[SerializeField]
 	protected float health;
 
 	public Team GetTeam => myTeam;

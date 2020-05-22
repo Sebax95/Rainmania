@@ -10,7 +10,7 @@ public class PoisonBullet : MonoBehaviour, IDamager
     public Team AssignTeam;
     public GameObject SourceObject => gameObject;
     public Vector3 gravity;
-
+    public bool useGravity;
     public Team GetTeam => AssignTeam;
 
     private void Awake()
@@ -21,7 +21,11 @@ public class PoisonBullet : MonoBehaviour, IDamager
         Destroy(this.gameObject, 5);
     }
 
-    private void FixedUpdate() => rb.AddForce(gravity.y * Vector3.up);
+    private void FixedUpdate()
+    {
+        if(useGravity)
+            rb.AddForce(gravity.y * Vector3.up);
+    }
 
     private void OnTriggerEnter(Collider other)
     {

@@ -8,19 +8,25 @@ public enum StatesGreenEnemy {
 }
 
 public class GreenEnemy : Enemy {
-	[Header("Green Enemy Variables")]
+
+    [Header("Green Enemy Variables")]
 	public FSM<GreenEnemy> fsm;
-	public PoisonBullet bulletPref;
+    public bool isDeath;
+	public GreenEnemyView viewEnem;
+
+    [Header("Jump Variables")]
 	public SphereCollider jumpingPad;
 	public float forceJump;
-	[Range(-5f, 5f)]
+
+    [Header("Shoot Variables")]
+    public bool useParabola;
+    [Range(-5f, 5f)]
 	public float altBullet = 2;
 	private float altBulletSave;
 	public bool shootWithGravity;
-
+	public PoisonBullet bulletPref;
 	public bool canShoot;
 
-	public GreenEnemyView viewEnem;
 
 	protected override void Awake() {
 		base.Awake();
@@ -38,13 +44,32 @@ public class GreenEnemy : Enemy {
 	}
 
 	public void Update() {
+        if (isDeath) return;
 		fsm.Update();
-	}
-	public void FixedUpdate() {
-		fsm.FixedUpdate();
+    }
+    public void FixedUpdate() {
+        if (isDeath) return;    
+        fsm.FixedUpdate();
 	}
 
-	public void Shoot() {
+    public override void Damage(int amount, IDamager source)
+    {
+        if (!source.GetTeam.CanDamage(myTeam))
+            return;
+        health -= amount;
+        viewEnem.ActivateTriggers(2);
+        if (health < 0)
+            Die(source);
+
+    }
+    public override void Die(IDamager source)
+    {
+        isDeath = true;
+        viewEnem.ActivateBool(0, true);
+        Destroy(gameObject, 2);
+    }
+
+    public void Shoot() {
 		if(canShoot)
 		{
 			viewEnem.ActivateTriggers(0);
@@ -81,8 +106,17 @@ public class GreenEnemy : Enemy {
 			obj.gravity.y *= -1;
 		}
 
-		obj.rb.velocity = ParabolicShot(target.transform, altBullet, obj.gravity);
-		altBullet = altBulletSave;
+        if(useParabola)
+        {
+            obj.useGravity = true;
+            obj.rb.velocity = ParabolicShot(target.transform, altBullet, obj.gravity);
+		    altBullet = altBulletSave;
+        }
+        else
+        {
+            obj.useGravity = false;
+            obj.rb.velocity = (target.transform.position - transform.position).normalized * obj.force + (Vector3.up * 0.5f);
+        }
 		StartCoroutine(CdShoot());
 	}
 
@@ -95,7 +129,10 @@ public class GreenEnemy : Enemy {
 		{
 			var jump = collision.transform.GetComponent<IAppliableForce>();
 			if(jump != null)
+            {
 				jump.ApplyForce(Vector3.up * forceJump, ForceMode.Impulse);
+                viewEnem.ActivateTriggers(1);
+            }
 		}
 	}
 }

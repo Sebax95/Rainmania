@@ -18,7 +18,7 @@ public class GreenEnemyView : MonoBehaviour
 
     public void ActivateTriggers(int index) => anim.SetTrigger(triggersNames[index]);
 
-    public void ActivateBool(int index, bool value) => anim.SetBool(triggersNames[index], value);
+    public void ActivateBool(int index, bool value) => anim.SetBool(boolsNames[index], value);
 
 
 }
