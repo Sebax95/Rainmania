@@ -181,8 +181,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929282897438584988}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 55b5455380d2b434290dda54eaf3a5e7, type: 3}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: b041d4ee210180546a091838e045e6da, type: 3}
+  m_Controller: {fileID: 9100000, guid: db8d2f6877e7e4945bd8227155008a27, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
   maxHealth: 100
+  health: 0
   speed: 5
   cdTimer: 2
   output: {fileID: 7202823243083157288}
@@ -250,14 +251,16 @@ MonoBehaviour:
   targetActual: {fileID: 0}
   rb: {fileID: 0}
   target: {fileID: 0}
-  bulletPref: {fileID: 2614553126292014056, guid: f178021dc4e78b748b77863bff571347,
-    type: 3}
+  isDeath: 0
+  viewEnem: {fileID: 0}
   jumpingPad: {fileID: 0}
   forceJump: 10
+  useParabola: 0
   altBullet: 0
   shootWithGravity: 0
+  bulletPref: {fileID: 2614553126292014056, guid: f178021dc4e78b748b77863bff571347,
+    type: 3}
   canShoot: 0
-  viewEnem: {fileID: 0}
 --- !u!114 &929282897438584986
 MonoBehaviour:
   m_ObjectHideFlags: 0
