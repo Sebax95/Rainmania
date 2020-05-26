@@ -209,10 +209,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.074671894
-  m_Height: 0.89050937
+  m_Radius: 0.07
+  m_Height: 0.84123373
   m_Direction: 1
-  m_Center: {x: 0, y: 0.43796182, z: 0}
+  m_Center: {x: -0, y: 0.4129485, z: 0}
 --- !u!114 &953379170742318666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityMult: 9
-  whipDistance: 5
+  whipDistance: 2
 --- !u!114 &4727816423271630307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,8 +302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   whipHitboxes:
-  - centerOffset: {x: 0, y: 0.5, z: 1.5}
-    halfExtends: {x: 0.3, y: 0.3, z: 1}
+  - centerOffset: {x: 0, y: 0.5, z: 1.67}
+    halfExtends: {x: 0.5, y: 0.3, z: 1.53}
     orientation: {x: 0, y: 0, z: 0}
   - centerOffset: {x: 0, y: 2, z: 1.2}
     halfExtends: {x: 0.3, y: 0.3, z: 1}
@@ -329,6 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: 30121d8074a878c44a47b4b36ed20b8c, type: 2}
   maxHealth: 5
+  health: 0
   speed: 3
   forceJump: 5
   fallMultiplier: 2.5
@@ -775,7 +776,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fcd5509363bf2be4e91f775508014440, type: 2}
+      objectReference: {fileID: 2100000, guid: 148c0836c6fb0a5458f8d9143964d202, type: 2}
     - target: {fileID: -3557222754242545146, guid: 65ff5f0a05029ca4b98f2225f7193387,
         type: 3}
       propertyPath: m_Layer

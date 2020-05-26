@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6bd73ff8ffe9a2745a2a65791d5c63e3, type: 2}
+  - {fileID: 2100000, guid: 148c0836c6fb0a5458f8d9143964d202, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   asPlatformLifetime: 10
   droppedArrowLifetime: 2
   maxFlightTime: 10
+  grappleTime: 10
 --- !u!54 &5142224958579746064
 Rigidbody:
   m_ObjectHideFlags: 0
