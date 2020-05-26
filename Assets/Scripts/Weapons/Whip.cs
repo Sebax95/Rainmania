@@ -44,13 +44,13 @@ public class Whip : Weapon {
 		for(int i = 0; i < c; i++)
 			boxcastCache[i] = null;
 
-		c = Physics.OverlapBoxNonAlloc(pos + rot * hitbox.centerOffset, hitbox.halfExtends,
+		c = Physics.OverlapBoxNonAlloc(pos + rot * hitbox.CenterOffset, hitbox.halfExtends,
 			boxcastCache, hitbox.GetAdjustedOrientation(rot));
 
 		if(c > boxcastCache.Length)
 		{
 			boxcastCache = new Collider[c];
-			Physics.OverlapBoxNonAlloc(pos + rot * hitbox.centerOffset, hitbox.halfExtends,
+			Physics.OverlapBoxNonAlloc(pos + rot * hitbox.CenterOffset, hitbox.halfExtends,
 				boxcastCache, hitbox.GetAdjustedOrientation(rot));
 		}
 
@@ -118,7 +118,7 @@ public class Whip : Weapon {
 		Vector3 position = transform.position;
 		foreach(var item in whipHitboxes)
 		{
-			Vector3 centre = position + rotation * item.centerOffset;
+			Vector3 centre = position + rotation * item.CenterOffset;
 	#region points
 			points[0] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, item.halfExtends.y, item.halfExtends.z);
 			points[1] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, item.halfExtends.y, -item.halfExtends.z);
@@ -160,10 +160,12 @@ public class Whip : Weapon {
 
 [Serializable]
 public struct BoxCastParams {
-	public Vector3 centerOffset;
+	public Vector3 closePoint;
 	public Vector3 halfExtends;
 
 	public Vector3 orientation;
 
+	public Vector3 CenterOffset => Quaternion.Euler(orientation) * new Vector3(closePoint.x, closePoint.y, (closePoint.z + halfExtends.z)) ;
 	public Quaternion GetAdjustedOrientation(Quaternion parentRotation) => parentRotation * Quaternion.Euler(orientation);
+
 }
