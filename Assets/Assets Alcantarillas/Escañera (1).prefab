@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1092333402775341473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4531262590950560329}
+  - component: {fileID: 5477540275858342206}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4531262590950560329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092333402775341473}
+  m_LocalRotation: {x: 0.6532815, y: -0.27059805, z: 0.27059802, w: 0.6532815}
+  m_LocalPosition: {x: -0.327, y: 0, z: -0.327}
+  m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Children: []
+  m_Father: {fileID: 5669205820092658949}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 45}
+--- !u!65 &5477540275858342206
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092333402775341473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.115642115, y: 2.776177, z: 1}
+  m_Center: {x: 0.4421749, y: 0.0074627725, z: 0.000000036813397}
 --- !u!1 &7511843225027535500
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +55,7 @@ GameObject:
   - component: {fileID: 5669205820092658949}
   - component: {fileID: 753192109154781051}
   - component: {fileID: 3981795300512214346}
-  - component: {fileID: 4339668895548741925}
+  - component: {fileID: 3434217752725425783}
   m_Layer: 0
   m_Name: "Esca\xF1era (1)"
   m_TagString: Untagged
@@ -29,7 +73,8 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4531262590950560329}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
@@ -79,8 +124,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4339668895548741925
-MeshCollider:
+--- !u!65 &3434217752725425783
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,7 +134,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 108495644253967093, guid: 696f35c84432c0e4b91402eefe565394, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.08441806, y: 2.0000005, z: 1.9736152}
+  m_Center: {x: -0.957791, y: 3.4565668e-17, z: -0.013192654}
