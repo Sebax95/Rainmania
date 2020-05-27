@@ -30,5 +30,5 @@ Material:
     m_Floats:
     - _Float0: 2
     - _Scale: 2
-    - __dirty: 0
+    - __dirty: 1
     m_Colors: []
