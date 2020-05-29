@@ -8,6 +8,7 @@ TagManager:
   - Gancho
   - Arrow
   - UnsusedArrow
+  - Roof
   layers:
   - Default
   - TransparentFX

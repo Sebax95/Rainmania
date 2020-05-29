@@ -1,21 +1,31 @@
 ﻿using UnityEngine;
 
 public class SwingAnim : MonoBehaviour {
-	public string enterParameter;
+	public string swingingParameter;
 	public string swingValueParameter;
-	public string exitParameter;
+	public string wrappedSwingingParameter;
 
 	private Animator animator;
 
-	private void Start() => 
+	private void Start() =>
 		animator = GetComponent<Animator>();
 
-	public void BeginSwing() => 
-		animator.SetTrigger(enterParameter);
+	public void BeginSwing() =>
+		animator.SetBool(swingingParameter, true);
 
 	public void EndSwing() =>
-		animator.SetTrigger(enterParameter);
+		animator.SetBool(swingingParameter, true);
 
-	public void UpdateStatus(float angle) => 
-		animator.SetFloat(swingValueParameter, 1 - (angle / 90));
+	public void UpdateStatus(float angle) {
+		float mod = 0;
+		float mult = 1;
+		if(transform.forward.x < 0)
+		{
+			mod = 2;
+			mult = -1;
+		}
+		float value = mod + mult * 1 + (angle / Swinger.HALF_PI);
+		animator.SetFloat(swingValueParameter, value);
+		animator.SetFloat(wrappedSwingingParameter, value % 1);
+	}
 }

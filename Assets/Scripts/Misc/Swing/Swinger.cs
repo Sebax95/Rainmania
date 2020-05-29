@@ -24,6 +24,7 @@ public class Swinger : Controllable, IMoveOverride {
 	private bool prevGravitystate;
 
 	float GetTime => Time.time - anchorTime;
+	public const float HALF_PI = 1.57079637F;
 
 
 	private void Awake() {
@@ -52,6 +53,7 @@ public class Swinger : Controllable, IMoveOverride {
 
 	private void Internal_SetupSwing(Vector3 relativePos) {
 		initialAngle = Vector3.SignedAngle(Vector3.down, -relativePos.ZeroZ(), Vector3.forward) * Mathf.Deg2Rad;
+		initialAngle = Mathf.Clamp(initialAngle, -HALF_PI, HALF_PI);
 		//distanceFromAnchor = relativePos.magnitude;
 		anim.BeginSwing();
 		anchorTime = Time.time;
