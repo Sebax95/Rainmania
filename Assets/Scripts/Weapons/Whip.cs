@@ -22,7 +22,7 @@ public class Whip : Weapon {
 
 	private Collider[] boxcastCache = new Collider[1];
 
-	public override GameObject SourceObject => throw new System.NotImplementedException();
+	public override GameObject SourceObject => gameObject;
 	public override Team GetTeam => wielder.GetTeam;
 
 	public const string NAME = "Whip";
@@ -34,25 +34,12 @@ public class Whip : Weapon {
 
 	}
 
-	public void WhipAttack(TargetDirection direction) {
-		var hitbox = whipHitboxes[(int)direction];
-
-		var pos = transform.position;
-		var rot = transform.rotation;
-
-		int c = boxcastCache.Length;
-		for(int i = 0; i < c; i++)
-			boxcastCache[i] = null;
-
-		c = Physics.OverlapBoxNonAlloc(pos + rot * hitbox.centerOffset, hitbox.halfExtends,
-			boxcastCache, hitbox.GetAdjustedOrientation(rot));
-
-		if(c > boxcastCache.Length)
-		{
-			boxcastCache = new Collider[c];
-			Physics.OverlapBoxNonAlloc(pos + rot * hitbox.centerOffset, hitbox.halfExtends,
-				boxcastCache, hitbox.GetAdjustedOrientation(rot));
-		}
+	/// <summary>
+	/// Return true if it should break the attack loop early on grab. Otherwise false.
+	/// </summary>
+	/// <returns></returns>
+	public bool WhipAttack(TargetDirection direction) {
+		DetectHits(direction);
 
 		bool anchorAssigned = false;
 		foreach(var item in boxcastCache)
@@ -83,6 +70,28 @@ public class Whip : Weapon {
 				swinger.StartSwing();
 			}
 		}
+		return anchorAssigned;
+	}
+
+	private void DetectHits(TargetDirection direction) {
+		var hitbox = whipHitboxes[(int)direction];
+
+		var pos = transform.position;
+		var rot = transform.rotation;
+
+		int c = boxcastCache.Length;
+		for(int i = 0; i < c; i++)
+			boxcastCache[i] = null;
+
+		c = Physics.OverlapBoxNonAlloc(pos + rot * hitbox.CenterOffset, hitbox.halfExtends,
+			boxcastCache, hitbox.GetAdjustedOrientation(rot));
+
+		if(c > boxcastCache.Length)
+		{
+			boxcastCache = new Collider[c];
+			Physics.OverlapBoxNonAlloc(pos + rot * hitbox.CenterOffset, hitbox.halfExtends,
+				boxcastCache, hitbox.GetAdjustedOrientation(rot));
+		}
 	}
 
 	public override void Attack(Vector2 direction) {
@@ -99,7 +108,19 @@ public class Whip : Weapon {
 		else
 			directionIndex = TargetDirection.Horizontal;
 
-		WhipAttack(directionIndex);
+		StartCoroutine(Coroutine_RepeatAttack(directionIndex));
+	}
+
+	private IEnumerator Coroutine_RepeatAttack(TargetDirection direction) {
+		float timer = 0;
+		while(timer < attackDuration)
+		{
+			timer += Time.deltaTime;
+			bool breakLoop = WhipAttack(direction);
+			if(breakLoop)
+				break;
+			yield return null;
+		}
 	}
 
 
@@ -118,7 +139,7 @@ public class Whip : Weapon {
 		Vector3 position = transform.position;
 		foreach(var item in whipHitboxes)
 		{
-			Vector3 centre = position + rotation * item.centerOffset;
+			Vector3 centre = position + rotation * item.CenterOffset;
 	#region points
 			points[0] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, item.halfExtends.y, item.halfExtends.z);
 			points[1] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, item.halfExtends.y, -item.halfExtends.z);
@@ -137,33 +158,17 @@ public class Whip : Weapon {
 		}
 	}
 #endif
-	#region Unused
-	/*
-	public void GrabAndPull(Rigidbody rigid) {
-		if(nearGrappleable != null)
-		{
-			if((nearGrappleable.transform.position - transform.position).sqrMagnitude > 10f.Squared())
-			{
-				nearGrappleable = null;
-			} else
-			{
-				dir = nearGrappleable.transform.position - transform.position;
-
-				rigid.velocity = new Vector3(dir.x, dir.y, dir.z) * speed;
-			}
-		}
-	}
-	*/
-	#endregion
 
 }
 
 [Serializable]
 public struct BoxCastParams {
-	public Vector3 centerOffset;
+	public Vector3 closePoint;
 	public Vector3 halfExtends;
 
 	public Vector3 orientation;
 
+	public Vector3 CenterOffset => Quaternion.Euler(orientation) * new Vector3(closePoint.x, closePoint.y, (closePoint.z + halfExtends.z)) ;
 	public Quaternion GetAdjustedOrientation(Quaternion parentRotation) => parentRotation * Quaternion.Euler(orientation);
+
 }

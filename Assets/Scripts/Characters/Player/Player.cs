@@ -21,10 +21,10 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 	private int groundedFramesCounter;
 	public bool Grounded { get; private set; }
 
-	private Rigidbody rb;
+	
 	private MomentumKeeper momentum;
 
-	private PlayerAnim playerAnimator;
+	public PlayerAnim PlayerAnimator { get; private set; }
 
 	private bool canAttack = true;
 	private float currentCooldown;
@@ -52,13 +52,12 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		momentum = GetComponent<MomentumKeeper>();
 		activeWeapon = weapons.Current;
 
-		rb = GetComponent<Rigidbody>();
-		playerAnimator = GetComponent<PlayerAnim>();
+		PlayerAnimator = GetComponent<PlayerAnim>();
 		//Temp, despues ver como SOLIDear asignacion de controller
 
 
 		rb = GetComponent<Rigidbody>();
-		playerAnimator = GetComponent<PlayerAnim>();
+		PlayerAnimator = GetComponent<PlayerAnim>();
 	}
 	private void Update() {
 		////legs
@@ -76,7 +75,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		{
 			
 			rb.velocity = rb.velocity.ZeroY();
-			playerAnimator.TriggerAction(0);
+			PlayerAnimator.TriggerAction(0);
 			ForceJump();
 			//colliders legs off
 			
@@ -90,7 +89,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		if (canMove)
 		{
 			rb.AddForce(Vector3.up * forceJump, ForceMode.VelocityChange);
-			playerAnimator.Jump();
+			PlayerAnimator.Jump();
 			//playerAnimator.thisAnimator.SetBool("inGround", false);
 			holdingJump = true;
 			//bodyUpCollider.enabled = true;
@@ -119,7 +118,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 
 			rb.velocity = newVel + momentum.velocity.ZeroY();
 
-			playerAnimator.SetSpeeds(direction);
+			PlayerAnimator.SetSpeeds(direction);
 		}
 
 	}
@@ -132,7 +131,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
 		SetCooldown();
 		activeWeapon.Attack(direction);
-		playerAnimator.Attack(direction, activeWeapon.Name);
+		PlayerAnimator.Attack(direction, activeWeapon.Name);
 	}
 
 	public void SwitchWeapons() 
@@ -183,6 +182,6 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 
 	public void ApplyForce(Vector3 direction, ForceMode mode) {
 		rb.AddForce(direction, mode);
-		playerAnimator.TriggerAction(0);
+		PlayerAnimator.TriggerAction(0);
 	}
 }

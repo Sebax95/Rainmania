@@ -3576,6 +3576,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8703314908208111669, guid: 58edb0b88bc26c64384d908a0e5615fb,
+        type: 3}
+      propertyPath: m_Name
+      value: Techo centro (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703314908208111669, guid: 58edb0b88bc26c64384d908a0e5615fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703314908208111669, guid: 58edb0b88bc26c64384d908a0e5615fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Roof
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12c0bb5af12bb746a0608402f35d9f6, type: 3}
 --- !u!1001 &197362852
@@ -4412,7 +4427,12 @@ PrefabInstance:
     - target: {fileID: 6645816119622068434, guid: 0cb6e7c07d096164594e5f12c1e0f328,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703314908208111669, guid: 58edb0b88bc26c64384d908a0e5615fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Roof
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb6e7c07d096164594e5f12c1e0f328, type: 3}
@@ -5040,7 +5060,18 @@ PrefabInstance:
     - target: {fileID: 8706828180517716042, guid: 264c1255f5a84da4c926a7d55f15fc13,
         type: 3}
       propertyPath: m_Name
-      value: Pasaje de agua piso (46)
+
+      value: Techo centro (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703314908208111669, guid: 58edb0b88bc26c64384d908a0e5615fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703314908208111669, guid: 58edb0b88bc26c64384d908a0e5615fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Roof
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 264c1255f5a84da4c926a7d55f15fc13, type: 3}
@@ -27486,18 +27517,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4656397996379037583, guid: 46e85807d1a807f48ac63caa91f030bc,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: bodyUpCollider
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 7392810780636437599, guid: 46e85807d1a807f48ac63caa91f030bc,
+    - target: {fileID: 3943775699194359029, guid: 97a9e25bd050bd04ea817f5c94710686,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.540001
+      value: 12.42
       objectReference: {fileID: 0}
     - target: {fileID: 7392810780636437599, guid: 46e85807d1a807f48ac63caa91f030bc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9671102
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 7392810780636437599, guid: 46e85807d1a807f48ac63caa91f030bc,
         type: 3}

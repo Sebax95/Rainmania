@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113369516888604865}
   m_LocalRotation: {x: 4.920985e-16, y: 0.7071068, z: 4.920985e-16, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 0.36426044, y: 0.36425897, z: 0.36426058}
   m_Children:
   - {fileID: 3540944613691951438}
@@ -141,6 +141,8 @@ GameObject:
   - component: {fileID: 827735113966670542}
   - component: {fileID: 8736888454845942043}
   - component: {fileID: 1691721428244040750}
+  - component: {fileID: 2599668707758089970}
+  - component: {fileID: 5196582193175230516}
   m_Layer: 8
   m_Name: Character 1
   m_TagString: Untagged
@@ -155,7 +157,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9082494020295089658}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -163,7 +165,7 @@ Transform:
   - {fileID: 2829201438625918009}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &6513376919417720055
 Animator:
   serializedVersion: 3
@@ -209,10 +211,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.07
-  m_Height: 0.84123373
+  m_Radius: 0.09
+  m_Height: 0.85
   m_Direction: 1
-  m_Center: {x: -0, y: 0.4129485, z: 0}
+  m_Center: {x: 0, y: -0.09, z: 0}
 --- !u!114 &953379170742318666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,13 +304,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   whipHitboxes:
-  - centerOffset: {x: 0, y: 0.5, z: 1.67}
-    halfExtends: {x: 0.5, y: 0.3, z: 1.53}
+  - closePoint: {x: 0, y: 0, z: 0.04}
+    halfExtends: {x: 0.3, y: 0.3, z: 1.19}
     orientation: {x: 0, y: 0, z: 0}
-  - centerOffset: {x: 0, y: 2, z: 1.2}
+  - closePoint: {x: 0, y: 0, z: 0.18}
     halfExtends: {x: 0.3, y: 0.3, z: 1}
     orientation: {x: -45, y: 0, z: 0}
-  - centerOffset: {x: 0, y: 2.5, z: 0}
+  - closePoint: {x: 0, y: 0, z: 0.3}
     halfExtends: {x: 0.3, y: 0.3, z: 1}
     orientation: {x: -90, y: 0, z: 0}
   speed: 2.5
@@ -337,9 +339,36 @@ MonoBehaviour:
   validFloorLayers:
     serializedVersion: 2
     m_Bits: 1537
-  groundedTreshold: 1
-  groundCheckOffset: {x: 0, y: 0.5, z: 0}
+  groundedTreshold: 1.5
+  groundCheckOffset: {x: 0, y: 0, z: 0}
   thisControllerPrefab: {fileID: 0}
+--- !u!114 &2599668707758089970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082494020295089658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959041a5e4d1e474cb7bbb13f4ed63d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swingingParameter: Balanceo
+  swingValueParameter: BalanceAngle
+  wrappedSwingingParameter: WrappedAngle
+--- !u!114 &5196582193175230516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082494020295089658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d1d9b8d5b74b9478167070e6489672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7077938400280168227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -690,12 +719,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 65ff5f0a05029ca4b98f2225f7193387,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.039
+      value: -0.461
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 65ff5f0a05029ca4b98f2225f7193387,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.163
+      value: 0.201
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 65ff5f0a05029ca4b98f2225f7193387,
         type: 3}

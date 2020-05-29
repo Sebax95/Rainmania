@@ -19,15 +19,19 @@ public class Swinger : Controllable, IMoveOverride {
 
 
 	private Rigidbody thisRB;
+	private SwingAnim anim;
 	private MomentumKeeper momentum;
 	private bool prevGravitystate;
 
 	float GetTime => Time.time - anchorTime;
+	public const float HALF_PI = 1.57079637F;
+
 
 	private void Awake() {
 		thisRB = GetComponent<Rigidbody>();
 		momentum = GetComponent<MomentumKeeper>();
 		swingOverrider = GetComponent<IMoveOverrideable>();
+		anim = GetComponent<SwingAnim>();
 
 		ControllerHandler.Instance.RequestAssignation(Controller.Create<PlayerSwingerController>(), this);
 	}
@@ -49,7 +53,9 @@ public class Swinger : Controllable, IMoveOverride {
 
 	private void Internal_SetupSwing(Vector3 relativePos) {
 		initialAngle = Vector3.SignedAngle(Vector3.down, -relativePos.ZeroZ(), Vector3.forward) * Mathf.Deg2Rad;
+		initialAngle = Mathf.Clamp(initialAngle, -HALF_PI, HALF_PI);
 		//distanceFromAnchor = relativePos.magnitude;
+		anim.BeginSwing();
 		anchorTime = Time.time;
 		initialState = Mathf.Sqrt(gravityMult / whipDistance);
 	}
@@ -63,6 +69,7 @@ public class Swinger : Controllable, IMoveOverride {
 	public Vector3 UpdateSwing() {
 		float newAngle = initialAngle * Mathf.Cos(initialState * GetTime);
 		var anchorPos = dependOnTransform ? anchorTransform.position : this.anchorPos;
+		anim.UpdateStatus(newAngle);
 		return new Vector3(
 			anchorPos.x + (Mathf.Sin(newAngle) * whipDistance),
 			anchorPos.y - (Mathf.Cos(newAngle) * whipDistance),
@@ -106,6 +113,7 @@ public class Swinger : Controllable, IMoveOverride {
 	public void Release(IMoveOverrideable user) {
 		var velocity = GetVelocity();
 		user.Release(this);
+		anim.EndSwing();
 
 		var player = user as Controllable;
 		if(player != null)
