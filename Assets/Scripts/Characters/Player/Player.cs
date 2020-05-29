@@ -21,7 +21,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 	private int groundedFramesCounter;
 	public bool Grounded { get; private set; }
 
-	private Rigidbody rb;
+	
 	private MomentumKeeper momentum;
 
 	public PlayerAnim PlayerAnimator { get; private set; }
@@ -52,7 +52,6 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		momentum = GetComponent<MomentumKeeper>();
 		activeWeapon = weapons.Current;
 
-		rb = GetComponent<Rigidbody>();
 		PlayerAnimator = GetComponent<PlayerAnim>();
 		//Temp, despues ver como SOLIDear asignacion de controller
 
