@@ -14,7 +14,7 @@ public class SwingAnim : MonoBehaviour {
 		animator.SetBool(swingingParameter, true);
 
 	public void EndSwing() =>
-		animator.SetBool(swingingParameter, true);
+		animator.SetBool(swingingParameter, false);
 
 	public void UpdateStatus(float angle) {
 		float mod = 0;
@@ -24,7 +24,7 @@ public class SwingAnim : MonoBehaviour {
 			mod = 2;
 			mult = -1;
 		}
-		float value = mod + mult * 1 + (angle / Swinger.HALF_PI);
+		float value = mod + mult * (1 + (angle / Swinger.HALF_PI));
 		animator.SetFloat(swingValueParameter, value);
 		animator.SetFloat(wrappedSwingingParameter, value % 1);
 	}
