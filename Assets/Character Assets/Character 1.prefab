@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3720366598181040971}
   m_LocalRotation: {x: -0.27059805, y: -0.6532815, z: -0.27059805, w: 0.6532815}
-  m_LocalPosition: {x: -1.19, y: 3.28, z: 0}
+  m_LocalPosition: {x: -1.77, y: 3.86, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 5774018139660095153}
@@ -87,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4394292887584080806}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.23, y: 4, z: 0}
+  m_LocalPosition: {x: 0.23, y: 4.6, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 5774018139660095153}
@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8843005779245988793}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.0000002, y: 1.5, z: 0}
+  m_LocalPosition: {x: -2.15, y: 1.5, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 5774018139660095153}
@@ -288,8 +288,8 @@ MonoBehaviour:
   - {fileID: 3540944613691951438}
   - {fileID: 67740709604551672}
   - {fileID: 7944931631656711970}
-  attackWindup: 0.2
-  attackCooldown: 0.5
+  attackWindup: 0
+  attackCooldown: 0.25
 --- !u!114 &8736888454845942043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,9 +331,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: 30121d8074a878c44a47b4b36ed20b8c, type: 2}
   maxHealth: 5
-  health: 0
+  health: 5
   speed: 3
-  forceJump: 5
+  forceJump: 4.4
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
   validFloorLayers:

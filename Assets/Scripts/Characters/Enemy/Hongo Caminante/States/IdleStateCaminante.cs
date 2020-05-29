@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleState : State<GreenEnemy>
+public class IdleStateCaminante : State<HongoCaminante>
 {
-    public IdleState(GreenEnemy owner, FSM<GreenEnemy> fsm) : base(owner, fsm)
+    public IdleStateCaminante(HongoCaminante owner, FSM<HongoCaminante> fsm) : base(owner, fsm)
     {
     }
 
     public override void Enter()
     {
-        
+        _owner.viewEnem.ActivateBool(0, false);
     }
 
     public override void Exit()
@@ -26,7 +26,6 @@ public class IdleState : State<GreenEnemy>
     public override void UpdateState()
     {
         if (_owner.LineOfSight())
-            _fsm.SetState(StatesEnemies.Shoot);
-
+            _fsm.SetState(StatesEnemies.Walk);
     }
 }

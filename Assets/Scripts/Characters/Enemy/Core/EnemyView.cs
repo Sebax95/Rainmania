@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GreenEnemyView : MonoBehaviour
+public class EnemyView : MonoBehaviour
 {
-    private GreenEnemy enemy;
+
     private Animator anim;
 
     public string[] triggersNames;
     public string[] boolsNames;
 
-    void Awake()
-    {
-        enemy = GetComponent<GreenEnemy>();
-        anim = GetComponent<Animator>();
-    }
+    void Awake() => anim = GetComponent<Animator>();    
 
     public void ActivateTriggers(int index) => anim.SetTrigger(triggersNames[index]);
 

@@ -3,10 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Unity;
 
+public enum StatesEnemies
+{
+    Idle,
+    Shoot,
+    Walk,
+    Attack
+}
+
 public class Enemy : Character
 {
     [Header("Enemy Variables")]
     public float speed;
+    public EnemyView viewEnem;
+    public LayerMask groundMask;
 
     [Header("Shooting")]
     public float cdTimer;
@@ -21,8 +31,8 @@ public class Enemy : Character
     private float _distanceToTarget;
     public Vector3 lastPosition;
     public LayerMask gameAreaMask;
-    public LayerMask targetMask;
-    public Transform targetActual;
+
+    public bool showGizmos;
 
     [HideInInspector]
     public Rigidbody rb;
@@ -31,7 +41,8 @@ public class Enemy : Character
     protected virtual void Awake()
     {
         target = FindObjectOfType<Player>();
-        rb = GetComponent<Rigidbody>();
+        viewEnem = GetComponent<EnemyView>();
+        rb = this.GetComponent<Rigidbody>();
     }
 
     public bool LineOfSight()
@@ -60,6 +71,19 @@ public class Enemy : Character
 
     public override void Die(IDamager source)    {    }
 
+    public Vector3 ParabolicShot(Transform target, float height, Vector3 gravity)
+    {
+        float displacementY = target.position.y - output.position.y;
+        Vector3 displacementXZ = new Vector3(target.position.x - output.position.x, 0, target.transform.position.z - output.position.z);
+
+        float time = Mathf.Sqrt(Mathf.Abs(-2 * height / gravity.y)) + Mathf.Sqrt(Mathf.Abs(2 * (displacementY - height) / gravity.y));
+
+        Vector3 velocityY = Vector3.up * Mathf.Sqrt(Mathf.Abs(2 * gravity.y * height));
+        Vector3 velocityXZ = displacementXZ / time;
+
+        return velocityXZ + velocityY * -Mathf.Sign(gravity.y);
+    }
+
     public override void Move(Vector2 direction)
     {
         var tempVel = rb.velocity;
@@ -71,6 +95,7 @@ public class Enemy : Character
 
     private void OnDrawGizmosSelected()
     {
+        if (!showGizmos) return;
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, viewDistance);
 

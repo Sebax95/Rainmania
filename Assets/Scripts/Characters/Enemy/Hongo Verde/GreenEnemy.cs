@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StatesGreenEnemy {
-	Idle,
-	Shoot
-}
-
 public class GreenEnemy : Enemy {
 
     [Header("Green Enemy Variables")]
 	public FSM<GreenEnemy> fsm;
     public bool isDeath;
-	public GreenEnemyView viewEnem;
 
     [Header("Jump Variables")]
 	public SphereCollider jumpingPad;
@@ -30,17 +24,16 @@ public class GreenEnemy : Enemy {
 
 	protected override void Awake() {
 		base.Awake();
-		viewEnem = GetComponent<GreenEnemyView>();
 		fsm = new FSM<GreenEnemy>(this);
 		jumpingPad = GetComponent<SphereCollider>();
-		fsm.AddState(StatesGreenEnemy.Idle, new IdleState(this, fsm));
-		fsm.AddState(StatesGreenEnemy.Shoot, new ShootState(this, fsm));
+		fsm.AddState(StatesEnemies.Idle, new IdleState(this, fsm));
+		fsm.AddState(StatesEnemies.Shoot, new ShootState(this, fsm));
 	}
 
 	protected override void Start() {
 		base.Start();
 		altBulletSave = altBullet;
-		fsm.SetState(StatesGreenEnemy.Idle);
+		fsm.SetState(StatesEnemies.Idle);
 	}
 
 	public void Update() {
@@ -75,19 +68,7 @@ public class GreenEnemy : Enemy {
 			viewEnem.ActivateTriggers(0);
 			canShoot = false;
 		}
-	}
-
-	public Vector3 ParabolicShot(Transform target, float height, Vector3 gravity) {
-		float displacementY = target.position.y - output.position.y;
-		Vector3 displacementXZ = new Vector3(target.position.x - output.position.x, 0, target.transform.position.z - output.position.z);
-
-		float time = Mathf.Sqrt(Mathf.Abs(-2 * height / gravity.y)) + Mathf.Sqrt(Mathf.Abs(2 * (displacementY - height) / gravity.y));
-
-		Vector3 velocityY = Vector3.up * Mathf.Sqrt(Mathf.Abs(2 * gravity.y * height));
-		Vector3 velocityXZ = displacementXZ / time;
-
-		return velocityXZ + velocityY * -Mathf.Sign(gravity.y);
-	}
+	}	
 
 	public void ShootBullet() {
 		var obj = Instantiate(bulletPref, output.transform.position, Quaternion.identity);
@@ -99,7 +80,8 @@ public class GreenEnemy : Enemy {
 		{
 			if(!shootWithGravity)
 				altBullet += dist;
-		} else
+		}
+        else
 		{
 			if(!shootWithGravity)
 				altBullet += -dist;

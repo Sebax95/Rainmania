@@ -5,23 +5,23 @@ using UnityEngine;
 public class FSM<T>
 {
     private T _owner;
-    private Dictionary<StatesGreenEnemy, State<T>> _states;
+    private Dictionary<StatesEnemies, State<T>> _states;
     private State<T> _currentState;
 
     public FSM(T owner)
     {
         _owner = owner;
-        _states = new Dictionary<StatesGreenEnemy, State<T>>();
+        _states = new Dictionary<StatesEnemies, State<T>>();
     }
 
     public string ActualState => _currentState.ToString();
 
-    public void AddState(StatesGreenEnemy stateName, State<T> state)
+    public void AddState(StatesEnemies stateName, State<T> state)
     {
         _states.Add(stateName, state);
     }
 
-    public void SetState(StatesGreenEnemy stateName)
+    public void SetState(StatesEnemies stateName)
     {
         if (_currentState != null)
             _currentState.Exit();

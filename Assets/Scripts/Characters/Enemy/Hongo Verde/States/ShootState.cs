@@ -31,7 +31,7 @@ public class ShootState : State<GreenEnemy>
        if (_owner.LineOfSight())
            _owner.Shoot();
         else
-            _fsm.SetState(StatesGreenEnemy.Idle);
+            _fsm.SetState(StatesEnemies.Idle);
     }
 
 
