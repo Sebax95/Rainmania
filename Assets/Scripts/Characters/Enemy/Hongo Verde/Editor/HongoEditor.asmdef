@@ -1,0 +1,16 @@
+{
+    "name": "HongoEditor",
+    "references": [
+        "GUID:e6da52d0bd93a4d42b6e99686778bfce"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
