@@ -35,7 +35,6 @@ public class Enemy : Character
     public bool showGizmos;
 
     [HideInInspector]
-    public Rigidbody rb;
     public Player target;
 
     protected virtual void Awake()
