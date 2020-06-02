@@ -775,13 +775,13 @@ MonoBehaviour:
     m_Bits: 0
   cdTimer: 2
   output: {fileID: 5308086963005680500}
-  viewAngle: 21.46
-  viewDistance: 5.2
+  viewAngle: 20.63
+  viewDistance: 7.94
   lastPosition: {x: 0, y: 0, z: 0}
   gameAreaMask:
     serializedVersion: 2
     m_Bits: 512
-  showGizmos: 0
+  showGizmos: 1
   rb: {fileID: 0}
   target: {fileID: 0}
   isDeath: 0

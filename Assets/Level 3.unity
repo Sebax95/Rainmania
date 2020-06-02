@@ -25718,7 +25718,7 @@ PrefabInstance:
     - target: {fileID: 4218731480985010588, guid: 876da291fa6255d49ba49f7af9b080a5,
         type: 3}
       propertyPath: useParabola
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4218731480985010588, guid: 876da291fa6255d49ba49f7af9b080a5,
         type: 3}
@@ -41926,7 +41926,7 @@ PrefabInstance:
     - target: {fileID: 4218731480985010588, guid: 876da291fa6255d49ba49f7af9b080a5,
         type: 3}
       propertyPath: useParabola
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4218731480985010588, guid: 876da291fa6255d49ba49f7af9b080a5,
         type: 3}
@@ -59597,7 +59597,7 @@ PrefabInstance:
     - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
         type: 3}
       propertyPath: m_Intensity
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
         type: 3}
