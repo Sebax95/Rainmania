@@ -25,6 +25,10 @@ public class PoisonBullet : MonoBehaviour, IDamager
     {
         if(useGravity)
             rb.AddForce(gravity.y * Vector3.up);
+        else
+        {
+            transform.position += transform.forward *5 * Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,6 +40,10 @@ public class PoisonBullet : MonoBehaviour, IDamager
             child.transform.parent = other.transform;
             child.transform.localRotation = Quaternion.Euler(0, -90, 0);
             Destroy(child.gameObject, 5f);
+            Destroy(gameObject);
+        }
+        if(other.gameObject)
+        {
             Destroy(gameObject);
         }
     }

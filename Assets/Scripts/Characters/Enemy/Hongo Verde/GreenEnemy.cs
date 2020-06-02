@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class GreenEnemy : Enemy {
@@ -76,29 +78,31 @@ public class GreenEnemy : Enemy {
 		obj.AssignTeam = GetTeam;
 
 		var dist = Vector3.Distance(transform.position, target.transform.position) / 3;
-		if(altBullet >= 0)
+		if (altBullet >= 0)
 		{
-			if(!shootWithGravity)
+			if (!shootWithGravity)
 				altBullet += dist;
 		}
-        else
+		else
 		{
-			if(!shootWithGravity)
+			if (!shootWithGravity)
 				altBullet += -dist;
 			obj.gravity.y *= -1;
 		}
 
-        if(useParabola)
+		if (useParabola)
+		{
+			obj.useGravity = true;
+			obj.rb.velocity = ParabolicShot(target.transform, altBullet, obj.gravity);
+			altBullet = altBulletSave;
+		}
+		else
         {
-            obj.useGravity = true;
-            obj.rb.velocity = ParabolicShot(target.transform, altBullet, obj.gravity);
-		    altBullet = altBulletSave;
-        }
-        else
-        {
-            obj.useGravity = false;
-            obj.rb.velocity = (target.transform.position - transform.position).normalized * obj.force + (Vector3.up * 0.5f);
-        }
+
+			obj.useGravity = false;
+			obj.transform.forward = transform.forward;
+		}
+
 		StartCoroutine(CdShoot());
 	}
 
