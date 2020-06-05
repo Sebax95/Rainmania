@@ -25,7 +25,7 @@ public class IdleStateCaminante : State<HongoCaminante>
 
     public override void UpdateState()
     {
-        if (_owner.LineOfSight())
-            _fsm.SetState(StatesEnemies.Walk);
+        /*if (_owner.LineOfSight())
+            _fsm.SetState(StatesEnemies.Walk);*/
     }
 }

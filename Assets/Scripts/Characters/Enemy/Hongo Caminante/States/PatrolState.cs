@@ -8,7 +8,9 @@ public class PatrolState : State<HongoCaminante>
     public PatrolState(HongoCaminante owner, FSM<HongoCaminante> fsm) : base(owner, fsm)
     {
     }
-    
+
+    bool isRight;
+
     public override void Enter()
     {
         _owner.viewEnem.ActivateBool(0, true);
@@ -21,18 +23,35 @@ public class PatrolState : State<HongoCaminante>
 
     public override void FixedUpdateState()
     {
-        if (_owner.LineOfSight())
-            if (Vector3.Distance(_owner.transform.position, _owner.target.transform.position) < _owner.viewDistance /2)
-                _owner.Move(_owner.transform.position + -(_owner.transform.forward));
-            else
-                _fsm.SetState(StatesEnemies.Attack);
+        if (!_owner.LineOfSight())
+            Moving();
         else
-            _fsm.SetState(StatesEnemies.Idle);
+            _fsm.SetState(StatesEnemies.Attack);
+            //if (Vector3.Distance(_owner.transform.position, _owner.target.transform.position) < _owner.viewDistance / 2)
+
+    }
+
+    void Moving()
+    {
+        _owner.Move(_owner.transform.forward);
+        if (_owner.GroundChecker().collider == false || _owner.FrontChecker().collider == true)
+        {
+            if (isRight)
+            {
+                _owner.transform.rotation = Quaternion.Euler(0, -90, 0);
+                isRight = false;
+            }
+            else
+            {
+                _owner.transform.rotation = Quaternion.Euler(0, 90, 0);
+                isRight = true;
+            }
+        }
     }
 
     public override void UpdateState()
     {
-
+        
     }
 
 }

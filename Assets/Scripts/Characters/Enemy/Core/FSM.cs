@@ -14,7 +14,20 @@ public class FSM<T>
         _states = new Dictionary<StatesEnemies, State<T>>();
     }
 
-    public string ActualState => _currentState.ToString();
+    public StatesEnemies ActualState 
+    {
+        get
+        {
+            StatesEnemies state = StatesEnemies.Null;
+            foreach (var item in _states)
+            {
+                if (_states.ContainsValue(_currentState))
+                     state = item.Key;
+            }
+            return state;
+        }
+
+    }
 
     public void AddState(StatesEnemies stateName, State<T> state)
     {

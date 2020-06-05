@@ -33,7 +33,7 @@ public class AttackStateCaminante : State<HongoCaminante>
                 _owner.StartCoroutine(_owner.Jump());
             }
         }
-        else
-            _fsm.SetState(StatesEnemies.Idle);
+        else if (!_owner.LineOfSight() && _owner.canJump)
+            _fsm.SetState(StatesEnemies.Walk);
     }
 }

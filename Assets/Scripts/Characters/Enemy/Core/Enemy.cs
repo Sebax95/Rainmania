@@ -8,7 +8,8 @@ public enum StatesEnemies
     Idle,
     Shoot,
     Walk,
-    Attack
+    Attack,
+    Null
 }
 
 public class Enemy : Character
@@ -86,7 +87,7 @@ public class Enemy : Character
     public override void Move(Vector2 direction)
     {
         var tempVel = rb.velocity;
-        Vector3 newVel = new Vector3(direction.x * speed * Time.fixedDeltaTime, tempVel.y);
+        Vector3 newVel = new Vector3(direction.x * speed, tempVel.y);      
 
         rb.velocity = newVel;
         

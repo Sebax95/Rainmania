@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 648124177845347758}
   - component: {fileID: 3635927101337409027}
   m_Layer: 15
-  m_Name: Green Enemy 1 (3)
+  m_Name: Red Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a820969ee24b44f4d8998e3ac1e069b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTeam: {fileID: 0}
+  myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
   maxHealth: 2
   health: 0
   speed: 5

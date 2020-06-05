@@ -29,7 +29,7 @@ public class GreenEnemyInspector : Editor
     }
 
     public override void OnInspectorGUI()
-    {
+    { 
         showInspector.target = EditorGUILayout.ToggleLeft("Mostrar Inspector Original: ", showInspector.target);
         if (EditorGUILayout.BeginFadeGroup(showInspector.faded))
         {
@@ -43,7 +43,6 @@ public class GreenEnemyInspector : Editor
         if (showInspector.target) return;
 
         ShowNewInspector();
-
     }
 
     void ShowNewInspector()
@@ -133,7 +132,7 @@ public class GreenEnemyInspector : Editor
             {
 
 
-                bool parabolaTemp = EditorGUILayout.ToggleLeft("Usa Parabola: ", useParabola.target);
+                bool parabolaTemp = EditorGUILayout.Toggle("Usa Parabola: ", useParabola.target);
                 if (parabolaTemp != enemy.useParabola)
                 {
                     useParabola.target = parabolaTemp;
@@ -176,6 +175,7 @@ public class GreenEnemyInspector : Editor
         EditorGUILayout.EndVertical();
         #endregion
 
-        serializedObject.ApplyModifiedProperties();
+
+
     }
 }
