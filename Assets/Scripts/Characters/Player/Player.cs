@@ -5,7 +5,7 @@ using UnityEngine;
 using CustomMSLibrary.Core;
 using CustomMSLibrary.Unity;
 
-public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
+public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, IAddableVelocity {
 	private const float GROUNDED_DISTANCE = 1.1f;
 
 	public float speed;
@@ -61,13 +61,8 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		PlayerAnimator = GetComponent<PlayerAnim>();
 	}
 	private void Update() {
-		////legs
-		//legsCollider.enabled = (Grounded) ? true : false;
-		//bodyUpCollider.enabled = (Grounded) ? false : true;
-
 		DetectGround();
 		AttackTimer();
-
 
 	}
 
@@ -114,7 +109,8 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 
 			//rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, 0);
 			var vel = rb.velocity;
-			Vector3 newVel = new Vector3(direction.x * speed, vel.y);
+			//vel.y -= addedVelocity.y;
+			Vector3 newVel = new Vector3(direction.x * speed, vel.y) + addedVelocity.ZeroY();
 
 			rb.velocity = newVel + momentum.velocity.ZeroY();
 
@@ -200,4 +196,6 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		rb.AddForce(direction, mode);
 		PlayerAnimator.TriggerAction(0);
 	}
+
+	
 }
