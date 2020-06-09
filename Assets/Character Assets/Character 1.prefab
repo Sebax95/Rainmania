@@ -267,8 +267,10 @@ MonoBehaviour:
   - WhipN
   - WhipD
   - WhipU
+  - Hit
   param_bools:
   - inGround
+  - isDead
 --- !u!114 &827735113966670542
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -48,6 +48,7 @@ public class HongoCaminante : Enemy, IDamager
             return;
         if (cdDamage) return;
         cdDamage = true;
+        rb.mass = 100;
         StatesEnemies tempState = fsm.ActualState;
         fsm.SetState(StatesEnemies.Idle);
         StartCoroutine(CdDamage(tempState));
@@ -61,6 +62,7 @@ public class HongoCaminante : Enemy, IDamager
     {
         yield return new WaitForSeconds(1);
         cdDamage = false;
+        rb.mass = 1;
         fsm.SetState(state);
 
     }

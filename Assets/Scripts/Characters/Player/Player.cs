@@ -14,7 +14,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 	public float lowJumpMultiplier = 2f;
 	public LayerMask validFloorLayers;
 	private bool holdingJump = false;
-
+    
 	public float groundedTreshold;
 	public Vector3 groundCheckOffset;
 	private const int GROUND_FRAMES_PERIOD = 5;
@@ -51,12 +51,13 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		weapons.Add(GetComponent<Bow>());
 		momentum = GetComponent<MomentumKeeper>();
 		activeWeapon = weapons.Current;
-
+        canMove = true;
 		PlayerAnimator = GetComponent<PlayerAnim>();
-		//Temp, despues ver como SOLIDear asignacion de controller
+        //Temp, despues ver como SOLIDear asignacion de controller
+        health = maxHealth;
 
 
-		rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
 		PlayerAnimator = GetComponent<PlayerAnim>();
 	}
 	private void Update() {
@@ -99,8 +100,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		}
 		
 	}
-
-	public void ReleaseJump() => holdingJump = false;
+    public void ReleaseJump() => holdingJump = false;
 
 	public override void Move(Vector2 direction) {
 
@@ -139,7 +139,23 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce {
 		activeWeapon = weapons.Next;
 	}
 
-	public override void Die(IDamager source) => print(name + "die.");
+    public override void Damage(int amount, IDamager source)
+    {
+        if (!source.GetTeam.CanDamage(myTeam))
+            return;
+        health -= amount;
+        PlayerAnimator.TriggerAction(7);
+        if (health < 0)
+            Die(source);
+    }
+
+    public override void Die(IDamager source)
+    {
+        PlayerAnimator.ChangeBool(1, true);
+        canMove = false;
+        GameManager.Instance.PlayerDie();
+        Destroy(gameObject, 3);
+    }
 
 	public void Attach(IMoveOverride controller) 
 	{

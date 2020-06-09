@@ -2,20 +2,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-	public static GameManager Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
+    Action test;
 
+    private void Awake() {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    //no me putees manu, taba probando algo piola
+    IEnumerator WaitAndExecute(float timer, Action function)
+    {
+        yield return new WaitForSeconds(timer);
+        function();
+    }
 
-	private void Awake() {
-		if(Instance != null)
-		{
-			Destroy(gameObject);
-			return;
-		}
-		Instance = this;
-		DontDestroyOnLoad(gameObject);
-	}
+    public void PlayerDie()
+    {
+        test += LoadActualScene;
+        StartCoroutine(WaitAndExecute(5.5f, test));
+        test -= LoadActualScene;
+    }
 
+    public void LoadActualScene()
+    {
+        var scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
 }

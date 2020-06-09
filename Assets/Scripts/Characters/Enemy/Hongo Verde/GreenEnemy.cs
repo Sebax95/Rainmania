@@ -73,6 +73,7 @@ public class GreenEnemy : Enemy {
 	}	
 
 	public void ShootBullet() {
+        if (!target) return;
 		var obj = Instantiate(bulletPref, output.transform.position, Quaternion.identity);
 		obj.transform.right = output.transform.right;
 		obj.AssignTeam = GetTeam;

@@ -19,6 +19,7 @@ public class CameraMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!player) return;
         var smooth = Vector3.Slerp(transform.position, player.position + offset, Time.deltaTime * smoothMovement);
         transform.position = smooth;
         ModifyingOffsetZ();        

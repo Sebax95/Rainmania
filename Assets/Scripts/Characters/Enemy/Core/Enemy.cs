@@ -47,6 +47,7 @@ public class Enemy : Character
 
     public bool LineOfSight()
     {
+        if (target == null) return false;
         _dirToTarget = target.transform.position - transform.position;
         _anglesToAngle = Vector3.Angle(transform.forward, _dirToTarget);
         _distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
