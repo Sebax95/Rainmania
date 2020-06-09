@@ -27,8 +27,12 @@ class HurtAndRespawn : MonoBehaviour, IDamager {
 	public Team GetTeam => team;
 
 	private IEnumerator DelayedRelocate(GameObject victim) {
+		if(!victim)
+			yield break;
 		victim.SetActive(false);
 		yield return new WaitForSeconds(respawnDelay);
+		if(!victim)
+			yield break;
 		victim.transform.position = transform.position + relativeRespawnOffset;
 		victim.SetActive(true);
 	}
