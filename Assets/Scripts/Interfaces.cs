@@ -45,3 +45,7 @@ public interface IAppliableForce
 public interface IMainController {
 }
 
+public interface IAddableVelocity {
+	void AddVelocity(Vector3 velocity);
+	void ClearAddedVelocity();
+}

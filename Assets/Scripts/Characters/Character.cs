@@ -5,13 +5,14 @@ using CustomMSLibrary.Core;
 
 
 [DisallowMultipleComponent]
-public abstract class Character : Controllable, IDamageable, IHealable, ITeam {
+public abstract class Character : Controllable, IDamageable, IHealable, ITeam, IAddableVelocity {
 	[SerializeField]
 	protected Team myTeam;
 	public float maxHealth;
 	[SerializeField]
 	protected float health;
 	protected Rigidbody rb;
+	protected Vector3 addedVelocity;
 
 	public Team GetTeam => myTeam;
 
@@ -34,6 +35,8 @@ public abstract class Character : Controllable, IDamageable, IHealable, ITeam {
 
 	public abstract void Die(IDamager source);
 
+	public void AddVelocity(Vector3 velocity) => addedVelocity = velocity;
+	public void ClearAddedVelocity() => addedVelocity = Vector3.zero;
 }
 
 public abstract class Controllable : MonoBehaviour {
