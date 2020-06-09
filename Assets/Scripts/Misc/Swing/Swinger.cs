@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
 using CustomMSLibrary.Unity;
 
 public class Swinger : Controllable, IMoveOverride {
@@ -26,6 +27,9 @@ public class Swinger : Controllable, IMoveOverride {
 	float GetTime => Time.time - anchorTime;
 	public const float HALF_PI = 1.57079637F;
 
+	[HideInInspector]
+	public bool firstFrame = false;
+
 
 	private void Awake() {
 		thisRB = GetComponent<Rigidbody>();
@@ -36,6 +40,7 @@ public class Swinger : Controllable, IMoveOverride {
 		ControllerHandler.Instance.RequestAssignation(Controller.Create<PlayerSwingerController>(), this);
 	}
 
+	[MethodImpl(MethodImplOptions.NoOptimization)]
 	public void SetupSwing(Transform anchor) {
 		anchorTransform = anchor;
 		dependOnTransform = true;
@@ -43,6 +48,7 @@ public class Swinger : Controllable, IMoveOverride {
 		Internal_SetupSwing(relativePos);
 	}
 
+	[MethodImpl(MethodImplOptions.NoOptimization)]
 	public void SetupSwing(Vector3 anchor) {
 		anchorPos = anchor;
 		anchorTransform = null;
@@ -51,6 +57,7 @@ public class Swinger : Controllable, IMoveOverride {
 		Internal_SetupSwing(relativePos);
 	}
 
+	[MethodImpl(MethodImplOptions.NoOptimization)]
 	private void Internal_SetupSwing(Vector3 relativePos) {
 		initialAngle = Vector3.SignedAngle(Vector3.down, -relativePos.ZeroZ(), Vector3.forward) * Mathf.Deg2Rad;
 		initialAngle = Mathf.Clamp(initialAngle, -HALF_PI, HALF_PI);
@@ -58,6 +65,7 @@ public class Swinger : Controllable, IMoveOverride {
 		anim.BeginSwing();
 		anchorTime = Time.time;
 		initialState = Mathf.Sqrt(gravityMult / whipDistance);
+		firstFrame = true;
 	}
 
 	private void FixedUpdate() {
@@ -66,7 +74,9 @@ public class Swinger : Controllable, IMoveOverride {
 		thisRB.position = UpdateSwing();
 	}
 
+	[MethodImpl(MethodImplOptions.NoOptimization)]
 	public Vector3 UpdateSwing() {
+		firstFrame = false;
 		float newAngle = initialAngle * Mathf.Cos(initialState * GetTime);
 		var anchorPos = dependOnTransform ? anchorTransform.position : this.anchorPos;
 		anim.UpdateStatus(newAngle);
@@ -97,6 +107,7 @@ public class Swinger : Controllable, IMoveOverride {
 		Release(swingOverrider);
 	}
 
+	[MethodImpl(MethodImplOptions.NoOptimization)]
 	public void Attach(IMoveOverrideable user) {
 		user.Attach(this);
 
