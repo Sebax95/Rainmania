@@ -27,11 +27,13 @@ public class Arrow : MonoBehaviour, IDamager {
 	private Bow shooter;
 	private Rigidbody rigid;
 	private SwingAnchor anchor;
+    private TrailRenderer trail;
 
 
 	private const int FLIGHT_CONSTRAINTS = 104;//8 + 32 + 64. 8 = Freeze Z position. 32 & 64 = Freeze YZ rotation.
 
 	private void Awake() {
+        trail = GetComponentInChildren<TrailRenderer>();
 		rigid = GetComponent<Rigidbody>();
 		anchor = GetComponent<SwingAnchor>();
 		originalLayer = gameObject.layer;
@@ -59,6 +61,7 @@ public class Arrow : MonoBehaviour, IDamager {
 		//isStair = false;
 		//isAnchor = false;
 		timer = maxFlightTime;
+        trail.enabled = true;
 		rigid.isKinematic = false;
 		rigid.velocity = transform.forward * speed;
 		rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS;
@@ -95,8 +98,9 @@ public class Arrow : MonoBehaviour, IDamager {
 			return;
 
 		stop = true;
-		//timer = 0;
-		if(gameObject.layer == 14 || gameObject.layer == 1)
+        trail.enabled = false;
+        //timer = 0;
+        if (gameObject.layer == 14 || gameObject.layer == 1)
 			return;
 
 		if(collision.collider.gameObject.layer == 14 && !collision.collider.gameObject.CompareTag(BAD_ARROW_TAG))
