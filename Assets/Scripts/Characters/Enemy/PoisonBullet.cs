@@ -18,7 +18,7 @@ public class PoisonBullet : MonoBehaviour, IDamager
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         gravity = Physics.gravity;
-        Destroy(this.gameObject, 5);
+        Destroy(gameObject, 5);
     }
 
     private void FixedUpdate()
@@ -26,9 +26,7 @@ public class PoisonBullet : MonoBehaviour, IDamager
         if(useGravity)
             rb.AddForce(gravity.y * Vector3.up);
         else
-        {
             transform.position += transform.forward *5 * Time.deltaTime;
-        }
     }
 
     private void OnTriggerEnter(Collider other)

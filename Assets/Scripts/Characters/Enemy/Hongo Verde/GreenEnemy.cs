@@ -107,7 +107,20 @@ public class GreenEnemy : Enemy {
 		StartCoroutine(CdShoot());
 	}
 
-	IEnumerator CdShoot() {
+    public Vector3 ParabolicShot(Transform target, float height, Vector3 gravity)
+    {
+        float displacementY = target.position.y - output.position.y;
+        Vector3 displacementXZ = new Vector3(target.position.x - output.position.x, 0, target.transform.position.z - output.position.z);
+
+        float time = Mathf.Sqrt(Mathf.Abs(-2 * height / gravity.y)) + Mathf.Sqrt(Mathf.Abs(2 * (displacementY - height) / gravity.y));
+
+        Vector3 velocityY = Vector3.up * Mathf.Sqrt(Mathf.Abs(2 * gravity.y * height));
+        Vector3 velocityXZ = displacementXZ / time;
+
+        return velocityXZ + velocityY * -Mathf.Sign(gravity.y);
+    }
+
+    IEnumerator CdShoot() {
 		yield return new WaitForSeconds(cdTimer);
 		canShoot = true;
 	}
