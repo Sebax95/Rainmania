@@ -18,7 +18,7 @@ public class GreenEnemyInspector : Editor
 
     private void OnEnable()
     {
-        enemy = (GreenEnemy)target;
+       enemy = (GreenEnemy)target;
         teamProper = serializedObject.FindProperty("myTeam");
         vidaActual = serializedObject.FindProperty("health");
         layerDetection = serializedObject.FindProperty("gameAreaMask");
@@ -28,9 +28,9 @@ public class GreenEnemyInspector : Editor
         useParabola.valueChanged.AddListener(Repaint);
     }
 
-    public override void OnInspectorGUI()
+   /* public override void OnInspectorGUI()
     { 
-        showInspector.target = EditorGUILayout.ToggleLeft("Mostrar Inspector Original: ", showInspector.target);
+       /* showInspector.target = EditorGUILayout.ToggleLeft("Mostrar Inspector Original: ", showInspector.target);
         if (EditorGUILayout.BeginFadeGroup(showInspector.faded))
         {
             EditorGUI.indentLevel++;
@@ -43,7 +43,7 @@ public class GreenEnemyInspector : Editor
         if (showInspector.target) return;
 
         ShowNewInspector();
-    }
+    }*/
 
     void ShowNewInspector()
     {

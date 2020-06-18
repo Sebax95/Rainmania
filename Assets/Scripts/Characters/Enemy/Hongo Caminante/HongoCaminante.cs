@@ -92,7 +92,7 @@ public class HongoCaminante : Enemy, IDamager
     {
         RaycastHit hit;
         Debug.DrawRay(groundChecker.position, groundChecker.forward * 0.5f, Color.red);
-        Physics.Raycast(groundChecker.position, groundChecker.forward, out hit, 0.5f, groundMask);
+        Physics.Raycast(groundChecker.position, groundChecker.forward, out hit, 0.5f, gameAreaMask);
         return hit;
     }
 

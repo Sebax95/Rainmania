@@ -120,6 +120,12 @@ public class Arrow : MonoBehaviour, IDamager {
 			timer = droppedArrowLifetime;
 		}
 
+		if(collision.collider.gameObject.layer == 15)
+        {
+			shooter.ReturnArrow(this);
+		}
+
+
 	}
 
 	public void OnGrapple() {

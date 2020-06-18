@@ -766,14 +766,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
-  maxHealth: 2
+  maxHealth: 0
   health: 0
   speed: 5
   viewEnem: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 0
-  cdTimer: 2
+  cdTimer: 1
   output: {fileID: 5308086963005680500}
   viewAngle: 20.63
   viewDistance: 7.94
@@ -786,7 +786,7 @@ MonoBehaviour:
   isDeath: 0
   jumpingPad: {fileID: 0}
   forceJump: 5
-  useParabola: 0
+  useParabola: 1
   altBullet: 1
   shootWithGravity: 0
   bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
