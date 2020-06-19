@@ -783,14 +783,14 @@ MonoBehaviour:
   gameAreaMask:
     serializedVersion: 2
     m_Bits: 512
-  showGizmos: 1
+  showGizmos: 0
   target: {fileID: 0}
   isInvulnerable: 1
   isDeath: 0
   jumpingPad: {fileID: 0}
-  forceJump: 9.2
+  forceJump: 10
   useParabola: 0
-  altBullet: 1
+  altBullet: 0
   shootWithGravity: 0
   bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
     type: 3}
