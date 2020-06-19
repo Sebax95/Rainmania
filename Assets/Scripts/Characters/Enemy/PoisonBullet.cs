@@ -12,6 +12,7 @@ public class PoisonBullet : MonoBehaviour, IDamager
     public Vector3 gravity;
     public bool useGravity;
     public Team GetTeam => AssignTeam;
+    public GameObject particlesGRound;
 
     private void Awake()
     {
@@ -36,12 +37,18 @@ public class PoisonBullet : MonoBehaviour, IDamager
             other.GetComponent<Character>().Damage(damage, this);
             var child = transform.GetChild(0);
             child.transform.parent = other.transform;
+            child.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
             child.transform.localRotation = Quaternion.Euler(0, -90, 0);
             Destroy(child.gameObject, 5f);
             Destroy(gameObject);
         }
         if(other.gameObject)
         {
+            if (other.gameObject.layer == 9)
+            {
+                var part = Instantiate(particlesGRound, transform.position + Vector3.up *0.3f, Quaternion.identity, null);
+                Destroy(part.gameObject, 8);
+            }
             Destroy(gameObject);
         }
     }

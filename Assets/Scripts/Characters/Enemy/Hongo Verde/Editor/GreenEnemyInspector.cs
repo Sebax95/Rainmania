@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.AnimatedValues;
+using UnityEditor.SceneManagement;
 using System;
 
 [CustomEditor(typeof(GreenEnemy))]
@@ -15,22 +16,29 @@ public class GreenEnemyInspector : Editor
     public SerializedProperty teamProper;
     public SerializedProperty vidaActual;
     public SerializedProperty layerDetection;
+    public SerializedObject baseEnemy;
+
 
     private void OnEnable()
     {
-       enemy = (GreenEnemy)target;
+        enemy = target as GreenEnemy;
         teamProper = serializedObject.FindProperty("myTeam");
         vidaActual = serializedObject.FindProperty("health");
         layerDetection = serializedObject.FindProperty("gameAreaMask");
+        baseEnemy = new SerializedObject(enemy);
         showInspector = new AnimBool(false);
         showInspector.valueChanged.AddListener(Repaint);
         useParabola = new AnimBool(false);
         useParabola.valueChanged.AddListener(Repaint);
     }
 
-   /* public override void OnInspectorGUI()
-    { 
-       /* showInspector.target = EditorGUILayout.ToggleLeft("Mostrar Inspector Original: ", showInspector.target);
+    /*public override void OnInspectorGUI()
+    {
+        baseEnemy.Update();
+        serializedObject.Update();
+
+        EditorGUI.BeginChangeCheck();
+        showInspector.target = EditorGUILayout.ToggleLeft("Mostrar Inspector Original: ", showInspector.target);
         if (EditorGUILayout.BeginFadeGroup(showInspector.faded))
         {
             EditorGUI.indentLevel++;
@@ -43,17 +51,33 @@ public class GreenEnemyInspector : Editor
         if (showInspector.target) return;
 
         ShowNewInspector();
+        GUI.color = new Color(56, 56, 56);
+        /*if (EditorGUI.EndChangeCheck())
+        {
+        if (GUILayout.Button("Guardar Datos"))
+        {
+            EditorUtility.SetDirty(enemy);
+            Debug.Log(EditorUtility.IsDirty(enemy));
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+            baseEnemy.ApplyModifiedProperties();
+            Undo.RecordObject(enemy, "Variables Modificadas");
+            EditorSceneManager.SaveOpenScenes();
+            //baseEnemy.ApplyModifiedPropertiesWithoutUndo();
+        }
+
+        //}
     }*/
 
     void ShowNewInspector()
     {
-        serializedObject.Update();
+
 
         EditorGUILayout.Space();
         GUILayout.Label("Variables Principales");
         EditorGUILayout.Space();
 
         #region Team
+        GUI.color = Color.magenta;
         GUILayout.Label("Team", EditorStyles.boldLabel);
 
         EditorGUILayout.BeginVertical("box");
@@ -66,10 +90,10 @@ public class GreenEnemyInspector : Editor
         #endregion
 
         #region Vida
+        GUI.color = Color.red;
         GUILayout.Label("Vida", EditorStyles.boldLabel);
 
         EditorGUILayout.BeginVertical("box");
-
         EditorGUILayout.BeginHorizontal();
         if (Application.isPlaying)
         {
@@ -88,8 +112,8 @@ public class GreenEnemyInspector : Editor
         #endregion
 
         #region Line Of Sight
+        GUI.color = Color.yellow;
         GUILayout.Label("Line Of Sight", EditorStyles.boldLabel);
-
         EditorGUILayout.BeginVertical("box");
 
         EditorGUILayout.BeginHorizontal();
@@ -114,8 +138,8 @@ public class GreenEnemyInspector : Editor
         #endregion
 
         #region JumpingPad
+        GUI.color = Color.cyan;
         GUILayout.Label("Jumping Pad", EditorStyles.boldLabel);
-
         EditorGUILayout.BeginVertical("box");
         EditorGUILayout.BeginHorizontal();
         enemy.forceJump = EditorGUILayout.FloatField("Fuerza de Salto: ", enemy.forceJump);
@@ -124,29 +148,20 @@ public class GreenEnemyInspector : Editor
         #endregion
 
         #region Shoting
+
+        Parabola();
+
+        #endregion
+    }
+
+    public void Parabola()
+    {
+        GUI.color = Color.green;
         GUILayout.Label("Shoting", EditorStyles.boldLabel);
 
         EditorGUILayout.BeginVertical("box");
         {
-            EditorGUILayout.BeginHorizontal();
-            {
-
-
-                bool parabolaTemp = EditorGUILayout.Toggle("Usa Parabola: ", useParabola.target);
-                if (parabolaTemp != enemy.useParabola)
-                {
-                    useParabola.target = parabolaTemp;
-                    enemy.useParabola = parabolaTemp;
-                    Undo.RecordObject(enemy, "Enemy Parabola Bool");
-                }
-            }
-            EditorGUILayout.EndHorizontal();
-
-            enemy.useParabola = useParabola.target;
-
-            // enemy.shootWithGravity = (enemy.useParabola) ? false : true;
-
-
+            useParabola.target = EditorGUILayout.Toggle("Usa Parabola: ", useParabola.target);
             if (EditorGUILayout.BeginFadeGroup(useParabola.faded))
             {
                 EditorGUI.indentLevel++;
@@ -155,27 +170,20 @@ public class GreenEnemyInspector : Editor
                 {
                     EditorGUILayout.BeginHorizontal();
                     {
-                        float newValor = EditorGUILayout.Slider("Altura Parabola", enemy.altBullet, -5, 5);
-                        if (newValor != enemy.altBullet)
-                        {
-                            enemy.altBullet = newValor;
-                            Undo.RecordObject(enemy, "Enemy Parabola Change");
-                        }
+                        enemy.useParabola = true;
+                        enemy.shootWithGravity = (enemy.useParabola) ? true : false;
+                        enemy.altBullet = EditorGUILayout.Slider("Altura Parabola", enemy.altBullet, -5, 5);
                     }
                     EditorGUILayout.EndHorizontal();
                 }
                 EditorGUILayout.EndVertical();
 
-
                 EditorGUI.indentLevel--;
             }
             EditorGUILayout.EndFadeGroup();
-
+            if (!useParabola.target)
+                enemy.useParabola = false;
         }
         EditorGUILayout.EndVertical();
-        #endregion
-
-
-
     }
 }

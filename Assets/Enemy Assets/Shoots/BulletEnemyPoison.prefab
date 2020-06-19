@@ -128,6 +128,9 @@ MonoBehaviour:
   damage: 1
   AssignTeam: {fileID: 0}
   gravity: {x: 0, y: 0, z: 0}
+  useGravity: 0
+  particlesGRound: {fileID: 378186943803737626, guid: 19dde2e07e6db814faee87b6dece0b88,
+    type: 3}
 --- !u!1001 &1946636379539764100
 PrefabInstance:
   m_ObjectHideFlags: 0
