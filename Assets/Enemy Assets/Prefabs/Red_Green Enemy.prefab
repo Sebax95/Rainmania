@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
-  maxHealth: 2
+  maxHealth: 1
   health: 0
   speed: 5
   viewEnem: {fileID: 0}
@@ -512,6 +512,7 @@ MonoBehaviour:
     m_Bits: 512
   showGizmos: 0
   target: {fileID: 0}
+  isInvulnerable: 0
   isDeath: 0
   jumpingPad: {fileID: 0}
   forceJump: 5
@@ -521,6 +522,7 @@ MonoBehaviour:
   bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
     type: 3}
   canShoot: 0
+  cdJump: 0
 --- !u!114 &5707228249486905030
 MonoBehaviour:
   m_ObjectHideFlags: 0

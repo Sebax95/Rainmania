@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1595696505650214585}
   - component: {fileID: 9095698176415066883}
   - component: {fileID: 6598920273719070707}
-  m_Layer: 0
+  - component: {fileID: 6619580671970032056}
+  m_Layer: 14
   m_Name: "Pared Ca\xF1eria (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6619580671970032056
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369697725271828439}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.18918781, z: 2.0000005}
+  m_Center: {x: 0, y: -0.3534026, z: 1.4694404e-15}

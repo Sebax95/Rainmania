@@ -194,7 +194,9 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 	}
 
-	public void ApplyForce(Vector3 direction, ForceMode mode) {
+	public void ApplyForce(Vector3 direction, ForceMode mode)
+	{
+		rb.velocity = new Vector3(rb.velocity.x, 0);
 		rb.AddForce(direction, mode);
 		PlayerAnimator.TriggerAction(0);
 	}

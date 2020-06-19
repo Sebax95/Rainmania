@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class GreenEnemy : Enemy {
+public class GreenEnemy : Enemy
+{
 
+	public bool isInvulnerable;
     [Header("Green Enemy Variables")]
 	public FSM<GreenEnemy> fsm;
     public bool isDeath;
@@ -22,7 +25,8 @@ public class GreenEnemy : Enemy {
 	public bool shootWithGravity;
 	public PoisonBullet bulletPref;
 	public bool canShoot;
-
+	private bool _canJump;
+	public float cdJump;
 
 	protected override void Awake() {
 		base.Awake();
@@ -34,6 +38,7 @@ public class GreenEnemy : Enemy {
 
 	protected override void Start() {
 		base.Start();
+		_canJump = true;
 		altBulletSave = altBullet;
 		fsm.SetState(StatesEnemies.Idle);
 	}
@@ -49,11 +54,11 @@ public class GreenEnemy : Enemy {
 
     public override void Damage(int amount, IDamager source)
     {
-        if (!source.GetTeam.CanDamage(myTeam))
+        if (!source.GetTeam.CanDamage(myTeam) || isInvulnerable)
             return;
         health -= amount;
         viewEnem.ActivateTriggers(2);
-        if (health < 0)
+        if (health <= 0)
             Die(source);
 
     }
@@ -135,4 +140,30 @@ public class GreenEnemy : Enemy {
             }
 		}
 	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		/*if(other..GetContact(0).thisCollider == jumpingPad)
+		{*/
+		var jump = other.transform.GetComponent<IAppliableForce>();
+		if (jump != null)
+		{
+			/*if (_canJump)
+			{
+				_canJump = false;
+				StartCoroutine(CdJump());*/
+				jump.ApplyForce(Vector3.up * forceJump, ForceMode.Impulse);
+				viewEnem.ActivateTriggers(1);
+			//}
+		}
+
+		//}
+	}
+
+	IEnumerator CdJump()
+	{
+		yield return new  WaitForSeconds(cdJump);
+		_canJump = true;
+	}
+	
 }
