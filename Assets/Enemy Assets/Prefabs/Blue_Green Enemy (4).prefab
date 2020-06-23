@@ -670,7 +670,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7333885369334828012}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 36.49, y: -1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -692,7 +692,7 @@ Transform:
   - {fileID: 1650249259152859398}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!54 &7333885369334828009
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -783,18 +783,19 @@ MonoBehaviour:
   gameAreaMask:
     serializedVersion: 2
     m_Bits: 512
-  showGizmos: 1
-  rb: {fileID: 0}
+  showGizmos: 0
   target: {fileID: 0}
+  isInvulnerable: 1
   isDeath: 0
   jumpingPad: {fileID: 0}
-  forceJump: 9
+  forceJump: 10
   useParabola: 0
-  altBullet: 1
+  altBullet: 0
   shootWithGravity: 0
   bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
     type: 3}
   canShoot: 0
+  cdJump: 0
 --- !u!114 &7333885369334828013
 MonoBehaviour:
   m_ObjectHideFlags: 0

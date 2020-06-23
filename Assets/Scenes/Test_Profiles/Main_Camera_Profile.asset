@@ -1561,22 +1561,22 @@ MonoBehaviour:
     value: 1
   filtering:
     overrideState: 1
-    value: {x: 73.905876, y: 99}
+    value: {x: 59.141296, y: 85.577644}
   minLuminance:
     overrideState: 1
-    value: -6.1
+    value: 0.64
   maxLuminance:
     overrideState: 1
-    value: -2.1
+    value: 6.14
   keyValue:
     overrideState: 1
-    value: 1.82
+    value: 2.02
   eyeAdaptation:
     overrideState: 1
     value: 0
   speedUp:
     overrideState: 1
-    value: 1
+    value: 9.21
   speedDown:
     overrideState: 1
-    value: 1
+    value: 10.65

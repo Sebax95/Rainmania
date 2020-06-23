@@ -241,7 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityMult: 9
-  whipDistance: 2
+  whipDistance: 1.5
+  firstFrame: 0
 --- !u!114 &4727816423271630307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,13 +308,13 @@ MonoBehaviour:
   damage: 3
   whipHitboxes:
   - closePoint: {x: 0, y: 0, z: 0.04}
-    halfExtends: {x: 0.3, y: 0.3, z: 1.19}
+    halfExtends: {x: 0.3, y: 0.6, z: 1.19}
     orientation: {x: 0, y: 0, z: 0}
   - closePoint: {x: 0, y: 0, z: 0.18}
-    halfExtends: {x: 0.3, y: 0.3, z: 1}
+    halfExtends: {x: 0.3, y: 0.6, z: 1}
     orientation: {x: -45, y: 0, z: 0}
   - closePoint: {x: 0, y: 0, z: 0.3}
-    halfExtends: {x: 0.3, y: 0.3, z: 1}
+    halfExtends: {x: 0.3, y: 0.6, z: 1}
     orientation: {x: -90, y: 0, z: 0}
   speed: 2.5
   attackDelay: 0.2

@@ -29,7 +29,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	private bool canAttack = true;
 	private float currentCooldown;
 	private float attackCooldownTimer = 0;
-
+    private bool isDead;
 	private Weapon activeWeapon;
 	private LoopingList<Weapon> weapons = new LoopingList<Weapon>();
 
@@ -52,6 +52,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		momentum = GetComponent<MomentumKeeper>();
 		activeWeapon = weapons.Current;
         canMove = true;
+        isDead = false;
 		PlayerAnimator = GetComponent<PlayerAnim>();
         //Temp, despues ver como SOLIDear asignacion de controller
         health = maxHealth;
@@ -145,7 +146,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
     public override void Damage(int amount, IDamager source)
     {
-        if (!source.GetTeam.CanDamage(myTeam))
+        if (!source.GetTeam.CanDamage(myTeam) && isDead)
             return;
         health -= amount;
         PlayerAnimator.TriggerAction(7);
@@ -157,6 +158,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
     {
         PlayerAnimator.ChangeBool(1, true);
         canMove = false;
+        isDead = true;
         GameManager.Instance.PlayerDie();
         Destroy(gameObject, 3);
     }
@@ -200,7 +202,9 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 	}
 
-	public void ApplyForce(Vector3 direction, ForceMode mode) {
+	public void ApplyForce(Vector3 direction, ForceMode mode)
+	{
+		rb.velocity = new Vector3(rb.velocity.x, 0);
 		rb.AddForce(direction, mode);
 		PlayerAnimator.TriggerAction(0);
 	}
