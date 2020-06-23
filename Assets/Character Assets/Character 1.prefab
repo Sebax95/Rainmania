@@ -293,6 +293,8 @@ MonoBehaviour:
   - {fileID: 7944931631656711970}
   attackWindup: 0
   attackCooldown: 0.25
+  wallDistanceCheck: 1
+  closeWallArrowFixOffset: 0
 --- !u!114 &8736888454845942043
 MonoBehaviour:
   m_ObjectHideFlags: 0
