@@ -26,17 +26,24 @@ public class Arrow : MonoBehaviour, IDamager {
 	//References
 	private Bow shooter;
 	private Rigidbody rigid;
+	private Collider solidCol;
+	private Collider triggerCol;
 	private SwingAnchor anchor;
     private TrailRenderer trail;
 
 
 	private const int FLIGHT_CONSTRAINTS = 104;//8 + 32 + 64. 8 = Freeze Z position. 32 & 64 = Freeze YZ rotation.
+	public const int WALL_LAYER = 14;
+	private const int PLAYER_LAYER = 8;
 
 	private void Awake() {
         trail = GetComponentInChildren<TrailRenderer>();
 		rigid = GetComponent<Rigidbody>();
 		anchor = GetComponent<SwingAnchor>();
 		originalLayer = gameObject.layer;
+		var cols = GetComponents<Collider>();
+		solidCol = cols[0];
+		triggerCol = cols[1];
 	}
 
 	void Update() {
@@ -69,6 +76,7 @@ public class Arrow : MonoBehaviour, IDamager {
 		gameObject.layer = originalLayer;
 		rigid.useGravity = false;
 		anchor.enabled = false;
+		triggerCol.enabled = false;
 
 	}
 	public static void TurnOn(Arrow a) {
@@ -98,12 +106,13 @@ public class Arrow : MonoBehaviour, IDamager {
 			return;
 
 		stop = true;
+		triggerCol.enabled = true;
         trail.enabled = false;
         //timer = 0;
-        if (gameObject.layer == 14 || gameObject.layer == 1)
+        if (gameObject.layer == WALL_LAYER || gameObject.layer == 1)
 			return;
 
-		if(collision.collider.gameObject.layer == 14 && !collision.collider.gameObject.CompareTag(BAD_ARROW_TAG))
+		if(collision.collider.gameObject.layer == WALL_LAYER && !collision.collider.gameObject.CompareTag(BAD_ARROW_TAG))
 		{
 			rigid.isKinematic = true;
 			rigid.velocity = Vector3.zero;
@@ -131,6 +140,16 @@ public class Arrow : MonoBehaviour, IDamager {
 	public void OnGrapple() {
 		//isAnchor = true;
 		timer = grappleTime;
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if(!stop || other.gameObject.layer != PLAYER_LAYER)
+			return;
+		solidCol.enabled = false;
+	}
+
+	private void OnTriggerExit(Collider other) {
+		solidCol.enabled = true;
 	}
 
 	//IDamager

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CustomMSLibrary.Unity;
 
 public class Bow : Weapon {
 
@@ -11,6 +12,8 @@ public class Bow : Weapon {
 
 	public float attackWindup;
 	public float attackCooldown;
+	public float wallDistanceCheck = 1;
+	public float closeWallArrowFixOffset;
 	public override float FullAttackDuration => attackWindup + attackCooldown;
 	private WaitForSeconds wait_shootWindup;
 
@@ -26,10 +29,6 @@ public class Bow : Weapon {
 		wait_shootWindup = new WaitForSeconds(attackWindup);
 		wielder = GetComponent<IWielder>();
 		pool = new Pool<Arrow>(INITAL_ARROW_COUNT ,ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, false);
-	}
-
-	private void Update() {
-		
 	}
 
 	public Arrow ArrownFactory() {
@@ -50,6 +49,13 @@ public class Bow : Weapon {
 		int index = (int)direction;
 		trans.position = arrowSources[index].position;
 		trans.forward = arrowSources[index].forward;
+
+		RaycastHit hit;
+		if(Physics.Raycast(transform.position,trans.forward,out hit, wallDistanceCheck, ~MiscUnityUtilities.IntToLayerMask(gameObject.layer)))
+		{
+			trans.position = hit.point + trans.forward * closeWallArrowFixOffset;
+		}
+
 	}
 
 	public override void Attack(Vector2 direction) {
