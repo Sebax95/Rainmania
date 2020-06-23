@@ -27,7 +27,7 @@ public class PlayerSwingerController : Controller {
 		if(!ControllerHandler.Instance.IsOverriding(this))
 			return;
 
-		if(Input.GetKeyDown(baseController.AttackKey) && User && !User.firstFrame)
+		if(Input.GetKeyDown(baseController.attackWhipKey) && User && !User.firstFrame)
 		{
 			User.BreakSwing();
 		}

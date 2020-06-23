@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225d7564338749f4ca3e1da775c51d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalAxis: Horizontal
+  verticalAxis: Vertical
   JumpKey: 32
-  AttackKey: 99
-  SwitchWeaponKey: 120
+  attackWhipKey: 99
+  attackBowKey: 120

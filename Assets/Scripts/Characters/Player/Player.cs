@@ -135,6 +135,14 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		activeWeapon = weapons.Next;
 	}
 
+	/// <summary>
+	/// Assign Weapon. 0: whip. 1: Bow
+	/// </summary>
+	/// <param name="id"></param>
+	public void SetWeapon(int id) {
+		activeWeapon = weapons[id];
+	}
+
     public override void Damage(int amount, IDamager source)
     {
         if (!source.GetTeam.CanDamage(myTeam))

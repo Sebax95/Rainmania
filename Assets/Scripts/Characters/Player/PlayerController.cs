@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Core;
+using UnityEngine.Serialization;
 
 public class PlayerController : Controller, IMainController {
 
@@ -12,8 +13,11 @@ public class PlayerController : Controller, IMainController {
 	public string verticalAxis = "Vertical";
 
 	public KeyCode JumpKey;
-	public KeyCode AttackKey;
-	public KeyCode SwitchWeaponKey;
+	[FormerlySerializedAs("AttackKey")]
+	public KeyCode attackWhipKey;
+	[FormerlySerializedAs("SwitchWeaponKey")]
+	public KeyCode attackBowKey;
+	//public KeyCode SwitchWeaponKey;
 
 	private Player User => User<Player>();
 
@@ -28,11 +32,19 @@ public class PlayerController : Controller, IMainController {
 	}
 
 	protected override void DoActions() {
-		if(Input.GetKeyDown(AttackKey))
+		if(Input.GetKeyDown(attackWhipKey))
+		{
+			User?.SetWeapon(0);
 			User?.Attack(direction);
+		}
+		if(Input.GetKeyDown(attackBowKey))
+		{
+			User?.SetWeapon(1);
+			User?.Attack(direction);
+		}
 
-		if(Input.GetKeyDown(SwitchWeaponKey))
-			User?.SwitchWeapons();
+		//if(Input.GetKeyDown(SwitchWeaponKey))
+		//	User?.SwitchWeapons();
 	}
 
 	public Vector2 GetAxises() => new Vector2(Input.GetAxis(horizontalAxis), Input.GetAxis(verticalAxis));

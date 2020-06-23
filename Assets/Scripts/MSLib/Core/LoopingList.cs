@@ -94,6 +94,14 @@ namespace CustomMSLibrary.Core {
 				index = 0;
 		}
 
+		public T this[int i] {
+			get {
+				Index = i;
+				return list[i];
+			}
+			set => list[i] = value;
+		}
+
 		public static explicit operator LoopingList<T>(List<T> l) {
 			return new LoopingList<T>(l);
 		}
