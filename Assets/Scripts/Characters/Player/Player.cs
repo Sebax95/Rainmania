@@ -14,14 +14,14 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public float lowJumpMultiplier = 2f;
 	public LayerMask validFloorLayers;
 	private bool holdingJump = false;
-    
+
 	public float groundedTreshold;
 	public Vector3 groundCheckOffset;
 	private const int GROUND_FRAMES_PERIOD = 5;
 	private int groundedFramesCounter;
 	public bool Grounded { get; private set; }
 
-	
+
 	private MomentumKeeper momentum;
 
 	public PlayerAnim PlayerAnimator { get; private set; }
@@ -29,7 +29,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	private bool canAttack = true;
 	private float currentCooldown;
 	private float attackCooldownTimer = 0;
-    private bool isDead;
+	private bool isDead;
 	private Weapon activeWeapon;
 	private LoopingList<Weapon> weapons = new LoopingList<Weapon>();
 
@@ -37,7 +37,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	private IMoveOverride overriding;
 
 	//agregueyo mati.
-	bool canMove = true;
+	//bool canMove = true;
 	////collider salto.
 	//public CapsuleCollider legsCollider;
 	//public CapsuleCollider bodyUpCollider;
@@ -51,14 +51,14 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		weapons.Add(GetComponent<Bow>());
 		momentum = GetComponent<MomentumKeeper>();
 		activeWeapon = weapons.Current;
-        canMove = true;
-        isDead = false;
+		//canMove = true;
+		isDead = false;
 		PlayerAnimator = GetComponent<PlayerAnim>();
-        //Temp, despues ver como SOLIDear asignacion de controller
-        health = maxHealth;
+		//Temp, despues ver como SOLIDear asignacion de controller
+		health = maxHealth;
 
 
-        rb = GetComponent<Rigidbody>();
+		rb = GetComponent<Rigidbody>();
 		PlayerAnimator = GetComponent<PlayerAnim>();
 	}
 	private void Update() {
@@ -70,21 +70,21 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public void Jump() {
 		if(Grounded)
 		{
-			
+
 			rb.velocity = rb.velocity.ZeroY();
 			PlayerAnimator.TriggerAction(0);
 			ForceJump();
 			//colliders legs off
-			
+
 		}
-		
+
 		//} else
 		//overriding.Release(this);
 	}
 
 	public void ForceJump() {
-		if (canMove)
-		{
+		//if(canMove)
+		//{
 			rb.AddForce(Vector3.up * forceJump, ForceMode.VelocityChange);
 			PlayerAnimator.Jump();
 			//playerAnimator.thisAnimator.SetBool("inGround", false);
@@ -93,30 +93,30 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 			//legsCollider.enabled = false;
 
 
-		}
-		
+		//}
+
 	}
-    public void ReleaseJump() => holdingJump = false;
+	public void ReleaseJump() => holdingJump = false;
 
 	public override void Move(Vector2 direction) {
 
-		if(overriding != null || !canAttack)
+		if(overriding != null )
 			return;
 
-		if(canMove)
-		{
-			if(overriding != null)
-				return;
+		//if(!canMove)
+		//	return;
 
-			//rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, 0);
-			var vel = rb.velocity;
-			//vel.y -= addedVelocity.y;
-			Vector3 newVel = new Vector3(direction.x * speed, vel.y) + addedVelocity.ZeroY();
+		if(overriding != null)
+			return;
 
-			rb.velocity = newVel + momentum.velocity.ZeroY();
+		//rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, 0);
+		var vel = rb.velocity;
+		//vel.y -= addedVelocity.y;
+		Vector3 newVel = new Vector3(direction.x * speed, vel.y) + addedVelocity.ZeroY();
 
-			PlayerAnimator.SetSpeeds(direction);
-		}
+		rb.velocity = newVel + momentum.velocity.ZeroY();
+
+		PlayerAnimator.SetSpeeds(direction);
 
 	}
 
@@ -124,15 +124,14 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		if(!canAttack)
 			return;
 
-		canMove = false;
-		rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+		//canMove = false;
+		//rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
 		SetCooldown();
 		activeWeapon.Attack(direction);
 		PlayerAnimator.Attack(direction, activeWeapon.Name);
 	}
 
-	public void SwitchWeapons() 
-	{
+	public void SwitchWeapons() {
 		activeWeapon = weapons.Next;
 	}
 
@@ -144,37 +143,34 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		activeWeapon = weapons[id];
 	}
 
-    public override void Damage(int amount, IDamager source)
-    {
-        if (!source.GetTeam.CanDamage(myTeam) && isDead)
-            return;
-        health -= amount;
-        PlayerAnimator.TriggerAction(7);
-        if (health < 0)
-            Die(source);
-    }
+	public override void Damage(int amount, IDamager source) {
+		if(!source.GetTeam.CanDamage(myTeam) && isDead)
+			return;
+		health -= amount;
+		PlayerAnimator.TriggerAction(7);
+		if(health < 0)
+			Die(source);
+	}
 
-    public override void Die(IDamager source)
-    {
-        PlayerAnimator.ChangeBool(1, true);
-        canMove = false;
-        isDead = true;
-        GameManager.Instance.PlayerDie();
-        Destroy(gameObject, 3);
-    }
+	public override void Die(IDamager source) {
+		PlayerAnimator.ChangeBool(1, true);
+		//canMove = false;
+		isDead = true;
+		GameManager.Instance.PlayerDie();
+		Destroy(gameObject, 3);
+	}
 
-	public void Attach(IMoveOverride controller) 
-	{
+	public void Attach(IMoveOverride controller) {
 		overriding = controller;
-    }
+	}
 
 	public void Release(IMoveOverride controller) {
 		overriding = null;
-    }
+	}
 
 	public void DetectGround() {
 		groundedFramesCounter++;
-		if (!(groundedFramesCounter > GROUND_FRAMES_PERIOD))
+		if(!(groundedFramesCounter > GROUND_FRAMES_PERIOD))
 			return;
 		groundedFramesCounter = 0;
 		Grounded = Physics.Raycast(transform.position + groundCheckOffset, Vector3.down, out _, groundedTreshold, validFloorLayers);
@@ -182,15 +178,14 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 	public string ActiveWeaponName => activeWeapon.Name;
 
-	private void AttackTimer() 
-	{
+	private void AttackTimer() {
 		if(canAttack)
 			return;
 
 		attackCooldownTimer += Time.deltaTime;
 		if(attackCooldownTimer > currentCooldown)
 		{
-			canMove = true;
+			//canMove = true;
 			canAttack = true;
 		}
 	}
@@ -202,12 +197,11 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 	}
 
-	public void ApplyForce(Vector3 direction, ForceMode mode)
-	{
+	public void ApplyForce(Vector3 direction, ForceMode mode) {
 		rb.velocity = new Vector3(rb.velocity.x, 0);
 		rb.AddForce(direction, mode);
 		PlayerAnimator.TriggerAction(0);
 	}
 
-	
+
 }
