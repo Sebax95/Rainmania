@@ -12,7 +12,7 @@ public enum StatesEnemies
     Null
 }
 
-public class Enemy : Character
+public abstract class Enemy : Character
 {
     [Header("Enemy Variables")]
     public float speed;
@@ -69,8 +69,6 @@ public class Enemy : Character
         else
             return false;
     }
-
-    public override void Die(IDamager source)    {    }
 
     
 
