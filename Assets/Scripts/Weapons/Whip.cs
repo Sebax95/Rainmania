@@ -20,7 +20,7 @@ public class Whip : Weapon {
 	public float attackCooldown;
 	public override float FullAttackDuration => attackDelay + attackDuration + attackCooldown;
 
-	private Collider[] boxcastCache = new Collider[1];
+	private Collider[] boxcastCache = new Collider[10];
 
 	public override GameObject SourceObject => gameObject;
 	public override Team GetTeam => wielder.GetTeam;
@@ -84,14 +84,8 @@ public class Whip : Weapon {
 			boxcastCache[i] = null;
 
 		c = Physics.OverlapBoxNonAlloc(pos + rot * hitbox.CenterOffset, hitbox.halfExtends,
-			boxcastCache, hitbox.GetAdjustedOrientation(rot));
+			boxcastCache, hitbox.GetAdjustedOrientation(rot),Physics.AllLayers,QueryTriggerInteraction.Collide);
 
-		if(c > boxcastCache.Length)
-		{
-			boxcastCache = new Collider[c];
-			Physics.OverlapBoxNonAlloc(pos + rot * hitbox.CenterOffset, hitbox.halfExtends,
-				boxcastCache, hitbox.GetAdjustedOrientation(rot));
-		}
 	}
 
 	public override void Attack(Vector2 direction) {
