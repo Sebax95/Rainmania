@@ -117,12 +117,12 @@ public class HongoCaminante : Enemy, IDamager {
 	}
 
 	private void OnDrawGizmosSelected() {
-		Gizmos.color = Color.cyan;
 		Vector3 pos = groundChecker.position;
 		Gizmos.color = Color.red;
-		Gizmos.DrawSphere(pos, 0.1f);
 		Gizmos.DrawLine(pos, pos + (-groundChecker.up * groundCheckDistance));
 		Gizmos.DrawLine(pos, pos + (groundChecker.forward * groundCheckDistance));
+		Gizmos.color = Color.cyan;
+		Gizmos.DrawSphere(pos, 0.1f);
 	}
 
 }
