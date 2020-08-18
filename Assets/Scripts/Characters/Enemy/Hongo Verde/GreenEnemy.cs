@@ -54,7 +54,7 @@ public class GreenEnemy : Enemy
 
     public override void Damage(int amount, IDamager source)
     {
-        if (!source.GetTeam.CanDamage(myTeam) || isInvulnerable)
+        if (!source.GetTeam.CanDamage(myTeam) || isInvulnerable || isDeath)
             return;
         health -= amount;
         viewEnem.ActivateTriggers(2);
