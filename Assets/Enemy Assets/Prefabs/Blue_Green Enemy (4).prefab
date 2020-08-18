@@ -707,7 +707,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!95 &4401824408480601221
 Animator:
@@ -736,7 +736,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7333885369334828012}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.25
@@ -771,7 +771,7 @@ MonoBehaviour:
   maxHealth: 2
   health: 0
   speed: 5
-  viewEnem: {fileID: 0}
+  viewEnem: {fileID: 7333885369334828013}
   groundMask:
     serializedVersion: 2
     m_Bits: 0
@@ -787,15 +787,11 @@ MonoBehaviour:
   target: {fileID: 0}
   isInvulnerable: 1
   isDeath: 0
-  jumpingPad: {fileID: 0}
+  jumpingPad: {fileID: 7333885369334828008}
   forceJump: 10
-  useParabola: 0
-  altBullet: 0
-  shootWithGravity: 0
   bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
     type: 3}
   canShoot: 0
-  cdJump: 0
 --- !u!114 &7333885369334828013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -979,6 +975,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
