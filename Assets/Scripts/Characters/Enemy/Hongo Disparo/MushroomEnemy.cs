@@ -5,32 +5,26 @@ using System.Collections.Specialized;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class GreenEnemy : Enemy
+public class MushroomEnemy : Enemy
 {
 
 	public bool isInvulnerable;
     [Header("Green Enemy Variables")]
-	public FSM<GreenEnemy> fsm;
+	public FSM<MushroomEnemy> fsm;
     public bool isDeath;
 
     [Header("Jump Variables")]
 	public SphereCollider jumpingPad;
 	public float forceJump;
 
-    [Header("Shoot Variables")]
-    public bool useParabola;
-    [Range(-5f, 5f)]
-	public float altBullet = 2;
-	private float altBulletSave;
-	public bool shootWithGravity;
+   
 	public PoisonBullet bulletPref;
 	public bool canShoot;
-	private bool _canJump;
-	public float cdJump;
-
+	
+	
 	protected override void Awake() {
 		base.Awake();
-		fsm = new FSM<GreenEnemy>(this);
+		fsm = new FSM<MushroomEnemy>(this);
 		jumpingPad = GetComponent<SphereCollider>();
 		fsm.AddState(StatesEnemies.Idle, new IdleState(this, fsm));
 		fsm.AddState(StatesEnemies.Shoot, new ShootState(this, fsm));
@@ -38,8 +32,6 @@ public class GreenEnemy : Enemy
 
 	protected override void Start() {
 		base.Start();
-		_canJump = true;
-		altBulletSave = altBullet;
 		fsm.SetState(StatesEnemies.Idle);
 	}
 
@@ -66,6 +58,9 @@ public class GreenEnemy : Enemy
     {
         isDeath = true;
         viewEnem.ActivateBool(0, true);
+        rb.isKinematic = true;
+        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<SphereCollider>().enabled = false;
         Destroy(gameObject, 2);
     }
 
@@ -77,8 +72,8 @@ public class GreenEnemy : Enemy
 		}
 	}	
 
-	public void ShootBullet() {
-        if (!target) return;
+	public virtual void ShootBullet() {
+        /*if (!target) return;
 		var obj = Instantiate(bulletPref, output.transform.position, Quaternion.identity);
 		obj.transform.right = output.transform.right;
 		obj.AssignTeam = GetTeam;
@@ -104,12 +99,11 @@ public class GreenEnemy : Enemy
 		}
 		else
         {
-
-			obj.useGravity = false;
+	        obj.useGravity = false;
 			obj.transform.forward = transform.forward;
 		}
 
-		StartCoroutine(CdShoot());
+		StartCoroutine(CdShoot());*/
 	}
 
     public Vector3 ParabolicShot(Transform target, float height, Vector3 gravity)
@@ -125,11 +119,12 @@ public class GreenEnemy : Enemy
         return velocityXZ + velocityY * -Mathf.Sign(gravity.y);
     }
 
-    IEnumerator CdShoot() {
+    public IEnumerator CdShoot() {
 		yield return new WaitForSeconds(cdTimer);
 		canShoot = true;
 	}
-	private void OnCollisionEnter(Collision collision) {
+    
+	/*private void OnCollisionEnter(Collision collision) {
 		if(collision.GetContact(0).thisCollider == jumpingPad)
 		{
 			var jump = collision.transform.GetComponent<IAppliableForce>();
@@ -140,30 +135,14 @@ public class GreenEnemy : Enemy
             }
 		}
 	}
-
+*/
 	private void OnTriggerEnter(Collider other)
 	{
-		/*if(other..GetContact(0).thisCollider == jumpingPad)
-		{*/
 		var jump = other.transform.GetComponent<IAppliableForce>();
 		if (jump != null)
 		{
-			/*if (_canJump)
-			{
-				_canJump = false;
-				StartCoroutine(CdJump());*/
-				jump.ApplyForce(Vector3.up * forceJump, ForceMode.Impulse);
-				viewEnem.ActivateTriggers(1);
-			//}
+			jump.ApplyForce(Vector3.up * forceJump, ForceMode.Impulse);
+			viewEnem.ActivateTriggers(1);
 		}
-
-		//}
 	}
-
-	IEnumerator CdJump()
-	{
-		yield return new  WaitForSeconds(cdJump);
-		_canJump = true;
-	}
-	
 }

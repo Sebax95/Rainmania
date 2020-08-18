@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 1dfd542d3c6bf9e46b9741e416c61118,
     type: 2}
   m_UseShadowmask: 1
@@ -4077,6 +4078,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 366296328}
     m_Modifications:
+    - target: {fileID: 8703314908208111669, guid: 58edb0b88bc26c64384d908a0e5615fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Roof
+      objectReference: {fileID: 0}
     - target: {fileID: 2978506906261274081, guid: 0cb6e7c07d096164594e5f12c1e0f328,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4141,11 +4147,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703314908208111669, guid: 58edb0b88bc26c64384d908a0e5615fb,
-        type: 3}
-      propertyPath: m_TagString
-      value: Roof
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb6e7c07d096164594e5f12c1e0f328, type: 3}
@@ -10730,7 +10731,7 @@ PrefabInstance:
     - target: {fileID: 8750348949592423636, guid: 737c3d06aabe3324c84589088f0f786e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.144
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8750348949592423636, guid: 737c3d06aabe3324c84589088f0f786e,
         type: 3}
@@ -31202,11 +31203,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4218731480985010588, guid: 876da291fa6255d49ba49f7af9b080a5,
-        type: 3}
-      propertyPath: viewDistance
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4218731480985010590, guid: 876da291fa6255d49ba49f7af9b080a5,
         type: 3}

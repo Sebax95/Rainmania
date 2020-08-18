@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HongoCaminante : Enemy, IDamager
 {
-    public FSM<HongoCaminante> fsm;
+    private FSM<HongoCaminante> fsm;
     public bool isDeath;
     public bool canJump;
     public float jumpForce;
@@ -71,6 +71,8 @@ public class HongoCaminante : Enemy, IDamager
     {
         isDeath = true;
         viewEnem.ActivateBool(2, true);
+        rb.isKinematic = true;
+        GetComponent<CapsuleCollider>().enabled = false;
         Destroy(gameObject, 2);
     }
 

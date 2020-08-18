@@ -380,8 +380,8 @@ GameObject:
   - component: {fileID: 1721922910437740974}
   - component: {fileID: 5707228249486905027}
   - component: {fileID: 5707228249486905028}
-  - component: {fileID: 5707228249486905029}
   - component: {fileID: 5707228249486905030}
+  - component: {fileID: 1096003672}
   m_Layer: 15
   m_Name: Red_Green Enemy
   m_TagString: Untagged
@@ -481,47 +481,6 @@ CapsuleCollider:
   m_Height: 0.56
   m_Direction: 1
   m_Center: {x: 0, y: 0.28, z: 0}
---- !u!114 &5707228249486905029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5707228249486905031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f100785b9a1c6f8418e676bfea6d7168, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
-  maxHealth: 1
-  health: 0
-  speed: 5
-  viewEnem: {fileID: 0}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  cdTimer: 1
-  output: {fileID: 4329587399491757101}
-  viewAngle: 21
-  viewDistance: 5
-  lastPosition: {x: 0, y: 0, z: 0}
-  gameAreaMask:
-    serializedVersion: 2
-    m_Bits: 512
-  showGizmos: 1
-  target: {fileID: 0}
-  isInvulnerable: 0
-  isDeath: 0
-  jumpingPad: {fileID: 0}
-  forceJump: 6
-  useParabola: 0
-  altBullet: 1
-  shootWithGravity: 0
-  bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
-    type: 3}
-  canShoot: 0
-  cdJump: 0
 --- !u!114 &5707228249486905030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +499,43 @@ MonoBehaviour:
   - Hit
   boolsNames:
   - isDead
+--- !u!114 &1096003672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5707228249486905031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc054797c113b1b4ab01ceb1150a6746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
+  maxHealth: 1
+  health: 0
+  speed: 0
+  viewEnem: {fileID: 5707228249486905030}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 512
+  cdTimer: 1
+  output: {fileID: 4329587399491757101}
+  viewAngle: 21
+  viewDistance: 5
+  lastPosition: {x: 0, y: 0, z: 0}
+  gameAreaMask:
+    serializedVersion: 2
+    m_Bits: 16896
+  showGizmos: 1
+  target: {fileID: 0}
+  isInvulnerable: 0
+  isDeath: 0
+  jumpingPad: {fileID: 5707228249486905027}
+  forceJump: 4
+  bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
+    type: 3}
+  canShoot: 0
 --- !u!1 &5766329419668604096
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +673,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

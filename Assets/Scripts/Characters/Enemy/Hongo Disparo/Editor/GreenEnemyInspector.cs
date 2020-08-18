@@ -5,11 +5,11 @@ using UnityEditor;
 using UnityEditor.AnimatedValues;
 using UnityEditor.SceneManagement;
 using System;
-
-[CustomEditor(typeof(GreenEnemy))]
+/*
+[CustomEditor(typeof(MushroomEnemy))]
 public class GreenEnemyInspector : Editor
 {
-    GreenEnemy enemy;
+    MushroomEnemy enemy;
     //bool originalInpector;
     AnimBool showInspector;
     AnimBool useParabola;
@@ -21,7 +21,7 @@ public class GreenEnemyInspector : Editor
 
     private void OnEnable()
     {
-        enemy = target as GreenEnemy;
+        enemy = target as MushroomEnemy;
         teamProper = serializedObject.FindProperty("myTeam");
         vidaActual = serializedObject.FindProperty("health");
         layerDetection = serializedObject.FindProperty("gameAreaMask");
@@ -66,7 +66,7 @@ public class GreenEnemyInspector : Editor
         }
 
         //}
-    }*/
+    }
 
     void ShowNewInspector()
     {
@@ -186,4 +186,4 @@ public class GreenEnemyInspector : Editor
         }
         EditorGUILayout.EndVertical();
     }
-}
+}*/
