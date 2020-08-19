@@ -20,12 +20,18 @@ public class MushroomEnemy : Enemy
    
 	public PoisonBullet bulletPref;
 	public bool canShoot;
+	public bool cdDamage;
+	public float damageTimer;
 	
-	
+	[Header("Sonidos")]
+	public AudioClip shootSound;
+	public AudioClip jumpingPadSound;
+
 	protected override void Awake() {
 		base.Awake();
 		fsm = new FSM<MushroomEnemy>(this);
 		jumpingPad = GetComponent<SphereCollider>();
+		cdDamage = false;
 		fsm.AddState(StatesEnemies.Idle, new IdleState(this, fsm));
 		fsm.AddState(StatesEnemies.Shoot, new ShootState(this, fsm));
 	}
@@ -46,13 +52,14 @@ public class MushroomEnemy : Enemy
 
     public override void Damage(int amount, IDamager source)
     {
-        if (!source.GetTeam.CanDamage(myTeam) || isInvulnerable)
-            return;
+        if (!source.GetTeam.CanDamage(myTeam) || isInvulnerable || cdDamage) return;
         health -= amount;
+        cdDamage = true;
+        StartCoroutine(CdDamage());
+        viewEnem.DamageFeedback();
         viewEnem.ActivateTriggers(2);
         if (health <= 0)
             Die(source);
-
     }
     public override void Die(IDamager source)
     {
@@ -64,47 +71,14 @@ public class MushroomEnemy : Enemy
         Destroy(gameObject, 2);
     }
 
-    public void Shoot() {
-		if(canShoot)
-		{
-			viewEnem.ActivateTriggers(0);
-			canShoot = false;
-		}
-	}	
+    public void Shoot()
+    {
+	    if (!canShoot) return;
+	    viewEnem.ActivateTriggers(0);
+	    canShoot = false;
+    }
 
-	public virtual void ShootBullet() {
-        /*if (!target) return;
-		var obj = Instantiate(bulletPref, output.transform.position, Quaternion.identity);
-		obj.transform.right = output.transform.right;
-		obj.AssignTeam = GetTeam;
-
-		var dist = Vector3.Distance(transform.position, target.transform.position) / 3;
-		if (altBullet >= 0)
-		{
-			if (!shootWithGravity)
-				altBullet += dist;
-		}
-		else
-		{
-			if (!shootWithGravity)
-				altBullet += -dist;
-			obj.gravity.y *= -1;
-		}
-
-		if (useParabola)
-		{
-			obj.useGravity = true;
-			obj.rb.velocity = ParabolicShot(target.transform, altBullet, obj.gravity);
-			altBullet = altBulletSave;
-		}
-		else
-        {
-	        obj.useGravity = false;
-			obj.transform.forward = transform.forward;
-		}
-
-		StartCoroutine(CdShoot());*/
-	}
+    public virtual void ShootBullet() { }
 
     public Vector3 ParabolicShot(Transform target, float height, Vector3 gravity)
     {
@@ -123,26 +97,21 @@ public class MushroomEnemy : Enemy
 		yield return new WaitForSeconds(cdTimer);
 		canShoot = true;
 	}
-    
-	/*private void OnCollisionEnter(Collision collision) {
-		if(collision.GetContact(0).thisCollider == jumpingPad)
-		{
-			var jump = collision.transform.GetComponent<IAppliableForce>();
-			if(jump != null)
-            {
-				jump.ApplyForce(Vector3.up * forceJump, ForceMode.Impulse);
-                viewEnem.ActivateTriggers(1);
-            }
-		}
-	}
-*/
-	private void OnTriggerEnter(Collider other)
+
+    public IEnumerator CdDamage()
+    {
+	    yield return new WaitForSeconds(damageTimer);
+	    cdDamage = false;
+    }
+    private void OnTriggerEnter(Collider other)
 	{
 		var jump = other.transform.GetComponent<IAppliableForce>();
 		if (jump != null)
 		{
 			jump.ApplyForce(Vector3.up * forceJump, ForceMode.Impulse);
 			viewEnem.ActivateTriggers(1);
+			viewEnem.SetAudioClip(jumpingPadSound);
+			viewEnem.Au.Play();
 		}
 	}
 }

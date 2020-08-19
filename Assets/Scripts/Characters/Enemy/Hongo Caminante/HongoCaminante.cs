@@ -51,6 +51,7 @@ public class HongoCaminante : Enemy, IDamager
         rb.mass = 100;
         StatesEnemies tempState = fsm.ActualState;
         fsm.SetState(StatesEnemies.Idle);
+        viewEnem.DamageFeedback();
         StartCoroutine(CdDamage(tempState));
         health -= amount;
         viewEnem.ActivateTriggers(0);
@@ -64,7 +65,6 @@ public class HongoCaminante : Enemy, IDamager
         cdDamage = false;
         rb.mass = 1;
         fsm.SetState(state);
-
     }
 
     public override void Die(IDamager source)

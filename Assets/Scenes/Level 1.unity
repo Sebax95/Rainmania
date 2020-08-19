@@ -10713,6 +10713,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5396462961578910110, guid: 737c3d06aabe3324c84589088f0f786e,
+        type: 3}
+      propertyPath: MinDistance
+      value: 6.138176
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096003672, guid: 737c3d06aabe3324c84589088f0f786e, type: 3}
+      propertyPath: maxHealth
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5707228249486905031, guid: 737c3d06aabe3324c84589088f0f786e,
         type: 3}
       propertyPath: m_Name
@@ -30884,6 +30893,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169209642726916531, guid: 876da291fa6255d49ba49f7af9b080a5,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4218731480985010590, guid: 876da291fa6255d49ba49f7af9b080a5,
         type: 3}
