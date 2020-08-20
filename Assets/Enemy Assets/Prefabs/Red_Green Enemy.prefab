@@ -515,7 +515,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
   maxHealth: 1
-  health: 0
   speed: 0
   viewEnem: {fileID: 5707228249486905030}
   groundMask:
@@ -551,7 +550,8 @@ AudioSource:
   m_GameObject: {fileID: 5707228249486905031}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7347425397270473437, guid: 2452c234c5d86f64ba037a283b8b786f,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

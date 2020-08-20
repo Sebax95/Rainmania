@@ -5,24 +5,39 @@ using UnityEngine.UI;
 
 public class PlayerAnim : MonoBehaviour {
 
-	private Player player;
+	[Header("Animation")]
 	private Animator thisAnimator;
 	public Vector2 directionAnimMultiplier;
+	private Player player;
 
 	public GameObject whip;
 	public GameObject bow;
 
+	[Header("Animation parameters")]
 	public string param_horizontalSpeed;
 	public string param_verticalSpeed;
 
 	public string[] param_triggers;
 	public string[] param_bools;
 
-	public UIManager UI;
+	private UIManager UI;
+
+	[Header("Audio")]
+	public AudioClip hurtSound;
+	public AudioClip jumpSound;
+	public AudioClip whipSound;
+	public AudioClip bowSound;
+
+	private AudioSource _audioSource;
+
+	private enum AudioCue {
+		Hurt, Jump, Whip, Bow
+	}
 
 	private void Awake() {
 		thisAnimator = GetComponent<Animator>();
 		player = GetComponent<Player>();
+		_audioSource = GetComponent<AudioSource>();
 		whip.SetActive(false);
 		bow.SetActive(false);
 	}
@@ -88,7 +103,8 @@ public class PlayerAnim : MonoBehaviour {
 				Activate(3, 2); //Vertical
 		else
 			Activate(1, 0); //Horizontal
-		
+
+		PlaySound(AudioCue.Bow);
 		void Activate(int animIndex, int waiterIndex) {
 			TriggerAction(animIndex);
 		}
@@ -100,13 +116,14 @@ public class PlayerAnim : MonoBehaviour {
 		whip.SetActive(true);
 		if(vertical)
 			if(horizontal)
-				Activate(5, 1);
+				Activate(5);
 			else
-				Activate(6, 1);
+				Activate(6);
 		else
-			Activate(4, 0);
+			Activate(4);
 
-		void Activate(int animIndex, int waiterIndex) {
+		PlaySound(AudioCue.Whip);
+		void Activate(int animIndex) {
 			TriggerAction(animIndex);
 		}
 	}
@@ -128,11 +145,13 @@ public class PlayerAnim : MonoBehaviour {
 	public void Jump() {
 		TriggerAction(0);
 		ChangeBool(0, false);
+		PlaySound(AudioCue.Jump);
 	}
 
 	public void Hurt() {
 		TriggerAction(7);
 		UI.SetHealthbarPercent(player.Health / player.maxHealth);
+		PlaySound(AudioCue.Hurt);
 	}
 
 	public void Heal() {
@@ -141,6 +160,28 @@ public class PlayerAnim : MonoBehaviour {
 
 	public void Die() {
 		ChangeBool(1, true);
+	}
+
+	private void PlaySound(AudioCue sound) {
+		AudioClip selected = null;
+
+		switch(sound)
+		{
+			case AudioCue.Hurt:
+				selected = hurtSound;
+				break;
+			case AudioCue.Jump:
+				selected = jumpSound;
+				break;
+			case AudioCue.Whip:
+				selected = whipSound;
+				break;
+			case AudioCue.Bow:
+				selected = bowSound;
+				break;
+		}
+		if(selected)
+			_audioSource.PlayOneShot(selected);
 	}
 
 	//Eventos de animation
