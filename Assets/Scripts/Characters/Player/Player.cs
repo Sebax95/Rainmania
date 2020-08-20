@@ -55,13 +55,15 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		isDead = false;
 		PlayerAnimator = GetComponent<PlayerAnim>();
 		//Temp, despues ver como SOLIDear asignacion de controller
-		health = maxHealth;
+		Health = maxHealth;
 
 
 		rb = GetComponent<Rigidbody>();
 		PlayerAnimator = GetComponent<PlayerAnim>();
 	}
 	private void Update() {
+		if(isDead)
+			return;
 		DetectGround();
 		AttackTimer();
 
@@ -100,14 +102,11 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 	public override void Move(Vector2 direction) {
 
-		if(overriding != null )
+		if(isDead || overriding != null )
 			return;
 
 		//if(!canMove)
 		//	return;
-
-		if(overriding != null)
-			return;
 
 		//rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, 0);
 		var vel = rb.velocity;
@@ -121,7 +120,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	}
 
 	public void Attack(Vector2 direction) {
-		if(!canAttack)
+		if(!canAttack || isDead)
 			return;
 
 		//canMove = false;
@@ -144,18 +143,18 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	}
 
 	public override void Damage(int amount, IDamager source) {
-		if(!source.GetTeam.CanDamage(myTeam) && isDead)
+		base.Damage(amount, source);
+		PlayerAnimator.Hurt();
+		if(isDead)
 			return;
-		health -= amount;
-		PlayerAnimator.TriggerAction(7);
-		if(health < 0)
-			Die(source);
+		//PlayerAnimator.TriggerAction(7);
 	}
 
 	public override void Die(IDamager source) {
-		PlayerAnimator.ChangeBool(1, true);
-		//canMove = false;
 		isDead = true;
+		//PlayerAnimator.ChangeBool(1, true);
+		PlayerAnimator.Die();
+		//canMove = false;
 		GameManager.Instance.PlayerDie();
 		Destroy(gameObject, 3);
 	}

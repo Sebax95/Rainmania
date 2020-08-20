@@ -53,9 +53,9 @@ public class HongoCaminante : Enemy, IDamager
         fsm.SetState(StatesEnemies.Idle);
         viewEnem.DamageFeedback();
         StartCoroutine(CdDamage(tempState));
-        health -= amount;
+        Health -= amount;
         viewEnem.ActivateTriggers(0);
-        if (health < 0)
+        if (Health < 0)
             Die(source);
 
     }

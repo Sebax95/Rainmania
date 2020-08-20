@@ -52,13 +52,14 @@ public class MushroomEnemy : Enemy
 
     public override void Damage(int amount, IDamager source)
     {
-        if (!source.GetTeam.CanDamage(myTeam) || isInvulnerable || cdDamage) return;
-        health -= amount;
+        if (!source.GetTeam.CanDamage(myTeam) || isInvulnerable || cdDamage || isDeath)
+            return;
+        Health -= amount;
         cdDamage = true;
         StartCoroutine(CdDamage());
         viewEnem.DamageFeedback();
         viewEnem.ActivateTriggers(2);
-        if (health <= 0)
+        if (Health <= 0)
             Die(source);
     }
     public override void Die(IDamager source)

@@ -48,7 +48,7 @@ public class Bow : Weapon {
 
 		int index = (int)direction;
 		trans.position = arrowSources[index].position;
-		trans.forward = arrowSources[index].forward;
+		trans.rotation = arrowSources[index].rotation;
 
 		RaycastHit hit;
 		if(Physics.Raycast(transform.position,trans.forward,out hit, wallDistanceCheck, ~MiscUnityUtilities.IntToLayerMask(gameObject.layer)))
