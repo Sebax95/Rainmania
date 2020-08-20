@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAnim : MonoBehaviour {
 
@@ -17,13 +18,17 @@ public class PlayerAnim : MonoBehaviour {
 	public string[] param_triggers;
 	public string[] param_bools;
 
-
+	public UIManager UI;
 
 	private void Awake() {
 		thisAnimator = GetComponent<Animator>();
 		player = GetComponent<Player>();
 		whip.SetActive(false);
 		bow.SetActive(false);
+	}
+
+	private void Start() {
+		UI = Fetchable.FetchComponent<UIManager>("PlayerHUD");
 	}
 
 	private void Update() {
@@ -42,12 +47,18 @@ public class PlayerAnim : MonoBehaviour {
 
 	/// <summary>
 	/// 0: Jump
+	/// 7: Hurt
 	/// </summary>
 	/// <param name="index"></param>
 	public void TriggerAction(int index) {
 		thisAnimator.SetTrigger(param_triggers[index]);
 	}
 
+	/// <summary>
+	/// 1: Die
+	/// </summary>
+	/// <param name="index"></param>
+	/// <param name="value"></param>
 	public void ChangeBool(int index, bool value) =>
 		thisAnimator.SetBool(param_bools[index], value);
 
@@ -117,6 +128,19 @@ public class PlayerAnim : MonoBehaviour {
 	public void Jump() {
 		TriggerAction(0);
 		ChangeBool(0, false);
+	}
+
+	public void Hurt() {
+		TriggerAction(7);
+		UI.SetHealthbarPercent(player.Health / player.maxHealth);
+	}
+
+	public void Heal() {
+		UI.SetHealthbarPercent(player.Health / player.maxHealth);
+	}
+
+	public void Die() {
+		ChangeBool(1, true);
 	}
 
 	//Eventos de animation

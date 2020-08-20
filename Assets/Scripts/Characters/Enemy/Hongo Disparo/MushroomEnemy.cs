@@ -48,9 +48,9 @@ public class MushroomEnemy : Enemy
     {
         if (!source.GetTeam.CanDamage(myTeam) || isInvulnerable || isDeath)
             return;
-        health -= amount;
+        Health -= amount;
         viewEnem.ActivateTriggers(2);
-        if (health <= 0)
+        if (Health <= 0)
             Die(source);
 
     }

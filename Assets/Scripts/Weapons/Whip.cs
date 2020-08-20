@@ -58,7 +58,7 @@ public class Whip : Weapon {
 			if(!anchorAssigned)
 			{
 				var anchor = item.GetComponent<SwingAnchor>();
-				if(anchor == null)
+				if(anchor == null || !anchor.enabled)
 					continue;
 
 				if(anchor.transformDependant)
