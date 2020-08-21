@@ -26,6 +26,8 @@ public class MushroomEnemy : Enemy
 	[Header("Sonidos")]
 	public AudioClip shootSound;
 	public AudioClip jumpingPadSound;
+	public AudioClip hitSound;
+	public AudioClip dieSound;
 
 	protected override void Awake() {
 		base.Awake();
@@ -57,6 +59,8 @@ public class MushroomEnemy : Enemy
         Health -= amount;
         cdDamage = true;
         StartCoroutine(CdDamage());
+        viewEnem.SetAudioClip(hitSound);
+        viewEnem.Au.Play();
         viewEnem.DamageFeedback();
         viewEnem.ActivateTriggers(2);
         if (Health <= 0)
