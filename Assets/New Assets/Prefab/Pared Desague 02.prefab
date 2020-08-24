@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3282157583877165704}
   - component: {fileID: 5901838727052752435}
   - component: {fileID: 5070363573072615583}
-  - component: {fileID: 3398900239233011297}
+  - component: {fileID: 976510353073173648}
   m_Layer: 9
   m_Name: Pared Desague 02
   m_TagString: Untagged
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 56ef9cf01fde92442b3358656b015e78, type: 3}
+  - {fileID: 2100000, guid: fcf5678a48b5ea246beb8531e4271435, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,7 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3398900239233011297
+--- !u!64 &976510353073173648
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,4 +93,4 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -1494213980897638818, guid: 4b9100d7386012049a113f20e1e8ca5b, type: 3}
+  m_Mesh: {fileID: 4559319043618474941, guid: 56ef9cf01fde92442b3358656b015e78, type: 3}

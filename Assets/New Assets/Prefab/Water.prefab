@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3706597772605731914}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -6.358925, y: 14.889352, z: -12.471943}
+  m_LocalPosition: {x: -6.358925, y: 14.676, z: -12.471943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6654062099089942452}
@@ -105,7 +105,6 @@ GameObject:
   - component: {fileID: 6654062099089942452}
   - component: {fileID: 463171424623892806}
   - component: {fileID: 699236718891920978}
-  - component: {fileID: 4138304392628764713}
   m_Layer: 9
   m_Name: Water
   m_TagString: Untagged
@@ -121,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4996283236742193717}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4082250488410557137}
@@ -174,16 +173,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4138304392628764713
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4996283236742193717}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2.0000005, z: 0}
-  m_Center: {x: 0, y: 0, z: -0.0000012700003}
