@@ -10,14 +10,14 @@ public abstract class Character : Controllable, IDamageable, IHealable, ITeam, I
 	protected Team myTeam;
 	public float maxHealth;
 	[SerializeField]
-	protected float health;
+	public float Health { get; protected set; }
 	protected Rigidbody rb;
 	protected Vector3 addedVelocity;
 
 	public Team GetTeam => myTeam;
 
 	protected virtual void Start() {
-		health = maxHealth;
+		Health = maxHealth;
 		rb = GetComponent<Rigidbody>();
 	}
 
@@ -25,12 +25,12 @@ public abstract class Character : Controllable, IDamageable, IHealable, ITeam, I
 	public virtual void Damage(int amount, IDamager source) {
 		if(!source.GetTeam.CanDamage(myTeam))
 			return;
-		health -= amount;
-		if(health < 0)
+		Health -= amount;
+		if(Health <= 0)
 			Die(source);
 	}
 	public virtual void Heal(int amount, IHealer source) {
-		health = Mathf.Min(health + amount, maxHealth);
+		Health = Mathf.Min(Health + amount, maxHealth);
 	}
 
 	public abstract void Die(IDamager source);
