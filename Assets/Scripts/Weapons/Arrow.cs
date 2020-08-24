@@ -15,7 +15,7 @@ public class Arrow : MonoBehaviour, IDamager {
 
 	//Tags
 	private const string BAD_ARROW_TAG = "UnsusedArrow";
-	private const string ANCHORABLE_TAG = "Roof";
+	private const string ANCHORABLE_TAG = "ArrowStick";
 
 	//State
 	private int originalLayer;
