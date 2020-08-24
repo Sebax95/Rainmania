@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 976510353073173648}
   m_Layer: 9
   m_Name: Pared Desague 02
-  m_TagString: Untagged
+  m_TagString: ArrowStick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fcf5678a48b5ea246beb8531e4271435, type: 2}
+  - {fileID: 2100000, guid: 9de0159d62ac611488cccd3cab810742, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
