@@ -12999,6 +12999,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7891245782106660552, guid: d12c0bb5af12bb746a0608402f35d9f6,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
+      objectReference: {fileID: 0}
     - target: {fileID: 8298297793782155228, guid: d12c0bb5af12bb746a0608402f35d9f6,
         type: 3}
       propertyPath: m_LocalPosition.x

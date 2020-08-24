@@ -15,7 +15,7 @@ namespace testing {
 		public float lifeTime;
 		bool stuck = false;
 		bool noStuck = false;
-		bool isStair;
+		//bool isStair;
 		private Bow shooter;
 
 		private void Awake() {
@@ -86,7 +86,7 @@ namespace testing {
 				Destroy(GetComponent<Rigidbody>());
 				this.gameObject.tag = "UnsusedArrow";
 				stuck = true;
-				isStair = true;
+				//isStair = true;
 			} else if(this.gameObject.layer != 9)
 			{
 				this.gameObject.layer = 0;
@@ -94,7 +94,7 @@ namespace testing {
 				rigid.constraints = RigidbodyConstraints.FreezePositionZ;
 				rigid.constraints = RigidbodyConstraints.FreezeRotationY;
 				noStuck = true;
-				isStair = false;
+				//isStair = false;
 			}
 		}
 

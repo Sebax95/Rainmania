@@ -18,8 +18,6 @@ public class Arrow : MonoBehaviour, IDamager {
 	private const string ANCHORABLE_TAG = "Roof";
 
 	//State
-	//private bool isAnchor;
-	//private bool isStair;
 	private int originalLayer;
 	private bool stop = false;
 
@@ -29,7 +27,7 @@ public class Arrow : MonoBehaviour, IDamager {
 	private Collider solidCol;
 	private Collider triggerCol;
 	private SwingAnchor anchor;
-    private TrailRenderer trail;
+	private TrailRenderer trail;
 
 
 	private const int FLIGHT_CONSTRAINTS = 104;//8 + 32 + 64. 8 = Freeze Z position. 32 & 64 = Freeze YZ rotation.
@@ -37,7 +35,7 @@ public class Arrow : MonoBehaviour, IDamager {
 	private const int PLAYER_LAYER = 8;
 
 	private void Awake() {
-        trail = GetComponentInChildren<TrailRenderer>();
+		trail = GetComponentInChildren<TrailRenderer>();
 		rigid = GetComponent<Rigidbody>();
 		anchor = GetComponent<SwingAnchor>();
 		originalLayer = gameObject.layer;
@@ -68,7 +66,6 @@ public class Arrow : MonoBehaviour, IDamager {
 		//isStair = false;
 		//isAnchor = false;
 		timer = maxFlightTime;
-        trail.enabled = true;
 		rigid.isKinematic = false;
 		rigid.velocity = transform.forward * speed;
 		rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS;
@@ -76,7 +73,8 @@ public class Arrow : MonoBehaviour, IDamager {
 		gameObject.layer = originalLayer;
 		rigid.useGravity = false;
 		anchor.enabled = false;
-		triggerCol.enabled = false;
+
+		SetIsFlying(true);
 
 	}
 	public static void TurnOn(Arrow a) {
@@ -101,40 +99,34 @@ public class Arrow : MonoBehaviour, IDamager {
 		if(dmg != null)
 			dmg.Damage(shooter.damage, this);
 
+		SetIsFlying(false);
 
-		if(!collision.collider.gameObject || gameObject.layer == 1)
-			return;
+		//if(collision.collider.gameObject.layer == WALL_LAYER && !collision.collider.gameObject.CompareTag(BAD_ARROW_TAG))
 
-		stop = true;
-		triggerCol.enabled = true;
-        trail.enabled = false;
-        //timer = 0;
-        if (gameObject.layer == WALL_LAYER || gameObject.layer == 1)
-			return;
-
-		if(collision.collider.gameObject.layer == WALL_LAYER && !collision.collider.gameObject.CompareTag(BAD_ARROW_TAG))
+		if(collision.collider.gameObject.CompareTag(ANCHORABLE_TAG)) //If it's a stickable wall
 		{
 			rigid.isKinematic = true;
-			rigid.velocity = Vector3.zero;
 			gameObject.tag = BAD_ARROW_TAG;
-			//isStair = true;
 			timer = asPlatformLifetime;
-			if(collision.collider.gameObject.tag == ANCHORABLE_TAG)
-				anchor.enabled = true;
-		} else
+			//if(collision.collider.gameObject.tag == ANCHORABLE_TAG)
+			anchor.enabled = true;
+		} else //otherwise something non-stickable
 		{
-			this.gameObject.layer = 11;
+			this.gameObject.layer = 11; //Non-interactable layer
 			rigid.useGravity = true;
 			rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS;
 			timer = droppedArrowLifetime;
 		}
 
-		if(collision.collider.gameObject.layer == 15)
-        {
+		if(collision.collider.gameObject.layer == 15) //Enemy layer
 			shooter.ReturnArrow(this);
-		}
+	}
 
-
+	private void SetIsFlying(bool value) {
+		stop = !value;
+		triggerCol.enabled = !value;
+		trail.enabled = value;
+		rigid.velocity = Vector3.zero;
 	}
 
 	public void OnGrapple() {

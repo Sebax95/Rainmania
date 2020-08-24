@@ -9,6 +9,7 @@ TagManager:
   - Arrow
   - UnsusedArrow
   - Roof
+  - ArrowStick
   layers:
   - Default
   - TransparentFX
