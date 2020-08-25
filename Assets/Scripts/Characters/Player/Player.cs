@@ -150,6 +150,14 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		//PlayerAnimator.TriggerAction(7);
 	}
 
+	public override bool Heal(int amount, IHealer source) {
+		bool result = base.Heal(amount, source);
+		if(!result) //Si curacion falla, saltea
+			return result;
+		PlayerAnimator.Heal();
+		return result;
+	}
+
 	public override void Die(IDamager source) {
 		isDead = true;
 		//PlayerAnimator.ChangeBool(1, true);
