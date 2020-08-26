@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2147166586185991153}
   - component: {fileID: 1199078690454796439}
   - component: {fileID: 1035857768}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Techo Lateral 1
   m_TagString: ArrowStick
   m_Icon: {fileID: 0}

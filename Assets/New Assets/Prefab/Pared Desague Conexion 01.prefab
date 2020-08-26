@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5749431368070916063}
   m_Layer: 14
   m_Name: Pared Desague Conexion 01
-  m_TagString: ArrowStick
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

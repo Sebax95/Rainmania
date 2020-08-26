@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3037970157066777240}
   m_Layer: 14
   m_Name: Pared Fondo
-  m_TagString: ArrowStick
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
