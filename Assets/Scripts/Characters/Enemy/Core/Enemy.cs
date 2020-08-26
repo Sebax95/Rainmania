@@ -35,6 +35,7 @@ public abstract class Enemy : Character
 
     public bool showGizmos;
 
+    public Spawner spawner;
     [HideInInspector]
     public Player target;
 
