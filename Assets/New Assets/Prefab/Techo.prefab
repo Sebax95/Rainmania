@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8444403670267176042}
   - component: {fileID: 4926252277591616831}
   - component: {fileID: 7416381881432130628}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Techo
   m_TagString: ArrowStick
   m_Icon: {fileID: 0}
