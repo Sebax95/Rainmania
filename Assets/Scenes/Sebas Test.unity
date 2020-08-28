@@ -209,7 +209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35436146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.57, y: 8, z: -23.1}
+  m_LocalPosition: {x: 12.38, y: 8, z: -31.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -573,11 +573,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 35436150}
-  toSpawn: {fileID: 4380039663302240054, guid: 9348bbe5b0dea4443853cf969cfbd006, type: 3}
+  toSpawn: {fileID: 5159515002468226932, guid: d651d4a6ce1dda14aabfc6afc1599fa0, type: 3}
   spawnPos1: {fileID: 234118672}
   spawnPos2: {fileID: 380980103}
   spawnRate: 2
-  spawnLimit: 7
+  spawnLimit: 1
   radiusDetection: 8.64
 --- !u!4 &2097835060
 Transform:

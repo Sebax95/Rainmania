@@ -3,15 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Unity;
 
-public enum StatesEnemies
-{
-    Idle,
-    Shoot,
-    Walk,
-    Attack,
-    Null
-}
-
 public abstract class Enemy : Character
 {
     [Header("Enemy Variables")]
@@ -70,16 +61,13 @@ public abstract class Enemy : Character
         else
             return false;
     }
-
     
-
     public override void Move(Vector2 direction)
     {
         var tempVel = rb.velocity;
         Vector3 newVel = new Vector3(direction.x * speed, tempVel.y);      
 
         rb.velocity = newVel;
-        
     }
 
     private void OnDrawGizmosSelected()
