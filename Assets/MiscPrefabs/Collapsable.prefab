@@ -177,7 +177,7 @@ MonoBehaviour:
   respawnDelay: 2
   forgiveTime: 0.5
   shakeMaxDistance: 0.03
-  maxFallBlockRotation: {x: 0, y: 0.03, z: 0.4}
+  maxFallBlockRotation: {x: 0, y: 0.5, z: 3}
   maxAddedFallVelocity: {x: 0.5, y: 2, z: 0.1}
 --- !u!65 &2261981916699825452
 BoxCollider:
