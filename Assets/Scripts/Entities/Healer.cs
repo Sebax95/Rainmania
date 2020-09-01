@@ -18,11 +18,13 @@ public class Healer : MonoBehaviour, IHealer {
 	private int missedCheckCounter = 0;
 
 	private GameObject child;
-	new private Collider collider; 
+	new private Collider collider;
+	private HealerView view;
 
 	private void Start() {
 		child = transform.GetChild(0).gameObject;
 		collider = GetComponent<Collider>();
+		view = GetComponent<HealerView>();
 	}
 
 	private void OnTriggerStay(Collider other) {
@@ -35,6 +37,10 @@ public class Healer : MonoBehaviour, IHealer {
 		}
 		missedCheckCounter = checkPeriodInFrames;
 
+		DoHealing(other);
+	}
+
+	private void DoHealing(Collider other) {
 		ITeam team = other.GetComponent<ITeam>();
 		if(team == null || team.GetTeam != targetTeam) //Si no tiene equipo, skip
 			return;
