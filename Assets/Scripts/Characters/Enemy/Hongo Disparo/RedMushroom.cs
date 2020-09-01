@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class RedMushroom : MushroomEnemy
 {
+    
+    public override void Shoot()
+    {
+        base.Shoot();
+        viewEnem.ActivateTriggers(0);
+    }
     public override void ShootBullet()
     {
         if(target == null) return;

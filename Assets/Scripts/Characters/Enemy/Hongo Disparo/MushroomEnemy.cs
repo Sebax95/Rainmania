@@ -76,10 +76,9 @@ public class MushroomEnemy : Enemy
         Destroy(gameObject, 2);
     }
 
-    public void Shoot()
+    public virtual void Shoot()
     {
 	    if (!canShoot) return;
-	    viewEnem.ActivateTriggers(0);
 	    canShoot = false;
     }
 

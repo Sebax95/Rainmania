@@ -52,6 +52,7 @@ public class FlyingEnemy : Enemy, IDamager
     
     public override void Die(IDamager source)
     {
+        _isDead = true;
         spawner.DestroyObject(this.gameObject);
     }
     

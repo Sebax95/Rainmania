@@ -16,6 +16,12 @@ public class GreenMushroom : MushroomEnemy
         _altBulletSave = altBullet;
     }
 
+    public override void Shoot()
+    {
+        base.Shoot();
+        viewEnem.ActivateTriggers(3);
+    }
+
     public override void ShootBullet()
     {
         if (!target) return;
