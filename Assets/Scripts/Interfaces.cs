@@ -18,7 +18,7 @@ public interface IHealer : ITeam {
 }
 
 public interface IHealable {
-	void Heal(int amount, IHealer source);
+	bool Heal(int amount, IHealer source);
 }
 
 public interface IWeapon {
