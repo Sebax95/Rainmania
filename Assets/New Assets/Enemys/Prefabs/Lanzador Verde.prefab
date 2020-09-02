@@ -248,7 +248,7 @@ Transform:
   m_GameObject: {fileID: 2027989292370182252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 7814908625387661561}
   - {fileID: 6320212282293405497}
@@ -345,7 +345,7 @@ MonoBehaviour:
   cdTimer: 1
   output: {fileID: 5064461811892140070}
   viewAngle: 21
-  viewDistance: 5
+  viewDistance: 9.26
   lastPosition: {x: 0, y: 0, z: 0}
   gameAreaMask:
     serializedVersion: 2
