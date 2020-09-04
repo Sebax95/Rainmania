@@ -55,7 +55,7 @@ public class Spawner : MonoBehaviour
             if (spawned.Count < spawnLimit)
             {
                 Vector3 newPos = new Vector3(spawnPos1.position.x, Random.Range(spawnPos1.position.y,spawnPos2.position.y), spawnPos1.position.z);
-                var obj = Instantiate(toSpawn, newPos, Quaternion.identity);
+                var obj = Instantiate(toSpawn, newPos, Quaternion.Euler(0, 90, 0));
                 spawned.Add(obj);
                 obj.GetComponent<Enemy>().spawner = this;
             }

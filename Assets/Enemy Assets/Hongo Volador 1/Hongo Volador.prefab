@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
   maxHealth: 1
-  speed: 0.5
+  speed: 5
   viewEnem: {fileID: 0}
   groundMask:
     serializedVersion: 2
@@ -141,6 +141,7 @@ MonoBehaviour:
   showGizmos: 1
   spawner: {fileID: 0}
   target: {fileID: 0}
-  lifeTime: 1000000
-  frecuency: 0.5
-  amplitud: 2
+  lifeTime: 1
+  frecuency: 5
+  amplitud: 14
+  damage: 0

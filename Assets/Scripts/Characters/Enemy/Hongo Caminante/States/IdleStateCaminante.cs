@@ -10,7 +10,7 @@ public class IdleStateCaminante : State<HongoCaminante>
 
     public override void Enter()
     {
-        _owner.viewEnem.ActivateBool(0, false);
+        //_owner.viewEnem.ActivateBool(0, false);
     }
 
     public override void Exit()

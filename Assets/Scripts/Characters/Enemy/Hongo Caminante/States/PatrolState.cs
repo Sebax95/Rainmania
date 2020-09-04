@@ -5,9 +5,7 @@ using CustomMSLibrary.Unity;
 
 public class PatrolState : State<HongoCaminante>
 {
-    public PatrolState(HongoCaminante owner, FSM<HongoCaminante> fsm) : base(owner, fsm)
-    {
-    }
+    public PatrolState(HongoCaminante owner, FSM<HongoCaminante> fsm) : base(owner, fsm) { }
 
     bool isRight;
 
@@ -16,10 +14,7 @@ public class PatrolState : State<HongoCaminante>
         _owner.viewEnem.ActivateBool(0, true);
     }
 
-    public override void Exit()
-    {
-        
-    }
+    public override void Exit() { }
 
     public override void FixedUpdateState()
     {
@@ -27,8 +22,6 @@ public class PatrolState : State<HongoCaminante>
             Moving();
         else
             _fsm.SetState(StatesEnemies.Attack);
-            //if (Vector3.Distance(_owner.transform.position, _owner.target.transform.position) < _owner.viewDistance / 2)
-
     }
 
     void Moving()
@@ -49,9 +42,5 @@ public class PatrolState : State<HongoCaminante>
         }
     }
 
-    public override void UpdateState()
-    {
-        
-    }
-
+    public override void UpdateState() { }
 }

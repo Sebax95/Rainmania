@@ -4,24 +4,16 @@ using UnityEngine;
 
 public class AttackStateCaminante : State<HongoCaminante>
 {
-    public AttackStateCaminante(HongoCaminante owner, FSM<HongoCaminante> fsm) : base(owner, fsm)
-    {
-    }
+    public AttackStateCaminante(HongoCaminante owner, FSM<HongoCaminante> fsm) : base(owner, fsm) { }
 
     public override void Enter()
     {
         _owner.viewEnem.ActivateBool(0, false);
     }
 
-    public override void Exit()
-    {
-        
-    }
+    public override void Exit() { }
 
-    public override void FixedUpdateState()
-    {
-        
-    }
+    public override void FixedUpdateState() { }
 
     public override void UpdateState()
     {
@@ -30,7 +22,7 @@ public class AttackStateCaminante : State<HongoCaminante>
             if (_owner.canJump)
             {
                 _owner.canJump = false;
-                _owner.StartCoroutine(_owner.Jump());
+                _owner.StartCoroutine(_owner.Attack());
             }
         }
         else if (!_owner.LineOfSight() && _owner.canJump)
