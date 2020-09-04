@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Unity;
 
-public abstract class Enemy : Character
+public abstract class Enemy : Character, IDamager
 {
-    [Header("Enemy Variables")]
+    [Header("Enemy Variables", order = 0)]
     public float speed;
     public EnemyView viewEnem;
     public LayerMask groundMask;
+    public GameObject SourceObject => gameObject;
 
-    [Header("Shooting")]
+    [Header("Shooting", order = 2)]
     public float cdTimer;
     public Transform output;
 
-    [Header("Line Of Sight")]
+    [Header("Line Of Sight", order = 1)]
     public float viewAngle;
     public float viewDistance;
 
@@ -69,6 +70,20 @@ public abstract class Enemy : Character
 
         rb.velocity = newVel;
     }
+    
+    public Vector3 ParabolicShot(Transform tar, float height, Vector3 gravity)
+    {
+        float displacementY = tar.position.y - output.position.y;
+        Vector3 displacementXZ = new Vector3(tar.position.x - output.position.x, 0, tar.transform.position.z - output.position.z);
+
+        float time = Mathf.Sqrt(Mathf.Abs(-2 * height / gravity.y)) + Mathf.Sqrt(Mathf.Abs(2 * (displacementY - height) / gravity.y));
+
+        Vector3 velocityY = Vector3.up * Mathf.Sqrt(Mathf.Abs(2 * gravity.y * height));
+        Vector3 velocityXZ = displacementXZ / time;
+
+        return velocityXZ + velocityY * -Mathf.Sign(gravity.y);
+    }
+
 
     private void OnDrawGizmosSelected()
     {

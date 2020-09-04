@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingEnemy : Enemy, IDamager
+public class FlyingEnemy : Enemy
 {
-    public GameObject SourceObject => gameObject;
     public float lifeTime;
     public float frecuency, amplitud;
     public int damage;
@@ -53,7 +52,10 @@ public class FlyingEnemy : Enemy, IDamager
     public override void Die(IDamager source)
     {
         _isDead = true;
-        spawner.DestroyObject(this.gameObject);
+        if(!spawner)
+            spawner.DestroyObject(gameObject);
+        else
+            Destroy(gameObject);
     }
     
 }
