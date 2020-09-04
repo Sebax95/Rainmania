@@ -20,7 +20,7 @@ public class Saltador : HongoCaminante
                 viewEnem.ActivateBool(0, true);
                 inGround = true;
             }
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.1f);
         } while (!inGround);
     }
 }

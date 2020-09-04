@@ -559,7 +559,7 @@ MonoBehaviour:
   isDeath: 0
   canJump: 1
   jumpForce: 5
-  damage: 3
+  damage: 2
   cdDamage: 0
   groundChecker: {fileID: 4692388281198659333}
 --- !u!114 &5874534082052850490
