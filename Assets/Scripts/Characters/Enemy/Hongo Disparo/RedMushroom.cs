@@ -7,12 +7,14 @@ public class RedMushroom : MushroomEnemy
     
     public override void Shoot()
     {
-        base.Shoot();
+        if(!canShoot) return;
+        canShoot = false;
         viewEnem.ActivateTriggers(0);
     }
     public override void ShootBullet()
     {
         if(target == null) return;
+        StartCoroutine(CdShoot());
         var obj = Instantiate(bulletPref, output.transform.position, Quaternion.identity);
         obj.transform.right = output.transform.right;
         obj.AssignTeam = GetTeam;
@@ -21,6 +23,5 @@ public class RedMushroom : MushroomEnemy
         
         obj.useGravity = false;
         obj.transform.forward = transform.forward;
-        StartCoroutine(CdShoot());
     }
 }

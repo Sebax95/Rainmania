@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class MushroomEnemy : Enemy
+public abstract class MushroomEnemy : Enemy
 {
 
 	public bool isInvulnerable;
@@ -36,11 +36,13 @@ public class MushroomEnemy : Enemy
 		cdDamage = false;
 		fsm.AddState(StatesEnemies.Idle, new IdleState(this, fsm));
 		fsm.AddState(StatesEnemies.Shoot, new ShootState(this, fsm));
+		
 	}
 
 	protected override void Start() {
 		base.Start();
 		fsm.SetState(StatesEnemies.Idle);
+		canShoot = true;
 	}
 
 	public void Update() {
@@ -76,13 +78,9 @@ public class MushroomEnemy : Enemy
         Destroy(gameObject, 2);
     }
 
-    public virtual void Shoot()
-    {
-	    if (!canShoot) return;
-	    canShoot = false;
-    }
+    public abstract void Shoot();
 
-    public virtual void ShootBullet() { }
+    public abstract void ShootBullet();
     
     public IEnumerator CdShoot() {
 		yield return new WaitForSeconds(cdTimer);
