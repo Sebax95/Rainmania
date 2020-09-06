@@ -51,7 +51,6 @@ public class Spawner : MonoBehaviour
         var waiter = new WaitForSeconds(spawnRate);
         while (_isEnabled)
         {
-            yield return waiter;
             if (spawned.Count < spawnLimit)
             {
                 Vector3 newPos = new Vector3(spawnPos1.position.x, Random.Range(spawnPos1.position.y,spawnPos2.position.y), spawnPos1.position.z);
@@ -59,6 +58,7 @@ public class Spawner : MonoBehaviour
                 spawned.Add(obj);
                 obj.GetComponent<Enemy>().spawner = this;
             }
+            yield return waiter;
 
         }
     }

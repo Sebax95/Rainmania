@@ -4,13 +4,14 @@ using UnityEngine;
 
 public abstract class HongoCaminante : Enemy
 {
-    private FSM<HongoCaminante> fsm;
+    protected FSM<HongoCaminante> fsm;
     public bool isDeath;
     public bool canJump;
     public float jumpForce;
     public int damage;
     public bool cdDamage = false;
     public Transform groundChecker;
+    public bool stopCor = false;
 
     protected override void Awake()
     {
@@ -38,7 +39,7 @@ public abstract class HongoCaminante : Enemy
         if (isDeath) return;
         fsm.FixedUpdate();
     }
-
+    
     public override void Damage(int amount, IDamager source)
     {
         if (!source.GetTeam.CanDamage(myTeam))
@@ -67,7 +68,7 @@ public abstract class HongoCaminante : Enemy
     public override void Die(IDamager source)
     {
         isDeath = true;
-        viewEnem.ActivateBool(1, true);
+        viewEnem.ActivateTriggers(1);
         rb.isKinematic = true;
         GetComponent<CapsuleCollider>().enabled = false;
         Destroy(gameObject, 2);
