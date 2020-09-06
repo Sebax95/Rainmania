@@ -6,6 +6,8 @@ using UnityEngine;
 public class FlyingEnemy : Enemy
 {
     public float lifeTime;
+    public float minRandomAmplitud;
+    public float maxRandomAmplitud;
     public float frecuency, amplitud;
     public int damage;
 

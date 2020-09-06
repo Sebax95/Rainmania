@@ -11,7 +11,8 @@ public class FlyState : State<FlyingEnemy>
 
     public override void Enter()
     {
-        rand = Random.Range(0f, 2f);
+        if(_owner.minRandomAmplitud != _owner.maxRandomAmplitud)
+            rand = Random.Range(_owner.minRandomAmplitud, _owner.maxRandomAmplitud);
     }
 
     public override void UpdateState() { }

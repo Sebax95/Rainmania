@@ -329,13 +329,9 @@ MonoBehaviour:
   showGizmos: 0
   spawner: {fileID: 0}
   target: {fileID: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
   damage: 1
   bulletPref: {fileID: 2614553126292014050, guid: 975c0eb07705dbf4eba59808cea4a3a0,
     type: 3}
-  cdTimer2: 2
   leftPos: {x: 4, y: 1}
   rightPos: {x: -4, y: -1}
   offsetLeft: {x: 0, y: 0, z: 0}

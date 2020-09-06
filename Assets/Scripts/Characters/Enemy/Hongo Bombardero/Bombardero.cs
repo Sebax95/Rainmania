@@ -8,20 +8,18 @@ public class Bombardero : Enemy
 {
     private bool _isDead;
     private bool _canShoot;
-    public LayerMask playerLayer;
     public int damage;
     private FSM<Bombardero> _fsm;
-
-    [Header("Shooting", order = 0)]
-    public GameObject bulletPref;
-    public float cdTimer2;
     
+    public GameObject bulletPref;
+
     public Vector2 leftPos;
     public Vector2 rightPos;
 
     public Vector3 offsetLeft;
     public Vector3 offsetRight;
-
+    
+    
     protected override void Awake()
     {
         base.Awake();
@@ -45,6 +43,8 @@ public class Bombardero : Enemy
         if(_isDead) return;
         _fsm.FixedUpdate();
     }
+
+
 
     public override void Move(Vector2 direction) => rb.velocity = direction;
 
@@ -70,28 +70,16 @@ public class Bombardero : Enemy
     {
         while (!_isDead)
         {
-            if (DetectPlayer())
-            {
-                viewEnem.ActivateTriggers(0);
-                yield return new WaitForSeconds(cdTimer);
-            }
-            else
-            {
-                var rand = Random.Range(cdTimer, cdTimer2);
-                viewEnem.ActivateTriggers(0);
-                yield return new WaitForSeconds(rand);
-            }
+            viewEnem.ActivateTriggers(0);
+            yield return new WaitForSeconds(cdTimer);
         }
     }
 
-    bool DetectPlayer() => Physics.Raycast(transform.position, -Vector3.up * 20, Mathf.Infinity, playerLayer);
-
-
     public void Shoot()
     {
-        Debug.Log("shoot");
         var obj = Instantiate(bulletPref, output.transform.position, Quaternion.identity);
-        obj.transform.forward = Vector3.down;
+        obj.transform.forward = Vector3.down; 
+        obj.GetComponent<PoisonBullet>().AssignTeam = GetTeam;
     }
 
     private void OnDrawGizmos()

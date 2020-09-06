@@ -553,7 +553,7 @@ MonoBehaviour:
   gameAreaMask:
     serializedVersion: 2
     m_Bits: 16896
-  showGizmos: 1
+  showGizmos: 0
   spawner: {fileID: 0}
   target: {fileID: 0}
   isDeath: 0
@@ -577,9 +577,9 @@ MonoBehaviour:
   mat: {fileID: 0}
   triggersNames:
   - Jump
+  - Dead
   boolsNames:
   - inGround
-  - isDead
   - Attaking
 --- !u!1 &6451035602513165930
 GameObject:
