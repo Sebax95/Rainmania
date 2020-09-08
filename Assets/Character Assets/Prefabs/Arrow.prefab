@@ -241,7 +241,7 @@ MonoBehaviour:
   speed: 10
   asPlatformLifetime: 10
   droppedArrowLifetime: 2
-  maxFlightTime: 10
+  maxFlightTime: 0.75
   grappleTime: 10
 --- !u!54 &5142224958579746064
 Rigidbody:
