@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 658456178504914558}
   - component: {fileID: 3314996260634228892}
   - component: {fileID: 1662000185128951702}
-  - component: {fileID: 6589556454000160227}
+  - component: {fileID: 2695989467716304439}
   m_Layer: 0
   m_Name: Lanzador Azul
   m_TagString: Untagged
@@ -223,7 +223,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6589556454000160227
+--- !u!114 &2695989467716304439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,35 +232,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 62474825594596283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f100785b9a1c6f8418e676bfea6d7168, type: 3}
+  m_Script: {fileID: 11500000, guid: d21b00fb7aaeb174393d48f3ecf7b2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
-  maxHealth: 2
-  speed: 5
-  viewEnem: {fileID: 7333885369334828013, guid: f159626cbc02fca4ca96638904d3cf04,
-    type: 3}
+  myTeam: {fileID: 11400000, guid: 5622cbf9d9957834d9aa8630a22158c0, type: 2}
+  maxHealth: 99999
+  speed: 0
+  viewEnem: {fileID: 0}
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
-  cdTimer: 2
+    m_Bits: 512
+  cdTimer: 1000
   output: {fileID: 6535211444116493297}
-  viewAngle: 0
-  viewDistance: 0
+  viewAngle: 25
+  viewDistance: 10
   lastPosition: {x: 0, y: 0, z: 0}
   gameAreaMask:
     serializedVersion: 2
-    m_Bits: 512
-  showGizmos: 0
+    m_Bits: 16896
+  showGizmos: 1
   spawner: {fileID: 0}
   target: {fileID: 0}
   isInvulnerable: 1
   isDeath: 0
-  jumpingPad: {fileID: 7333885369334828008, guid: f159626cbc02fca4ca96638904d3cf04,
-    type: 3}
+  jumpingPad: {fileID: 0}
   forceJump: 10
-  bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
-    type: 3}
+  bulletPref: {fileID: 0}
   canShoot: 0
   cdDamage: 0
   damageTimer: 0
