@@ -443,8 +443,10 @@ MonoBehaviour:
   showGizmos: 1
   spawner: {fileID: 0}
   target: {fileID: 0}
-  lifeTime: 5
-  frecuency: 2
+  lifeTime: 30
+  minRandomAmplitud: 0
+  maxRandomAmplitud: 0
+  frecuency: 5
   amplitud: 5
   damage: 1
 --- !u!1 &6993443315774324888
