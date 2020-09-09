@@ -8192,11 +8192,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 366296328}
     m_Modifications:
-    - target: {fileID: 8703314908208111669, guid: 58edb0b88bc26c64384d908a0e5615fb,
-        type: 3}
-      propertyPath: m_TagString
-      value: Roof
-      objectReference: {fileID: 0}
     - target: {fileID: 2978506906261274081, guid: 0cb6e7c07d096164594e5f12c1e0f328,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8261,6 +8256,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703314908208111669, guid: 58edb0b88bc26c64384d908a0e5615fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Roof
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb6e7c07d096164594e5f12c1e0f328, type: 3}
@@ -52905,7 +52905,7 @@ PrefabInstance:
     - target: {fileID: 3867458716645398585, guid: afcd9a290f5eede459dd04adbb910503,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.405998
+      value: 10.14
       objectReference: {fileID: 0}
     - target: {fileID: 3867458716645398585, guid: afcd9a290f5eede459dd04adbb910503,
         type: 3}
@@ -52975,12 +52975,12 @@ PrefabInstance:
     - target: {fileID: 7246049895362126012, guid: afcd9a290f5eede459dd04adbb910503,
         type: 3}
       propertyPath: cdTimer
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7246049895362126012, guid: afcd9a290f5eede459dd04adbb910503,
         type: 3}
       propertyPath: viewDistance
-      value: 6.16
+      value: 5.62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcd9a290f5eede459dd04adbb910503, type: 3}
