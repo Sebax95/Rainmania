@@ -18,17 +18,22 @@ public class PlayerController : Controller, IMainController {
 	[FormerlySerializedAs("SwitchWeaponKey")]
 	public KeyCode attackBowKey;
 	//public KeyCode SwitchWeaponKey;
+	public KeyCode crouchKey;
 
 	private Player User => User<Player>();
 
 	protected override void DoMovement() {
 		direction = GetAxises();
 		User?.Move(direction);
+
+		if(Input.GetKeyDown(crouchKey))
+			User?.ToggleCrouch();
+
 		if(Input.GetKeyDown(JumpKey))
 			User?.Jump();
-
 		else if(Input.GetKeyUp(JumpKey))
 			User?.ReleaseJump();
+
 	}
 
 	protected override void DoActions() {

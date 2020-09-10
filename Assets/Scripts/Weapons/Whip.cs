@@ -9,6 +9,7 @@ public class Whip : Weapon {
 
 	public BoxCastParams[] whipHitboxes;
 	private Swinger swinger;
+	private CrouchStateRouter router;
 
 	public float speed;
 	Vector3 dir;
@@ -31,7 +32,7 @@ public class Whip : Weapon {
 	private void Awake() {
 		swinger = GetComponent<Swinger>();
 		wielder = GetComponent<IWielder>();
-
+		router = GetComponent<CrouchStateRouter>();
 	}
 
 	/// <summary>
@@ -74,7 +75,9 @@ public class Whip : Weapon {
 	}
 
 	private void DetectHits(TargetDirection direction) {
-		var hitbox = whipHitboxes[(int)direction];
+		
+		//var hitbox = whipHitboxes[(int)direction];
+		var hitbox = router.Current.whipHitbox[(int)direction];
 
 		var pos = transform.position;
 		var rot = transform.rotation;
@@ -128,13 +131,24 @@ public class Whip : Weapon {
 #if UNITY_EDITOR
 	Vector3[] points = new Vector3[8];
 	private void OnDrawGizmosSelected() {
-		Gizmos.color = Color.yellow;
 		Quaternion rotation = transform.rotation;
 		Vector3 position = transform.position;
-		foreach(var item in whipHitboxes)
+		Gizmos.color = Color.yellow;
+		if(!router)
+			router = GetComponent<CrouchStateRouter>();
+		foreach(var item in router.standing.whipHitbox)
 		{
+			DrawBox(item);
+		}
+		Gizmos.color = Color.white;
+		foreach(var item in router.crouched.whipHitbox)
+		{
+			DrawBox(item);
+		}
+
+		void DrawBox(BoxCastParams item) {
 			Vector3 centre = position + rotation * item.CenterOffset;
-	#region points
+			#region points
 			points[0] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, item.halfExtends.y, item.halfExtends.z);
 			points[1] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, item.halfExtends.y, -item.halfExtends.z);
 			points[2] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(item.halfExtends.x, -item.halfExtends.y, item.halfExtends.z);
@@ -143,7 +157,7 @@ public class Whip : Weapon {
 			points[5] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(-item.halfExtends.x, item.halfExtends.y, -item.halfExtends.z);
 			points[6] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(-item.halfExtends.x, -item.halfExtends.y, item.halfExtends.z);
 			points[7] = centre + item.GetAdjustedOrientation(rotation) * new Vector3(-item.halfExtends.x, -item.halfExtends.y, -item.halfExtends.z);
-	#endregion
+			#endregion
 
 			for(byte i = 0; i < 7; i++)
 				for(byte j = 1; j < 8; j++)
