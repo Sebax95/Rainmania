@@ -48,3 +48,4 @@ MonoBehaviour:
   JumpKey: 32
   attackWhipKey: 99
   attackBowKey: 120
+  crouchKey: 306
