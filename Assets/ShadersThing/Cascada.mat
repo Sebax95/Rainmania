@@ -39,9 +39,9 @@ Material:
     - _DepthDistance: 0.22
     - _EdgeLength: 2
     - _FallOff: 1.02
-    - _Float0: 0.26
+    - _Float0: 3.83
     - _FlowmapIntensity: 0.117
-    - _FoamOpacity: 1
+    - _FoamOpacity: 0.938
     - _MainOpacity: 1
     - _SpeedX: -0.3
     - _SpeedY: 0
