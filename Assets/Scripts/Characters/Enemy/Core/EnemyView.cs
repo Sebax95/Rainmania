@@ -34,7 +34,7 @@ public class EnemyView : MonoBehaviour
 
         var tempColor = mat.material.color;
         mat.material.SetColor("_Color", Color.white);
-        yield return new WaitForSeconds(.85f);
+        yield return new WaitForSeconds(.5f);
         mat.material.SetColor("_Color", tempColor);
     }
 }

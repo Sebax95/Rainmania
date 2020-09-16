@@ -533,6 +533,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -725,6 +726,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -780,8 +782,8 @@ GameObject:
   - component: {fileID: 3029559647655747905}
   - component: {fileID: 3029559647655747904}
   - component: {fileID: 3029559647655747907}
-  - component: {fileID: 3029559647655747906}
   - component: {fileID: 3029559647655747917}
+  - component: {fileID: 7981202536099096608}
   m_Layer: 15
   m_Name: Hongo Caminante
   m_TagString: Untagged
@@ -854,42 +856,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3029559647655747906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3029559647655747916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8053ab253d9f01345a1f8b82ecd1fcc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
-  maxHealth: 1
-  health: 0
-  speed: 2
-  viewEnem: {fileID: 0}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 512
-  cdTimer: 2
-  output: {fileID: 0}
-  viewAngle: 16.28
-  viewDistance: 3.46
-  lastPosition: {x: 0, y: 0, z: 0}
-  gameAreaMask:
-    serializedVersion: 2
-    m_Bits: 49664
-  showGizmos: 0
-  target: {fileID: 0}
-  isDeath: 0
-  canJump: 0
-  jumpForce: 4.5
-  damage: 0
-  cdDamage: 0
-  groundChecker: {fileID: 5555611679172494571}
 --- !u!114 &3029559647655747917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,6 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e94e8c7264056d4449bebce2319ce816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 0}
   triggersNames:
   - Hit
   - Jump
@@ -909,6 +876,42 @@ MonoBehaviour:
   - isWalking
   - inGround
   - isDead
+--- !u!114 &7981202536099096608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3029559647655747916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fad3b01873dd9f42983b53003e50a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
+  maxHealth: 3
+  speed: 5
+  viewEnem: {fileID: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 512
+  cdTimer: 2
+  output: {fileID: 0}
+  viewAngle: 26.61
+  viewDistance: 2.29
+  lastPosition: {x: 0, y: 0, z: 0}
+  gameAreaMask:
+    serializedVersion: 2
+    m_Bits: 16896
+  showGizmos: 1
+  spawner: {fileID: 0}
+  target: {fileID: 0}
+  isDeath: 0
+  canJump: 0
+  jumpForce: 5
+  damage: 3
+  cdDamage: 0
+  groundChecker: {fileID: 5555611679172494571}
 --- !u!1 &3212893127651557877
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +987,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1879,6 +1883,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2214,6 +2219,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

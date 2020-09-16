@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HongoCaminante : Enemy, IDamager
+public abstract class HongoCaminante : Enemy
 {
-    private FSM<HongoCaminante> fsm;
+    protected FSM<HongoCaminante> fsm;
     public bool isDeath;
     public bool canJump;
     public float jumpForce;
     public int damage;
     public bool cdDamage = false;
     public Transform groundChecker;
-
-    public GameObject SourceObject => gameObject;
+    public bool stopCor = false;
+    public LayerMask frontCheckerLayer;
 
     protected override void Awake()
     {
-        base.Awake();
+        target = FindObjectOfType<Player>();
+        viewEnem = GetComponentInChildren<EnemyView>();
+        rb = GetComponent<Rigidbody>();
         fsm = new FSM<HongoCaminante>(this);
         fsm.AddState(StatesEnemies.Idle, new IdleStateCaminante(this, fsm));
         fsm.AddState(StatesEnemies.Walk, new PatrolState(this, fsm));
@@ -27,7 +29,6 @@ public class HongoCaminante : Enemy, IDamager
     {
         base.Start();
         fsm.SetState(StatesEnemies.Walk);
-        viewEnem.ActivateBool(1, true);
         canJump = true;
     }
     private void Update()
@@ -41,7 +42,7 @@ public class HongoCaminante : Enemy, IDamager
         if (isDeath) return;
         fsm.FixedUpdate();
     }
-
+    
     public override void Damage(int amount, IDamager source)
     {
         if (!source.GetTeam.CanDamage(myTeam))
@@ -54,7 +55,7 @@ public class HongoCaminante : Enemy, IDamager
         viewEnem.DamageFeedback();
         StartCoroutine(CdDamage(tempState));
         Health -= amount;
-        viewEnem.ActivateTriggers(0);
+        //viewEnem.ActivateTriggers(0);
         if (Health < 0)
             Die(source);
 
@@ -70,7 +71,7 @@ public class HongoCaminante : Enemy, IDamager
     public override void Die(IDamager source)
     {
         isDeath = true;
-        viewEnem.ActivateBool(2, true);
+        viewEnem.ActivateTriggers(1);
         rb.isKinematic = true;
         GetComponent<CapsuleCollider>().enabled = false;
         Destroy(gameObject, 2);
@@ -80,7 +81,14 @@ public class HongoCaminante : Enemy, IDamager
     {
         var obj = collision.gameObject.GetComponent<Character>();
         if (obj)
-            obj.Damage(damage, this);
+        {
+            var jump = obj.gameObject.GetComponent<IAppliableForce>();
+            if (jump != null)
+            {
+                jump.ApplyForce((Vector3.up * 4) + (-transform.forward * 2), ForceMode.Impulse);
+                obj.Damage(damage, this);
+            }
+        }
     }
 
     public RaycastHit GroundChecker()
@@ -94,35 +102,17 @@ public class HongoCaminante : Enemy, IDamager
     {
         RaycastHit hit;
         Debug.DrawRay(groundChecker.position, groundChecker.forward * 0.5f, Color.red);
-        Physics.Raycast(groundChecker.position, groundChecker.forward, out hit, 0.5f, gameAreaMask);
+        Physics.Raycast(groundChecker.position, groundChecker.forward, out hit, 0.5f, frontCheckerLayer);
         return hit;
     }
 
-    IEnumerator CdJump()
+    protected IEnumerator CdJump()
     {
         yield return new WaitForSeconds(cdTimer);
         canJump = true;
     }
 
-    public IEnumerator Jump()
-    {
-        StartCoroutine(CdJump());
-        viewEnem.ActivateBool(1, false);
-        viewEnem.ActivateTriggers(1);
-        rb.AddForce(Vector3.up * jumpForce + transform.forward * 2, ForceMode.Impulse);
-        bool inGround = false;
-        RaycastHit hit;
-        yield return new WaitForSeconds(0.1f);
-        do
-        {
-            if (Physics.Raycast(transform.position, -transform.up * 0.2f, out hit, groundMask))
-            {
-                viewEnem.ActivateBool(1, true);
-                inGround = true;
-            }
-            yield return new WaitForEndOfFrame();
-        }
-        while (!inGround);
-    }
-
+    public void ChangeState(StatesEnemies state) => fsm.SetState(state);
+    
+    public abstract IEnumerator Attack();
 }

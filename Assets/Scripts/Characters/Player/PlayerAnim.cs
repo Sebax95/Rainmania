@@ -162,6 +162,10 @@ public class PlayerAnim : MonoBehaviour {
 		ChangeBool(1, true);
 	}
 
+	public void SetCrouched(bool state) {
+		ChangeBool(2, state);
+	}
+
 	private void PlaySound(AudioCue sound) {
 		AudioClip selected = null;
 

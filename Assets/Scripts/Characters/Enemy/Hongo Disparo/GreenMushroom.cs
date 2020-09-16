@@ -16,9 +16,18 @@ public class GreenMushroom : MushroomEnemy
         _altBulletSave = altBullet;
     }
 
+    public override void Shoot()
+    {
+        if(!canShoot) return;
+        if(Physics.Raycast(transform.position, transform.forward * viewDistance, viewDistance * viewDistance,  15)) return;
+        canShoot = false;
+        viewEnem.ActivateTriggers(3);
+    }
+
     public override void ShootBullet()
     {
         if (!target) return;
+        StartCoroutine(CdShoot());
         var obj = Instantiate(bulletPref, output.transform.position, Quaternion.identity);
         obj.transform.right = output.transform.right;
         obj.AssignTeam = GetTeam;
@@ -43,7 +52,6 @@ public class GreenMushroom : MushroomEnemy
         obj.rb.velocity = ParabolicShot(target.transform, altBullet, obj.gravity);
         altBullet = _altBulletSave;
         
-        StartCoroutine(CdShoot());
 
     }
 }

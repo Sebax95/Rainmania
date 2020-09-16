@@ -18,3 +18,12 @@ public abstract class State<T>
         _fsm = fsm;
     }
 }
+public enum StatesEnemies
+{
+    Idle,
+    Shoot,
+    Walk,
+    Attack,
+    Fly,
+    Null
+}

@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class MushroomEnemy : Enemy
+public abstract class MushroomEnemy : Enemy
 {
 
 	public bool isInvulnerable;
@@ -26,6 +26,8 @@ public class MushroomEnemy : Enemy
 	[Header("Sonidos")]
 	public AudioClip shootSound;
 	public AudioClip jumpingPadSound;
+	public AudioClip hitSound;
+	public AudioClip dieSound;
 
 	protected override void Awake() {
 		base.Awake();
@@ -34,11 +36,13 @@ public class MushroomEnemy : Enemy
 		cdDamage = false;
 		fsm.AddState(StatesEnemies.Idle, new IdleState(this, fsm));
 		fsm.AddState(StatesEnemies.Shoot, new ShootState(this, fsm));
+		
 	}
 
 	protected override void Start() {
 		base.Start();
 		fsm.SetState(StatesEnemies.Idle);
+		canShoot = true;
 	}
 
 	public void Update() {
@@ -57,6 +61,8 @@ public class MushroomEnemy : Enemy
         Health -= amount;
         cdDamage = true;
         StartCoroutine(CdDamage());
+        viewEnem.SetAudioClip(hitSound);
+        viewEnem.Au.Play();
         viewEnem.DamageFeedback();
         viewEnem.ActivateTriggers(2);
         if (Health <= 0)
@@ -72,28 +78,10 @@ public class MushroomEnemy : Enemy
         Destroy(gameObject, 2);
     }
 
-    public void Shoot()
-    {
-	    if (!canShoot) return;
-	    viewEnem.ActivateTriggers(0);
-	    canShoot = false;
-    }
+    public abstract void Shoot();
 
-    public virtual void ShootBullet() { }
-
-    public Vector3 ParabolicShot(Transform target, float height, Vector3 gravity)
-    {
-        float displacementY = target.position.y - output.position.y;
-        Vector3 displacementXZ = new Vector3(target.position.x - output.position.x, 0, target.transform.position.z - output.position.z);
-
-        float time = Mathf.Sqrt(Mathf.Abs(-2 * height / gravity.y)) + Mathf.Sqrt(Mathf.Abs(2 * (displacementY - height) / gravity.y));
-
-        Vector3 velocityY = Vector3.up * Mathf.Sqrt(Mathf.Abs(2 * gravity.y * height));
-        Vector3 velocityXZ = displacementXZ / time;
-
-        return velocityXZ + velocityY * -Mathf.Sign(gravity.y);
-    }
-
+    public abstract void ShootBullet();
+    
     public IEnumerator CdShoot() {
 		yield return new WaitForSeconds(cdTimer);
 		canShoot = true;

@@ -30,9 +30,40 @@ Transform:
   - {fileID: 3540944613691951438}
   - {fileID: 67740709604551672}
   - {fileID: 7944931631656711970}
+  - {fileID: 4772215142419807682}
   m_Father: {fileID: 3943775699194359029}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3224309171956440753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4772215142419807682}
+  m_Layer: 8
+  m_Name: Anchor Crouch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4772215142419807682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224309171956440753}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -2.15, y: 0.54, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 5774018139660095153}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &3720366598181040971
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +166,7 @@ GameObject:
   - component: {fileID: 6513376919417720055}
   - component: {fileID: 7823513850554095238}
   - component: {fileID: 1076777813789619754}
+  - component: {fileID: 8060324658222789953}
   - component: {fileID: 953379170742318666}
   - component: {fileID: 9075815607506070855}
   - component: {fileID: 4727816423271630307}
@@ -144,9 +176,10 @@ GameObject:
   - component: {fileID: 2599668707758089970}
   - component: {fileID: 5196582193175230516}
   - component: {fileID: 94915785019324390}
+  - component: {fileID: 3083932071749939287}
   m_Layer: 8
   m_Name: Character 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,6 +249,20 @@ CapsuleCollider:
   m_Height: 0.85
   m_Direction: 1
   m_Center: {x: 0, y: -0.09, z: 0}
+--- !u!136 &8060324658222789953
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082494020295089658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.09
+  m_Height: 0.4404521
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.29477394, z: 0}
 --- !u!114 &953379170742318666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,10 +320,11 @@ MonoBehaviour:
   param_bools:
   - inGround
   - isDead
+  - isCrouched
   hurtSound: {fileID: 8300000, guid: 332d59ab0c364f249b5edf8e94ef82a9, type: 3}
-  jumpSound: {fileID: 0}
-  whipSound: {fileID: 0}
-  bowSound: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: b1faeeed3f3080b4daf9b7c15b318199, type: 3}
+  whipSound: {fileID: 8300000, guid: fee3407e6d091dd4cb39788f811138e1, type: 3}
+  bowSound: {fileID: 8300000, guid: f07ed3b4abcd5834f921bf3ee6518a58, type: 3}
 --- !u!114 &827735113966670542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +396,7 @@ MonoBehaviour:
   validFloorLayers:
     serializedVersion: 2
     m_Bits: 1537
+  crouchSpeedModifier: 0.7
   groundedTreshold: 1
   groundCheckOffset: {x: 0, y: 0, z: 0}
   thisControllerPrefab: {fileID: 6141289527529480240, guid: da9a90c09023bd940933fadf419fe298,
@@ -476,6 +525,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3083932071749939287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082494020295089658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5105114c01e45428aa982d7e5dd4a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standing:
+    whipHitbox:
+    - closePoint: {x: 0, y: 0, z: 0.04}
+      halfExtends: {x: 0.3, y: 0.6, z: 1.19}
+      orientation: {x: 0, y: 0, z: 0}
+    - closePoint: {x: 0, y: 0, z: 0.18}
+      halfExtends: {x: 0.3, y: 0.6, z: 1}
+      orientation: {x: -45, y: 0, z: 0}
+    - closePoint: {x: 0, y: 0, z: 0.3}
+      halfExtends: {x: 0.3, y: 0.6, z: 1}
+      orientation: {x: -90, y: 0, z: 0}
+    arrowSpawns:
+    - {fileID: 3540944613691951438}
+    - {fileID: 67740709604551672}
+    - {fileID: 7944931631656711970}
+  crouched:
+    whipHitbox:
+    - closePoint: {x: 0, y: 0, z: 0.04}
+      halfExtends: {x: 0.3, y: 0.6, z: 1.19}
+      orientation: {x: 0, y: 0, z: 0}
+    arrowSpawns:
+    - {fileID: 4772215142419807682}
 --- !u!1001 &7077938400280168227
 PrefabInstance:
   m_ObjectHideFlags: 0

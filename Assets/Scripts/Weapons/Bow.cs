@@ -18,6 +18,7 @@ public class Bow : Weapon {
 	private WaitForSeconds wait_shootWindup;
 
 	private IWielder wielder;
+	private CrouchStateRouter router;
 	public override Team GetTeam => wielder.GetTeam;
 	public override GameObject SourceObject => gameObject;
 
@@ -28,6 +29,7 @@ public class Bow : Weapon {
 		// motivo por el cual no ataca al tpque.
 		wait_shootWindup = new WaitForSeconds(attackWindup);
 		wielder = GetComponent<IWielder>();
+		router = GetComponent<CrouchStateRouter>();
 		pool = new Pool<Arrow>(INITAL_ARROW_COUNT ,ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, false);
 	}
 
@@ -47,8 +49,9 @@ public class Bow : Weapon {
 		var trans = arrow.transform;
 
 		int index = (int)direction;
-		trans.position = arrowSources[index].position;
-		trans.rotation = arrowSources[index].rotation;
+		Transform source = router.Current.arrowSpawns[index];
+		trans.position = source.position;
+		trans.rotation = source.rotation;
 
 		RaycastHit hit;
 		if(Physics.Raycast(transform.position,trans.forward,out hit, wallDistanceCheck, ~MiscUnityUtilities.IntToLayerMask(gameObject.layer)))

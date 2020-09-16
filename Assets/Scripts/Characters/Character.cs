@@ -29,8 +29,11 @@ public abstract class Character : Controllable, IDamageable, IHealable, ITeam, I
 		if(Health <= 0)
 			Die(source);
 	}
-	public virtual void Heal(int amount, IHealer source) {
+	public virtual bool Heal(int amount, IHealer source) {
+		if(Health == maxHealth)
+			return false;
 		Health = Mathf.Min(Health + amount, maxHealth);
+		return true;
 	}
 
 	public abstract void Die(IDamager source);

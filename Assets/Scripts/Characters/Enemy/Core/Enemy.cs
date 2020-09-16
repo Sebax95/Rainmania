@@ -3,30 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Unity;
 
-public enum StatesEnemies
+public abstract class Enemy : Character, IDamager
 {
-    Idle,
-    Shoot,
-    Walk,
-    Attack,
-    Null
-}
-
-public abstract class Enemy : Character
-{
-    [Header("Enemy Variables")]
+    [Header("Enemy Variables", order = 0)]
     public float speed;
     public EnemyView viewEnem;
     public LayerMask groundMask;
+    public GameObject SourceObject => gameObject;
 
-    [Header("Shooting")]
+    [Header("Shooting", order = 2)]
     public float cdTimer;
     public Transform output;
 
-    [Header("Line Of Sight")]
+    [Header("Line Of Sight", order = 1)]
     public float viewAngle;
     public float viewDistance;
-
+    public Vector3 offsetLOS;
+    private Vector3 _posLOS;
     private Vector3 _dirToTarget;
     private float _anglesToAngle;
     private float _distanceToTarget;
@@ -35,6 +28,7 @@ public abstract class Enemy : Character
 
     public bool showGizmos;
 
+    public Spawner spawner;
     [HideInInspector]
     public Player target;
 
@@ -42,22 +36,24 @@ public abstract class Enemy : Character
     {
         target = FindObjectOfType<Player>();
         viewEnem = GetComponent<EnemyView>();
-        rb = this.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     public bool LineOfSight()
     {
         if (target == null) return false;
+        _posLOS = transform.position + offsetLOS;
         _dirToTarget = target.transform.position - transform.position;
         _anglesToAngle = Vector3.Angle(transform.forward, _dirToTarget);
-        _distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+        _distanceToTarget = Vector3.Distance(_posLOS, target.transform.position);
         if (_anglesToAngle <= viewAngle && _distanceToTarget <= viewDistance)
         {
             RaycastHit rch;
             bool obstacleBetween = false;
-            if (Physics.Raycast(transform.position, _dirToTarget, out rch, _distanceToTarget))
-                if (rch.collider.gameObject.layer == 1 << 10)
+            if (Physics.Raycast(_posLOS, _dirToTarget, out rch, _distanceToTarget))
+                if (rch.collider.gameObject.layer == 14)
                     obstacleBetween = true;
+            Debug.DrawRay(_posLOS,  rch.point - _posLOS, Color.yellow);
             if (!obstacleBetween)
             {
                 lastPosition = target.transform.position;
@@ -69,31 +65,44 @@ public abstract class Enemy : Character
         else
             return false;
     }
-
     
-
     public override void Move(Vector2 direction)
     {
         var tempVel = rb.velocity;
         Vector3 newVel = new Vector3(direction.x * speed, tempVel.y);      
 
         rb.velocity = newVel;
-        
     }
+    
+    public Vector3 ParabolicShot(Transform tar, float height, Vector3 gravity)
+    {
+        float displacementY = tar.position.y - output.position.y;
+        Vector3 displacementXZ = new Vector3(tar.position.x - output.position.x, 0, tar.transform.position.z - output.position.z);
+
+        float time = Mathf.Sqrt(Mathf.Abs(-2 * height / gravity.y)) + Mathf.Sqrt(Mathf.Abs(2 * (displacementY - height) / gravity.y));
+
+        Vector3 velocityY = Vector3.up * Mathf.Sqrt(Mathf.Abs(2 * gravity.y * height));
+        Vector3 velocityXZ = displacementXZ / time;
+
+        return velocityXZ + velocityY * -Mathf.Sign(gravity.y);
+    }
+
 
     private void OnDrawGizmosSelected()
     {
         if (!showGizmos) return;
+        var posLOS = transform.position + offsetLOS;
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, viewDistance);
+        Gizmos.DrawWireSphere(posLOS, viewDistance);
 
         Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(transform.position, transform.position + (transform.forward * viewDistance));
+        Gizmos.DrawLine(posLOS, posLOS + (transform.forward * viewDistance));
 
         Vector3 rightLimit = Quaternion.AngleAxis(viewAngle, transform.up) * transform.forward;
-        Gizmos.DrawLine(transform.position, transform.position + (rightLimit * viewDistance));
+        Gizmos.DrawLine(posLOS, posLOS + (rightLimit * viewDistance));
 
         Vector3 leftLimit = Quaternion.AngleAxis(-viewAngle, transform.up) * transform.forward;
-        Gizmos.DrawLine(transform.position, transform.position + (leftLimit * viewDistance));
+        Gizmos.DrawLine(posLOS, posLOS + (leftLimit * viewDistance));
+        
     }
 }

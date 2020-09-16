@@ -541,6 +541,8 @@ MonoBehaviour:
   damageTimer: 1
   shootSound: {fileID: 8300000, guid: 01818cb8720d300428bf1bddbc438365, type: 3}
   jumpingPadSound: {fileID: 8300000, guid: 3703d2cfb5571214babb7c7da8d5177f, type: 3}
+  hitSound: {fileID: 8300000, guid: 5f5acf83d1072714d82c209d7ef67a13, type: 3}
+  dieSound: {fileID: 0}
 --- !u!82 &-5396462961578910110
 AudioSource:
   m_ObjectHideFlags: 0
