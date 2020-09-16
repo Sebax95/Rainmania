@@ -33,6 +33,7 @@ public class Spawner : MonoBehaviour
         {
             yield return waiter;
             _dist = (player.position - transform.position).sqrMagnitude;
+            Debug.Log("buscando");
             if (_dist < radiusDetection * radiusDetection)
             {
                 if (!_isEnabled)
@@ -54,7 +55,7 @@ public class Spawner : MonoBehaviour
             if (spawned.Count < spawnLimit)
             {
                 Vector3 newPos = new Vector3(spawnPos1.position.x, Random.Range(spawnPos1.position.y,spawnPos2.position.y), spawnPos1.position.z);
-                var obj = Instantiate(toSpawn, newPos, Quaternion.Euler(0, 90, 0));
+                var obj = Instantiate(toSpawn, newPos, spawnPos1.rotation);
                 spawned.Add(obj);
                 obj.GetComponent<Enemy>().spawner = this;
             }
@@ -76,6 +77,8 @@ public class Spawner : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, 0.2f);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(spawnPos1.position, spawnPos1.position + spawnPos1.forward * 0.5f);
         Gizmos.color = Color.green;
         Gizmos.DrawCube(spawnPos1.position, new Vector3(.2f,.2f,.2f));
         Gizmos.DrawCube(spawnPos2.position, new Vector3(.2f,.2f,.2f));

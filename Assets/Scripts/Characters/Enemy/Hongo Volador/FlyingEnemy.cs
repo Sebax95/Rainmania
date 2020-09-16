@@ -32,6 +32,8 @@ public class FlyingEnemy : Enemy
     
     public override void Move(Vector2 direction) => rb.velocity = direction;
 
+    public void Move(Vector3 direction) => rb.velocity = direction;
+
     private void FixedUpdate()
     {
         if(_isDead) return;
@@ -54,7 +56,7 @@ public class FlyingEnemy : Enemy
     public override void Die(IDamager source)
     {
         _isDead = true;
-        if(!spawner)
+        if(spawner)
             spawner.DestroyObject(gameObject);
         else
             Destroy(gameObject);
