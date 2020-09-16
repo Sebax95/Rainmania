@@ -8,6 +8,7 @@ public class RedMushroom : MushroomEnemy
     public override void Shoot()
     {
         if(!canShoot) return;
+        if(Physics.Raycast(transform.position, transform.forward * viewDistance, viewDistance * viewDistance,  1 >> 15)) return;
         canShoot = false;
         viewEnem.ActivateTriggers(0);
     }

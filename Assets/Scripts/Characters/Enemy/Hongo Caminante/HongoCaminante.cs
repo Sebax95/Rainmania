@@ -12,10 +12,13 @@ public abstract class HongoCaminante : Enemy
     public bool cdDamage = false;
     public Transform groundChecker;
     public bool stopCor = false;
+    public LayerMask frontCheckerLayer;
 
     protected override void Awake()
     {
-        base.Awake();
+        target = FindObjectOfType<Player>();
+        viewEnem = GetComponentInChildren<EnemyView>();
+        rb = GetComponent<Rigidbody>();
         fsm = new FSM<HongoCaminante>(this);
         fsm.AddState(StatesEnemies.Idle, new IdleStateCaminante(this, fsm));
         fsm.AddState(StatesEnemies.Walk, new PatrolState(this, fsm));
@@ -99,7 +102,7 @@ public abstract class HongoCaminante : Enemy
     {
         RaycastHit hit;
         Debug.DrawRay(groundChecker.position, groundChecker.forward * 0.5f, Color.red);
-        Physics.Raycast(groundChecker.position, groundChecker.forward, out hit, 0.5f, gameAreaMask);
+        Physics.Raycast(groundChecker.position, groundChecker.forward, out hit, 0.5f, frontCheckerLayer);
         return hit;
     }
 

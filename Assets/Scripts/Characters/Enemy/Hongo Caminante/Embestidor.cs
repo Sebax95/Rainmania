@@ -11,11 +11,11 @@ public class Embestidor : HongoCaminante
         viewEnem.ActivateBool(2, true);
         speed = speed * 2;
         StartCoroutine(StopRun());
-        while (!stopCor || !FrontChecker().collider)
+        do
         {
             Move(transform.forward);
             yield return new WaitForSeconds(0.1f);
-        }
+        } while (!stopCor || !FrontChecker().collider);
         
         speed = tempSpeed;
         viewEnem.ActivateBool(2, false);

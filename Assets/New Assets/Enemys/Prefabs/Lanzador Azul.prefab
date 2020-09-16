@@ -246,6 +246,7 @@ MonoBehaviour:
   output: {fileID: 6535211444116493297}
   viewAngle: 25
   viewDistance: 10
+  offsetLOS: {x: 0, y: 0.73, z: 0.26}
   lastPosition: {x: 0, y: 0, z: 0}
   gameAreaMask:
     serializedVersion: 2

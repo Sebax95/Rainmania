@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
-  maxHealth: 0
+  maxHealth: 1
   speed: 2
   viewEnem: {fileID: 0}
   groundMask:
@@ -549,6 +549,7 @@ MonoBehaviour:
   output: {fileID: 0}
   viewAngle: 26.61
   viewDistance: 4
+  offsetLOS: {x: 0.27, y: 0.51, z: 0}
   lastPosition: {x: 0, y: 0, z: 0}
   gameAreaMask:
     serializedVersion: 2
@@ -563,6 +564,9 @@ MonoBehaviour:
   cdDamage: 0
   groundChecker: {fileID: 4692388281198659333}
   stopCor: 0
+  frontCheckerLayer:
+    serializedVersion: 2
+    m_Bits: 49152
 --- !u!114 &5874534082052850490
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,9 +19,8 @@ public class FlyState : State<FlyingEnemy>
 
     public override void FixedUpdateState()
     {
-
         _move = (Vector3.up * Mathf.Sin((Time.time) * Mathf.PI * _owner.frecuency) * _owner.amplitud);
-        _move = _owner.transform.forward *2 * _owner.speed;
+        _move += _owner.transform.forward * 2 * _owner.speed;
 
         /* _move = new Vector3(_owner.transform.position.x * 2 * _owner.speed * Time.fixedDeltaTime,
              Mathf.Sin( (Time.time + rand)  * Mathf.PI * _owner.frecuency) * _owner.amplitud, 0);*/

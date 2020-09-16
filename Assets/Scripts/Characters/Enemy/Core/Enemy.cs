@@ -18,7 +18,8 @@ public abstract class Enemy : Character, IDamager
     [Header("Line Of Sight", order = 1)]
     public float viewAngle;
     public float viewDistance;
-
+    public Vector3 offsetLOS;
+    private Vector3 _posLOS;
     private Vector3 _dirToTarget;
     private float _anglesToAngle;
     private float _distanceToTarget;
@@ -35,22 +36,24 @@ public abstract class Enemy : Character, IDamager
     {
         target = FindObjectOfType<Player>();
         viewEnem = GetComponent<EnemyView>();
-        rb = this.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     public bool LineOfSight()
     {
         if (target == null) return false;
+        _posLOS = transform.position + offsetLOS;
         _dirToTarget = target.transform.position - transform.position;
         _anglesToAngle = Vector3.Angle(transform.forward, _dirToTarget);
-        _distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+        _distanceToTarget = Vector3.Distance(_posLOS, target.transform.position);
         if (_anglesToAngle <= viewAngle && _distanceToTarget <= viewDistance)
         {
             RaycastHit rch;
             bool obstacleBetween = false;
-            if (Physics.Raycast(transform.position, _dirToTarget, out rch, _distanceToTarget))
-                if (rch.collider.gameObject.layer == 1 << 10)
+            if (Physics.Raycast(_posLOS, _dirToTarget, out rch, _distanceToTarget))
+                if (rch.collider.gameObject.layer == 14)
                     obstacleBetween = true;
+            Debug.DrawRay(_posLOS,  rch.point - _posLOS, Color.yellow);
             if (!obstacleBetween)
             {
                 lastPosition = target.transform.position;
@@ -88,16 +91,18 @@ public abstract class Enemy : Character, IDamager
     private void OnDrawGizmosSelected()
     {
         if (!showGizmos) return;
+        var posLOS = transform.position + offsetLOS;
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, viewDistance);
+        Gizmos.DrawWireSphere(posLOS, viewDistance);
 
         Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(transform.position, transform.position + (transform.forward * viewDistance));
+        Gizmos.DrawLine(posLOS, posLOS + (transform.forward * viewDistance));
 
         Vector3 rightLimit = Quaternion.AngleAxis(viewAngle, transform.up) * transform.forward;
-        Gizmos.DrawLine(transform.position, transform.position + (rightLimit * viewDistance));
+        Gizmos.DrawLine(posLOS, posLOS + (rightLimit * viewDistance));
 
         Vector3 leftLimit = Quaternion.AngleAxis(-viewAngle, transform.up) * transform.forward;
-        Gizmos.DrawLine(transform.position, transform.position + (leftLimit * viewDistance));
+        Gizmos.DrawLine(posLOS, posLOS + (leftLimit * viewDistance));
+        
     }
 }
