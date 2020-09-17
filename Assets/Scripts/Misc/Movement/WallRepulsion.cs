@@ -28,15 +28,8 @@ public class WallRepulsion : MonoBehaviour
         //If using standard and against wall, or using frictionless and on ground, change.
         if(usingFrictionless ^ horizontalIsGreater)
         {
-            if(horizontalIsGreater)
-            {
-                col.material = frictionless;
-                usingFrictionless = true;
-            } else
-            {
-                col.material = standard;
-                usingFrictionless = false;
-            }
+            col.material = horizontalIsGreater ? frictionless : standard;
+            usingFrictionless = horizontalIsGreater;
         }
     }
 }
