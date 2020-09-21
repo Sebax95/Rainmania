@@ -48,15 +48,6 @@ public class Bombardero : Enemy
 
     public override void Move(Vector2 direction) => rb.velocity = direction;
 
-    public override void Damage(int amount, IDamager source)
-    {
-        if (!source.GetTeam.CanDamage(myTeam) || _isDead)
-            return;
-        Health -= amount;
-        if (Health <= 0)
-            Die(source);
-    }
-
     public override void Die(IDamager source)
     {
         _isDead = true;

@@ -389,6 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: 30121d8074a878c44a47b4b36ed20b8c, type: 2}
   maxHealth: 5
+  invincibleTime: 1
   speed: 3
   forceJump: 5.5
   fallMultiplier: 2.5
@@ -396,7 +397,11 @@ MonoBehaviour:
   validFloorLayers:
     serializedVersion: 2
     m_Bits: 1537
+  test_preventJumpWhenCrouched: 0
   crouchSpeedModifier: 0.7
+  crouchCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
   groundedTreshold: 1
   groundCheckOffset: {x: 0, y: 0, z: 0}
   thisControllerPrefab: {fileID: 6141289527529480240, guid: da9a90c09023bd940933fadf419fe298,
