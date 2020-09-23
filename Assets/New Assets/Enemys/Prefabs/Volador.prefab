@@ -445,7 +445,7 @@ MonoBehaviour:
   showGizmos: 1
   spawner: {fileID: 0}
   target: {fileID: 0}
-  lifeTime: 10
+  lifeTime: 20
   minRandomAmplitud: 0
   maxRandomAmplitud: 0
   frecuency: 0.82
