@@ -131,5 +131,5 @@ Material:
     m_Colors:
     - _AlbedoColor: {r: 0, g: 1, b: 0.306108, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Emision: {r: 57.0379, g: 21.163034, b: 0, a: 0}
+    - _Emision: {r: 4.9861026, g: 57.037895, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

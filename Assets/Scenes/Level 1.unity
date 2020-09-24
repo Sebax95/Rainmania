@@ -21,11 +21,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0.2509804, g: 0.3882353, b: 0.5058824, a: 1}
+  m_AmbientEquatorColor: {r: 0.2509804, g: 0.18431373, b: 0.1254902, a: 1}
+  m_AmbientGroundColor: {r: 0.14117648, g: 0.10980392, b: 0.10980392, a: 1}
   m_AmbientIntensity: 0.25
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -98,8 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 1dfd542d3c6bf9e46b9741e416c61118,
-    type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -6946,6 +6945,45 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 299002420}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &186626602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 434242802845096024, guid: b217d504ae21d9142aa064dee7d02e15,
+    type: 3}
+  m_PrefabInstance: {fileID: 1997541313}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &186626605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186626602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!1001 &187899137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11205,6 +11243,45 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 20097054}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &309123385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4577138483900625360, guid: 18dadab8bdfcf6943ab88e55fb652471,
+    type: 3}
+  m_PrefabInstance: {fileID: 1902049815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &309123388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309123385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!1001 &309647650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14713,6 +14790,45 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 409823887}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &418166543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4592869205239133084, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
+    type: 3}
+  m_PrefabInstance: {fileID: 4592869204142435863}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &418166544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418166543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.25
+  outOfPhaseColor: {r: 0.999999, g: 0.48999947, b: 0.39999956, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!4 &418212837 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8298297793782155228, guid: d12c0bb5af12bb746a0608402f35d9f6,
@@ -16542,6 +16658,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12c0bb5af12bb746a0608402f35d9f6, type: 3}
+--- !u!1 &496449818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4577138483900625360, guid: 18dadab8bdfcf6943ab88e55fb652471,
+    type: 3}
+  m_PrefabInstance: {fileID: 468151540}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &496449821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496449818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!1001 &497191532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18618,6 +18773,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e73b4cda824d53a408a7e23bc283ae3f, type: 3}
+--- !u!1 &566440324 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4577138483900625360, guid: 18dadab8bdfcf6943ab88e55fb652471,
+    type: 3}
+  m_PrefabInstance: {fileID: 4752576309671830839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &566440327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566440324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.433
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 0.999999, g: 0.6676642, b: 0.53729653, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.746
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!1001 &567460571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18950,6 +19144,7 @@ GameObject:
   - component: {fileID: 572309801}
   - component: {fileID: 572309804}
   - component: {fileID: 572309805}
+  - component: {fileID: 572309806}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -19016,7 +19211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572309800}
   m_LocalRotation: {x: 0.10702693, y: -0, z: -0, w: 0.9942561}
-  m_LocalPosition: {x: 1.3799996, y: 1.73, z: -4.9700003}
+  m_LocalPosition: {x: 52.2, y: 1.73, z: -4.9700003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19104,6 +19299,21 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &572309806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572309800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdcd06815c47d30489f70df42db56a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frustumSettings:
+    baseSettings: {fileID: 1601379100}
+    qualitySettings: {fileID: 805738820}
 --- !u!1001 &574739628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20203,6 +20413,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12c0bb5af12bb746a0608402f35d9f6, type: 3}
+--- !u!1 &612910637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4577138483900625360, guid: 18dadab8bdfcf6943ab88e55fb652471,
+    type: 3}
+  m_PrefabInstance: {fileID: 406705871}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &612910640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612910637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!1001 &616558517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23780,6 +24029,45 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2d05968bf7fa93048bf9aaabeaebed97, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
+--- !u!1 &714066766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1105297907617695258, guid: 831504c9edfe7d841a7b1dbe84318442,
+    type: 3}
+  m_PrefabInstance: {fileID: 1380470484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &714066769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714066766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!4 &718935892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
@@ -26040,6 +26328,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2115544920}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &805738820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8334a49e76cafef4da22976db1613959, type: 3}
+  m_Name: Default Aura Quality Settings
+  m_EditorClassIdentifier: 
+  displayVolumetricLightingBuffer: 0
+  frustumGridResolution: {x: 160, y: 88, z: 128}
+  enableAutomaticStereoResizing: 1
+  farClipPlaneDistance: 128
+  depthBiasCoefficient: 0.35
+  enableVolumes: 1
+  enableVolumesTexture2DMask: 1
+  enableVolumesTexture3DMask: 1
+  enableVolumesNoiseMask: 1
+  enableAmbientLighting: 1
+  enableDirectionalLights: 1
+  enableDirectionalLightsShadows: 1
+  enableSpotLights: 1
+  enableSpotLightsShadows: 1
+  enablePointLights: 1
+  enablePointLightsShadows: 1
+  enableLightsCookies: 1
+  enableDithering: 1
+  texture3DFiltering: 1
+  EXPERIMENTAL_enableDenoisingFilter: 0
+  EXPERIMENTAL_denoisingFilterRange: 0
+  EXPERIMENTAL_enableBlurFilter: 0
+  EXPERIMENTAL_blurFilterRange: 0
+  EXPERIMENTAL_blurFilterType: 0
+  EXPERIMENTAL_blurFilterGaussianDeviation: 0.0025
+  enableTemporalReprojection: 1
+  temporalReprojectionFactor: 0.95
+  enableOcclusionCulling: 1
+  debugOcclusionCulling: 0
+  occlusionCullingAccuracy: 0
+  enableLightProbes: 0
 --- !u!4 &807833370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2845507675443360264, guid: 7bebf9c33ca222740ae3d711cd106a1c,
@@ -27595,6 +27926,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3321afcb6031e8c4a8c92ee4be7b61bd, type: 3}
+--- !u!1 &880114417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4577138483900625360, guid: 18dadab8bdfcf6943ab88e55fb652471,
+    type: 3}
+  m_PrefabInstance: {fileID: 684702124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &880114420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880114417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!4 &881117379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5015429817947700633, guid: 49314f255168c2d49a10cdd54dcc28fa,
@@ -40565,6 +40935,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12c0bb5af12bb746a0608402f35d9f6, type: 3}
+--- !u!1 &1323818297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1105297907617695258, guid: 831504c9edfe7d841a7b1dbe84318442,
+    type: 3}
+  m_PrefabInstance: {fileID: 207105296815216840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1323818300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323818297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!1001 &1324309486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52805,6 +53214,45 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 426229552}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1556960615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8779685628546674760, guid: 6faf5c5d92016df4d987c6e3fd5c7e3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2118918250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1556960618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556960615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!4 &1557215418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1020753505851689799, guid: 78dd93a19f6592d4d8a8151573a21a65,
@@ -54079,6 +54527,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2012451508}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1601379100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59306422a2ca4454aabce3daa79c3334, type: 3}
+  m_Name: New Aura Base Settings
+  m_EditorClassIdentifier: 
+  useDensity: 1
+  density: 0.05
+  useScattering: 1
+  scattering: 0.5
+  useAmbientLighting: 1
+  ambientLightingStrength: 1
+  useColor: 0
+  color: {r: 0, g: 0.5, b: 0.5, a: 0.5}
+  colorStrength: 1
+  useTint: 0
+  tint: {r: 0.999999, g: 0.9215677, b: 0.015686257, a: 1}
+  tintStrength: 1
+  useExtinction: 0
+  extinction: 0.75
 --- !u!4 &1605561793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2978506906261274081, guid: 0cb6e7c07d096164594e5f12c1e0f328,
@@ -60883,6 +61357,45 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1825754325}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1826228654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8779685628546674760, guid: 6faf5c5d92016df4d987c6e3fd5c7e3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6084694552441602597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1826228657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826228654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!1001 &1828343791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70816,6 +71329,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12c0bb5af12bb746a0608402f35d9f6, type: 3}
+--- !u!1 &2089970603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 434242802845096024, guid: b217d504ae21d9142aa064dee7d02e15,
+    type: 3}
+  m_PrefabInstance: {fileID: 13975736}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2089970606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089970603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!1001 &2098000103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73347,22 +73899,22 @@ PrefabInstance:
     - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4592368
+      value: -0.4090293
       objectReference: {fileID: 0}
     - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.11825607
+      value: 0.106635
       objectReference: {fileID: 0}
     - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.20781955
+      value: -0.21326159
       objectReference: {fileID: 0}
     - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.85552806
+      value: -0.88081986
       objectReference: {fileID: 0}
     - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
         type: 3}
@@ -73392,17 +73944,17 @@ PrefabInstance:
     - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.6197183
+      value: 0.2924528
       objectReference: {fileID: 0}
     - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
         type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.24500202
       objectReference: {fileID: 0}
     - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.11449803
       objectReference: {fileID: 0}
     - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
         type: 3}
@@ -73447,6 +73999,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482415555643689223, guid: 18dadab8bdfcf6943ab88e55fb652471,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4577138483900625360, guid: 18dadab8bdfcf6943ab88e55fb652471,
         type: 3}

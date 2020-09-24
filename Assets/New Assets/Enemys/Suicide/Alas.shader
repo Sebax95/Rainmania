@@ -4,7 +4,7 @@ Shader "Alas"
 {
 	Properties
 	{
-		_DefaultMaterial_Opacity("DefaultMaterial_Opacity", 2D) = "white" {}
+		[NoScaleOffset][SingleLineTexture]_DefaultMaterial_Opacity("DefaultMaterial_Opacity", 2D) = "white" {}
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
@@ -23,7 +23,6 @@ Shader "Alas"
 		};
 
 		uniform sampler2D _DefaultMaterial_Opacity;
-		uniform float4 _DefaultMaterial_Opacity_ST;
 
 		inline half4 LightingUnlit( SurfaceOutput s, half3 lightDir, half atten )
 		{
@@ -32,8 +31,8 @@ Shader "Alas"
 
 		void surf( Input i , inout SurfaceOutput o )
 		{
-			float2 uv_DefaultMaterial_Opacity = i.uv_texcoord * _DefaultMaterial_Opacity_ST.xy + _DefaultMaterial_Opacity_ST.zw;
-			float4 tex2DNode1 = tex2D( _DefaultMaterial_Opacity, uv_DefaultMaterial_Opacity );
+			float2 uv_DefaultMaterial_Opacity1 = i.uv_texcoord;
+			float4 tex2DNode1 = tex2D( _DefaultMaterial_Opacity, uv_DefaultMaterial_Opacity1 );
 			o.Emission = tex2DNode1.rgb;
 			o.Alpha = tex2DNode1.r;
 		}
@@ -117,10 +116,10 @@ Shader "Alas"
 }
 /*ASEBEGIN
 Version=18301
-0;710;1369;291;1110.993;-36.59148;1.3;True;False
-Node;AmplifyShaderEditor.SamplerNode;1;-654.715,217.6523;Inherit;True;Property;_DefaultMaterial_Opacity;DefaultMaterial_Opacity;0;0;Create;True;0;0;False;0;False;-1;539e41f7fe73fe04bad9aa4ae8ad75ae;539e41f7fe73fe04bad9aa4ae8ad75ae;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+0;680;1530;319;1285.843;-57.39148;1.3;True;False
+Node;AmplifyShaderEditor.SamplerNode;1;-654.715,217.6523;Inherit;True;Property;_DefaultMaterial_Opacity;DefaultMaterial_Opacity;0;2;[NoScaleOffset];[SingleLineTexture];Create;True;0;0;False;0;False;-1;539e41f7fe73fe04bad9aa4ae8ad75ae;539e41f7fe73fe04bad9aa4ae8ad75ae;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;0,0;Float;False;True;-1;2;ASEMaterialInspector;0;0;Unlit;Alas;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;False;False;False;False;False;False;Back;0;False;-1;0;False;-1;False;0;False;-1;0;False;-1;False;0;Transparent;0.5;True;True;0;False;Transparent;;Transparent;All;14;all;True;True;True;True;0;False;-1;False;0;False;-1;255;False;-1;255;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;False;2;15;10;25;False;0.5;True;2;5;False;-1;10;False;-1;0;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;Relative;0;;-1;-1;-1;-1;0;False;0;0;False;-1;-1;0;False;-1;0;0;0;False;0.1;False;-1;0;False;-1;15;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 WireConnection;0;2;1;0
 WireConnection;0;9;1;0
 ASEEND*/
-//CHKSM=6FCD0BF23B51901B2D5A1E3BDABB4635D4AF8F5B
+//CHKSM=04633266856EA6528869D946913EAE713860F514

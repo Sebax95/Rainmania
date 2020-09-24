@@ -10,7 +10,7 @@ namespace AmplifyShaderEditor
 	[NodeAttributes( "Shade Vertex Lights", "Light", "Computes illumination from four per-vertex lights and ambient, given object space position & normal" )]
 	public sealed class ShadeVertexLightsHlpNode : ParentNode
 	{
-		private const string HelperMessage = "This node only outputs correct results on Template Vertex/Frag shaders with their LightMode set to Vertex.";
+		private const string HelperMessage = "Shade Vertex Lights node only outputs correct results on\nTemplate Vertex/Frag shaders with their LightMode set to Vertex.";
 		private const string ShadeVertexLightFunc = "ShadeVertexLightsFull({0},{1},{2},{3})";
 		private const string LightCount = "Light Count";
 		private const string IsSpotlight = "Is Spotlight";
@@ -21,7 +21,10 @@ namespace AmplifyShaderEditor
 
 		[SerializeField]
 		private bool m_enableSpotlight = false;
-		
+
+		private int _LightCountId;
+		private int _IsSpotlightId;
+
 		protected override void CommonInit( int uniqueId )
 		{
 			base.CommonInit( uniqueId );
@@ -31,6 +34,14 @@ namespace AmplifyShaderEditor
 			m_useInternalPortData = true;
 			//m_autoWrapProperties = true;
 			m_textLabelWidth = 90;
+			m_previewShaderGUID = "3b6075034a85ad047be2d31dd213fb4f";
+		}
+
+		public override void OnEnable()
+		{
+			base.OnEnable();
+			_LightCountId = Shader.PropertyToID( "_LightCount" );
+			_IsSpotlightId = Shader.PropertyToID( "_IsSpotlight" );
 		}
 
 		public override void DrawProperties()
@@ -38,6 +49,14 @@ namespace AmplifyShaderEditor
 			base.DrawProperties();
 			NodeUtils.DrawPropertyGroup( ref m_propertiesFoldout, Constants.ParameterLabelStr, DrawGeneralProperties );
 			EditorGUILayout.HelpBox( HelperMessage, MessageType.Info );
+		}
+
+		public override void SetPreviewInputs()
+		{
+			base.SetPreviewInputs();
+			PreviewMaterial.SetInt( _LightCountId, m_lightCount );
+			PreviewMaterial.SetInt( _IsSpotlightId, ( m_enableSpotlight ? 1 : 0 ) );
+
 		}
 
 		void DrawGeneralProperties()
@@ -49,7 +68,7 @@ namespace AmplifyShaderEditor
 		public override string GenerateShaderForOutput( int outputId, ref MasterNodeDataCollector dataCollector, bool ignoreLocalvar )
 		{
 			if( dataCollector.MasterNodeCategory == AvailableShaderTypes.SurfaceShader )
-				UIUtils.ShowMessage( HelperMessage, MessageSeverity.Warning );
+				UIUtils.ShowMessage( UniqueId, HelperMessage, MessageSeverity.Warning );
 
 			if( m_outputPorts[ 0 ].IsLocalValue( dataCollector.PortCategory ) )
 				return m_outputPorts[ 0 ].LocalValue( dataCollector.PortCategory );
@@ -61,7 +80,7 @@ namespace AmplifyShaderEditor
 
 			string value = string.Format( ShadeVertexLightFunc, vertexPosition, vertexNormal, m_lightCount, m_enableSpotlight.ToString().ToLower() );
 
-			RegisterLocalVariable( 0, value, ref dataCollector, "shadeVertexLight"+OutputId );
+			RegisterLocalVariable( 0, value, ref dataCollector, "shadeVertexLight" + OutputId );
 
 			return m_outputPorts[ 0 ].LocalValue( dataCollector.PortCategory );
 		}

@@ -8,7 +8,7 @@ using UnityEditor;
 namespace AmplifyShaderEditor
 {
 	[Serializable]
-	[NodeAttributes( "Vertex TexCoord", "Vertex Data", "Vertex texture coordinates, can be used in both local vertex offset and fragment outputs" )]
+	[NodeAttributes( "Vertex TexCoord", "Vertex Data", "Vertex texture coordinates, can be used in both local vertex offset and fragment outputs", tags: "uv" )]
 	public sealed class TexCoordVertexDataNode : VertexDataNode
 	{
 		[SerializeField]
@@ -62,7 +62,7 @@ namespace AmplifyShaderEditor
 				if( EditorGUI.EndChangeCheck() )
 				{
 					UpdateOutput();
-					m_dropdownEditing = false;
+					DropdownEditing = false;
 				}
 			}
 		}
@@ -103,6 +103,12 @@ namespace AmplifyShaderEditor
 					dataCollector.TemplateDataCollectorInstance.RegisterUV( m_index, m_outputPorts[ 0 ].DataType );
 				}
 
+				string result = string.Empty;
+				if( dataCollector.TemplateDataCollectorInstance.GetCustomInterpolatedData( TemplateHelperFunctions.IntToUVChannelInfo[ m_index ], m_outputPorts[ 0 ].DataType, PrecisionType.Float, ref result, false, dataCollector.PortCategory ) )
+				{
+					return GetOutputVectorItem( 0, outputId, result );
+				}
+				else
 				if( dataCollector.TemplateDataCollectorInstance.HasUV( m_index ) )
 				{
 					InterpDataHelper info = dataCollector.TemplateDataCollectorInstance.GetUVInfo( m_index );

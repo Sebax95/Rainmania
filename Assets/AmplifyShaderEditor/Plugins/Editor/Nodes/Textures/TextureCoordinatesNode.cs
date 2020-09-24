@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace AmplifyShaderEditor
 {
 	[Serializable]
-	[NodeAttributes( "Texture Coordinates", "UV Coordinates", "Texture UV coordinates set, if <b>Tex</b> is connected to a texture object it will use that texture scale factors, otherwise uses <b>Tilling</b> and <b>Offset</b> port values", null, KeyCode.U )]
+	[NodeAttributes( "Texture Coordinates", "UV Coordinates", "Texture UV coordinates set, if <b>Tex</b> is connected to a texture object it will use that texture scale factors, otherwise uses <b>Tilling</b> and <b>Offset</b> port values", null, KeyCode.U, tags: "uv" )]
 	public sealed class TextureCoordinatesNode : ParentNode
 	{
 
@@ -92,9 +92,10 @@ namespace AmplifyShaderEditor
 			base.OnInputPortConnected( portId, otherNodeId, otherPortId, activateNode );
 			if( portId == 2 )
 			{
-				m_inputReferenceNode = m_texPort.GetOutputNode() as TexturePropertyNode;
+				m_inputReferenceNode = m_texPort.GetOutputNodeWhichIsNotRelay() as TexturePropertyNode;
 				UpdatePorts();
 			}
+			UpdateTitle();
 		}
 
 		public override void OnInputPortDisconnected( int portId )
@@ -105,6 +106,7 @@ namespace AmplifyShaderEditor
 				m_inputReferenceNode = null;
 				UpdatePorts();
 			}
+			UpdateTitle();
 		}
 
 		void UpdateTitle()
@@ -115,7 +117,6 @@ namespace AmplifyShaderEditor
 			}
 			else if( m_referenceArrayId > -1 && m_referenceNode != null )
 			{
-				m_referenceNode = UIUtils.GetTexturePropertyNode( m_referenceArrayId );
 				m_additionalContent.text = string.Format( "Value( {0} )", m_referenceNode.PropertyInspectorName );
 			}
 			else
@@ -149,12 +150,11 @@ namespace AmplifyShaderEditor
 			bool guiEnabledBuffer = GUI.enabled;
 
 			EditorGUI.BeginChangeCheck();
-			List<string> arr = ( m_inputReferenceNode != null ) ? null : new List<string>( UIUtils.TexturePropertyNodeArr() );
-
+			List<string> arr = new List<string>( UIUtils.TexturePropertyNodeArr() );
 			if( arr != null && arr.Count > 0 )
 			{
 				arr.Insert( 0, "None" );
-				GUI.enabled = true;
+				GUI.enabled = true && ( !m_texPort.IsConnected );
 				m_referenceArrayId = EditorGUILayoutPopup( Constants.AvailableReferenceStr, m_referenceArrayId + 1, arr.ToArray() ) - 1;
 			}
 			else
@@ -385,7 +385,7 @@ namespace AmplifyShaderEditor
 		{
 			if( dataCollector.PortCategory == MasterNodePortCategory.Tessellation )
 			{
-				UIUtils.ShowMessage( m_nodeAttribs.Name + " cannot be used on Master Node Tessellation port" );
+				UIUtils.ShowMessage( UniqueId, m_nodeAttribs.Name + " cannot be used on Master Node Tessellation port" );
 				return "-1";
 			}
 
@@ -396,9 +396,10 @@ namespace AmplifyShaderEditor
 
 			string portProperty = string.Empty;
 			if( m_texPort.IsConnected )
+			{
 				portProperty = m_texPort.GeneratePortInstructions( ref dataCollector );
-
-			if( m_referenceArrayId > -1 )
+			}
+			else if( m_referenceArrayId > -1 )
 			{
 				TexturePropertyNode temp = UIUtils.GetTexturePropertyNode( m_referenceArrayId );
 				if( temp != null )
@@ -414,6 +415,12 @@ namespace AmplifyShaderEditor
 					return GetOutputVectorItem( 0, outputId, m_outputPorts[ 0 ].LocalValue( dataCollector.PortCategory ) );
 
 				string uvName = string.Empty;
+				string result = string.Empty;
+				if( dataCollector.TemplateDataCollectorInstance.GetCustomInterpolatedData( TemplateHelperFunctions.IntToUVChannelInfo[ m_textureCoordChannel ], m_outputPorts[ 0 ].DataType, PrecisionType.Float, ref result, false, dataCollector.PortCategory ) )
+				{
+					uvName = result;
+				} else
+
 				if( dataCollector.TemplateDataCollectorInstance.HasUV( m_textureCoordChannel ) )
 				{
 					uvName = dataCollector.TemplateDataCollectorInstance.GetUVName( m_textureCoordChannel, m_outputPorts[ 0 ].DataType );
@@ -438,6 +445,7 @@ namespace AmplifyShaderEditor
 						m_texCoordsHelper.ContainerGraph = ContainerGraph;
 						m_texCoordsHelper.SetBaseUniqueId( UniqueId, true );
 						m_texCoordsHelper.RegisterPropertyOnInstancing = false;
+						m_texCoordsHelper.AddGlobalToSRPBatcher = true;
 					}
 
 					if( UIUtils.CurrentWindow.OutsideGraph.IsInstancedShader )
@@ -454,7 +462,7 @@ namespace AmplifyShaderEditor
 
 					if( m_texcoordSize > 2 )
 					{
-						dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, m_outputPorts[ 0 ].DataType, finalTexCoordName, uvName );
+						dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, m_outputPorts[ 0 ].DataType, finalTexCoordName, uvName );
 						dataCollector.AddLocalVariable( UniqueId, finalTexCoordName + ".xy", string.Format( Constants.TilingOffsetFormat, uvName + ".xy", dummyPropertyTexcoords + ".xy", dummyPropertyTexcoords + ".zw" ) + ";" );
 						m_outputPorts[ 0 ].SetLocalValue( finalTexCoordName, dataCollector.PortCategory );
 					}
@@ -472,7 +480,7 @@ namespace AmplifyShaderEditor
 
 					if( m_texcoordSize > 2 )
 					{
-						dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, m_outputPorts[ 0 ].DataType, finalTexCoordName, uvName );
+						dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, m_outputPorts[ 0 ].DataType, finalTexCoordName, uvName );
 						dataCollector.AddLocalVariable( UniqueId, finalTexCoordName + ".xy", string.Format( Constants.TilingOffsetFormat, uvName + ".xy", tiling, offset ) + ";" );
 						m_outputPorts[ 0 ].SetLocalValue( finalTexCoordName, dataCollector.PortCategory );
 					}

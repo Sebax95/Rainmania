@@ -3,6 +3,7 @@
 
 using System;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace AmplifyShaderEditor
@@ -11,18 +12,29 @@ namespace AmplifyShaderEditor
 	{
 		ModuleShaderModel,
 		ModuleBlendMode,
+		ModuleBlendMode1,
+		ModuleBlendMode2,
+		ModuleBlendMode3,
 		ModuleBlendOp,
+		ModuleBlendOp1,
+		ModuleBlendOp2,
+		ModuleBlendOp3,
 		ModuleAlphaToMask,
 		ModuleCullMode,
 		ModuleColorMask,
+		ModuleColorMask1,
+		ModuleColorMask2,
+		ModuleColorMask3,
 		ModuleStencil,
 		ModuleZwrite,
 		ModuleZTest,
 		ModuleZOffset,
 		ModuleTag,
 		ModuleGlobals,
+		ModuleSRPBatcher,
 		ModuleFunctions,
 		ModulePragma,
+		ModulePragmaBefore,
 		ModulePass,
 		ModuleInputVert,
 		ModuleInputFrag,
@@ -31,7 +43,10 @@ namespace AmplifyShaderEditor
 		PassVertexData,
 		PassInterpolatorData,
 		PassNameData,
-		AllModules
+		AllModules,
+		VControl,
+		ControlData,
+		DomainData
 		//EndPass
 	}
 
@@ -49,10 +64,31 @@ namespace AmplifyShaderEditor
 		private TemplateBlendData m_blendData = new TemplateBlendData();
 
 		[SerializeField]
+		private TemplateBlendData m_blendData1 = new TemplateBlendData();
+
+		[SerializeField]
+		private TemplateBlendData m_blendData2 = new TemplateBlendData();
+
+		[SerializeField]
+		private TemplateBlendData m_blendData3 = new TemplateBlendData();
+
+		[SerializeField]
+		private TemplateAlphaToMaskData m_alphaToMaskData = new TemplateAlphaToMaskData();
+
+		[SerializeField]
 		private TemplateCullModeData m_cullModeData = new TemplateCullModeData();
 
 		[SerializeField]
 		private TemplateColorMaskData m_colorMaskData = new TemplateColorMaskData();
+
+		[SerializeField]
+		private TemplateColorMaskData m_colorMaskData1 = new TemplateColorMaskData();
+
+		[SerializeField]
+		private TemplateColorMaskData m_colorMaskData2 = new TemplateColorMaskData();
+
+		[SerializeField]
+		private TemplateColorMaskData m_colorMaskData3 = new TemplateColorMaskData();
 
 		[SerializeField]
 		private TemplateStencilData m_stencilData = new TemplateStencilData();
@@ -67,6 +103,9 @@ namespace AmplifyShaderEditor
 		private TemplateTagData m_globalsTag = new TemplateTagData( TemplatesManager.TemplateGlobalsTag, true );
 
 		[SerializeField]
+		private TemplateTagData m_srpBatcherTag = new TemplateTagData( TemplatesManager.TemplateSRPBatcherTag, true );
+
+		[SerializeField]
 		private TemplateTagData m_allModulesTag = new TemplateTagData( TemplatesManager.TemplateAllModulesTag, true );
 
 		[SerializeField]
@@ -74,6 +113,9 @@ namespace AmplifyShaderEditor
 
 		[SerializeField]
 		private TemplateTagData m_pragmaTag = new TemplateTagData( TemplatesManager.TemplatePragmaTag, true );
+
+		[SerializeField]
+		private TemplateTagData m_pragmaBeforeTag = new TemplateTagData( TemplatesManager.TemplatePragmaBeforeTag, true );
 
 		[SerializeField]
 		private TemplateTagData m_passTag = new TemplateTagData( TemplatesManager.TemplatePassTag, true );
@@ -108,16 +150,25 @@ namespace AmplifyShaderEditor
 		public void Destroy()
 		{
 			m_blendData = null;
+			m_blendData1 = null;
+			m_blendData2 = null;
+			m_blendData3 = null;
+			m_alphaToMaskData = null;
 			m_cullModeData = null;
 			m_colorMaskData = null;
+			m_colorMaskData1 = null;
+			m_colorMaskData2 = null;
+			m_colorMaskData3 = null;
 			m_stencilData = null;
 			m_depthData = null;
 			m_tagData.Destroy();
 			m_tagData = null;
 			m_globalsTag = null;
+			m_srpBatcherTag = null;
 			m_allModulesTag = null;
 			m_functionsTag = null;
 			m_pragmaTag = null;
+			m_pragmaBeforeTag = null;
 			m_passTag = null;
 			m_inputsVertTag = null;
 			m_inputsFragTag = null;
@@ -147,8 +198,10 @@ namespace AmplifyShaderEditor
 
 			//COMMON TAGS
 			ConfigureCommonTag( m_globalsTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
+			ConfigureCommonTag( m_srpBatcherTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
 			ConfigureCommonTag( m_functionsTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
 			ConfigureCommonTag( m_pragmaTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
+			ConfigureCommonTag( m_pragmaBeforeTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
 			if( !TemplateHelperFunctions.GetPassUniqueId( m_passTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody, ref m_passUniqueName ) )
 			{
 				ConfigureCommonTag( m_passTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
@@ -164,18 +217,77 @@ namespace AmplifyShaderEditor
 			}
 			//BlEND MODE
 			{
-				Match blendModeMatch = Regex.Match( subBody, TemplateHelperFunctions.BlendWholeWordPattern );
+				Match blendModeMatch = Regex.Match( subBody, TemplateHelperFunctions.BlendModePattern1 );
 				if( blendModeMatch.Success )
 				{
 					int blendModeIdx = blendModeMatch.Index;
-					
-					int end = subBody.IndexOf( TemplatesManager.TemplateNewLine, blendModeIdx );
+					int end = blendModeMatch.Length + blendModeIdx;
+					string blendParams = subBody.Substring( blendModeIdx, end - blendModeIdx );
+					m_blendData1.BlendModeId = blendParams;
+					m_blendData1.BlendModeStartIndex = offsetIdx + blendModeIdx;
+					idManager.RegisterId( m_blendData1.BlendModeStartIndex, uniquePrefix + m_blendData1.BlendModeId, m_blendData1.BlendModeId );
+
+					TemplateHelperFunctions.CreateBlendMode( blendParams, ref m_blendData1, TemplateHelperFunctions.BlendModePattern1 );
+					if( m_blendData1.ValidBlendMode )
+					{
+						propertyContainer.AddId( subBody, blendParams, false );
+					}
+				}
+			}
+			{
+				Match blendModeMatch = Regex.Match( subBody, TemplateHelperFunctions.BlendModePattern2 );
+				if( blendModeMatch.Success )
+				{
+					int blendModeIdx = blendModeMatch.Index;
+					int end = blendModeMatch.Length + blendModeIdx;
+					string blendParams = subBody.Substring( blendModeIdx, end - blendModeIdx );
+					m_blendData2.BlendModeId = blendParams;
+					m_blendData2.BlendModeStartIndex = offsetIdx + blendModeIdx;
+					idManager.RegisterId( m_blendData2.BlendModeStartIndex, uniquePrefix + m_blendData2.BlendModeId, m_blendData2.BlendModeId );
+
+					TemplateHelperFunctions.CreateBlendMode( blendParams, ref m_blendData2, TemplateHelperFunctions.BlendModePattern2 );
+					if( m_blendData2.ValidBlendMode )
+					{
+						propertyContainer.AddId( subBody, blendParams, false );
+					}
+				}
+			}
+			{
+				Match blendModeMatch = Regex.Match( subBody, TemplateHelperFunctions.BlendModePattern3 );
+				if( blendModeMatch.Success )
+				{
+					int blendModeIdx = blendModeMatch.Index;
+					int end = blendModeMatch.Length + blendModeIdx;
+					string blendParams = subBody.Substring( blendModeIdx, end - blendModeIdx );
+					m_blendData3.BlendModeId = blendParams;
+					m_blendData3.BlendModeStartIndex = offsetIdx + blendModeIdx;
+					idManager.RegisterId( m_blendData3.BlendModeStartIndex, uniquePrefix + m_blendData3.BlendModeId, m_blendData3.BlendModeId );
+
+					TemplateHelperFunctions.CreateBlendMode( blendParams, ref m_blendData3, TemplateHelperFunctions.BlendModePattern3 );
+					if( m_blendData3.ValidBlendMode )
+					{
+						propertyContainer.AddId( subBody, blendParams, false );
+					}
+				}
+			}
+			{
+				string pattern = TemplateHelperFunctions.BlendModePattern;
+				Match blendModeMatch = Regex.Match( subBody, pattern );
+				if( !blendModeMatch.Success && !m_blendData1.ValidBlendMode && !m_blendData2.ValidBlendMode && !m_blendData3.ValidBlendMode )
+				{
+					pattern = TemplateHelperFunctions.BlendModePatternFirst;
+					blendModeMatch = Regex.Match( subBody, pattern );
+				}
+				if( blendModeMatch.Success )
+				{
+					int blendModeIdx = blendModeMatch.Index;
+					int end = blendModeMatch.Length + blendModeIdx;
 					string blendParams = subBody.Substring( blendModeIdx, end - blendModeIdx );
 					m_blendData.BlendModeId = blendParams;
 					m_blendData.BlendModeStartIndex = offsetIdx + blendModeIdx;
 					idManager.RegisterId( m_blendData.BlendModeStartIndex, uniquePrefix + m_blendData.BlendModeId, m_blendData.BlendModeId );
 
-					TemplateHelperFunctions.CreateBlendMode( blendParams, ref m_blendData );
+					TemplateHelperFunctions.CreateBlendMode( blendParams, ref m_blendData, pattern );
 					if( m_blendData.ValidBlendMode )
 					{
 						propertyContainer.AddId( subBody, blendParams, false );
@@ -185,39 +297,104 @@ namespace AmplifyShaderEditor
 			}
 			//BLEND OP
 			{
-				Match blendOpMatch = Regex.Match( subBody, TemplateHelperFunctions.BlendOpWholeWordPattern );
+				Match blendOpMatch = Regex.Match( subBody, TemplateHelperFunctions.BlendOpPattern1 );
 				if( blendOpMatch.Success )
 				{
 					int blendOpIdx = blendOpMatch.Index;
-					int end = subBody.IndexOf( TemplatesManager.TemplateNewLine, blendOpIdx );
+					int end = blendOpMatch.Length + blendOpIdx;
+					string blendOpParams = subBody.Substring( blendOpIdx, end - blendOpIdx );
+					m_blendData1.BlendOpId = blendOpParams;
+					m_blendData1.BlendOpStartIndex = offsetIdx + blendOpIdx;
+					idManager.RegisterId( m_blendData1.BlendOpStartIndex, uniquePrefix + m_blendData1.BlendOpId, m_blendData1.BlendOpId );
+					TemplateHelperFunctions.CreateBlendOp( blendOpParams, ref m_blendData1, TemplateHelperFunctions.BlendOpPattern1 );
+					if( m_blendData1.ValidBlendOp )
+					{
+						propertyContainer.AddId( subBody, blendOpParams, false );
+					}
+				}
+
+				m_blendData1.DataCheck = ( m_blendData1.ValidBlendMode || m_blendData1.ValidBlendOp ) ? TemplateDataCheck.Valid : TemplateDataCheck.Invalid;
+			}
+			{
+				Match blendOpMatch = Regex.Match( subBody, TemplateHelperFunctions.BlendOpPattern2 );
+				if( blendOpMatch.Success )
+				{
+					int blendOpIdx = blendOpMatch.Index;
+					int end = blendOpMatch.Length + blendOpIdx;
+					string blendOpParams = subBody.Substring( blendOpIdx, end - blendOpIdx );
+					m_blendData2.BlendOpId = blendOpParams;
+					m_blendData2.BlendOpStartIndex = offsetIdx + blendOpIdx;
+					idManager.RegisterId( m_blendData2.BlendOpStartIndex, uniquePrefix + m_blendData2.BlendOpId, m_blendData2.BlendOpId );
+					TemplateHelperFunctions.CreateBlendOp( blendOpParams, ref m_blendData2, TemplateHelperFunctions.BlendOpPattern2 );
+					if( m_blendData2.ValidBlendOp )
+					{
+						propertyContainer.AddId( subBody, blendOpParams, false );
+					}
+				}
+
+				m_blendData2.DataCheck = ( m_blendData2.ValidBlendMode || m_blendData2.ValidBlendOp ) ? TemplateDataCheck.Valid : TemplateDataCheck.Invalid;
+			}
+			{
+				Match blendOpMatch = Regex.Match( subBody, TemplateHelperFunctions.BlendOpPattern3 );
+				if( blendOpMatch.Success )
+				{
+					int blendOpIdx = blendOpMatch.Index;
+					int end = blendOpMatch.Length + blendOpIdx;
+					string blendOpParams = subBody.Substring( blendOpIdx, end - blendOpIdx );
+					m_blendData3.BlendOpId = blendOpParams;
+					m_blendData3.BlendOpStartIndex = offsetIdx + blendOpIdx;
+					idManager.RegisterId( m_blendData3.BlendOpStartIndex, uniquePrefix + m_blendData3.BlendOpId, m_blendData3.BlendOpId );
+					TemplateHelperFunctions.CreateBlendOp( blendOpParams, ref m_blendData3, TemplateHelperFunctions.BlendOpPattern3 );
+					if( m_blendData3.ValidBlendOp )
+					{
+						propertyContainer.AddId( subBody, blendOpParams, false );
+					}
+				}
+
+				m_blendData3.DataCheck = ( m_blendData3.ValidBlendMode || m_blendData3.ValidBlendOp ) ? TemplateDataCheck.Valid : TemplateDataCheck.Invalid;
+			}
+			{
+				string pattern = TemplateHelperFunctions.BlendOpPattern;
+				Match blendOpMatch = Regex.Match( subBody, pattern );
+				if( !blendOpMatch.Success && !m_blendData1.ValidBlendOp && !m_blendData2.ValidBlendOp && !m_blendData3.ValidBlendOp )
+				{
+					pattern = TemplateHelperFunctions.BlendOpPatternFirst;
+					blendOpMatch = Regex.Match( subBody, pattern );
+				}
+
+				if( blendOpMatch.Success )
+				{
+					int blendOpIdx = blendOpMatch.Index;
+					int end = blendOpMatch.Length + blendOpIdx;
 					string blendOpParams = subBody.Substring( blendOpIdx, end - blendOpIdx );
 					m_blendData.BlendOpId = blendOpParams;
-					BlendData.BlendOpStartIndex = offsetIdx + blendOpIdx;
+					m_blendData.BlendOpStartIndex = offsetIdx + blendOpIdx;
 					idManager.RegisterId( m_blendData.BlendOpStartIndex, uniquePrefix + m_blendData.BlendOpId, m_blendData.BlendOpId );
-					TemplateHelperFunctions.CreateBlendOp( blendOpParams, ref m_blendData );
+					TemplateHelperFunctions.CreateBlendOp( blendOpParams, ref m_blendData, pattern );
 					if( m_blendData.ValidBlendOp )
 					{
 						propertyContainer.AddId( subBody, blendOpParams, false );
 					}
 				}
-				
-			}
 
+				m_blendData.DataCheck = ( m_blendData.ValidBlendMode || m_blendData.ValidBlendOp ) ? TemplateDataCheck.Valid : TemplateDataCheck.Invalid;
+			}
+			
 			//ALPHA TO MASK
 			{
-				Match alphaToMaskMatch = Regex.Match( subBody, TemplateHelperFunctions.ALphaToMaskPattern );
+				Match alphaToMaskMatch = Regex.Match( subBody, TemplateHelperFunctions.AlphaToMaskPattern );
 				if( alphaToMaskMatch.Success )
 				{
-					m_blendData.ValidAlphaToMask = true;
-					m_blendData.AlphaToMaskId = alphaToMaskMatch.Groups[ 0 ].Value;
-					if( alphaToMaskMatch.Groups.Count > 1 )
-						m_blendData.AlphaToMaskValue = alphaToMaskMatch.Groups[ 1 ].Value.Equals( "On" ) ? true : false;
-					m_blendData.IndependentAlphaToMask = true;
-					idManager.RegisterId( offsetIdx + alphaToMaskMatch.Index, uniquePrefix + m_blendData.AlphaToMaskId, m_blendData.AlphaToMaskId );
-					propertyContainer.AddId( subBody, m_blendData.AlphaToMaskId, false );
+					int alphaIdx = alphaToMaskMatch.Index;
+					int end = subBody.IndexOf( TemplatesManager.TemplateNewLine, alphaIdx );
+					string alphaParams = subBody.Substring( alphaIdx, end - alphaIdx );
+					m_alphaToMaskData.AlphaToMaskId = alphaParams;
+					m_alphaToMaskData.StartIdx = offsetIdx + alphaIdx;
+					idManager.RegisterId( m_alphaToMaskData.StartIdx, uniquePrefix + m_alphaToMaskData.AlphaToMaskId, m_alphaToMaskData.AlphaToMaskId );
+					TemplateHelperFunctions.CreateAlphaToMask( alphaParams, ref m_alphaToMaskData );
+					if( m_alphaToMaskData.DataCheck == TemplateDataCheck.Valid )
+						propertyContainer.AddId( subBody, alphaParams, false, string.Empty );
 				}
-
-				m_blendData.DataCheck = ( m_blendData.ValidBlendMode || m_blendData.ValidBlendOp || m_blendData.ValidAlphaToMask ) ? TemplateDataCheck.Valid : TemplateDataCheck.Invalid;
 			}
 
 			//CULL MODE
@@ -239,19 +416,74 @@ namespace AmplifyShaderEditor
 			}
 			//COLOR MASK
 			{
-				Match colorMaskMatch = Regex.Match( subBody, TemplateHelperFunctions.ColorMaskWholeWordPattern );
+				Match colorMaskMatch = Regex.Match( subBody, TemplateHelperFunctions.ColorMask1Pattern );
 				if( colorMaskMatch.Success )
 				{
 					int colorMaskIdx = colorMaskMatch.Index;
-					int end = subBody.IndexOf( TemplatesManager.TemplateNewLine, colorMaskIdx );
+					int end = colorMaskMatch.Length + colorMaskIdx;// subBody.IndexOf( TemplatesManager.TemplateNewLine, colorMaskIdx );
+					string colorMaskParams = subBody.Substring( colorMaskIdx, end - colorMaskIdx );
+					m_colorMaskData1.ColorMaskId = colorMaskParams;
+					m_colorMaskData1.StartIdx = offsetIdx + colorMaskIdx;
+					idManager.RegisterId( m_colorMaskData1.StartIdx, uniquePrefix + m_colorMaskData1.ColorMaskId, m_colorMaskData1.ColorMaskId );
+					TemplateHelperFunctions.CreateColorMask( colorMaskParams, ref m_colorMaskData1, TemplateHelperFunctions.ColorMask1Pattern );
+					if( m_colorMaskData1.DataCheck == TemplateDataCheck.Valid )
+						propertyContainer.AddId( subBody, colorMaskParams, false );
+
+				}
+			}
+			{
+				Match colorMaskMatch = Regex.Match( subBody, TemplateHelperFunctions.ColorMask2Pattern );
+				if( colorMaskMatch.Success )
+				{
+					int colorMaskIdx = colorMaskMatch.Index;
+					int end = colorMaskMatch.Length + colorMaskIdx;// subBody.IndexOf( TemplatesManager.TemplateNewLine, colorMaskIdx );
+					string colorMaskParams = subBody.Substring( colorMaskIdx, end - colorMaskIdx );
+					m_colorMaskData2.ColorMaskId = colorMaskParams;
+					m_colorMaskData2.StartIdx = offsetIdx + colorMaskIdx;
+					idManager.RegisterId( m_colorMaskData2.StartIdx, uniquePrefix + m_colorMaskData2.ColorMaskId, m_colorMaskData2.ColorMaskId );
+					TemplateHelperFunctions.CreateColorMask( colorMaskParams, ref m_colorMaskData2, TemplateHelperFunctions.ColorMask2Pattern );
+					if( m_colorMaskData2.DataCheck == TemplateDataCheck.Valid )
+						propertyContainer.AddId( subBody, colorMaskParams, false );
+
+				}
+			}
+			{
+				Match colorMaskMatch = Regex.Match( subBody, TemplateHelperFunctions.ColorMask3Pattern );
+				if( colorMaskMatch.Success )
+				{
+					int colorMaskIdx = colorMaskMatch.Index;
+					int end = colorMaskMatch.Length + colorMaskIdx;// subBody.IndexOf( TemplatesManager.TemplateNewLine, colorMaskIdx );
+					string colorMaskParams = subBody.Substring( colorMaskIdx, end - colorMaskIdx );
+					m_colorMaskData3.ColorMaskId = colorMaskParams;
+					m_colorMaskData3.StartIdx = offsetIdx + colorMaskIdx;
+					idManager.RegisterId( m_colorMaskData3.StartIdx, uniquePrefix + m_colorMaskData3.ColorMaskId, m_colorMaskData3.ColorMaskId );
+					TemplateHelperFunctions.CreateColorMask( colorMaskParams, ref m_colorMaskData3, TemplateHelperFunctions.ColorMask3Pattern );
+					if( m_colorMaskData3.DataCheck == TemplateDataCheck.Valid )
+						propertyContainer.AddId( subBody, colorMaskParams, false );
+
+				}
+			}
+			{
+				string pattern = TemplateHelperFunctions.ColorMaskPattern;
+				Match colorMaskMatch = Regex.Match( subBody, pattern );
+				if( !colorMaskMatch.Success && m_colorMaskData1.DataCheck == TemplateDataCheck.Invalid && m_colorMaskData2.DataCheck == TemplateDataCheck.Invalid && m_colorMaskData3.DataCheck == TemplateDataCheck.Invalid )
+				{
+					pattern = TemplateHelperFunctions.ColorMaskPatternFirst;
+					colorMaskMatch = Regex.Match( subBody, pattern );
+				}
+
+				if( colorMaskMatch.Success )
+				{
+					int colorMaskIdx = colorMaskMatch.Index;
+					int end = colorMaskMatch.Length + colorMaskIdx; //subBody.IndexOf( TemplatesManager.TemplateNewLine, colorMaskIdx );
 					string colorMaskParams = subBody.Substring( colorMaskIdx, end - colorMaskIdx );
 					m_colorMaskData.ColorMaskId = colorMaskParams;
 					m_colorMaskData.StartIdx = offsetIdx + colorMaskIdx;
 					idManager.RegisterId( m_colorMaskData.StartIdx, uniquePrefix + m_colorMaskData.ColorMaskId, m_colorMaskData.ColorMaskId );
-					TemplateHelperFunctions.CreateColorMask( colorMaskParams, ref m_colorMaskData );
+					TemplateHelperFunctions.CreateColorMask( colorMaskParams, ref m_colorMaskData, pattern );
 					if( m_colorMaskData.DataCheck == TemplateDataCheck.Valid )
 						propertyContainer.AddId( subBody, colorMaskParams, false );
-					
+
 				}
 			}
 			//STENCIL
@@ -410,6 +642,9 @@ namespace AmplifyShaderEditor
 				
 				m_blendData.SetAllModulesDefault();
 
+				if( !m_alphaToMaskData.IsValid )
+					m_alphaToMaskData.SetAllModulesDefault();
+
 				if( !m_cullModeData.IsValid )
 					m_cullModeData.SetAllModulesDefault();
 
@@ -427,6 +662,73 @@ namespace AmplifyShaderEditor
 			}
 		}
 
+		public void TestPropertyInternalName( string name, ref List<TemplateShaderPropertyData> availableShaderProperties, ref Dictionary<string, TemplateShaderPropertyData> duplicatesHelper )
+		{
+			if( !string.IsNullOrEmpty( name ) && !duplicatesHelper.ContainsKey( name ))
+			{
+				TemplateShaderPropertyData newData = new TemplateShaderPropertyData( -1, string.Empty, string.Empty, name, name, WirePortDataType.INT, PropertyType.Property );
+				availableShaderProperties.Add( newData );
+				duplicatesHelper.Add( newData.PropertyName , newData );
+			}
+		}
+
+		public void RegisterInternalUnityInlines( ref List<TemplateShaderPropertyData> availableShaderProperties, ref Dictionary<string, TemplateShaderPropertyData> duplicatesHelper )
+		{
+			TestPropertyInternalName( m_depthData.ZWriteInlineValue, ref availableShaderProperties , ref duplicatesHelper);
+			TestPropertyInternalName( m_depthData.ZTestInlineValue, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_depthData.OffsetFactorInlineValue, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_depthData.OffsetUnitsInlineValue, ref availableShaderProperties, ref duplicatesHelper );		
+
+			TestPropertyInternalName( m_blendData.SourceFactorRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData.DestFactorRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData.SourceFactorAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData.DestFactorAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData.BlendOpRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData.BlendOpAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+
+			TestPropertyInternalName( m_blendData1.SourceFactorRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData1.DestFactorRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData1.SourceFactorAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData1.DestFactorAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData1.BlendOpRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData1.BlendOpAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+
+			TestPropertyInternalName( m_blendData2.SourceFactorRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData2.DestFactorRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData2.SourceFactorAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData2.DestFactorAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData2.BlendOpRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData2.BlendOpAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+
+			TestPropertyInternalName( m_blendData3.SourceFactorRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData3.DestFactorRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData3.SourceFactorAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData3.DestFactorAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData3.BlendOpRGBInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_blendData3.BlendOpAlphaInline, ref availableShaderProperties, ref duplicatesHelper );
+
+			TestPropertyInternalName( m_alphaToMaskData.InlineData, ref availableShaderProperties, ref duplicatesHelper );
+
+			TestPropertyInternalName( m_stencilData.ReferenceInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_stencilData.ReadMaskInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_stencilData.WriteMaskInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_stencilData.ComparisonFrontInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_stencilData.PassFrontInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_stencilData.FailFrontInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_stencilData.ZFailFrontInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_stencilData.ComparisonBackInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_stencilData.PassBackInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_stencilData.FailBackInline, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_stencilData.ZFailBackInline, ref availableShaderProperties, ref duplicatesHelper );
+
+			TestPropertyInternalName( m_cullModeData.InlineData, ref availableShaderProperties, ref duplicatesHelper );
+
+			TestPropertyInternalName( m_colorMaskData.InlineData, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_colorMaskData1.InlineData, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_colorMaskData2.InlineData, ref availableShaderProperties, ref duplicatesHelper );
+			TestPropertyInternalName( m_colorMaskData3.InlineData, ref availableShaderProperties, ref duplicatesHelper );
+		}
+
 		public void SetPassUniqueNameIfUndefined( string value )
 		{
 			if( string.IsNullOrEmpty( m_passUniqueName ) )
@@ -438,16 +740,25 @@ namespace AmplifyShaderEditor
 			get
 			{
 				return m_blendData.DataCheck == TemplateDataCheck.Valid ||
+						m_blendData1.DataCheck == TemplateDataCheck.Valid ||
+						m_blendData2.DataCheck == TemplateDataCheck.Valid ||
+						m_blendData3.DataCheck == TemplateDataCheck.Valid ||
+						m_alphaToMaskData.DataCheck == TemplateDataCheck.Valid ||
 						m_cullModeData.DataCheck == TemplateDataCheck.Valid ||
 						m_colorMaskData.DataCheck == TemplateDataCheck.Valid ||
+						m_colorMaskData1.DataCheck == TemplateDataCheck.Valid ||
+						m_colorMaskData2.DataCheck == TemplateDataCheck.Valid ||
+						m_colorMaskData3.DataCheck == TemplateDataCheck.Valid ||
 						m_stencilData.DataCheck == TemplateDataCheck.Valid ||
 						m_depthData.DataCheck == TemplateDataCheck.Valid ||
 						m_tagData.DataCheck == TemplateDataCheck.Valid ||
 						m_shaderModel.DataCheck == TemplateDataCheck.Valid ||
 						m_globalsTag.IsValid ||
+						m_srpBatcherTag.IsValid ||
 						m_allModulesTag.IsValid ||
 						m_functionsTag.IsValid ||
 						m_pragmaTag.IsValid ||
+						m_pragmaBeforeTag.IsValid ||
 						m_passTag.IsValid ||
 						m_inputsVertTag.IsValid ||
 						m_inputsFragTag.IsValid;
@@ -455,15 +766,24 @@ namespace AmplifyShaderEditor
 		}
 
 		public TemplateBlendData BlendData { get { return m_blendData; } }
+		public TemplateBlendData BlendData1 { get { return m_blendData1; } }
+		public TemplateBlendData BlendData2 { get { return m_blendData2; } }
+		public TemplateBlendData BlendData3 { get { return m_blendData3; } }
+		public TemplateAlphaToMaskData AlphaToMaskData { get { return m_alphaToMaskData; } }
 		public TemplateCullModeData CullModeData { get { return m_cullModeData; } }
 		public TemplateColorMaskData ColorMaskData { get { return m_colorMaskData; } }
+		public TemplateColorMaskData ColorMaskData1 { get { return m_colorMaskData1; } }
+		public TemplateColorMaskData ColorMaskData2 { get { return m_colorMaskData2; } }
+		public TemplateColorMaskData ColorMaskData3 { get { return m_colorMaskData3; } }
 		public TemplateStencilData StencilData { get { return m_stencilData; } }
 		public TemplateDepthData DepthData { get { return m_depthData; } }
 		public TemplateTagsModuleData TagData { get { return m_tagData; } }
 		public TemplateTagData GlobalsTag { get { return m_globalsTag; } }
+		public TemplateTagData SRPBatcherTag { get { return m_srpBatcherTag; } }
 		public TemplateTagData AllModulesTag { get { return m_allModulesTag; } }
 		public TemplateTagData FunctionsTag { get { return m_functionsTag; } }
 		public TemplateTagData PragmaTag { get { return m_pragmaTag; } }
+		public TemplateTagData PragmaBeforeTag { get { return m_pragmaBeforeTag; } }
 		public TemplateTagData PassTag { get { return m_passTag; } }
 		public TemplateTagData InputsVertTag { get { return m_inputsVertTag; } }
 		public TemplateTagData InputsFragTag { get { return m_inputsFragTag; } }

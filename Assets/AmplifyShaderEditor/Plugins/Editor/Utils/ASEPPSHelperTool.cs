@@ -214,6 +214,8 @@ namespace AmplifyShaderEditor
 
 			EditorGUILayout.LabelField( ".cs", GUILayout.MaxWidth( 40 ) );
 			EditorGUILayout.EndHorizontal();
+			EditorGUILayout.HelpBox( "The path for the generated script should be outside of Amplify Shader Editor folder structure due to use of Assembly Definition files which will conflict and prevent to compile correctly.", MessageType.Warning );
+
 			EditorGUILayout.Separator();
 
 			m_menuEntry = EditorGUILayout.TextField( "Name", m_menuEntry );
@@ -243,6 +245,7 @@ namespace AmplifyShaderEditor
 
 			if( GUILayout.Button( "Build" ) )
 			{
+				System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 				string propertiesDecl = string.Empty;
 				string propertiesSet = string.Empty;
 				GetShaderInfoFromShaderAsset( ref propertiesDecl, ref propertiesSet );
@@ -257,6 +260,7 @@ namespace AmplifyShaderEditor
 				template = template.Replace( PPSShader, m_currentShader.name );
 				string path = m_folderPath + m_settingsClassName + ".cs";
 				IOUtils.SaveTextfileToDisk( template, path, false );
+				System.Threading.Thread.CurrentThread.CurrentCulture = System.Threading.Thread.CurrentThread.CurrentUICulture;
 				AssetDatabase.Refresh();
 			}
 
