@@ -33,7 +33,6 @@ public class Spawner : MonoBehaviour
         {
             yield return waiter;
             _dist = (player.position - transform.position).sqrMagnitude;
-            Debug.Log("buscando");
             if (_dist < radiusDetection * radiusDetection)
             {
                 if (!_isEnabled)

@@ -10,7 +10,7 @@ Material:
   m_Name: Test
   m_Shader: {fileID: 4800000, guid: 7b709479d73d24e448c9fe1e5b12757a, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 0
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -76,16 +76,16 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Border: 2.99
+    - _Border: 3.37
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _Divide: 20.11
+    - _Divide: 21.99
     - _DstBlend: 0
     - _EdgeLength: 15
     - _Float0: 2.99
     - _Float1: 0
-    - _Float2: 0.476
+    - _Float2: 0.065
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -94,17 +94,18 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PowerFresnel: 5
+    - _ScalarSpeed: 1
     - _ScaleFresnel: 2.92
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 0.5
+    - _Speed: 0.34
     - _SrcBlend: 1
-    - _TessValue: 14.2
-    - _Tiling: 9.19
+    - _TessValue: 32
+    - _Tiling: 0.9
     - _Timer: 3.13
     - _UVSec: 0
-    - _Waves: 1.65
-    - _WavesTess: 0.63
+    - _Waves: 2
+    - _WavesTess: 0.45
     - _ZWrite: 1
     - __dirty: 0
     - _x: 0.02
@@ -114,8 +115,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 0.39215684, g: 1, b: 0.5166987, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Espuma: {r: 0, g: 1, b: 0.6555383, a: 0}
-    - _EspumaInterna: {r: 0.2971698, g: 1, b: 0.3161968, a: 0}
+    - _Espuma: {r: 1, g: 1, b: 1, a: 0}
+    - _EspumaInterna: {r: 1, g: 1, b: 1, a: 0}
     - _Offset: {r: 0.17, g: 0.23, b: 0, a: 0}
-    - _ReflexColor: {r: 0, g: 0.21698111, b: 0.04479611, a: 1}
-    - _WaterColor: {r: 0, g: 0.9607843, b: 0.46732998, a: 0.7137255}
+    - _ReflexColor: {r: 0, g: 0.68429995, b: 1, a: 1}
+    - _TestColorWater: {r: 1, g: 0, b: 0, a: 0}
+    - _WaterColor: {r: 0, g: 0.48581195, b: 1, a: 0.74509805}
