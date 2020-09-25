@@ -542,8 +542,8 @@ ModelImporter:
       name: Balance
       takeName: Take 001
       internalID: 0
-      firstFrame: 240
-      lastFrame: 264
+      firstFrame: 340
+      lastFrame: 364
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
