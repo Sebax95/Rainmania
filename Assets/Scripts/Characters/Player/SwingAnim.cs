@@ -18,14 +18,15 @@ public class SwingAnim : MonoBehaviour {
 
 	public void UpdateStatus(float angle) {
 		float mod = 0;
-		float mult = 1;
+		float mult = 0.5f;
 		if(transform.forward.x < 0)
 		{
-			mod = 2;
-			mult = -1;
+			mod = 1;
+			mult = -0.5f;
 		}
-		float value = mod + mult * (1 + (angle / Swinger.HALF_PI));
+		float value = Mathf.Clamp01(mod + mult * (1 + (angle / Swinger.HALF_PI)));
+		print(value);
 		animator.SetFloat(swingValueParameter, value);
-		animator.SetFloat(wrappedSwingingParameter, value % 1);
+		animator.SetFloat(wrappedSwingingParameter, value);
 	}
 }

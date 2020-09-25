@@ -9,10 +9,11 @@ public abstract class HongoCaminante : Enemy
     public bool canJump;
     public float jumpForce;
     public int damage;
-    public bool cdDamage = false;
     public Transform groundChecker;
     public bool stopCor = false;
     public LayerMask frontCheckerLayer;
+
+    //public bool cdDamage = false;
 
     protected override void Awake()
     {
@@ -43,27 +44,27 @@ public abstract class HongoCaminante : Enemy
         fsm.FixedUpdate();
     }
     
-    public override void Damage(int amount, IDamager source)
+    public override bool Damage(int amount, IDamager source)
     {
-        if (!source.GetTeam.CanDamage(myTeam))
-            return;
-        if (cdDamage) return;
-        cdDamage = true;
+        var result = base.Damage(amount, source);
+
+        if(!result)
+            return result;
+
         rb.mass = 100;
         StatesEnemies tempState = fsm.ActualState;
         fsm.SetState(StatesEnemies.Idle);
         viewEnem.DamageFeedback();
-        StartCoroutine(CdDamage(tempState));
-        Health -= amount;
+        StartCoroutine(ResetStateOnVulnerable(tempState));
+
         //viewEnem.ActivateTriggers(0);
-        if (Health < 0)
-            Die(source);
+
+        return result;
 
     }
-    IEnumerator CdDamage(StatesEnemies state)
+    IEnumerator ResetStateOnVulnerable(StatesEnemies state)
     {
-        yield return new WaitForSeconds(1);
-        cdDamage = false;
+        yield return new WaitForSeconds(invincibleTime);
         rb.mass = 1;
         fsm.SetState(state);
     }
