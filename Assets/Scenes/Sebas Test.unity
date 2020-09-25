@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: 30121d8074a878c44a47b4b36ed20b8c, type: 2}
   maxHealth: 0
+  invincibleTime: 0
   speed: 0
   forceJump: 0
   fallMultiplier: 2.5
@@ -254,6 +255,7 @@ MonoBehaviour:
   validFloorLayers:
     serializedVersion: 2
     m_Bits: 0
+  test_preventJumpWhenCrouched: 0
   crouchSpeedModifier: 0
   crouchCheckLayerMask:
     serializedVersion: 2
@@ -607,6 +609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
   maxHealth: 1
+  invincibleTime: 0
   speed: 2
   viewEnem: {fileID: 0}
   groundMask:
@@ -628,7 +631,6 @@ MonoBehaviour:
   canJump: 1
   jumpForce: 7
   damage: 2
-  cdDamage: 0
   groundChecker: {fileID: 3089421285126371708}
   stopCor: 0
   frontCheckerLayer:
@@ -808,6 +810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
   maxHealth: 2
+  invincibleTime: 0
   speed: 3
   viewEnem: {fileID: 0}
   groundMask:
