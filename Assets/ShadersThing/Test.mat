@@ -104,8 +104,8 @@ Material:
     - _Tiling: 0.9
     - _Timer: 3.13
     - _UVSec: 0
-    - _Waves: 2
-    - _WavesTess: 0.33
+    - _Waves: 1.64
+    - _WavesTess: 0.13
     - _ZWrite: 1
     - __dirty: 0
     - _x: 0.02
@@ -116,8 +116,8 @@ Material:
     - _Color0: {r: 0.39215684, g: 1, b: 0.5166987, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Espuma: {r: 1, g: 1, b: 1, a: 0}
-    - _EspumaInterna: {r: 0, g: 0.93333334, b: 0.90625083, a: 0}
-    - _Offset: {r: 0.17, g: 0.23, b: 0, a: 0}
+    - _EspumaInterna: {r: 1, g: 1, b: 1, a: 0}
+    - _Offset: {r: -1, g: 0, b: 0, a: 0}
     - _ReflexColor: {r: 0.3237356, g: 1, b: 0, a: 1}
     - _TestColorWater: {r: 1, g: 0, b: 0, a: 0}
     - _WaterColor: {r: 0, g: 1, b: 0.5080173, a: 0.74509805}
