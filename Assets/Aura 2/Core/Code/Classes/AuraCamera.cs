@@ -179,9 +179,9 @@ namespace Aura2API
 
         private void OnDisable()
         {
+                Uninitialize();
             try // Weird managed resource error when building or loading a scene
             {
-                Uninitialize();
             }
             catch
             {
