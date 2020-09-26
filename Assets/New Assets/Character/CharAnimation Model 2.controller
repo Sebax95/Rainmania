@@ -37,8 +37,7 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8685579873814244079}
-  m_StateMachineBehaviours:
-  - {fileID: -7309326429761655995}
+  m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -207,19 +206,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!114 &-7309326429761655995
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5470ea6d0e14c1c4c80005439097b44e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: ChibiLast/Arco
 --- !u!1102 &-6339197474289477392
 AnimatorState:
   serializedVersion: 5
@@ -249,19 +235,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!114 &-6038249128024469605
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5470ea6d0e14c1c4c80005439097b44e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: ChibiLast/Arco
 --- !u!1107 &-6013119539638465821
 AnimatorStateMachine:
   serializedVersion: 5
@@ -504,8 +477,7 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4473994682861689683}
-  m_StateMachineBehaviours:
-  - {fileID: -6038249128024469605}
+  m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -593,19 +565,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!114 &-3529833988798197695
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5470ea6d0e14c1c4c80005439097b44e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: ChibiLast/Arco
 --- !u!114 &-3433556882926251479
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1252,8 +1211,7 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5250151167859970710}
-  m_StateMachineBehaviours:
-  - {fileID: -3529833988798197695}
+  m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
