@@ -117,7 +117,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Espuma: {r: 1, g: 1, b: 1, a: 0}
     - _EspumaInterna: {r: 1, g: 1, b: 1, a: 0}
-    - _Offset: {r: -1, g: 0, b: 0, a: 0}
+    - _Offset: {r: -0.5, g: 0, b: 0, a: 0}
     - _ReflexColor: {r: 0.3237356, g: 1, b: 0, a: 1}
     - _TestColorWater: {r: 1, g: 0, b: 0, a: 0}
     - _WaterColor: {r: 0, g: 1, b: 0.5080173, a: 0.74509805}
