@@ -27,7 +27,7 @@ public class PatrolState : State<HongoCaminante>
     void Moving()
     {
         _owner.Move(_owner.transform.forward);
-        if (_owner.GroundChecker().collider == false || _owner.FrontChecker().collider == true)
+        if (!_owner.GroundChecker() || _owner.FrontChecker())
         {
             if (isRight)
             {
