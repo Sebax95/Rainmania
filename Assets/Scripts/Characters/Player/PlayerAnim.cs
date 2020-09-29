@@ -10,6 +10,7 @@ public class PlayerAnim : MonoBehaviour {
 	public Vector2 directionAnimMultiplier;
 	private Player player;
 
+	public GameObject whipRig;
 	public GameObject whip;
 	public GameObject bow;
 
@@ -38,6 +39,7 @@ public class PlayerAnim : MonoBehaviour {
 		thisAnimator = GetComponent<Animator>();
 		player = GetComponent<Player>();
 		_audioSource = GetComponent<AudioSource>();
+		whipRig.SetActive(false);
 		whip.SetActive(false);
 		bow.SetActive(false);
 	}
@@ -192,6 +194,15 @@ public class PlayerAnim : MonoBehaviour {
 	public void BowOn() => bow.SetActive(true);
 	public void BowOff() => bow.SetActive(false);
 
-	public void WhipOn() => whip.SetActive(true);
-	public void WhipOff() => whip.SetActive(false);
+	public void WhipOn()
+	{
+		whipRig.SetActive(true);
+		whip.SetActive(true);
+	}
+	
+	public void WhipOff()
+	{
+		whipRig.SetActive(false);
+		whip.SetActive(false);
+	}
 }

@@ -13,6 +13,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public float fallMultiplier = 2.5f;
 	public float lowJumpMultiplier = 2f;
 	public LayerMask validFloorLayers;
+	public bool test_preventJumpWhenCrouched;
 	private bool holdingJump = false;
 
 	//Crouched mobility
@@ -38,7 +39,6 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	private bool canAttack = true;
 	private float currentCooldown;
 	private float attackCooldownTimer = 0;
-	private bool isDead;
 	private Weapon activeWeapon;
 	private LoopingList<Weapon> weapons = new LoopingList<Weapon>();
 
@@ -87,16 +87,20 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 	#region Movement
 	public void Jump() {
-		if(Grounded)
-		{
-			ToggleCrouch(false);
+		if(!Grounded)
+			return;
 
-			rb.velocity = rb.velocity.ZeroY();
-			PlayerAnimator.TriggerAction(0);
-			ForceJump();
-			//colliders legs off
+		bool wasCrouched = crouched; //TEST
 
-		}
+		ToggleCrouch(false);
+
+		//TEST
+		if(wasCrouched && test_preventJumpWhenCrouched)
+			return;
+
+		rb.velocity = rb.velocity.ZeroY();
+		PlayerAnimator.TriggerAction(0);
+		ForceJump();
 
 		//} else
 		//overriding.Release(this);
@@ -139,7 +143,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public void ToggleCrouch(bool state) {
 		if(!state)
 		{
-			var col = colliders.standing as CapsuleCollider;
+			var col = colliders.standing;
 			if(!col)
 				throw new ArgumentNullException("Oi, shit-ass. You've changed the collider type, didn't you? Ya fucked up. Not really. Just update the code here to compensate.");
 
@@ -208,12 +212,15 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	#endregion
 
 	#region Health
-	public override void Damage(int amount, IDamager source) {
-		base.Damage(amount, source);
-		PlayerAnimator.Hurt();
+	public override bool Damage(int amount, IDamager source) {
+		bool result = base.Damage(amount, source);
+		if(result)
+			PlayerAnimator.Hurt();
+
 		if(isDead)
-			return;
-		//PlayerAnimator.TriggerAction(7);
+			PlayerAnimator.Die();
+
+		return result;
 	}
 
 	public override bool Heal(int amount, IHealer source) {

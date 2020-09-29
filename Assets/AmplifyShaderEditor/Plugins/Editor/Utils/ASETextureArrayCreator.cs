@@ -321,6 +321,8 @@ namespace AmplifyShaderEditor
 					}
 				}
 			}
+
+			m_allTextures.Sort( ( x, y ) => string.Compare( x.name, y.name ) );
 		}
 		
 		private void CopyToArray( ref Texture2D from, ref Texture2DArray to, int arrayIndex, int mipLevel, bool compressed = true )
@@ -437,7 +439,7 @@ namespace AmplifyShaderEditor
 			texture3D.anisoLevel = m_anisoLevel;
 			texture3D.Apply( false );
 			RenderTexture cache = RenderTexture.active;
-			RenderTexture rt = new RenderTexture( sizeX, sizeY, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Default );
+			RenderTexture rt = new RenderTexture( sizeX, sizeY, 0, RenderTextureFormat.ARGBFloat, RenderTextureReadWrite.Default );
 			rt.Create();
 			List<List<Color>> mipColor = new List<List<Color>>();
 			if( m_mipMaps )
@@ -472,7 +474,7 @@ namespace AmplifyShaderEditor
 				Graphics.Blit( m_allTextures[ i ], rt );
 				GL.sRGBWrite = cachedsrgb;
 
-				Texture2D t2d = new Texture2D( sizeX, sizeY, TextureFormat.ARGB32, m_mipMaps, m_linearMode );
+				Texture2D t2d = new Texture2D( sizeX, sizeY, m_selectedFormatEnum, m_mipMaps, m_linearMode );
 				t2d.ReadPixels( new Rect( 0, 0, sizeX, sizeY ), 0, 0, m_mipMaps );
 				RenderTexture.active = null;
 
@@ -538,7 +540,7 @@ namespace AmplifyShaderEditor
 			texture3D.anisoLevel = m_anisoLevel;
 			texture3D.Apply( false );
 			RenderTexture cache = RenderTexture.active;
-			RenderTexture rt = new RenderTexture( sizeX, sizeY, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Default );
+			RenderTexture rt = new RenderTexture( sizeX, sizeY, 0, RenderTextureFormat.ARGBFloat, RenderTextureReadWrite.Default );
 			rt.Create();
 			List<Color> texColors = new List<Color>();
 			
@@ -562,7 +564,7 @@ namespace AmplifyShaderEditor
 				Graphics.Blit( m_allTextures[ i ], rt );
 				GL.sRGBWrite = cachedsrgb;
 
-				Texture2D t2d = new Texture2D( sizeX, sizeY, TextureFormat.ARGB32, m_mipMaps, m_linearMode );
+				Texture2D t2d = new Texture2D( sizeX, sizeY, m_selectedFormatEnum, m_mipMaps, m_linearMode );
 				t2d.ReadPixels( new Rect( 0, 0, sizeX, sizeY ), 0, 0, m_mipMaps );
 				RenderTexture.active = null;
 
@@ -612,7 +614,7 @@ namespace AmplifyShaderEditor
 			textureArray.anisoLevel = m_anisoLevel;
 			textureArray.Apply( false );
 			RenderTexture cache = RenderTexture.active;
-			RenderTexture rt = new RenderTexture( sizeX, sizeY, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Default );
+			RenderTexture rt = new RenderTexture( sizeX, sizeY, 0, RenderTextureFormat.ARGBFloat, RenderTextureReadWrite.Default );
 			rt.Create();
 			for( int i = 0; i < m_allTextures.Count; i++ )
 			{
@@ -634,7 +636,7 @@ namespace AmplifyShaderEditor
 				Graphics.Blit( m_allTextures[ i ], rt );
 				GL.sRGBWrite = cachedsrgb;
 
-				Texture2D t2d = new Texture2D( sizeX, sizeY, TextureFormat.ARGB32, m_mipMaps, m_linearMode );
+				Texture2D t2d = new Texture2D( sizeX, sizeY, m_selectedFormatEnum, m_mipMaps, m_linearMode );
 				t2d.ReadPixels( new Rect( 0, 0, sizeX, sizeY ), 0, 0, m_mipMaps );
 				RenderTexture.active = null;
 

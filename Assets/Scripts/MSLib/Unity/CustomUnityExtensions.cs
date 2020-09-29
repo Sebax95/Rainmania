@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Linq.Expressions;
+using System.Collections.Generic;
 using UnityEngine;
 
 // compile with: -doc:DocFileName.xml 
@@ -8,7 +10,7 @@ namespace CustomMSLibrary.Unity {
 			return mask == (mask | (1 << layer));
 		}
 
-		public static List<Transform> GetAllChildren(this Transform transform) {
+		public static List<Transform> GetAllChildrenList(this Transform transform) {
 			List<Transform> children = new List<Transform>();
 			int c = transform.childCount;
 			for (int i = 0; i < c; i++)
@@ -17,6 +19,29 @@ namespace CustomMSLibrary.Unity {
 				if (child != null) children.Add(child);
 			}
 			return children;
+		}
+
+		public static Transform[] GetAllChildrenArray(this Transform transform) {
+			int c = transform.childCount;
+			Transform[] children = new Transform[c];
+			for (int i = 0; i < c; i++)
+				children[i]= transform.GetChild(i);
+
+			return children;
+		}
+
+		public static IEnumerable<Transform> GetAllChildrenEnumerable(this Transform transform) {
+			int c = transform.childCount;
+			var col = Enumerable.Empty<Transform>();
+			for(int i = 0; i < c; i++)
+			{
+				var child = transform.GetChild(i);
+				if(child != null)
+				{
+					col.Append(child);
+				}
+			}
+			return col;
 		}
 
 

@@ -15,7 +15,7 @@ public class Embestidor : HongoCaminante
         {
             Move(transform.forward);
             yield return new WaitForSeconds(0.1f);
-        } while (!stopCor || !FrontChecker().collider);
+        } while (!stopCor || !FrontChecker());
         
         speed = tempSpeed;
         viewEnem.ActivateBool(2, false);

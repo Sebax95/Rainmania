@@ -437,6 +437,7 @@ MonoBehaviour:
   output: {fileID: 0}
   viewAngle: 2
   viewDistance: 2
+  offsetLOS: {x: 0, y: 0, z: 0}
   lastPosition: {x: 0, y: 0, z: 0}
   gameAreaMask:
     serializedVersion: 2
@@ -444,11 +445,11 @@ MonoBehaviour:
   showGizmos: 1
   spawner: {fileID: 0}
   target: {fileID: 0}
-  lifeTime: 5
+  lifeTime: 30
   minRandomAmplitud: 0
-  maxRandomAmplitud: 5
-  frecuency: 5
-  amplitud: 5
+  maxRandomAmplitud: 0
+  frecuency: 0.82
+  amplitud: 2.08
   damage: 1
 --- !u!1 &6993443315774324888
 GameObject:

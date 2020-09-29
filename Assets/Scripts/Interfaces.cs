@@ -9,7 +9,7 @@ public interface IDamager : ITeam {
 }
 
 public interface IDamageable {
-	void Damage(int amount, IDamager source);
+	bool Damage(int amount, IDamager source);
 	void Die(IDamager source);
 }
 

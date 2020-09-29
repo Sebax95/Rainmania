@@ -11,7 +11,15 @@ namespace AmplifyShaderEditor
 	public sealed class SinTimeNode : ConstVecShaderVariable
 	{
 		//double m_time;
-
+#if UNITY_2018_3_OR_NEWER
+		private readonly string[] SRPTime =
+		{
+			"sin( _TimeParameters.x * 0.125 )",
+			"sin( _TimeParameters.x * 0.25 )",
+			"sin( _TimeParameters.x * 0.5 )",
+			"_TimeParameters.y",
+		};
+#endif
 		protected override void CommonInit( int uniqueId )
 		{
 			base.CommonInit( uniqueId );
@@ -21,6 +29,7 @@ namespace AmplifyShaderEditor
 			ChangeOutputName( 4, "t" );
 			m_value = "_SinTime";
 			m_previewShaderGUID = "e4ba809e0badeb94994170b2cbbbba10";
+			m_continuousPreviewRefresh = true;
 		}
 
 		public override void RefreshExternalReferences()
@@ -31,6 +40,19 @@ namespace AmplifyShaderEditor
 				m_outputPorts[ 0 ].Visible = false;
 				m_sizeIsDirty = true;
 			}
+		}
+
+		public override string GenerateShaderForOutput( int outputId, ref MasterNodeDataCollector dataCollector, bool ignoreLocalvar )
+		{
+#if UNITY_2018_3_OR_NEWER
+			if( outputId > 0 && dataCollector.IsTemplate )
+			{
+				if( ( dataCollector.TemplateDataCollectorInstance.IsHDRP && ASEPackageManagerHelper.CurrentHDVersion > ASESRPVersions.ASE_SRP_5_16_1 ) ||
+					( dataCollector.TemplateDataCollectorInstance.IsLWRP && ASEPackageManagerHelper.CurrentLWVersion > ASESRPVersions.ASE_SRP_5_16_1 ) )
+					return SRPTime[ outputId - 1 ];
+			}
+#endif
+			return base.GenerateShaderForOutput( outputId, ref dataCollector, ignoreLocalvar );
 		}
 	}
 }

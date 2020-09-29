@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public abstract class HongoCaminante : Enemy
@@ -9,10 +10,11 @@ public abstract class HongoCaminante : Enemy
     public bool canJump;
     public float jumpForce;
     public int damage;
-    public bool cdDamage = false;
     public Transform groundChecker;
     public bool stopCor = false;
     public LayerMask frontCheckerLayer;
+
+    //public bool cdDamage = false;
 
     protected override void Awake()
     {
@@ -43,27 +45,27 @@ public abstract class HongoCaminante : Enemy
         fsm.FixedUpdate();
     }
     
-    public override void Damage(int amount, IDamager source)
+    public override bool Damage(int amount, IDamager source)
     {
-        if (!source.GetTeam.CanDamage(myTeam))
-            return;
-        if (cdDamage) return;
-        cdDamage = true;
+        var result = base.Damage(amount, source);
+
+        if(!result)
+            return result;
+
         rb.mass = 100;
         StatesEnemies tempState = fsm.ActualState;
         fsm.SetState(StatesEnemies.Idle);
         viewEnem.DamageFeedback();
-        StartCoroutine(CdDamage(tempState));
-        Health -= amount;
+        StartCoroutine(ResetStateOnVulnerable(tempState));
+
         //viewEnem.ActivateTriggers(0);
-        if (Health < 0)
-            Die(source);
+
+        return result;
 
     }
-    IEnumerator CdDamage(StatesEnemies state)
+    IEnumerator ResetStateOnVulnerable(StatesEnemies state)
     {
-        yield return new WaitForSeconds(1);
-        cdDamage = false;
+        yield return new WaitForSeconds(invincibleTime);
         rb.mass = 1;
         fsm.SetState(state);
     }
@@ -91,19 +93,28 @@ public abstract class HongoCaminante : Enemy
         }
     }
 
-    public RaycastHit GroundChecker()
+    public bool GroundChecker()
     {
         RaycastHit hit;
         Debug.DrawRay(groundChecker.position, -groundChecker.up * 0.5f, Color.red);
-        Physics.Raycast(groundChecker.position, -groundChecker.up, out hit, 0.5f, groundMask);
-        return hit;
+        if(Physics.Raycast(groundChecker.position, -groundChecker.up, out hit, 0.5f, groundMask))
+        {
+            if (hit.collider.gameObject.CompareTag("Stairs"))
+            {
+                Debug.Log("ESCALERAS!!!");
+                return false;
+            }
+            return true;
+        }
+        return false;
     }
-    public RaycastHit FrontChecker()
+    public bool FrontChecker()
     {
         RaycastHit hit;
         Debug.DrawRay(groundChecker.position, groundChecker.forward * 0.5f, Color.red);
-        Physics.Raycast(groundChecker.position, groundChecker.forward, out hit, 0.5f, frontCheckerLayer);
-        return hit;
+        if(Physics.Raycast(groundChecker.position, groundChecker.forward, out hit, 0.5f, frontCheckerLayer))
+            return true;
+        return false;
     }
 
     protected IEnumerator CdJump()

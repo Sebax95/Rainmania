@@ -62,6 +62,9 @@ namespace AmplifyShaderEditor
 
 	public static class IOUtils
 	{
+		public delegate void OnShaderAction( Shader shader, bool isTemplate, string type );
+		public static OnShaderAction OnShaderSavedEvent;
+		public static OnShaderAction OnShaderTypeChangedEvent;
 
 		public static readonly string ShaderCopywriteMessage = "// Made with Amplify Shader Editor\n// Available at the Unity Asset Store - http://u3d.as/y3X \n";
 		public static readonly string GrabPassEmpty = "\t\tGrabPass{ }\n";
@@ -81,14 +84,16 @@ namespace AmplifyShaderEditor
 		public static readonly string InstancedPropertiesElement = "UNITY_DEFINE_INSTANCED_PROP({0}, {1})";
 		public static readonly string InstancedPropertiesData = "UNITY_ACCESS_INSTANCED_PROP({0})";
 
+		public static readonly string DotsInstancedPropertiesData = "\tUNITY_DOTS_INSTANCED_PROP({0}, {1})";
+		public static readonly string DotsInstancedDefinesData = "#define {1} UNITY_ACCESS_DOTS_INSTANCED_PROP_FROM_MACRO({0} , Metadata_{1})";
 
 		public static readonly string LWSRPInstancedPropertiesBegin = "UNITY_INSTANCING_BUFFER_START({0})";
 		public static readonly string LWSRPInstancedPropertiesEnd = "UNITY_INSTANCING_BUFFER_END({0})";
 		public static readonly string LWSRPInstancedPropertiesElement = "UNITY_DEFINE_INSTANCED_PROP({0}, {1})";
 		public static readonly string LWSRPInstancedPropertiesData = "UNITY_ACCESS_INSTANCED_PROP({0},{1})";
 
-		public static readonly string SRPInstancedPropertiesBegin = "CBUFFER_START({0})";
-		public static readonly string SRPInstancedPropertiesEnd = "CBUFFER_END";
+		public static readonly string SRPCBufferPropertiesBegin = "CBUFFER_START( UnityPerMaterial )";//"CBUFFER_START({0})";
+		public static readonly string SRPCBufferPropertiesEnd = "CBUFFER_END";
 
 
 		public static readonly string InstancedPropertiesBeginTabs		= "\t\t"+ InstancedPropertiesBegin + "\n";
@@ -172,6 +177,10 @@ namespace AmplifyShaderEditor
 		public static string LivePendingGUID = "e3182200efb67114eb5050f8955e1746";
 		public static string CleanupOFFGUID = "f62c0c3a5ddcd844e905fb2632fdcb15";
 		public static string CleanUpOnGUID = "615d853995cf2344d8641fd19cb09b5d";
+		public static string TakeScreenshotOFFGUID = "7587de2e3bec8bf4d973109524ccc6b1";
+		public static string TakeScreenshotONGUID = "7587de2e3bec8bf4d973109524ccc6b1";
+		public static string ShareOFFGUID = "bc5bd469748466a459badfab23915cb0";
+		public static string ShareONGUID = "bc5bd469748466a459badfab23915cb0";
 		public static string OpenSourceCodeOFFGUID = "f7e8834b42791124095a8b7f2d4daac2";
 		public static string OpenSourceCodeONGUID = "8b114792ff84f6546880c031eda42bc0";
 		public static string FocusNodeGUID = "da673e6179c67d346abb220a6935e359";
@@ -250,7 +259,7 @@ namespace AmplifyShaderEditor
 		}
 
 		////////////////////////////////////////////////////////////////////////////
-		private static void SetAmplifyDefineSymbolOnBuildTargetGroup( BuildTargetGroup targetGroup )
+		public static void SetAmplifyDefineSymbolOnBuildTargetGroup( BuildTargetGroup targetGroup )
 		{
 			string currData = PlayerSettings.GetScriptingDefineSymbolsForGroup( targetGroup );
 			if ( !currData.Contains( AmplifyShaderEditorDefineSymbol ) )
@@ -271,12 +280,25 @@ namespace AmplifyShaderEditor
 			}
 		}
 
+		public static void RemoveAmplifyDefineSymbolOnBuildTargetGroup( BuildTargetGroup targetGroup )
+		{
+			string currData = PlayerSettings.GetScriptingDefineSymbolsForGroup( targetGroup );
+			if( currData.Contains( AmplifyShaderEditorDefineSymbol ) )
+			{
+				currData = currData.Replace( AmplifyShaderEditorDefineSymbol + ";", "" );
+				currData = currData.Replace( ";" + AmplifyShaderEditorDefineSymbol, "" );
+				currData = currData.Replace( AmplifyShaderEditorDefineSymbol, "" );
+				PlayerSettings.SetScriptingDefineSymbolsForGroup( targetGroup, currData );
+			}
+		}
+
 		public static void Init()
 		{
 			if ( !Initialized )
 			{
 				Initialized = true;
-				SetAmplifyDefineSymbolOnBuildTargetGroup( EditorUserBuildSettings.selectedBuildTargetGroup );
+				if( EditorPrefs.GetBool( Preferences.PrefDefineSymbol, true ) )
+					SetAmplifyDefineSymbolOnBuildTargetGroup( EditorUserBuildSettings.selectedBuildTargetGroup );
 				//Array BuildTargetGroupValues = Enum.GetValues( typeof(  BuildTargetGroup ));
 				//for ( int i = 0; i < BuildTargetGroupValues.Length; i++ )
 				//{

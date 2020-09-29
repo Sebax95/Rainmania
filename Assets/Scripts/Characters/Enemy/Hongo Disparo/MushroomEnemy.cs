@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public abstract class MushroomEnemy : Enemy
 {
-
 	public bool isInvulnerable;
     [Header("Green Enemy Variables")]
 	public FSM<MushroomEnemy> fsm;
-    public bool isDeath;
+    //public bool isDeath;
 
     [Header("Jump Variables")]
 	public SphereCollider jumpingPad;
@@ -20,8 +16,8 @@ public abstract class MushroomEnemy : Enemy
    
 	public PoisonBullet bulletPref;
 	public bool canShoot;
-	public bool cdDamage;
-	public float damageTimer;
+	//public bool cdDamage;
+	//public float damageTimer;
 	
 	[Header("Sonidos")]
 	public AudioClip shootSound;
@@ -33,7 +29,7 @@ public abstract class MushroomEnemy : Enemy
 		base.Awake();
 		fsm = new FSM<MushroomEnemy>(this);
 		jumpingPad = GetComponent<SphereCollider>();
-		cdDamage = false;
+		isInvicible = false;
 		fsm.AddState(StatesEnemies.Idle, new IdleState(this, fsm));
 		fsm.AddState(StatesEnemies.Shoot, new ShootState(this, fsm));
 		
@@ -46,31 +42,31 @@ public abstract class MushroomEnemy : Enemy
 	}
 
 	public void Update() {
-        if (isDeath) return;
+        if (isDead) return;
 		fsm.Update();
     }
     public void FixedUpdate() {
-        if (isDeath) return;    
+        if (isDead) return;    
         fsm.FixedUpdate();
 	}
 
-    public override void Damage(int amount, IDamager source)
+    public override bool Damage(int amount, IDamager source)
     {
-        if (!source.GetTeam.CanDamage(myTeam) || isInvulnerable || cdDamage || isDeath)
-            return;
+        if (!source.GetTeam.CanDamage(myTeam) || isInvulnerable || isInvicible || isDead)
+            return false;
         Health -= amount;
-        cdDamage = true;
-        StartCoroutine(CdDamage());
+        StartCoroutine(Coroutine_InvinsibleTime());
         viewEnem.SetAudioClip(hitSound);
         viewEnem.Au.Play();
         viewEnem.DamageFeedback();
         viewEnem.ActivateTriggers(2);
         if (Health <= 0)
             Die(source);
+		return true;
     }
     public override void Die(IDamager source)
     {
-        isDeath = true;
+        isDead = true;
         viewEnem.ActivateBool(0, true);
         rb.isKinematic = true;
         GetComponent<CapsuleCollider>().enabled = false;
@@ -87,11 +83,6 @@ public abstract class MushroomEnemy : Enemy
 		canShoot = true;
 	}
 
-    public IEnumerator CdDamage()
-    {
-	    yield return new WaitForSeconds(damageTimer);
-	    cdDamage = false;
-    }
     private void OnTriggerEnter(Collider other)
 	{
 		var jump = other.transform.GetComponent<IAppliableForce>();
