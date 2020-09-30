@@ -31,10 +31,21 @@ public class EnemyView : MonoBehaviour
 
     IEnumerator ChangeColor()
     {
+        var maxTime = 0.3f;
+        var waitTime = 0f;
+        var value = 0f;
+        while (waitTime < maxTime)
+        {
+            value = Mathf.Lerp(0, 1, (waitTime /maxTime));
+            waitTime += Time.deltaTime * 10;
+            Debug.Log(value);
+            mat.material.SetFloat("_ColorLerp", value);
 
-        var tempColor = mat.material.color;
-        mat.material.SetColor("_Color", Color.white);
-        yield return new WaitForSeconds(.5f);
-        mat.material.SetColor("_Color", tempColor);
+            yield return new WaitForSeconds(0.03f);
+        }
+        
+        yield return new WaitForSeconds(0.5f);
+        mat.material.SetFloat("_ColorLerp", 0);
+
     }
 }
