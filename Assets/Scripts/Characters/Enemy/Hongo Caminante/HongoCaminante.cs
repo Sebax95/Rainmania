@@ -73,6 +73,7 @@ public abstract class HongoCaminante : Enemy
     public override void Die(IDamager source)
     {
         isDeath = true;
+        viewEnem.ActivateBool(1, false);
         viewEnem.ActivateTriggers(1);
         rb.isKinematic = true;
         GetComponent<CapsuleCollider>().enabled = false;
