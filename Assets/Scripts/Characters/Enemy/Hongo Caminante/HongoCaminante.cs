@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public abstract class HongoCaminante : Enemy
@@ -92,19 +93,28 @@ public abstract class HongoCaminante : Enemy
         }
     }
 
-    public RaycastHit GroundChecker()
+    public bool GroundChecker()
     {
         RaycastHit hit;
         Debug.DrawRay(groundChecker.position, -groundChecker.up * 0.5f, Color.red);
-        Physics.Raycast(groundChecker.position, -groundChecker.up, out hit, 0.5f, groundMask);
-        return hit;
+        if(Physics.Raycast(groundChecker.position, -groundChecker.up, out hit, 0.5f, groundMask))
+        {
+            if (hit.collider.gameObject.CompareTag("Stairs"))
+            {
+                Debug.Log("ESCALERAS!!!");
+                return false;
+            }
+            return true;
+        }
+        return false;
     }
-    public RaycastHit FrontChecker()
+    public bool FrontChecker()
     {
         RaycastHit hit;
         Debug.DrawRay(groundChecker.position, groundChecker.forward * 0.5f, Color.red);
-        Physics.Raycast(groundChecker.position, groundChecker.forward, out hit, 0.5f, frontCheckerLayer);
-        return hit;
+        if(Physics.Raycast(groundChecker.position, groundChecker.forward, out hit, 0.5f, frontCheckerLayer))
+            return true;
+        return false;
     }
 
     protected IEnumerator CdJump()

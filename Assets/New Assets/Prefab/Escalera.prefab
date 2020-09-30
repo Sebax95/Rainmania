@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 130321354817390870}
   m_Layer: 14
   m_Name: Escalera
-  m_TagString: ArrowStick
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 730032942759080261}
   m_Layer: 9
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
