@@ -52,7 +52,7 @@ public class PlayerController : Controller, IMainController {
 		//	User?.SwitchWeapons();
 	}
 
-	public Vector2 GetAxises() => new Vector2(Input.GetAxis(horizontalAxis), Input.GetAxis(verticalAxis));
+	public Vector2 GetAxises() => new Vector2(Input.GetAxisRaw(horizontalAxis), Input.GetAxisRaw(verticalAxis));
 
 	//public override void AssignUser(Controllable user) {
 	//	base.AssignUser(user);

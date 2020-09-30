@@ -8,7 +8,7 @@ public class Embestidor : HongoCaminante
     {
         stopCor = false;
         var tempSpeed = speed;
-        viewEnem.ActivateBool(2, true);
+        viewEnem.ActivateBool(1, true);
         speed = speed * 2;
         StartCoroutine(StopRun());
         do
@@ -18,7 +18,7 @@ public class Embestidor : HongoCaminante
         } while (!stopCor || !FrontChecker());
         
         speed = tempSpeed;
-        viewEnem.ActivateBool(2, false);
+        viewEnem.ActivateBool(1, false);
         canJump = true;
     }
 

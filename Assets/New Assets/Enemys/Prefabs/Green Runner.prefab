@@ -264,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
   maxHealth: 1
+  invincibleTime: 0
   speed: 2
   viewEnem: {fileID: 0}
   groundMask:
@@ -285,7 +286,6 @@ MonoBehaviour:
   canJump: 0
   jumpForce: 5
   damage: 3
-  cdDamage: 0
   groundChecker: {fileID: 2276268090681058253}
   stopCor: 0
   frontCheckerLayer:
@@ -420,9 +420,9 @@ MonoBehaviour:
   mat: {fileID: 0}
   triggersNames:
   - Jump
+  - Dead
   boolsNames:
   - inGround
-  - isDead
   - Attaking
 --- !u!1 &3481109823148704038
 GameObject:
