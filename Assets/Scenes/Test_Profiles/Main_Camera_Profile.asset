@@ -21,13 +21,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.054
+    value: 0
   size:
     overrideState: 1
-    value: 3
+    value: 0.3
   lumContrib:
     overrideState: 1
-    value: 0.671
+    value: 0
 --- !u!114 &-2918021993848174590
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -40,22 +40,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   focusDistance:
     overrideState: 1
-    value: 4.47
+    value: 3.07
   aperture:
     overrideState: 1
-    value: 11.3
+    value: 9.3
   focalLength:
     overrideState: 1
-    value: 57
+    value: 65
   kernelSize:
     overrideState: 1
-    value: 1
+    value: 3
 --- !u!114 &-1407069023095109790
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -68,20 +68,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
   m_Name: ColorGrading
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   gradingMode:
     overrideState: 1
-    value: 0
+    value: 1
   externalLut:
     overrideState: 0
     value: {fileID: 0}
     defaultState: 1
   tonemapper:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0
   toneCurveToeStrength:
     overrideState: 0
     value: 0
@@ -109,19 +109,19 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: -41
+    value: -41.1
   tint:
-    overrideState: 0
-    value: 13
-  colorFilter:
     overrideState: 1
+    value: 60.2
+  colorFilter:
+    overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     overrideState: 0
     value: 108
   saturation:
     overrideState: 1
-    value: 87
+    value: 30.9
   brightness:
     overrideState: 1
     value: 100
@@ -1428,7 +1428,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.2
+    value: 1.69
   threshold:
     overrideState: 0
     value: 0
@@ -1478,7 +1478,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.1
+    value: 0.58
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -1496,7 +1496,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 2.22
+    value: 3.2
   directLightingStrength:
     overrideState: 0
     value: 0
@@ -1524,7 +1524,7 @@ MonoBehaviour:
     value: 1
   preset:
     overrideState: 1
-    value: 2
+    value: 5
   maximumIterationCount:
     overrideState: 0
     value: 16
@@ -1536,13 +1536,13 @@ MonoBehaviour:
     value: 8
   maximumMarchDistance:
     overrideState: 1
-    value: 100
+    value: 0
   distanceFade:
     overrideState: 1
-    value: 0.642
+    value: 0.426
   vignette:
     overrideState: 1
-    value: 0.41
+    value: 0
 --- !u!114 &5810509835903093919
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1555,28 +1555,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f6f3f7c722b4544b97e3c75840aa33, type: 3}
   m_Name: AutoExposure
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   filtering:
     overrideState: 1
-    value: {x: 59.141296, y: 85.577644}
+    value: {x: 72.56367, y: 99}
   minLuminance:
     overrideState: 1
-    value: 0.64
+    value: 2.41
   maxLuminance:
     overrideState: 1
-    value: 6.14
+    value: 9
   keyValue:
     overrideState: 1
-    value: 2.02
+    value: 2.49
   eyeAdaptation:
     overrideState: 1
     value: 0
   speedUp:
     overrideState: 1
-    value: 9.21
+    value: 12
   speedDown:
     overrideState: 1
-    value: 10.65
+    value: 10
