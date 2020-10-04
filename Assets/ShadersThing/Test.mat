@@ -100,7 +100,7 @@ Material:
     - _SpecularHighlights: 1
     - _Speed: 0.34
     - _SrcBlend: 1
-    - _TessValue: 32
+    - _TessValue: 10
     - _Tiling: 0.9
     - _Timer: 3.13
     - _UVSec: 0

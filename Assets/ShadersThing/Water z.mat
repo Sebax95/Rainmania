@@ -24,7 +24,7 @@ Material:
     - _Divide: 21.99
     - _ScalarSpeed: 1
     - _Speed: 0.34
-    - _TessValue: 32
+    - _TessValue: 10
     - _Tiling: 0.9
     - _Waves: 1.64
     - _WavesTess: 0.13
