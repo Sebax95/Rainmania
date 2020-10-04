@@ -7,6 +7,7 @@ public class Swinger : Controllable, IMoveOverride {
 
 	private float anchorTime;
 	public float whipDistance;
+	public float swingAddingStrength;
 
 	private bool dependOnTransform;
 	private Transform anchorTransform;
@@ -14,6 +15,9 @@ public class Swinger : Controllable, IMoveOverride {
 
 	private float initialState; //Initial angle in rads * Sqrt(gravity / distance from anchor)
 	private float initialAngle;
+
+	private sbyte initialAngleDirection;
+	private bool movingRight;
 
 	private bool overriding;
 	private IMoveOverrideable swingOverrider;
@@ -61,6 +65,7 @@ public class Swinger : Controllable, IMoveOverride {
 	private void Internal_SetupSwing(Vector3 relativePos) {
 		initialAngle = Vector3.SignedAngle(Vector3.down, -relativePos.ZeroZ(), Vector3.forward) * Mathf.Deg2Rad;
 		initialAngle = Mathf.Clamp(initialAngle, -HALF_PI, HALF_PI);
+		initialAngleDirection = (sbyte)(initialAngle > 0 ? 1 : -1);
 		//distanceFromAnchor = relativePos.magnitude;
 		anim.BeginSwing();
 		anchorTime = Time.time;
@@ -77,9 +82,13 @@ public class Swinger : Controllable, IMoveOverride {
 	[MethodImpl(MethodImplOptions.NoOptimization)]
 	public Vector3 UpdateSwing() {
 		firstFrame = false;
-		float newAngle = initialAngle * Mathf.Cos(initialState * GetTime);
+		float angleCos = Mathf.Cos(initialState * GetTime);
+		float angleSin = Mathf.Sin(initialState * GetTime);
+		float newAngle = initialAngle * angleCos;
 		var anchorPos = dependOnTransform ? anchorTransform.position : this.anchorPos;
 		anim.UpdateStatus(newAngle);
+		movingRight = initialAngleDirection * angleSin < 0; //If the sine is negative, it's moving right
+
 		return new Vector3(
 			anchorPos.x + (Mathf.Sin(newAngle) * whipDistance),
 			anchorPos.y - (Mathf.Cos(newAngle) * whipDistance),
@@ -141,6 +150,26 @@ public class Swinger : Controllable, IMoveOverride {
 		Attach(swingOverrider);
 	}
 
+	private void ChangeSpeed(float direction) {
+		if(direction == 0)
+			return;
+
+		bool accelerating = direction > 0 ^ !movingRight; //XOR. Acelerar si se mueve a derecha y balancea a derecha, o el mismo caso en otra direccion.
+		#region Comment
+		/*
+		 * initialAngle: Determina el angulo maximo del balanceo, por lo que es lo que se va a modificar
+		 * Multiplicacion:
+		 *		initialAngleDirection: para mantener los siguientes multiplicadores relativos a direccion de balanceo
+		 *		(accelerating ? 1 : -1): para sumar si acelera, o restar si desacelera
+		 *		Mathf.Abs(direction): escala absoluta la accion segun la fuerza del input (anticipa soporte de joystick)
+		 *		swingAddingStrength: multiplicador de fuerza de aceleracion. variable publica asignable
+		 *		Time.deltaTime: consistencia de framerate
+		*/
+		#endregion
+		float newMax = initialAngle + (initialAngleDirection * (accelerating ? 1 : -1) * Mathf.Abs(direction) * swingAddingStrength * Time.deltaTime);
+		initialAngle = initialAngleDirection * Mathf.Clamp(Mathf.Abs(newMax), -HALF_PI, HALF_PI);
+	}
+
 	public override void Move(Vector2 direction) {
 		if(direction.x == 0)
 			return;
@@ -148,6 +177,8 @@ public class Swinger : Controllable, IMoveOverride {
 			transform.localRotation = Quaternion.Euler(0, 90, 0);
 		else
 			transform.localRotation = Quaternion.Euler(0, -90, 0);
+		anim.UpdateWithLast();
+		ChangeSpeed(direction.x);
 	}
 
 	private void OnCollisionEnter() {

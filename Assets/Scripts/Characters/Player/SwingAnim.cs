@@ -6,6 +6,7 @@ public class SwingAnim : MonoBehaviour {
 	public string wrappedSwingingParameter;
 
 	private Animator animator;
+	private float lastAngle;
 
 	private void Start() =>
 		animator = GetComponent<Animator>();
@@ -17,6 +18,7 @@ public class SwingAnim : MonoBehaviour {
 		animator.SetBool(swingingParameter, false);
 
 	public void UpdateStatus(float angle) {
+		lastAngle = angle;
 		float mod = 0;
 		float mult = 0.5f;
 		if(transform.forward.x < 0)
@@ -25,8 +27,9 @@ public class SwingAnim : MonoBehaviour {
 			mult = -0.5f;
 		}
 		float value = Mathf.Clamp01(mod + mult * (1 + (angle / Swinger.HALF_PI)));
-		print(value);
 		animator.SetFloat(swingValueParameter, value);
 		animator.SetFloat(wrappedSwingingParameter, value);
 	}
+
+	public void UpdateWithLast() => UpdateStatus(lastAngle);
 }
