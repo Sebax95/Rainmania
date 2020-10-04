@@ -15,7 +15,7 @@ public class PlayerSwingerController : Controller {
 	protected override void DoMovement() {
 		if(!ControllerHandler.Instance.IsOverriding(this))
 			return;
-		if(Input.GetKeyDown(baseController.JumpKey))
+		if(Input.GetKeyDown(baseController.JumpKey) || Input.GetKeyDown(KeyCode.Joystick1Button0)) //JOYSTICK TEMPORAL!!!!
 		{
 			User?.BreakSwing();
 			playerPawn.ForceJump();
@@ -27,7 +27,8 @@ public class PlayerSwingerController : Controller {
 		if(!ControllerHandler.Instance.IsOverriding(this))
 			return;
 
-		if(Input.GetKeyDown(baseController.attackWhipKey) && User && !User.firstFrame)
+		if ((Input.GetKeyDown(baseController.attackWhipKey) || Input.GetKeyDown(KeyCode.JoystickButton7)) && User &&
+		    !User.firstFrame) //JOYSTICK TEMPORAL!!!!
 		{
 			User.BreakSwing();
 		}
