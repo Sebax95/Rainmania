@@ -4665,6 +4665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityMult: 9
   whipDistance: 1.5
+  maxSwingAngle: 75
   swingAddingStrength: 0.2
   firstFrame: 0
 --- !u!114 &4727816423271630307

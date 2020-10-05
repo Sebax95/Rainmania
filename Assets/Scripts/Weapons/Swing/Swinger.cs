@@ -7,6 +7,7 @@ public class Swinger : Controllable, IMoveOverride {
 
 	private float anchorTime;
 	public float whipDistance;
+	[Range(0f,90f)]public float maxSwingAngle;
 	public float swingAddingStrength;
 
 	private bool dependOnTransform;
@@ -28,7 +29,8 @@ public class Swinger : Controllable, IMoveOverride {
 	private MomentumKeeper momentum;
 	private bool prevGravitystate;
 
-	float GetTime => Time.time - anchorTime;
+	private float GetTime => Time.time - anchorTime;
+	private float MaxSwingAngleRad => maxSwingAngle * Mathf.Deg2Rad;
 	public const float HALF_PI = 1.57079637F;
 
 	[HideInInspector]
@@ -64,7 +66,8 @@ public class Swinger : Controllable, IMoveOverride {
 	[MethodImpl(MethodImplOptions.NoOptimization)]
 	private void Internal_SetupSwing(Vector3 relativePos) {
 		initialAngle = Vector3.SignedAngle(Vector3.down, -relativePos.ZeroZ(), Vector3.forward) * Mathf.Deg2Rad;
-		initialAngle = Mathf.Clamp(initialAngle, -HALF_PI, HALF_PI);
+		float max = MaxSwingAngleRad;
+		initialAngle = Mathf.Clamp(initialAngle, -max, max);
 		initialAngleDirection = (sbyte)(initialAngle > 0 ? 1 : -1);
 		//distanceFromAnchor = relativePos.magnitude;
 		anim.BeginSwing();
@@ -167,7 +170,7 @@ public class Swinger : Controllable, IMoveOverride {
 		*/
 		#endregion
 		float newMax = initialAngle + (initialAngleDirection * (accelerating ? 1 : -1) * Mathf.Abs(direction) * swingAddingStrength * Time.deltaTime);
-		initialAngle = initialAngleDirection * Mathf.Clamp(Mathf.Abs(newMax), -HALF_PI, HALF_PI);
+		initialAngle = initialAngleDirection * Mathf.Clamp(Mathf.Abs(newMax), 0, MaxSwingAngleRad);
 	}
 
 	public override void Move(Vector2 direction) {
