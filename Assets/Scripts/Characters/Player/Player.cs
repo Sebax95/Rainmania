@@ -111,8 +111,8 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		PlayerAnimator.Jump();
 		holdingJump = true;
 
-
 	}
+
 	public void ReleaseJump() => holdingJump = false;
 
 	public override void Move(Vector2 direction) {
