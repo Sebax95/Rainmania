@@ -984,6 +984,11 @@
         </e>
         <e p="New Assets" t="Include">
           <e p="Enemys" t="Include">
+            <e p="Flying Launcher" t="Include">
+              <e p="Flyer Enemy Textures" t="Include">
+                <e p="Flying Launcher.shader" t="Include" />
+              </e>
+            </e>
             <e p="Suicide" t="Include">
               <e p="Alas.shader" t="Include" />
               <e p="Suicide.shader" t="Include" />
@@ -1278,6 +1283,9 @@
             <e p="New Amplify Shader.shader" t="Include" />
             <e p="Toon Water.shader" t="Include" />
           </e>
+        </e>
+        <e p="Textures" t="Include">
+          <e p="Splash.shader" t="Include" />
         </e>
       </e>
       <e p="Aura2_Core.csproj" t="IncludeRecursive" />

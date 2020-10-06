@@ -169,7 +169,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c782178323944a47ae004ebb289f90f, type: 2}
+  - {fileID: 2100000, guid: 7a33b2820531fe848a71647f94a566be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -375,7 +375,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6360010444245834194}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.26233286, y: 0.5042856, z: 0.8200071}
@@ -428,6 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
   maxHealth: 1
+  invincibleTime: 0
   speed: 1
   viewEnem: {fileID: 0}
   groundMask:
@@ -451,6 +452,8 @@ MonoBehaviour:
   frecuency: 0.82
   amplitud: 2.08
   damage: 1
+  deathParticle: {fileID: 7847483149508383075, guid: 5e099aba4458ac24891b7c03fe9128b7,
+    type: 3}
 --- !u!1 &6993443315774324888
 GameObject:
   m_ObjectHideFlags: 0
