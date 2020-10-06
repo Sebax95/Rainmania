@@ -18,7 +18,8 @@ public class Bombardero : Enemy
 
     public Vector3 offsetLeft;
     public Vector3 offsetRight;
-    
+
+    public GameObject deathParticle;
     
     protected override void Awake()
     {
@@ -44,14 +45,25 @@ public class Bombardero : Enemy
         _fsm.FixedUpdate();
     }
 
-
-
     public override void Move(Vector2 direction) => rb.velocity = direction;
+
+    public override bool Damage(int amount, IDamager source)
+    {
+        var result = base.Damage(amount, source);
+        if (!result) return result;
+        viewEnem.DamageFeedback();
+
+        return result;
+    }
 
     public override void Die(IDamager source)
     {
         _isDead = true;
-        if(!spawner)
+
+        var part = Instantiate(deathParticle, transform.position, Quaternion.identity);
+        Destroy(part, 1);
+        
+        if(spawner)
             spawner.DestroyObject(gameObject);
         else
             Destroy(gameObject);

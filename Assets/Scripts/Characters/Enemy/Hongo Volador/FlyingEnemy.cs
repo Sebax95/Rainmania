@@ -14,6 +14,8 @@ public class FlyingEnemy : Enemy
     private bool _isDead;
     private FSM<FlyingEnemy> _fsm;
     
+    public GameObject deathParticle;
+
     protected override void Awake()
     {
         base.Awake();
@@ -44,7 +46,10 @@ public class FlyingEnemy : Enemy
     {
         var obj = other.gameObject.GetComponent<Character>();
         if (obj)
+        {
             obj.Damage(damage, this);
+            Die(this);
+        }
     }
 
     IEnumerator DieTimer()
@@ -56,10 +61,14 @@ public class FlyingEnemy : Enemy
     public override void Die(IDamager source)
     {
         _isDead = true;
+
         if(spawner)
             spawner.DestroyObject(gameObject);
         else
             Destroy(gameObject);
+        
+        var part = Instantiate(deathParticle, transform.position, Quaternion.identity);
+        Destroy(part, 1);
     }
     
 }

@@ -18,6 +18,8 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Swing/PlayerSwingerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/Bombardero.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/FlyingEnemy.cs" />
       </list>
     </option>
   </component>
@@ -76,6 +78,9 @@
       <option name="presentableId" value="Default" />
       <updated>1601767622343</updated>
       <workItem from="1601767654536" duration="7514000" />
+      <workItem from="1601789357931" duration="5869000" />
+      <workItem from="1601845256474" duration="3659000" />
+      <workItem from="1602015203612" duration="1145000" />
     </task>
     <servers />
   </component>
