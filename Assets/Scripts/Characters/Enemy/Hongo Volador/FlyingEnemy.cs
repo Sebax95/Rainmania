@@ -58,6 +58,15 @@ public class FlyingEnemy : Enemy
         Die(this);
     }
     
+    public override bool Damage(int amount, IDamager source)
+    {
+        var result = base.Damage(amount, source);
+        if (!result) return result;
+        viewEnem.DamageFeedback();
+
+        return result;
+    }
+    
     public override void Die(IDamager source)
     {
         _isDead = true;

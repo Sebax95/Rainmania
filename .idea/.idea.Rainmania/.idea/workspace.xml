@@ -19,6 +19,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Swing/PlayerSwingerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/Bombardero.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Arrow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/FlyingEnemy.cs" />
       </list>
     </option>
@@ -80,7 +81,7 @@
       <workItem from="1601767654536" duration="7514000" />
       <workItem from="1601789357931" duration="5869000" />
       <workItem from="1601845256474" duration="3659000" />
-      <workItem from="1602015203612" duration="1145000" />
+      <workItem from="1602015203612" duration="3779000" />
     </task>
     <servers />
   </component>

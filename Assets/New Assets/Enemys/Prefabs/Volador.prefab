@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8441439524009085094}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub001Bone004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1938466529997977707}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub001Bone008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5232884343271581041}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3399431755001214759}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub001Bone007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3199059275372379147}
   - component: {fileID: 2796881017420452181}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7823248854973210498}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub001Bone010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7898887422590119369}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub001Bone005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8026144570084237379}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,11 +323,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5983202950099256168}
   - component: {fileID: 6089467153419627068}
+  - component: {fileID: 3382977706932577867}
   - component: {fileID: 6089467153419627071}
   - component: {fileID: 6089467153419627064}
   - component: {fileID: 6089467153419627066}
   - component: {fileID: 6089467153419627069}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Volador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,6 +368,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!65 &3382977706932577867
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360010444245834194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.41, z: 0.7}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!65 &6089467153419627071
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -463,7 +477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4523536022363878093}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub001Bone006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5993966921984942067}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub001Bone003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3209376945201274387}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub001Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7694453086849421482}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub001Bone009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5509096313441052043}
   - component: {fileID: 961281892215298578}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
