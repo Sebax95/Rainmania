@@ -165,6 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1085496040301797827}
+  - component: {fileID: 1169568841040067317}
   m_Layer: 15
   m_Name: CATRigHub003Bone002Bone001Bone001
   m_TagString: Untagged
@@ -186,6 +187,19 @@ Transform:
   m_Father: {fileID: 3854775420997755151}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1169568841040067317
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044236995411829399}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19922651, y: 0.62615556, z: 0.58049744}
+  m_Center: {x: 0.055080917, y: -0.01569707, z: -0.004278297}
 --- !u!1 &2143160431509541361
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +305,7 @@ MonoBehaviour:
   frontCheckerLayer:
     serializedVersion: 2
     m_Bits: 49152
+  headCollider: {fileID: 1169568841040067317}
 --- !u!1 &2276268090681058252
 GameObject:
   m_ObjectHideFlags: 0
