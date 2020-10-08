@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public interface ITeam {
 	Team GetTeam { get; }
@@ -10,7 +11,10 @@ public interface IDamager : ITeam {
 
 public interface IDamageable : ITeam {
 	bool Damage(int amount, IDamager source);
+
 	void Die(IDamager source);
+	event Action<IDamager> OnDeath;
+
 	GameObject SourceObject { get; }
 }
 

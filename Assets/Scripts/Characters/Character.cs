@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -22,6 +23,8 @@ public abstract class Character : Controllable, IDamageable, IHealable, ITeam, I
 	protected Vector3 addedVelocity;
 
 	public Team GetTeam => myTeam;
+
+	public event Action<IDamager> OnDeath;
 
 	protected virtual void Start() {
 		Health = maxHealth;
@@ -51,6 +54,7 @@ public abstract class Character : Controllable, IDamageable, IHealable, ITeam, I
 
 	public virtual void Die(IDamager source) {
 		isDead = true;
+		OnDeath?.Invoke(source);
 	}
 
 	protected IEnumerator Coroutine_InvinsibleTime() {
