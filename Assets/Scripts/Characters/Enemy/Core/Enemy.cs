@@ -53,7 +53,6 @@ public abstract class Enemy : Character, IDamager
             if (Physics.Raycast(_posLOS, _dirToTarget, out rch, _distanceToTarget))
                 if (rch.collider.gameObject.layer == 14)
                     obstacleBetween = true;
-            Debug.DrawRay(_posLOS,  rch.point - _posLOS, Color.yellow);
             if (!obstacleBetween)
             {
                 lastPosition = target.transform.position;
@@ -69,8 +68,7 @@ public abstract class Enemy : Character, IDamager
     public override void Move(Vector2 direction)
     {
         var tempVel = rb.velocity;
-        Vector3 newVel = new Vector3(direction.x * speed, tempVel.y);      
-
+        Vector3 newVel = new Vector3(direction.x * speed, tempVel.y);
         rb.velocity = newVel;
     }
     

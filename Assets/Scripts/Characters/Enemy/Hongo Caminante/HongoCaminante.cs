@@ -11,7 +11,7 @@ public abstract class HongoCaminante : Enemy
     public float jumpForce;
     public int damage;
     public Transform groundChecker;
-    public bool stopCor = false;
+    public bool stopCor = true;
     public LayerMask frontCheckerLayer;
 
     //public bool cdDamage = false;
@@ -32,6 +32,7 @@ public abstract class HongoCaminante : Enemy
         base.Start();
         fsm.SetState(StatesEnemies.Walk);
         canJump = true;
+        stopCor = true;
     }
     private void Update()
     {

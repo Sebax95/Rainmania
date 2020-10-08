@@ -4,27 +4,32 @@ using UnityEngine;
 
 public class Embestidor : HongoCaminante
 {
-    public override IEnumerator Attack()
+    public BoxCollider headCollider;
+
+    protected override void Start()
     {
-        stopCor = false;
-        var tempSpeed = speed;
-        viewEnem.ActivateBool(1, true);
-        speed = speed * 2;
-        StartCoroutine(StopRun());
-        do
-        {
-            Move(transform.forward);
-            yield return new WaitForSeconds(0.1f);
-        } while (!stopCor || !FrontChecker());
-        
-        speed = tempSpeed;
-        viewEnem.ActivateBool(1, false);
-        canJump = true;
+        base.Start();
+        headCollider.enabled = false;
     }
 
-    IEnumerator StopRun()
+    public override IEnumerator Attack()
     {
-        yield return new WaitForSeconds(cdTimer);
-        stopCor = true;
+        headCollider.enabled = true;
+        var maxTime = cdTimer;
+        var waitTime = 0f;
+        var tempSpeed = speed;
+        viewEnem.ActivateBool(1, true);
+        speed = speed * 3;
+        while (waitTime < maxTime || !FrontChecker())
+        {
+            waitTime += Time.deltaTime * 10;
+            Move(transform.forward);
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        speed = tempSpeed;
+        viewEnem.ActivateBool(1, false);
+        headCollider.enabled = false;
+        canJump = true;
     }
 }
