@@ -61,6 +61,8 @@ public abstract class Character : Controllable, IDamageable, IHealable, ITeam, I
 
 	public void AddVelocity(Vector3 velocity) => addedVelocity = velocity;
 	public void ClearAddedVelocity() => addedVelocity = Vector3.zero;
+
+	public GameObject SourceObject => gameObject;
 }
 
 public abstract class Controllable : MonoBehaviour {

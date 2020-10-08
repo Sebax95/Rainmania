@@ -8,17 +8,19 @@ public interface IDamager : ITeam {
 	GameObject SourceObject { get; }
 }
 
-public interface IDamageable {
+public interface IDamageable : ITeam {
 	bool Damage(int amount, IDamager source);
 	void Die(IDamager source);
+	GameObject SourceObject { get; }
 }
 
 public interface IHealer : ITeam {
 	GameObject SourceObject { get; }
 }
 
-public interface IHealable {
+public interface IHealable :ITeam {
 	bool Heal(int amount, IHealer source);
+	GameObject SourceObject { get; }
 }
 
 public interface IWeapon {
