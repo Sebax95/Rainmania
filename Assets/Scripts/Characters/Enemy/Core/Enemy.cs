@@ -51,7 +51,7 @@ public abstract class Enemy : Character, IDamager
             RaycastHit rch;
             bool obstacleBetween = false;
             if (Physics.Raycast(_posLOS, _dirToTarget, out rch, _distanceToTarget))
-                if (rch.collider.gameObject.layer == 14)
+                if (gameAreaMask.ContainsLayer(rch.collider.gameObject.layer))
                     obstacleBetween = true;
             if (!obstacleBetween)
             {
@@ -102,5 +102,10 @@ public abstract class Enemy : Character, IDamager
         Vector3 leftLimit = Quaternion.AngleAxis(-viewAngle, transform.up) * transform.forward;
         Gizmos.DrawLine(posLOS, posLOS + (leftLimit * viewDistance));
         
+        Vector3 upLimit = Quaternion.AngleAxis(-viewAngle, transform.right) * transform.forward;
+        Gizmos.DrawLine(posLOS, posLOS + (upLimit * viewDistance));
+
+        Vector3 downLimit = Quaternion.AngleAxis(viewAngle, transform.right) * transform.forward;
+        Gizmos.DrawLine(posLOS, posLOS + (downLimit * viewDistance));
     }
 }
