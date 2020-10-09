@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3314996260634228892}
   - component: {fileID: 1662000185128951702}
   - component: {fileID: 2695989467716304439}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Lanzador Azul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: {fileID: 11400000, guid: 5622cbf9d9957834d9aa8630a22158c0, type: 2}
   maxHealth: 99999
+  invincibleTime: 0
   speed: 0
   viewEnem: {fileID: 0}
   groundMask:
@@ -255,13 +256,10 @@ MonoBehaviour:
   spawner: {fileID: 0}
   target: {fileID: 0}
   isInvulnerable: 1
-  isDeath: 0
   jumpingPad: {fileID: 0}
   forceJump: 10
   bulletPref: {fileID: 0}
   canShoot: 0
-  cdDamage: 0
-  damageTimer: 0
   shootSound: {fileID: 0}
   jumpingPadSound: {fileID: 8300000, guid: 3703d2cfb5571214babb7c7da8d5177f, type: 3}
   hitSound: {fileID: 0}
@@ -275,7 +273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9091068925123936682}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigSpine3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8110148385721484078}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5115842937310465595}
   - component: {fileID: 1524834084203985429}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cylinder005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2610510539962370947}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6392865970315143043}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigSpine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3898526729748236514}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6209684905267340339}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone001Bone005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7975787421811989429}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone001Bone001Bone003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8407989109938861865}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone001Bone003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,7 +642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8959195698290212173}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2238373463683291999}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone001Bone001Bone004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +703,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4596913814140356360}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,7 +735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5580911140018948705}
   - component: {fileID: 5564607923808264798}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cylinder004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6131800872594159582}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone001Bone004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -854,7 +852,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8504988373203660176}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +883,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2851839724750533794}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub005Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,7 +914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2165007291512211728}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,7 +945,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059786870361637489}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone001Bone001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,7 +976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4642694680266088515}
   - component: {fileID: 3592218426566905470}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cylinder003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1064,7 +1062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7691663754359461421}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1095,7 +1093,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 993874204828844835}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1126,7 +1124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6499708794060200485}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1157,7 +1155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4845416684458366940}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub005Bone001Bone001Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1188,7 +1186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7612184977517504273}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigSpine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1219,7 +1217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5703168821752899195}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone001Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1250,7 +1248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4934473058168673901}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub005Bone001Bone001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1281,7 +1279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2561755623165763059}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1312,7 +1310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1662976687769957893}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub005Bone001Bone001Bone002Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1342,7 +1340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6280387932731380314}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub005Bone001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1374,7 +1372,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1608897594606671309}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1406,7 +1404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1460998312677377752}
   - component: {fileID: 4137798594724712934}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cylinder006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1492,7 +1490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2834305223216262701}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone001Bone001Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1522,7 +1520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3543046291637512726}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001Bone001Bone001Bone005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1553,7 +1551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5425938786826972398}
   - component: {fileID: 3512676953140615223}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cylinder001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1645,7 +1643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4469754340521279342}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub004Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1676,7 +1674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5528299662707408815}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CATRigHub005Bone001Bone001Bone001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1707,7 +1705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7214591508311701203}
   - component: {fileID: 7050100050276437965}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cylinder002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -102,10 +102,7 @@ public abstract class HongoCaminante : Enemy
         if(Physics.Raycast(groundChecker.position, -groundChecker.up, out hit, 0.5f, groundMask))
         {
             if (hit.collider.gameObject.CompareTag("Stairs"))
-            {
-                Debug.Log("ESCALERAS!!!");
                 return false;
-            }
             return true;
         }
         return false;
