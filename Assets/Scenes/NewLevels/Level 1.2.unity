@@ -14873,7 +14873,7 @@ GameObject:
   m_Layer: 0
   m_Name: Little Teleport (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -14888,7 +14888,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 0.5, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &510855582
 MonoBehaviour:
@@ -63379,6 +63379,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Little Teleport
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232858363792203354, guid: 8f5c859b47773ba48a468efc7b35fa6a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 47.261
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232858363792203354, guid: 8f5c859b47773ba48a468efc7b35fa6a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5c859b47773ba48a468efc7b35fa6a, type: 3}
