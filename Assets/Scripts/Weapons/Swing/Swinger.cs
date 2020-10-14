@@ -7,7 +7,7 @@ public class Swinger : Controllable, IMoveOverride {
 
 	private float anchorTime;
 	public float whipDistance;
-	[Range(0f,90f)]public float maxSwingAngle;
+	[Range(0f, 90f)] public float maxSwingAngle;
 	public float swingAddingStrength;
 
 	private bool dependOnTransform;
@@ -184,8 +184,26 @@ public class Swinger : Controllable, IMoveOverride {
 		ChangeSpeed(direction.x);
 	}
 
-	private void OnCollisionEnter() {
+	private void ForceRelease() {
 		if(overriding)
 			BreakSwing();
+	}
+
+	private void ForceRelease(IDamager dmg) => ForceRelease();
+
+	private void OnCollisionEnter() {
+		ForceRelease();
+	}
+
+	private void OnEnable() {
+		var chara = GetComponent<IDamageable>();
+		if(chara != null)
+			chara.OnDeath += ForceRelease;
+	}
+
+	private void OnDisable() {
+		var chara = GetComponent<IDamageable>();
+		if(chara != null)
+			chara.OnDeath -= ForceRelease;
 	}
 }
