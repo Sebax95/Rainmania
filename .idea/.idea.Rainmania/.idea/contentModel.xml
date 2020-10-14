@@ -1206,6 +1206,9 @@
             <e p="Pool.cs" t="Include" />
           </e>
           <e p="Interfaces.cs" t="Include" />
+          <e p="Litle Teleport" t="Include">
+            <e p="TeleportZone.cs" t="Include" />
+          </e>
           <e p="MainMenu.cs" t="Include" />
           <e p="Managers" t="Include">
             <e p="ControllerHandler.cs" t="Include" />
@@ -1223,6 +1226,7 @@
             <e p="Visual" t="Include">
               <e p="CameraMovement.cs" t="Include" />
               <e p="EnableObjectOnAnim.cs" t="Include" />
+              <e p="TrailWhipEffect.cs" t="Include" />
             </e>
           </e>
           <e p="MSLib" t="Include">
@@ -1279,6 +1283,9 @@
             <e p="EnemyShaderTest.shader" t="Include" />
           </e>
           <e p="Test.shader" t="Include" />
+          <e p="Trail Whip" t="Include">
+            <e p="WhipTrail.shader" t="Include" />
+          </e>
           <e p="water" t="Include">
             <e p="New Amplify Shader.shader" t="Include" />
             <e p="Toon Water.shader" t="Include" />
