@@ -14,7 +14,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public float lowJumpMultiplier = 2f;
 	public LayerMask validFloorLayers;
 	public bool test_preventJumpWhenCrouched;
-	private bool holdingJump = false;
+	private bool aimMode = false;
 
 	//Crouched mobility
 	private bool crouched = false;
@@ -109,16 +109,22 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public void ForceJump() {
 		rb.AddForce(Vector3.up * forceJump, ForceMode.VelocityChange);
 		PlayerAnimator.Jump();
-		holdingJump = true;
 
 	}
-
-	public void ReleaseJump() => holdingJump = false;
 
 	public override void Move(Vector2 direction) {
 
 		if(isDead || overriding != null)
 			return;
+
+		if(direction.x > 0)
+			transform.rotation = Quaternion.Euler(0, 90, 0);
+		else if(direction.x < 0)
+			transform.rotation = Quaternion.Euler(0, 270, 0);
+
+		if(aimMode)
+			return;
+
 		float mult = 1;
 		if(crouched)
 			mult *= crouchSpeedModifier;
@@ -161,6 +167,9 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 	public void ToggleCrouch() =>
 		ToggleCrouch(!crouched);
+
+	public void SetAimMode(bool state) => aimMode = state;
+
 	#endregion
 
 	#region Attacking

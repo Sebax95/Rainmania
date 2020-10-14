@@ -13,12 +13,18 @@ public class PlayerController : Controller, IMainController {
 	public string verticalAxis = "Vertical";
 
 	public KeyCode JumpKey;
-	[FormerlySerializedAs("AttackKey")]
 	public KeyCode attackWhipKey;
-	[FormerlySerializedAs("SwitchWeaponKey")]
 	public KeyCode attackBowKey;
 	//public KeyCode SwitchWeaponKey;
 	public KeyCode crouchKey;
+	public KeyCode aimModeKey;
+
+	[Header("Pendiente")]
+	public string jumpAxis;
+	public string attackWhipAxis;
+	public string attackBowAxis;
+	public string crouchAxis;
+	public string aimModeAxis;
 
 	//JOYSTICK TEMPORAL!!!!
 	[Header("Joystick")] 
@@ -26,7 +32,7 @@ public class PlayerController : Controller, IMainController {
 	public KeyCode joystickArrow;
 	public KeyCode joystickWhip;
 	public KeyCode joystickCrouch;
-	
+	public KeyCode joystickAimMode;
 	
 	private Player User => User<Player>();
 
@@ -39,8 +45,7 @@ public class PlayerController : Controller, IMainController {
 
 		if(Input.GetKeyDown(JumpKey) || Input.GetKeyDown(KeyCode.Joystick1Button0))//JOYSTICK TEMPORAL!!!!
 			User?.Jump();
-		else if(Input.GetKeyUp(JumpKey) || Input.GetKeyUp(KeyCode.Joystick1Button0))//JOYSTICK TEMPORAL!!!!
-			User?.ReleaseJump();
+		
 
 	}
 
@@ -56,6 +61,11 @@ public class PlayerController : Controller, IMainController {
 			User?.SetWeapon(1);
 			User?.Attack(direction);
 		}
+
+		if(Input.GetKeyDown(aimModeKey) || Input.GetKeyDown(joystickAimMode))
+			User?.SetAimMode(true);
+		else if(Input.GetKeyUp(aimModeKey) || Input.GetKeyUp(joystickAimMode))
+			User?.SetAimMode(false);
 
 		//if(Input.GetKeyDown(SwitchWeaponKey))
 		//	User?.SwitchWeapons();
