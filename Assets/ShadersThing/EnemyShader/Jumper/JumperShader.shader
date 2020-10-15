@@ -1,12 +1,14 @@
 // Made with Amplify Shader Editor
 // Available at the Unity Asset Store - http://u3d.as/y3X 
-Shader "MyShaders/Enemy/EnemyShaderTest"
+Shader "MyShaders/Enemy/JumperShader"
 {
 	Properties
 	{
 		[NoScaleOffset][SingleLineTexture]_Albedo("Albedo", 2D) = "white" {}
-		[NoScaleOffset][SingleLineTexture]_NormalMap("NormalMap", 2D) = "bump" {}
 		_ColorLerp("ColorLerp", Range( 0 , 1)) = 0
+		[HDR]_DamageColor("DamageColor", Color) = (1,0,0,0)
+		[NoScaleOffset][SingleLineTexture]_Normal("Normal", 2D) = "bump" {}
+		_Smoothness("Smoothness", Range( 0 , 1)) = 0.7529412
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
@@ -35,26 +37,28 @@ Shader "MyShaders/Enemy/EnemyShaderTest"
 			INTERNAL_DATA
 		};
 
-		uniform sampler2D _NormalMap;
+		uniform sampler2D _Normal;
 		uniform sampler2D _Albedo;
+		uniform float4 _DamageColor;
 		uniform float _ColorLerp;
+		uniform float _Smoothness;
 
 		void surf( Input i , inout SurfaceOutputStandard o )
 		{
-			float2 uv_NormalMap6 = i.uv_texcoord;
-			o.Normal = UnpackNormal( tex2D( _NormalMap, uv_NormalMap6 ) );
-			float2 uv_Albedo1 = i.uv_texcoord;
-			float4 tex2DNode1 = tex2D( _Albedo, uv_Albedo1 );
-			o.Albedo = tex2DNode1.rgb;
-			float4 color3 = IsGammaSpace() ? float4(2,0,0,0) : float4(4.594794,0,0,0);
-			float4 temp_output_9_0_g4 = color3;
+			float2 uv_Normal9 = i.uv_texcoord;
+			o.Normal = UnpackNormal( tex2D( _Normal, uv_Normal9 ) );
+			float2 uv_Albedo3 = i.uv_texcoord;
+			float4 tex2DNode3 = tex2D( _Albedo, uv_Albedo3 );
+			o.Albedo = tex2DNode3.rgb;
+			float4 temp_output_9_0_g1 = _DamageColor;
 			float3 ase_worldPos = i.worldPos;
 			float3 ase_worldViewDir = normalize( UnityWorldSpaceViewDir( ase_worldPos ) );
 			float3 ase_worldNormal = WorldNormalVector( i, float3( 0, 0, 1 ) );
-			float fresnelNdotV4_g4 = dot( ase_worldNormal, ase_worldViewDir );
-			float fresnelNode4_g4 = ( 0.0 + 1.0 * pow( 1.0 - fresnelNdotV4_g4, 5.0 ) );
-			float4 lerpResult10_g4 = lerp( float4( 0,0,0,0 ) , ( saturate( ( tex2DNode1 * temp_output_9_0_g4 ) ) + ( temp_output_9_0_g4 * fresnelNode4_g4 ) ) , _ColorLerp);
-			o.Emission = lerpResult10_g4.rgb;
+			float fresnelNdotV4_g1 = dot( ase_worldNormal, ase_worldViewDir );
+			float fresnelNode4_g1 = ( 0.0 + 1.0 * pow( 1.0 - fresnelNdotV4_g1, 5.0 ) );
+			float4 lerpResult10_g1 = lerp( float4( 0,0,0,0 ) , ( saturate( ( tex2DNode3 * temp_output_9_0_g1 ) ) + ( temp_output_9_0_g1 * fresnelNode4_g1 ) ) , _ColorLerp);
+			o.Emission = lerpResult10_g1.rgb;
+			o.Smoothness = _Smoothness;
 			o.Alpha = 1;
 		}
 
@@ -146,22 +150,22 @@ Shader "MyShaders/Enemy/EnemyShaderTest"
 }
 /*ASEBEGIN
 Version=18301
-0;525;1387;474;1649.287;15.3926;1.6;True;False
-Node;AmplifyShaderEditor.ColorNode;3;-1018.041,172.0453;Float;False;Constant;_Color0;Color 0;1;1;[HDR];Create;True;0;0;False;0;False;2,0,0,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.RangedFloatNode;8;-851.8717,338.9052;Float;False;Property;_ColorLerp;ColorLerp;2;0;Create;True;0;0;False;0;False;0;0;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SamplerNode;1;-1047.372,-112.5955;Inherit;True;Property;_Albedo;Albedo;0;2;[NoScaleOffset];[SingleLineTexture];Create;True;0;0;False;0;False;-1;None;0691f6bc642fda44088a4ad2124e032a;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.FunctionNode;23;-600.0828,123.1058;Inherit;False;Damage;-1;;4;40101450285c38e44b46157d2b8074e5;0;3;8;COLOR;0,0,0,0;False;9;COLOR;0,0,0,0;False;11;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.WireNode;22;-136.2671,-83.56572;Inherit;False;1;0;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SamplerNode;6;-305.5564,-15.07196;Inherit;True;Property;_NormalMap;NormalMap;1;2;[NoScaleOffset];[SingleLineTexture];Create;True;0;0;False;0;False;-1;None;2c979f6c6ef497b4887cfbb9460a5c65;True;0;True;bump;Auto;True;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.WireNode;21;-181.585,220.2321;Inherit;False;1;0;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.StandardSurfaceOutputNode;13;145.6968,5.527286;Float;False;True;-1;2;ASEMaterialInspector;0;0;Standard;MyShaders/Enemy/EnemyShaderTest;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Back;0;False;-1;0;False;-1;False;0;False;-1;0;False;-1;False;0;Opaque;0.5;True;True;0;False;Opaque;;Geometry;All;14;all;True;True;True;True;0;False;-1;False;0;False;-1;255;False;-1;255;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;False;2;15;10;25;False;0.5;True;0;0;False;-1;0;False;-1;0;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;Relative;0;;-1;-1;-1;-1;0;False;0;0;False;-1;-1;0;False;-1;0;0;0;False;0.1;False;-1;0;False;-1;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
-WireConnection;23;8;1;0
-WireConnection;23;9;3;0
-WireConnection;23;11;8;0
-WireConnection;22;0;1;0
-WireConnection;21;0;23;0
-WireConnection;13;0;22;0
-WireConnection;13;1;6;0
-WireConnection;13;2;21;0
+0;540;1341;459;1723.205;267.2643;1.6;True;False
+Node;AmplifyShaderEditor.ColorNode;4;-710.2771,176.3006;Inherit;False;Property;_DamageColor;DamageColor;2;1;[HDR];Create;True;0;0;False;0;False;1,0,0,0;1,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.RangedFloatNode;5;-706.5093,356.1658;Inherit;False;Property;_ColorLerp;ColorLerp;1;0;Create;True;0;0;False;0;False;0;0;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SamplerNode;3;-980.7486,-169.7767;Inherit;True;Property;_Albedo;Albedo;0;2;[NoScaleOffset];[SingleLineTexture];Create;True;0;0;False;0;False;-1;None;7669631d1b36a7249ba4753b2b0b8a5f;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.FunctionNode;1;-380.6492,217.9196;Inherit;False;Damage;-1;;1;40101450285c38e44b46157d2b8074e5;0;3;8;COLOR;0,0,0,0;False;9;COLOR;0,0,0,0;False;11;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.RangedFloatNode;10;-362.5775,339.6038;Inherit;False;Property;_Smoothness;Smoothness;4;0;Create;True;0;0;False;0;False;0.7529412;0.653;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SamplerNode;9;-466.6174,-48.96667;Inherit;True;Property;_Normal;Normal;3;2;[NoScaleOffset];[SingleLineTexture];Create;True;0;0;False;0;False;-1;None;4e52c13b7ab3e584d8396a406eb24957;True;0;True;bump;Auto;True;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.WireNode;8;-216.8653,-114.7208;Inherit;False;1;0;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;0,0;Float;False;True;-1;2;ASEMaterialInspector;0;0;Standard;MyShaders/Enemy/JumperShader;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Back;0;False;-1;0;False;-1;False;0;False;-1;0;False;-1;False;0;Opaque;0.5;True;True;0;False;Opaque;;Geometry;All;14;all;True;True;True;True;0;False;-1;False;0;False;-1;255;False;-1;255;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;False;2;15;10;25;False;0.5;True;0;0;False;-1;0;False;-1;0;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;Relative;0;;-1;-1;-1;-1;0;False;0;0;False;-1;-1;0;False;-1;0;0;0;False;0.1;False;-1;0;False;-1;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
+WireConnection;1;8;3;0
+WireConnection;1;9;4;0
+WireConnection;1;11;5;0
+WireConnection;8;0;3;0
+WireConnection;0;0;8;0
+WireConnection;0;1;9;0
+WireConnection;0;2;1;0
+WireConnection;0;4;10;0
 ASEEND*/
-//CHKSM=A44FCA3E74DF3292DA1496D606A59265DE0AEF9E
+//CHKSM=FD3CCEBC119C2EA77E167C66B7DEDCF8A78CFF69

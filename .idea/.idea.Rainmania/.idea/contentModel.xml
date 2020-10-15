@@ -984,14 +984,8 @@
         </e>
         <e p="New Assets" t="Include">
           <e p="Enemys" t="Include">
-            <e p="Flying Launcher" t="Include">
-              <e p="Flyer Enemy Textures" t="Include">
-                <e p="Flying Launcher.shader" t="Include" />
-              </e>
-            </e>
             <e p="Suicide" t="Include">
               <e p="Alas.shader" t="Include" />
-              <e p="Suicide.shader" t="Include" />
             </e>
           </e>
         </e>
@@ -1206,6 +1200,9 @@
             <e p="Pool.cs" t="Include" />
           </e>
           <e p="Interfaces.cs" t="Include" />
+          <e p="Litle Teleport" t="Include">
+            <e p="TeleportZone.cs" t="Include" />
+          </e>
           <e p="MainMenu.cs" t="Include" />
           <e p="Managers" t="Include">
             <e p="ControllerHandler.cs" t="Include" />
@@ -1223,6 +1220,7 @@
             <e p="Visual" t="Include">
               <e p="CameraMovement.cs" t="Include" />
               <e p="EnableObjectOnAnim.cs" t="Include" />
+              <e p="TrailWhipEffect.cs" t="Include" />
             </e>
           </e>
           <e p="MSLib" t="Include">
@@ -1271,14 +1269,39 @@
           </e>
         </e>
         <e p="ShadersThing" t="Include">
+          <e p="EnemyShader" t="Include">
+            <e p="Embestidor" t="Include">
+              <e p="EnemyShaderTest.shader" t="Include" />
+            </e>
+            <e p="Flying Laucher" t="Include">
+              <e p="Flying Launcher.shader" t="Include" />
+            </e>
+            <e p="Jumper" t="Include">
+              <e p="JumperShader.shader" t="Include" />
+            </e>
+            <e p="ShooterMushroom" t="Include">
+              <e p="Blue" t="Include">
+                <e p="BlueShootMushroom.shader" t="Include" />
+              </e>
+              <e p="Green" t="Include">
+                <e p="GreenShootMushroom.shader" t="Include" />
+              </e>
+              <e p="Red" t="Include">
+                <e p="ShooterMushroom.shader" t="Include" />
+              </e>
+            </e>
+            <e p="Suicide" t="Include">
+              <e p="Suicide.shader" t="Include" />
+            </e>
+          </e>
           <e p="Gancho" t="Include">
             <e p="Gancho.shader" t="Include" />
             <e p="GanchoNuevo.shader" t="Include" />
           </e>
-          <e p="Test EnemyShader" t="Include">
-            <e p="EnemyShaderTest.shader" t="Include" />
-          </e>
           <e p="Test.shader" t="Include" />
+          <e p="Trail Whip" t="Include">
+            <e p="WhipTrail.shader" t="Include" />
+          </e>
           <e p="water" t="Include">
             <e p="New Amplify Shader.shader" t="Include" />
             <e p="Toon Water.shader" t="Include" />

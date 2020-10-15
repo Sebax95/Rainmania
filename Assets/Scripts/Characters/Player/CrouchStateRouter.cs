@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CrouchStateRouter : MonoBehaviour {
 
@@ -22,6 +23,8 @@ public class CrouchStateRouter : MonoBehaviour {
 
 [Serializable]
 public struct PlayerStateParameters {
-	public BoxCastParams[] whipHitbox;
+	[FormerlySerializedAs("whipHitbox")]
+	public BoxCastParams[] grabHitbox;
+	public BoxCastParams[] damageHitbox;
 	public Transform[] arrowSpawns;
 }

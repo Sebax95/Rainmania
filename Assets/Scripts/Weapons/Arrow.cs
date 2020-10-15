@@ -97,7 +97,10 @@ public class Arrow : MonoBehaviour, IDamager {
 
 		var dmg = collision.collider.GetComponent<IDamageable>();
 		if(dmg != null)
-			dmg.Damage(shooter.damage, this);
+		{
+			if(dmg.SourceObject != shooter.SourceObject)
+				dmg.Damage(shooter.damage, this);
+		}
 
 		SetIsFlying(false);
 

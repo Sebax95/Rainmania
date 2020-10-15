@@ -123,6 +123,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: -7743141078477255275}
   - {fileID: -690498832433997962}
+  - {fileID: -1417166521763663466}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -268,13 +269,13 @@ AnimatorStateMachine:
     m_Position: {x: 420, y: 430, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3890025165736804091}
-    m_Position: {x: -160, y: 370, z: 0}
+    m_Position: {x: -160, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8431539016599031055}
-    m_Position: {x: -10, y: 460, z: 0}
+    m_Position: {x: -10, y: 440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8080050470558555969}
-    m_Position: {x: 220, y: 490, z: 0}
+    m_Position: {x: 220, y: 470, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6339197474289477392}
     m_Position: {x: 100, y: 100, z: 0}
@@ -492,6 +493,40 @@ AnimatorTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 1
+--- !u!114 &-4629979345346823190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e134afa65bd6f8a4c95b15e7a6ef2f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailEffect: {fileID: 1935049893459674265, guid: 287132c894b1a21468e9e7cade7c69a6,
+    type: 3}
+  offset: {x: 0, y: 0.5, z: 0}
+  rotationLeft: {x: 0, y: 180, z: -65}
+  rotationRight: {x: 0, y: 0, z: -65}
+--- !u!114 &-4559167407659671517
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e134afa65bd6f8a4c95b15e7a6ef2f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailEffect: {fileID: 1935049893459674265, guid: 287132c894b1a21468e9e7cade7c69a6,
+    type: 3}
+  offset: {x: 0, y: 0.5, z: 0}
+  rotationLeft: {x: 0, y: 180, z: -140}
+  rotationRight: {x: 0, y: 0, z: -140}
 --- !u!1101 &-4473994682861689683
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -747,6 +782,23 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-1417166521763663466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e134afa65bd6f8a4c95b15e7a6ef2f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailEffect: {fileID: 1935049893459674265, guid: 287132c894b1a21468e9e7cade7c69a6,
+    type: 3}
+  offset: {x: 0, y: 0.5, z: 0}
+  rotationLeft: {x: 0, y: 180, z: -30}
+  rotationRight: {x: 0, y: 0, z: -40}
 --- !u!1101 &-1274223025329459152
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1334,6 +1386,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: -3742157890856391684}
   - {fileID: 2005960316969360477}
+  - {fileID: -4559167407659671517}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1591,7 +1644,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4942059440977563555}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 8858379945022761856}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1700,6 +1754,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: 2233114398659299607}
   - {fileID: -3433556882926251479}
+  - {fileID: -4629979345346823190}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1737,6 +1792,23 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &8858379945022761856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e134afa65bd6f8a4c95b15e7a6ef2f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailEffect: {fileID: 1935049893459674265, guid: 287132c894b1a21468e9e7cade7c69a6,
+    type: 3}
+  offset: {x: 0, y: 0.2, z: 0}
+  rotationLeft: {x: 0, y: 180, z: -140}
+  rotationRight: {x: 0, y: 0, z: -140}
 --- !u!1101 &9091852152050891337
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

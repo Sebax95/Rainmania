@@ -2,17 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using CustomMSLibrary.Core;
 
 public class Whip : Weapon {
-	
 
-	public BoxCastParams[] whipHitboxes;
+	[FormerlySerializedAs("whipHitboxes")]
+	public BoxCastParams[] grabHitboxes;
 	private Swinger swinger;
 	private CrouchStateRouter router;
 
 	public float speed;
-	Vector3 dir;
 
 	private IWielder wielder;
 
@@ -40,9 +40,17 @@ public class Whip : Weapon {
 	/// </summary>
 	/// <returns></returns>
 	public bool WhipAttack(TargetDirection direction) {
-		DetectHits(direction);
 
-		bool anchorAssigned = false;
+		DetectHits(router.Current.damageHitbox[(int)direction]);
+		DamageInColliderBuffer();
+
+		DetectHits(router.Current.grabHitbox[(int)direction]);
+		bool grabResult = TryAttachInColliderBuffer();
+
+		return grabResult;
+	}
+
+	private void DamageInColliderBuffer() {
 		foreach(var item in boxcastCache)
 		{
 			if(item == null)
@@ -54,30 +62,33 @@ public class Whip : Weapon {
 			var dmg = item.GetComponent<IDamageable>();
 			if(dmg != null)
 				dmg.Damage(damage, this);
-
-
-			if(!anchorAssigned)
-			{
-				var anchor = item.GetComponent<SwingAnchor>();
-				if(anchor == null || !anchor.enabled)
-					continue;
-
-				if(anchor.transformDependant)
-					swinger.SetupSwing(item.transform);
-				else
-					swinger.SetupSwing(item.transform.position);
-				anchorAssigned = true;
-
-				swinger.StartSwing();
-			}
 		}
-		return anchorAssigned;
 	}
 
-	private void DetectHits(TargetDirection direction) {
-		
+	private bool TryAttachInColliderBuffer() {
+		foreach(var item in boxcastCache)
+		{
+			if(item == null)
+				continue;
+
+			var anchor = item.GetComponent<SwingAnchor>();
+			if(anchor == null || !anchor.enabled)
+				continue;
+
+			if(anchor.transformDependant)
+				swinger.SetupSwing(item.transform);
+			else
+				swinger.SetupSwing(item.transform.position);
+
+			swinger.StartSwing();
+			return true;
+		}
+		return false;
+	}
+
+	private void DetectHits(BoxCastParams hitbox) {
+
 		//var hitbox = whipHitboxes[(int)direction];
-		var hitbox = router.Current.whipHitbox[(int)direction];
 
 		var pos = transform.position;
 		var rot = transform.rotation;
@@ -87,7 +98,7 @@ public class Whip : Weapon {
 			boxcastCache[i] = null;
 
 		c = Physics.OverlapBoxNonAlloc(pos + rot * hitbox.CenterOffset, hitbox.halfExtends,
-			boxcastCache, hitbox.GetAdjustedOrientation(rot),Physics.AllLayers,QueryTriggerInteraction.Collide);
+			boxcastCache, hitbox.GetAdjustedOrientation(rot), Physics.AllLayers, QueryTriggerInteraction.Collide);
 
 	}
 
@@ -133,15 +144,25 @@ public class Whip : Weapon {
 	private void OnDrawGizmosSelected() {
 		Quaternion rotation = transform.rotation;
 		Vector3 position = transform.position;
-		Gizmos.color = Color.yellow;
 		if(!router)
 			router = GetComponent<CrouchStateRouter>();
-		foreach(var item in router.standing.whipHitbox)
+		Gizmos.color = Color.yellow;
+		foreach(var item in router.standing.grabHitbox)
+		{
+			DrawBox(item);
+		}
+		Gizmos.color = Color.red;
+		foreach(var item in router.standing.damageHitbox)
 		{
 			DrawBox(item);
 		}
 		Gizmos.color = Color.white;
-		foreach(var item in router.crouched.whipHitbox)
+		foreach(var item in router.crouched.grabHitbox)
+		{
+			DrawBox(item);
+		}
+		Gizmos.color = Color.grey;
+		foreach(var item in router.crouched.damageHitbox)
 		{
 			DrawBox(item);
 		}
@@ -176,7 +197,7 @@ public struct BoxCastParams {
 
 	public Vector3 orientation;
 
-	public Vector3 CenterOffset => Quaternion.Euler(orientation) * new Vector3(closePoint.x, closePoint.y, (closePoint.z + halfExtends.z)) ;
+	public Vector3 CenterOffset => Quaternion.Euler(orientation) * new Vector3(closePoint.x, closePoint.y, (closePoint.z + halfExtends.z));
 	public Quaternion GetAdjustedOrientation(Quaternion parentRotation) => parentRotation * Quaternion.Euler(orientation);
 
 }
