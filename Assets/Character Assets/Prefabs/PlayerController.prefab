@@ -49,3 +49,14 @@ MonoBehaviour:
   attackWhipKey: 99
   attackBowKey: 120
   crouchKey: 306
+  aimModeKey: 122
+  jumpAxis: 
+  attackWhipAxis: 
+  attackBowAxis: 
+  crouchAxis: 
+  aimModeAxis: 
+  joystickJump: 0
+  joystickArrow: 0
+  joystickWhip: 0
+  joystickCrouch: 0
+  joystickAimMode: 0
