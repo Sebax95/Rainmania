@@ -29,6 +29,10 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	private int groundedFramesCounter;
 	public bool Grounded { get; private set; }
 
+	public float coyoteDuration;
+	private float coyoteTimer;
+	private bool CanCoyoteJump => coyoteTimer <= coyoteDuration;
+
 	//References
 	private MomentumKeeper momentum;
 	public PlayerAnim PlayerAnimator { get; private set; }
@@ -75,19 +79,23 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		rb = GetComponent<Rigidbody>();
 		PlayerAnimator = GetComponent<PlayerAnim>();
 		InitCollisionMask();
+
+		coyoteTimer = 0;
 	}
 	private void Update() {
 		if(isDead)
 			return;
 		DetectGround();
 		AttackTimer();
-
+		CoyoteTime();
 	}
+
+	
 	#endregion
 
 	#region Movement
 	public void Jump() {
-		if(!Grounded)
+		if(!Grounded && !CanCoyoteJump)
 			return;
 
 		bool wasCrouched = crouched; //TEST
@@ -122,6 +130,8 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		else if(direction.x < 0)
 			transform.rotation = Quaternion.Euler(0, 270, 0);
 
+		PlayerAnimator.SetSpeeds(direction);
+
 		if(aimMode)
 			return;
 
@@ -134,7 +144,6 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 		rb.velocity = newVel + momentum.velocity.ZeroY();
 
-		PlayerAnimator.SetSpeeds(direction);
 
 	}
 
@@ -169,6 +178,15 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		ToggleCrouch(!crouched);
 
 	public void SetAimMode(bool state) => aimMode = state;
+
+	private void CoyoteTime() {
+		if(Grounded)
+		{
+			coyoteTimer = 0;
+			return;
+		}
+		coyoteTimer += Time.deltaTime;
+	}
 
 	#endregion
 
