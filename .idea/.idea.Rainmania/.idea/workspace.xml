@@ -24,10 +24,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/States/MovingState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/Embestidor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerAnim.cs" />
         <option value="$PROJECT_DIR$/Assets/TrailWhipEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/HongoCaminante.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerAnim.cs" />
       </list>
     </option>
   </component>
@@ -96,6 +96,7 @@
       <workItem from="1602536697497" duration="889000" />
       <workItem from="1602611753379" duration="6557000" />
       <workItem from="1602698926384" duration="4884000" />
+      <workItem from="1602873639872" duration="4706000" />
     </task>
     <servers />
   </component>
