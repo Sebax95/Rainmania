@@ -28,11 +28,13 @@ public class PlayerAnim : MonoBehaviour {
 	public AudioClip jumpSound;
 	public AudioClip whipSound;
 	public AudioClip bowSound;
+	public AudioClip stepSound;
+	public AudioClip dieSound;
 
 	private AudioSource _audioSource;
 
 	private enum AudioCue {
-		Hurt, Jump, Whip, Bow
+		Hurt, Jump, Whip, Bow, Step, Die
 	}
 
 	private void Awake() {
@@ -54,18 +56,19 @@ public class PlayerAnim : MonoBehaviour {
 
 	public void SetSpeeds(Vector2 speeds) {
 		thisAnimator.SetFloat(param_horizontalSpeed, Mathf.Abs(speeds.x * directionAnimMultiplier.x));
-		thisAnimator.SetFloat(param_verticalSpeed, Mathf.Abs(speeds.y * directionAnimMultiplier.y));
+		thisAnimator.SetFloat(param_verticalSpeed, speeds.y * directionAnimMultiplier.y);
 
 	}
 
 	/// <summary>
 	/// 0: Jump
-	/// 7: Hurt
+	/// 1: Hurt
+	/// 2: Whip
+	/// 3: Bow
 	/// </summary>
 	/// <param name="index"></param>
-	public void TriggerAction(int index) {
+	public void TriggerAction(int index) => 
 		thisAnimator.SetTrigger(param_triggers[index]);
-	}
 
 	/// <summary>
 	/// 1: Die
@@ -94,25 +97,26 @@ public class PlayerAnim : MonoBehaviour {
 		bool vertical = direction.y > 0;
 		bool horizontal = direction.x != 0;
 		bow.SetActive(true);
-		if(vertical)
+		/*if(vertical)
 			if(horizontal)
 				Activate(2, 1); //Diagonal
 			else
 				Activate(3, 2); //Vertical
 		else
 			Activate(1, 0); //Horizontal
-
-		PlaySound(AudioCue.Bow);
 		void Activate(int animIndex, int waiterIndex) {
 			TriggerAction(animIndex);
-		}
+		}*/
+		TriggerAction(3);
+		PlaySound(AudioCue.Bow);
 	}
 
 	public void WhipAttack(Vector2 direction) {
 		bool vertical = direction.y > 0;
 		bool horizontal = direction.x != 0;
 		whip.SetActive(true);
-		if(vertical)
+		TriggerAction(2);
+		/*if(vertical)
 			if(horizontal)
 				Activate(5);
 			else
@@ -120,10 +124,10 @@ public class PlayerAnim : MonoBehaviour {
 		else
 			Activate(4);
 
-		PlaySound(AudioCue.Whip);
 		void Activate(int animIndex) {
 			TriggerAction(animIndex);
-		}
+		}*/
+		PlaySound(AudioCue.Whip);
 	}
 
 	public void WeaponsActive() {
@@ -147,7 +151,7 @@ public class PlayerAnim : MonoBehaviour {
 	}
 
 	public void Hurt() {
-		TriggerAction(7);
+		TriggerAction(1);
 		UI.SetHealthbarPercent(player.Health / player.maxHealth);
 		PlaySound(AudioCue.Hurt);
 	}
@@ -158,6 +162,7 @@ public class PlayerAnim : MonoBehaviour {
 
 	public void Die() {
 		ChangeBool(1, true);
+		PlaySound(AudioCue.Die);
 	}
 
 	public void SetCrouched(bool state) {
@@ -181,6 +186,12 @@ public class PlayerAnim : MonoBehaviour {
 			case AudioCue.Bow:
 				selected = bowSound;
 				break;
+			case AudioCue.Step:
+				selected = stepSound;
+				break;
+			case AudioCue.Die:
+				selected = dieSound;
+				break;
 		}
 		if(selected)
 			_audioSource.PlayOneShot(selected);
@@ -195,7 +206,9 @@ public class PlayerAnim : MonoBehaviour {
 		whipRig.SetActive(true);
 		whip.SetActive(true);
 	}
-	
+
+	public void Step() => PlaySound(AudioCue.Step);
+
 	public void WhipOff()
 	{
 		whipRig.SetActive(false);

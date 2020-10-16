@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class TrailWhipEffect : StateMachineBehaviour
     public Vector3 rotationLeft;
     public Vector3 rotationRight;
 
+    private Tuple<float,float> speed;
     private PlayerAnim pA;
 
     private Transform play;
@@ -48,11 +50,15 @@ public class TrailWhipEffect : StateMachineBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         var posWhip = pA.whip.transform;
-        var trail = Instantiate(trailEffect, posWhip.position + offset, Quaternion.identity); //TODO: implementar Pool en esto
+
+        speed = Tuple.Create(anim.GetFloat("SpeedX"), anim.GetFloat("SpeedY"));
+        Debug.Log(speed.Item1 + " " + speed.Item2);
+        
+        /*var trail = Instantiate(trailEffect, posWhip.position + offset, Quaternion.identity); //TODO: implementar Pool en esto
         if(!play)
             play = pA.GetComponent<Transform>();
         trail.transform.rotation = (play.rotation.w < 0) ? Quaternion.Euler(rotationLeft): Quaternion.Euler(rotationRight);
         
-        Destroy(trail, 1f);
+        Destroy(trail, 1f);*/
     }
 }
