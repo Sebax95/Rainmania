@@ -6,7 +6,7 @@ public class Swinger : Controllable, IMoveOverride {
 	public float gravityMult;
 
 	private float anchorTime;
-	public float whipDistance;
+	private float whipDistance;
 	[Range(0f, 90f)] public float maxSwingAngle;
 	public float swingAddingStrength;
 
@@ -72,6 +72,7 @@ public class Swinger : Controllable, IMoveOverride {
 		//distanceFromAnchor = relativePos.magnitude;
 		anim.BeginSwing();
 		anchorTime = Time.time;
+		whipDistance = relativePos.magnitude;
 		initialState = Mathf.Sqrt(gravityMult / whipDistance);
 		firstFrame = true;
 	}
