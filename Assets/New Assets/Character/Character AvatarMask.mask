@@ -7,126 +7,23 @@ AvatarMask:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Character AvatarMask
-  m_Mask: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_Mask: 00000000010000000100000000000000010000000100000001000000010000000100000000000000000000000100000001000000
   m_Elements:
   - m_Path: 
     m_Weight: 1
-  - m_Path: Box002
-    m_Weight: 0
-  - m_Path: CATRigHub001
+  - m_Path: Arco
     m_Weight: 1
-  - m_Path: CATRigHub001/CATRigLLeg1
+  - m_Path: Arco/CATRigHub005Bone001
     m_Weight: 1
-  - m_Path: CATRigHub001/CATRigLLeg1/CATRigLLeg2
+  - m_Path: Arco/CATRigHub005Bone002
     m_Weight: 1
-  - m_Path: CATRigHub001/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle
+  - m_Path: Arco/CATRigHub005Bone003
     m_Weight: 1
-  - m_Path: CATRigHub001/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle/CATRigLLegDigit11
-    m_Weight: 1
-  - m_Path: CATRigHub001/CATRigLLegUpVectorNode
+  - m_Path: Bow
     m_Weight: 0
-  - m_Path: CATRigHub001/CATRigRLeg1
-    m_Weight: 1
-  - m_Path: CATRigHub001/CATRigRLeg1/CATRigRLeg2
-    m_Weight: 1
-  - m_Path: CATRigHub001/CATRigRLeg1/CATRigRLeg2/CATRigRLegAnkle
-    m_Weight: 1
-  - m_Path: CATRigHub001/CATRigRLeg1/CATRigRLeg2/CATRigRLegAnkle/CATRigRLegDigit11
-    m_Weight: 1
-  - m_Path: CATRigHub001/CATRigRLegUpVectorNode
+  - m_Path: carcaj
     m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit11
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit11/CATRigLArmDigit12
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit11/CATRigLArmDigit12/CATRigLArmDigit13
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit21
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit21/CATRigLArmDigit22
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit21/CATRigLArmDigit22/CATRigLArmDigit23
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit31
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit31/CATRigLArmDigit32
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit31/CATRigLArmDigit32/CATRigLArmDigit33
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit41
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit41/CATRigLArmDigit42
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit41/CATRigLArmDigit42/CATRigLArmDigit43
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit51
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit51/CATRigLArmDigit52
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigLArmDigit51/CATRigLArmDigit52/CATRigLArmDigit53
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit11
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit11/CATRigRArmDigit12
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit11/CATRigRArmDigit12/CATRigRArmDigit13
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit21
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit21/CATRigRArmDigit22
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit21/CATRigRArmDigit22/CATRigRArmDigit23
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit31
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit31/CATRigRArmDigit32
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit31/CATRigRArmDigit32/CATRigRArmDigit33
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit41
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit41/CATRigRArmDigit42
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit41/CATRigRArmDigit42/CATRigRArmDigit43
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit51
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit51/CATRigRArmDigit52
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigRArmDigit51/CATRigRArmDigit52/CATRigRArmDigit53
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigSpine1
-      1
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigSpine1
-      1/CATRigSpine2 1
-    m_Weight: 0
-  - m_Path: CATRigHub001/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigHub002/CATRigSpine1
-      1/CATRigSpine2 1/CATRigHub003
+  - m_Path: carcaj 2
     m_Weight: 0
   - m_Path: CATRigHub001Gizmo
     m_Weight: 0
@@ -134,43 +31,25 @@ AvatarMask:
     m_Weight: 0
   - m_Path: CATRigHub003Gizmo
     m_Weight: 0
+  - m_Path: CATRigHub005Bone001Gizmo
+    m_Weight: 0
+  - m_Path: CATRigHub005Bone001Gizmo001
+    m_Weight: 0
+  - m_Path: CATRigHub005Bone002Gizmo
+    m_Weight: 0
+  - m_Path: CATRigHub005Bone002Gizmo001
+    m_Weight: 0
+  - m_Path: CATRigHub005Bone003Gizmo
+    m_Weight: 0
+  - m_Path: CATRigHub005Gizmo
+    m_Weight: 0
   - m_Path: CATRigLArm1Gizmo
     m_Weight: 0
   - m_Path: CATRigLArm2Gizmo
     m_Weight: 0
-  - m_Path: CATRigLArmDigit11Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit12Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit13Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit21Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit22Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit23Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit31Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit32Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit33Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit41Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit42Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit43Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit51Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit52Gizmo
-    m_Weight: 0
-  - m_Path: CATRigLArmDigit53Gizmo
-    m_Weight: 0
   - m_Path: CATRigLArmPalmGizmo
     m_Weight: 0
-  - m_Path: CATRigLLegAnkleGizmo
+  - m_Path: CATRigLArmPalmGizmo001
     m_Weight: 0
   - m_Path: CATRigLLegDigit11Gizmo
     m_Weight: 0
@@ -180,61 +59,114 @@ AvatarMask:
     m_Weight: 0
   - m_Path: CATRigRArm2Gizmo
     m_Weight: 0
-  - m_Path: CATRigRArmDigit11Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit12Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit13Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit21Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit22Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit23Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit31Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit32Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit33Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit41Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit42Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit43Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit51Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit52Gizmo
-    m_Weight: 0
-  - m_Path: CATRigRArmDigit53Gizmo
-    m_Weight: 0
   - m_Path: CATRigRArmPalmGizmo
-    m_Weight: 0
-  - m_Path: CATRigRLegAnkleGizmo
     m_Weight: 0
   - m_Path: CATRigRLegDigit11Gizmo
     m_Weight: 0
   - m_Path: CATRigRLegPlatform
     m_Weight: 0
+  - m_Path: Character
+    m_Weight: 0
   - m_Path: Character001
     m_Weight: 0
   - m_Path: Character002
     m_Weight: 0
-  - m_Path: Equip 2
+  - m_Path: Character003
     m_Weight: 0
-  - m_Path: Equip 3
+  - m_Path: Cuchillo
     m_Weight: 0
-  - m_Path: Equip 4
+  - m_Path: Funda
     m_Weight: 0
-  - m_Path: Equip 005
+  - m_Path: Latigo
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6/CATRigSpine7
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6/CATRigSpine7/CATRigSpine8
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6/CATRigSpine7/CATRigSpine8/CATRigSpine9
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6/CATRigSpine7/CATRigSpine8/CATRigSpine9/CATRigSpine10
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6/CATRigSpine7/CATRigSpine8/CATRigSpine9/CATRigSpine10/CATRigSpine11
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6/CATRigSpine7/CATRigSpine8/CATRigSpine9/CATRigSpine10/CATRigSpine11/CATRigSpine12
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6/CATRigSpine7/CATRigSpine8/CATRigSpine9/CATRigSpine10/CATRigSpine11/CATRigSpine12/CATRigSpine13
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6/CATRigSpine7/CATRigSpine8/CATRigSpine9/CATRigSpine10/CATRigSpine11/CATRigSpine12/CATRigSpine13/CATRigSpine14
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6/CATRigSpine7/CATRigSpine8/CATRigSpine9/CATRigSpine10/CATRigSpine11/CATRigSpine12/CATRigSpine13/CATRigSpine14/CATRigSpine15
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6/CATRigSpine7/CATRigSpine8/CATRigSpine9/CATRigSpine10/CATRigSpine11/CATRigSpine12/CATRigSpine13/CATRigSpine14/CATRigSpine15/CATRigSpine16
+    m_Weight: 1
+  - m_Path: Latigo/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigSpine6/CATRigSpine7/CATRigSpine8/CATRigSpine9/CATRigSpine10/CATRigSpine11/CATRigSpine12/CATRigSpine13/CATRigSpine14/CATRigSpine15/CATRigSpine16/CATRigHub007
+    m_Weight: 1
+  - m_Path: Personaje
+    m_Weight: 1
+  - m_Path: Personaje/CATRigLLeg1
     m_Weight: 0
-  - m_Path: Evillas
+  - m_Path: Personaje/CATRigLLeg1/CATRigLLeg2
     m_Weight: 0
-  - m_Path: Mochila
+  - m_Path: Personaje/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle
     m_Weight: 0
-  - m_Path: T bufanda
+  - m_Path: Personaje/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle/CATRigLLegDigit11
     m_Weight: 0
-  - m_Path: Tiras
+  - m_Path: Personaje/CATRigLLegUpVectorNode
+    m_Weight: 0
+  - m_Path: Personaje/CATRigRLeg1
+    m_Weight: 0
+  - m_Path: Personaje/CATRigRLeg1/CATRigRLeg2
+    m_Weight: 0
+  - m_Path: Personaje/CATRigRLeg1/CATRigRLeg2/CATRigRLegAnkle
+    m_Weight: 0
+  - m_Path: Personaje/CATRigRLeg1/CATRigRLeg2/CATRigRLegAnkle/CATRigRLegDigit11
+    m_Weight: 0
+  - m_Path: Personaje/CATRigRLegUpVectorNode
+    m_Weight: 0
+  - m_Path: Personaje/CATRigSpine1 1
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002/CATRigLArmCollarbone
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002/CATRigRArmCollarbone
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002/CATRigSpine1
+      2
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002/CATRigSpine1
+      2/CATRigSpine2 2
+    m_Weight: 1
+  - m_Path: Personaje/CATRigSpine1 1/CATRigSpine2 1/CATRigSpine3 1/CATRigHub002/CATRigSpine1
+      2/CATRigSpine2 2/CATRigHub003
+    m_Weight: 1
+  - m_Path: wip
     m_Weight: 0

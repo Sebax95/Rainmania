@@ -71,7 +71,9 @@ public class PlayerAnim : MonoBehaviour {
 		thisAnimator.SetTrigger(param_triggers[index]);
 
 	/// <summary>
-	/// 1: Die
+	/// 0: inGround
+	/// 1: isDead
+	/// 2: isCrounched
 	/// </summary>
 	/// <param name="index"></param>
 	/// <param name="value"></param>
