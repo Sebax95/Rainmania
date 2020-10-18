@@ -9,6 +9,8 @@ public class Pool<T> {
 	private PoolObject<T>.PoolCallback terminateMethod;
 	private bool isDynamicPool;
 
+    public List<PoolObject<T>> InternalList => thisPool;
+
 	public Pool(int initialStock, CallbackFactory factory, PoolObject<T>.PoolCallback initialize,
 		PoolObject<T>.PoolCallback terminate, bool isDynamic = true) {
 		factoryMethod = factory;

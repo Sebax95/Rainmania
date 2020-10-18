@@ -110,6 +110,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		PlayerAnimator.TriggerAction(0);
 		ForceJump();
 		coyoteTimer = coyoteDuration + 1;
+		groundedFramesCounter = 0;
 		//} else
 		//overriding.Release(this);
 	}
