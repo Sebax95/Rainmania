@@ -1,15 +1,15 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 
 public class Pool<T> {
 	public delegate T CallbackFactory();
-    private List<PoolObject<T>> thisPool;
+    private readonly List<PoolObject<T>> thisPool;
 	private CallbackFactory factoryMethod;
 	private PoolObject<T>.PoolCallback initializeMethod;
 	private PoolObject<T>.PoolCallback terminateMethod;
 	private bool isDynamicPool;
 
-    public List<PoolObject<T>> InternalList => thisPool;
+    //public List<PoolObject<T>> InternalList => thisPool;
 
 	public Pool(int initialStock, CallbackFactory factory, PoolObject<T>.PoolCallback initialize,
 		PoolObject<T>.PoolCallback terminate, bool isDynamic = true) {
@@ -49,6 +49,21 @@ public class Pool<T> {
 			}
 		}
 	}
+
+	public void Clear() {
+		thisPool.ForEach(x => x.Clear());
+		thisPool.Clear();
+	}
+
+	public void Clear(Action<T> objectDestructor) {
+		thisPool.ForEach(x => x.Clear(objectDestructor));
+		thisPool.Clear();
+	}
+
+	~Pool() {
+		factoryMethod = null;
+		Clear();
+	}
 }
 
 
@@ -86,5 +101,19 @@ public class PoolObject<T>{
 				deactivateMethod(thisObject);
 			}
 		}
+	}
+
+	public void Clear() {
+		activateMethod = null;
+		deactivateMethod = null;
+	}
+
+	public void Clear(Action<T> objectDestructor) {
+		objectDestructor(thisObject);
+		Clear();
+	}
+
+	~PoolObject() {
+		Clear();
 	}
 }	
