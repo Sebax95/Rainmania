@@ -5,7 +5,7 @@ using UnityEngine.Scripting;
 using Object = UnityEngine.Object;
 
 
-public class ReusablePool<T> where T : MonoBehaviour {
+public class ReusablePool<T> where T : Component {
 	private readonly T _item;
 	private readonly Pool<T> _pool;
 	private readonly float _delayToDestroy;
@@ -26,8 +26,8 @@ public class ReusablePool<T> where T : MonoBehaviour {
 	private T Factory() => Object.Instantiate(_item);
 
 #pragma warning disable CS0693
-	private static void OnEnableCallback<T>(T item) where T : MonoBehaviour => item.gameObject.SetActive(true);
-	private static void OnDisableCallback<T>(T item) where T : MonoBehaviour => item.gameObject.SetActive(false);
+	private static void OnEnableCallback<T>(T item) where T : Component => item.gameObject.SetActive(true);
+	private static void OnDisableCallback<T>(T item) where T : Component => item.gameObject.SetActive(false);
 #pragma warning restore CS0693
 
 	public T GetObject() => _pool.GetObject();
@@ -39,6 +39,6 @@ public class ReusablePool<T> where T : MonoBehaviour {
 
 	~ReusablePool() {
 		Clear();
-		Debug.LogError($"Te olvidaste de limpiar el ReusablePool de tipo{typeof(T)}. En teoria ya se hizo automaticamente, pero incluí el metodo Clear en el OnDestroy que usa este pool.");
+		Debug.LogError($"Te olvidaste de limpiar el ReusablePool de tipo{typeof(T)}. En teoria ya se hizo automaticamente, pero incluí el metodo Clear en el OnDestroy que usa este poo");
 	}
 }
