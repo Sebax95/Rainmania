@@ -7,13 +7,13 @@ using Object = UnityEngine.Object;
 
 public class ReusablePool<T> where T : Component {
 	private readonly T _item;
-	private readonly Pool<T> _pool;
-	private readonly float _delayToDestroy;
+	private Pool<T> _pool;
+	private readonly float _delayToDestroy; 
 
 	public ReusablePool(T prefab, int initialStock, PoolObject<T>.PoolCallback onEnable, PoolObject<T>.PoolCallback onDisable, bool isDynamic = true, float destroyDelay = 0) {
-		_pool = new Pool<T>(initialStock, Factory, onEnable, onDisable, isDynamic);
 		_item = prefab;
 		_delayToDestroy = destroyDelay;
+		_pool = new Pool<T>(initialStock, Factory, onEnable, onDisable, isDynamic);
 	}
 
 	public ReusablePool(T prefab, int initialStock, bool isDynamic = true, float destroyDelay = 0) :
@@ -35,10 +35,12 @@ public class ReusablePool<T> where T : Component {
 
 	public void Clear() {
 		_pool.Clear(x=> Object.Destroy(x,_delayToDestroy));
+		_pool = null;
 	}
 
 	~ReusablePool() {
 		Clear();
-		Debug.LogError($"Te olvidaste de limpiar el ReusablePool de tipo{typeof(T)}. En teoria ya se hizo automaticamente, pero incluí el metodo Clear en el OnDestroy que usa este pool.");
+		if(_pool != null)
+			Debug.LogError($"Te olvidaste de limpiar el ReusablePool de tipo{typeof(T)}. En teoria ya se hizo automaticamente, pero incluí el metodo Clear en el OnDestroy que usa este pool.");
 	}
 }
