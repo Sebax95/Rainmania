@@ -39,6 +39,6 @@ public class ReusablePool<T> where T : Component {
 
 	~ReusablePool() {
 		Clear();
-		Debug.LogError($"Te olvidaste de limpiar el ReusablePool de tipo{typeof(T)}. En teoria ya se hizo automaticamente, pero incluí el metodo Clear en el OnDestroy que usa este poo");
+		Debug.LogError($"Te olvidaste de limpiar el ReusablePool de tipo{typeof(T)}. En teoria ya se hizo automaticamente, pero incluí el metodo Clear en el OnDestroy que usa este pool.");
 	}
 }

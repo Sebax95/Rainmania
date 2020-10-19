@@ -28,8 +28,8 @@ public class GreenMushroom : MushroomEnemy
     {
         if (!target) return;
         StartCoroutine(CdShoot());
-        var obj = Instantiate(bulletPref, output.transform.position, Quaternion.identity);
-        obj.transform.right = output.transform.right;
+        var obj = _bulletPool.GetObject();
+        obj.SetValues(output.transform.right, Quaternion.identity);
         obj.AssignTeam = GetTeam;
         
         viewEnem.SetAudioClip(shootSound);

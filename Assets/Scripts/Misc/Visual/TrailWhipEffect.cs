@@ -14,10 +14,14 @@ public class TrailWhipEffect : StateMachineBehaviour
     private PlayerAnim pA;
     private Transform posWhip;
 
+    private ReusablePool<Transform> _trailPool;
+
     private Transform play;
      //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if(_trailPool == null)
+            _trailPool = new ReusablePool<Transform>(trailEffect.transform, 5);
         if (!pA)
             pA = animator.GetComponent<PlayerAnim>();
         pA.StartCoroutine(WhipEffect(animator));
@@ -88,12 +92,13 @@ public class TrailWhipEffect : StateMachineBehaviour
             break;
         }
         if(!posWhip) posWhip = pA.whip.transform;
-        var trail = Instantiate(trailEffect, Vector3.zero, Quaternion.identity); //TODO: implementar Pool en esto
+       /* var trail = _trailPool.GetObject();
+        //var trail = Instantiate(trailEffect, Vector3.zero, Quaternion.identity); //TODO: implementar Pool en esto
         if(!play) play = pA.GetComponent<Transform>();
         trail.transform.position = posWhip.position + offset;
         Debug.Log(trail.transform.position);
         trail.transform.rotation = (play.rotation.w < 0) ? Quaternion.Euler(rotationLeft): Quaternion.Euler(rotationRight);
          
-        Destroy(trail, 1f);
+        _trailPool.DisableObject(trail);*/
     }
 }

@@ -16,6 +16,8 @@ public abstract class MushroomEnemy : Enemy
    
 	public PoisonBullet bulletPref;
 	public bool canShoot;
+
+	protected ReusablePool<PoisonBullet> _bulletPool;
 	//public bool cdDamage;
 	//public float damageTimer;
 	
@@ -39,6 +41,8 @@ public abstract class MushroomEnemy : Enemy
 		base.Start();
 		fsm.SetState(StatesEnemies.Idle);
 		canShoot = true;
+		_bulletPool =
+			new ReusablePool<PoisonBullet>(bulletPref, 5, true ,10f);
 	}
 
 	public void Update() {

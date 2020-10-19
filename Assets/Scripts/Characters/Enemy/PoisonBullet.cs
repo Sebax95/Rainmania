@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,9 +20,27 @@ public class PoisonBullet : MonoBehaviour, IDamager
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         gravity = Physics.gravity;
-        Destroy(gameObject, 5);
+        Disable(5f);
     }
 
+    public void Enable() => gameObject.SetActive(true);
+    
+    public void Disable() => gameObject.SetActive(false);
+
+    public void Disable(float timer) => StartCoroutine(WaitForBullet(timer));
+
+    IEnumerator WaitForBullet(float timer)
+    {
+        yield return  new  WaitForSeconds(timer);
+        Disable();
+    }
+
+    public void SetValues(Vector3 pos, Quaternion rot)
+    {
+        transform.right = pos;
+        transform.rotation = rot;
+    }
+    
     private void FixedUpdate()
     {
         if(useGravity)
@@ -40,7 +59,7 @@ public class PoisonBullet : MonoBehaviour, IDamager
             child.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
             child.transform.localRotation = Quaternion.Euler(0, -90, 0);
             Destroy(child.gameObject, 5f);
-            Destroy(gameObject);
+            Disable();
         }
         if(other.gameObject)
         {
@@ -49,7 +68,7 @@ public class PoisonBullet : MonoBehaviour, IDamager
                 var part = Instantiate(particlesGRound, transform.position + Vector3.up *0.3f, Quaternion.identity, null);
                 Destroy(part.gameObject, 8);
             }
-            Destroy(gameObject);
+            Disable();
         }
     }
 }
