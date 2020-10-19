@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2300808646729090890}
   - component: {fileID: 1387015637483117751}
   - component: {fileID: 5619614504107616892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma Floja
   m_TagString: Untagged
   m_Icon: {fileID: 0}
