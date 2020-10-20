@@ -20,7 +20,7 @@ public class RedMushroom : MushroomEnemy
         obj.SetSource(this);
         obj.SetValues(output.transform.position, output.transform.right, Quaternion.identity);
         obj.AssignTeam = GetTeam;
-        viewEnem.SetAudioClip(shootSound);
+        viewEnem.PlaySound(EnemyView.AudioEnemys.Shoot);
         viewEnem.Au.Play();
         
         obj.useGravity = false;

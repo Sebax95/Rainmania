@@ -34,7 +34,7 @@ public class GreenMushroom : MushroomEnemy
         obj.SetValues(output.transform.position, output.transform.right, Quaternion.identity);
         obj.AssignTeam = GetTeam;
         
-        viewEnem.SetAudioClip(shootSound);
+        viewEnem.PlaySound(EnemyView.AudioEnemys.Shoot);
         viewEnem.Au.Play();
         
         var dist = Vector3.Distance(transform.position, target.transform.position) / 3;

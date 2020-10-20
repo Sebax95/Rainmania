@@ -737,6 +737,11 @@ MonoBehaviour:
   - ShootDiagonal
   boolsNames:
   - isDead
+  audios:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 5f5acf83d1072714d82c209d7ef67a13, type: 3}
+  - {fileID: 8300000, guid: 01818cb8720d300428bf1bddbc438365, type: 3}
+  - {fileID: 8300000, guid: 3703d2cfb5571214babb7c7da8d5177f, type: 3}
 --- !u!114 &7246049895362126012
 MonoBehaviour:
   m_ObjectHideFlags: 0

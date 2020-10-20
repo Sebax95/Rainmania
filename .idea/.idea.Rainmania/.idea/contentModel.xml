@@ -1221,6 +1221,7 @@
               <e p="CameraMovement.cs" t="Include" />
               <e p="EnableObjectOnAnim.cs" t="Include" />
               <e p="TrailWhipEffect.cs" t="Include" />
+              <e p="TrailWhipPool.cs" t="Include" />
             </e>
           </e>
           <e p="MSLib" t="Include">

@@ -6,11 +6,11 @@ public abstract class MushroomEnemy : Enemy
 {
 	public bool isInvulnerable;
     [Header("Green Enemy Variables")]
-	public FSM<MushroomEnemy> fsm;
+	private FSM<MushroomEnemy> fsm;
     //public bool isDeath;
 
     [Header("Jump Variables")]
-	public SphereCollider jumpingPad;
+	private SphereCollider jumpingPad;
 	public float forceJump;
 
    
@@ -18,14 +18,6 @@ public abstract class MushroomEnemy : Enemy
 	public bool canShoot;
 
 	public ReusablePool<PoisonBullet> bulletPool;
-	//public bool cdDamage;
-	//public float damageTimer;
-	
-	[Header("Sonidos")]
-	public AudioClip shootSound;
-	public AudioClip jumpingPadSound;
-	public AudioClip hitSound;
-	public AudioClip dieSound;
 
 	protected override void Awake() {
 		base.Awake();
@@ -59,8 +51,6 @@ public abstract class MushroomEnemy : Enemy
             return false;
         Health -= amount;
         StartCoroutine(Coroutine_InvinsibleTime());
-        viewEnem.SetAudioClip(hitSound);
-        viewEnem.Au.Play();
         viewEnem.DamageFeedback();
         viewEnem.ActivateTriggers(2);
         if (Health <= 0)
@@ -72,6 +62,7 @@ public abstract class MushroomEnemy : Enemy
         isDead = true;
         viewEnem.ActivateBool(0, true);
         rb.isKinematic = true;
+        viewEnem.PlaySound(EnemyView.AudioEnemys.Die);
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<SphereCollider>().enabled = false;
         Destroy(gameObject, 2);
@@ -93,7 +84,7 @@ public abstract class MushroomEnemy : Enemy
 		{
 			jump.ApplyForce(Vector3.up * forceJump, ForceMode.Impulse);
 			viewEnem.ActivateTriggers(1);
-			viewEnem.SetAudioClip(jumpingPadSound);
+			viewEnem.PlaySound(EnemyView.AudioEnemys.JumpingPad);
 			viewEnem.Au.Play();
 		}
 	}

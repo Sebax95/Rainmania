@@ -7,8 +7,10 @@ using UnityEngine;
 public class PoisonBullet : MonoBehaviour, IDamager
 {
     public Rigidbody rb;
-    public float speed = 5f;
-    public int damage;
+    [SerializeField]
+    private float speed = 5f;
+    [SerializeField]
+    private int damage;
     public Team AssignTeam;
     public GameObject SourceObject => gameObject;
     public Vector3 gravity;

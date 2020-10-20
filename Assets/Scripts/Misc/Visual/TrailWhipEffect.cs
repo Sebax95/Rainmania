@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class TrailWhipEffect : StateMachineBehaviour
 {
-    public GameObject trailEffect;
+    public TrailWhipPool trailEffect;
+    public int toPool;
     private Vector3 offset;
     private Vector3 rotationLeft;
     private Vector3 rotationRight;
@@ -14,14 +15,14 @@ public class TrailWhipEffect : StateMachineBehaviour
     private PlayerAnim pA;
     private Transform posWhip;
 
-    private ReusablePool<Transform> _trailPool;
+    public ReusablePool<TrailWhipPool> trailPool;
 
     private Transform play;
      //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(_trailPool == null)
-            _trailPool = new ReusablePool<Transform>(trailEffect.transform, 5);
+        if(trailPool == null)
+            trailPool = new ReusablePool<TrailWhipPool>(trailEffect, toPool, TrailWhipPool.TurnOn, TrailWhipPool.TurnOff, false);
         if (!pA)
             pA = animator.GetComponent<PlayerAnim>();
         pA.StartCoroutine(WhipEffect(animator));
@@ -55,7 +56,7 @@ public class TrailWhipEffect : StateMachineBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         speed = Tuple.Create(anim.GetFloat("SpeedX"), anim.GetFloat("SpeedY"));
-
+        
         if (speed.Item1.Equals(0) && speed.Item2.Equals(1))
             SpawnTrail("Arriba"); 
         else if(speed.Item1.Equals(1) && speed.Item2.Equals(1))
@@ -92,13 +93,10 @@ public class TrailWhipEffect : StateMachineBehaviour
             break;
         }
         if(!posWhip) posWhip = pA.whip.transform;
-       /* var trail = _trailPool.GetObject();
-        //var trail = Instantiate(trailEffect, Vector3.zero, Quaternion.identity); //TODO: implementar Pool en esto
+        var trail = trailPool.GetObject();
+        if(!trail) return;
         if(!play) play = pA.GetComponent<Transform>();
-        trail.transform.position = posWhip.position + offset;
-        Debug.Log(trail.transform.position);
-        trail.transform.rotation = (play.rotation.w < 0) ? Quaternion.Euler(rotationLeft): Quaternion.Euler(rotationRight);
-         
-        _trailPool.DisableObject(trail);*/
+        trail.SetSource(this);
+        trail.SetValues(posWhip.position + offset, (play.rotation.w < 0) ? Quaternion.Euler(rotationLeft): Quaternion.Euler(rotationRight));
     }
 }
