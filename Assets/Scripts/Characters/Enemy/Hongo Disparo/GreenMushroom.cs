@@ -28,8 +28,10 @@ public class GreenMushroom : MushroomEnemy
     {
         if (!target) return;
         StartCoroutine(CdShoot());
-        var obj = _bulletPool.GetObject();
-        obj.SetValues(output.transform.right, Quaternion.identity);
+        var obj = bulletPool.GetObject();
+        if(!obj) return;
+        obj.SetSource(this);
+        obj.SetValues(output.transform.position, output.transform.right, Quaternion.identity);
         obj.AssignTeam = GetTeam;
         
         viewEnem.SetAudioClip(shootSound);
@@ -51,7 +53,5 @@ public class GreenMushroom : MushroomEnemy
         obj.useGravity = true;
         obj.rb.velocity = ParabolicShot(target.transform, altBullet, obj.gravity);
         altBullet = _altBulletSave;
-        
-
     }
 }
