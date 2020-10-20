@@ -5,7 +5,7 @@ using CustomMSLibrary.Unity;
 
 public class Bow : Weapon {
 
-	private int INITAL_ARROW_COUNT = 30;
+	private int INITAL_ARROW_COUNT = 5;
 	public Arrow arrownPrefab;
 	private Pool<Arrow> pool;
 	public Transform[] arrowSources;
