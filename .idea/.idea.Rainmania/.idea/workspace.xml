@@ -12,6 +12,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E93AB2F8-5FF8-4881-B6AB-5BA98D373CFC/25/11425b54/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/74/b128d6d4/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipPool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/0c/74dffd80/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4AF5BEA1-B7B2-4424-94FD-73F6F9B3D7F4/29/1f4adebd/Canvas.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -22,11 +26,19 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Arrow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/FlyingEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/States/MovingState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/Embestidor.cs" />
         <option value="$PROJECT_DIR$/Assets/TrailWhipEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/HongoCaminante.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerAnim.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/ReusablePool.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Bow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/GreenMushroom.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/RedMushroom.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/EnemyView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/PoisonBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/MushroomEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipEffect.cs" />
       </list>
     </option>
@@ -38,6 +50,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -101,6 +115,9 @@
       <workItem from="1602883839415" duration="1303000" />
       <workItem from="1602966801987" duration="2918000" />
       <workItem from="1602969837278" duration="6868000" />
+      <workItem from="1603060648131" duration="1791000" />
+      <workItem from="1603132514791" duration="19675000" />
+      <workItem from="1603218395190" duration="12483000" />
     </task>
     <servers />
   </component>
@@ -113,9 +130,81 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="536" y="165" key="#Inspection_severity" timestamp="1603153393592">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="536" y="165" key="#Inspection_severity/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603153393592" />
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1603167954385">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954385" />
+    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1603167954384">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.center/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954384" />
+    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1603167954384">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.left/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954384" />
+    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1603167954384">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.right/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954384" />
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1603167954385">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954385" />
+    <state width="1877" height="375" key="GridCell.Tab.1.center" timestamp="1603167954385">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.center/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954385" />
+    <state width="1877" height="375" key="GridCell.Tab.1.left" timestamp="1603167954385">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.left/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954385" />
+    <state width="1877" height="375" key="GridCell.Tab.1.right" timestamp="1603167954385">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.right/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954385" />
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom" timestamp="1603167954386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954386" />
+    <state width="1877" height="375" key="GridCell.Tab.2.center" timestamp="1603167954385">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.center/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954385" />
+    <state width="1877" height="375" key="GridCell.Tab.2.left" timestamp="1603167954385">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.left/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954385" />
+    <state width="1877" height="375" key="GridCell.Tab.2.right" timestamp="1603167954386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.right/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954386" />
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom" timestamp="1603167954386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954386" />
+    <state width="1877" height="375" key="GridCell.Tab.3.center" timestamp="1603167954386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.center/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954386" />
+    <state width="1877" height="375" key="GridCell.Tab.3.left" timestamp="1603167954386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.left/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954386" />
+    <state width="1877" height="375" key="GridCell.Tab.3.right" timestamp="1603167954386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.right/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603167954386" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1602978392488">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1602978392488" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1603163879330">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603163879330" />
   </component>
 </project>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Unity;
 
-public abstract class Enemy : Character, IDamager
+public abstract class Enemy: Character, IDamager
 {
     [Header("Enemy Variables", order = 0)]
     public float speed;

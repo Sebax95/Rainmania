@@ -28,11 +28,13 @@ public class GreenMushroom : MushroomEnemy
     {
         if (!target) return;
         StartCoroutine(CdShoot());
-        var obj = Instantiate(bulletPref, output.transform.position, Quaternion.identity);
-        obj.transform.right = output.transform.right;
+        var obj = bulletPool.GetObject();
+        if(!obj) return;
+        obj.SetSource(this);
+        obj.SetValues(output.transform.position, output.transform.right, Quaternion.identity);
         obj.AssignTeam = GetTeam;
         
-        viewEnem.SetAudioClip(shootSound);
+        viewEnem.PlaySound(EnemyView.AudioEnemys.Shoot);
         viewEnem.Au.Play();
         
         var dist = Vector3.Distance(transform.position, target.transform.position) / 3;
@@ -51,7 +53,5 @@ public class GreenMushroom : MushroomEnemy
         obj.useGravity = true;
         obj.rb.velocity = ParabolicShot(target.transform, altBullet, obj.gravity);
         altBullet = _altBulletSave;
-        
-
     }
 }

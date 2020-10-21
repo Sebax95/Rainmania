@@ -1190,6 +1190,7 @@
             <e p="CollapsablePlatform.cs" t="Include" />
             <e p="Healer.cs" t="Include" />
             <e p="HealerView.cs" t="Include" />
+            <e p="Spawner.cs" t="Include" />
           </e>
           <e p="Feedback" t="Include">
             <e p="Scripts ref.asmref" t="Include" />
@@ -1200,9 +1201,6 @@
             <e p="Pool.cs" t="Include" />
           </e>
           <e p="Interfaces.cs" t="Include" />
-          <e p="Litle Teleport" t="Include">
-            <e p="TeleportZone.cs" t="Include" />
-          </e>
           <e p="MainMenu.cs" t="Include" />
           <e p="Managers" t="Include">
             <e p="ControllerHandler.cs" t="Include" />
@@ -1213,14 +1211,17 @@
               <e p="MomentumKeeper.cs" t="Include" />
               <e p="WallRepulsion.cs" t="Include" />
             </e>
+            <e p="ReusablePool.cs" t="Include" />
             <e p="Triggers" t="Include">
               <e p="HurtAndRespawn.cs" t="Include" />
               <e p="LevelChangeTrigger.cs" t="Include" />
+              <e p="TeleportZone.cs" t="Include" />
             </e>
             <e p="Visual" t="Include">
               <e p="CameraMovement.cs" t="Include" />
               <e p="EnableObjectOnAnim.cs" t="Include" />
               <e p="TrailWhipEffect.cs" t="Include" />
+              <e p="TrailWhipPool.cs" t="Include" />
             </e>
           </e>
           <e p="MSLib" t="Include">
@@ -1244,9 +1245,6 @@
             </e>
           </e>
           <e p="Scripts.asmdef" t="Include" />
-          <e p="Spawner" t="Include">
-            <e p="Spawner.cs" t="Include" />
-          </e>
           <e p="Test" t="Include">
             <e p="Test_Swinger.cs" t="Include" />
             <e p="tester.asmdef" t="Include" />
