@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+#Amplify metas
+/[Aa]ssets/AmplifyShaderEditor/*.meta
+/[Aa]ssets/AmplifyShaderEditor/**/*.meta

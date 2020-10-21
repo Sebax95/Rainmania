@@ -6,6 +6,11 @@ TagManager:
   tags:
   - PlayerEyes
   - Gancho
+  - Arrow
+  - UnsusedArrow
+  - Roof
+  - ArrowStick
+  - Stairs
   layers:
   - Default
   - TransparentFX
@@ -15,14 +20,14 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Character
   - Ground
   - Arrow
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Non-Interactable
+  - PostProcessing
+  - Bullet
+  - WALL
+  - Enemy
   - 
   - 
   - 
