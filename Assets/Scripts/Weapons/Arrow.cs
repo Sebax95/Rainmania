@@ -34,6 +34,9 @@ public class Arrow : MonoBehaviour, IDamager {
 	public const int WALL_LAYER = 14;
 	private const int PLAYER_LAYER = 8;
 
+	//Agus paso por aqui
+	public ParticleSystem particles;
+
 	private void Awake() {
 		trail = GetComponentInChildren<TrailRenderer>();
 		rigid = GetComponent<Rigidbody>();
@@ -113,6 +116,7 @@ public class Arrow : MonoBehaviour, IDamager {
 			timer = asPlatformLifetime;
 			//if(collision.collider.gameObject.tag == ANCHORABLE_TAG)
 			anchor.enabled = true;
+			particles.Play();
 		} else //otherwise something non-stickable
 		{
 			this.gameObject.layer = 11; //Non-interactable layer
