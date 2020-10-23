@@ -77,6 +77,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		rb = GetComponent<Rigidbody>();
 		PlayerAnimator = GetComponent<PlayerAnim>();
 		InitCollisionMask();
+		UpdateStateOnUpgrade(UpgradesManager.Instance.Data);
 
 		coyoteTimer = 0;
 	}
@@ -310,6 +311,21 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		}
 		crouchCheckLayerMask = layerMask;
 	}
+
+	private void UpdateStateOnUpgrade(UpgradesData data) {
+		//TODO: ver como manejamos mejoras de vida con vida < 100%. Full restore por ahora
+		var newHealth = data.GetInt("playerMaxLife");
+		if(newHealth != maxHealth)
+		{
+			maxHealth = newHealth;
+			Health = newHealth;
+		}
+		whip.enabled = data.GetBool("whipAcquired");
+		bow.enabled = data.GetBool("bowAcquired");
+	}
+
+	private void OnEnable() => UpgradesManager.Instance.OnUpdateData += UpdateStateOnUpgrade;
+	private void OnDisable() => UpgradesManager.Instance.OnUpdateData -= UpdateStateOnUpgrade;
 	#endregion
 
 }

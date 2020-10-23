@@ -35,3 +35,5 @@ MonoBehaviour:
     value: 0
   - name: whipCanGrapple
     value: 0
+  - name: bowAcquired
+    value: 0

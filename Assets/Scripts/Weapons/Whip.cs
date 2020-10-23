@@ -148,6 +148,9 @@ public class Whip : Weapon {
 		canAttach = data.GetBool("whipCanGrapple");
 	}
 
+	private void OnEnable() => UpgradesManager.Instance.OnUpdateData += UpdateStateOnUpgrade;
+	private void OnDisable() => UpgradesManager.Instance.OnUpdateData -= UpdateStateOnUpgrade;
+
 #if UNITY_EDITOR
 	Vector3[] points = new Vector3[8];
 	private void OnDrawGizmosSelected() {
