@@ -518,7 +518,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -2263,7 +2263,7 @@ GameObject:
   - component: {fileID: 83684744}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: ArrowStick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2
@@ -2749,6 +2749,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963777822933132648, guid: afbe36fb30b8555458096543d178f659,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 6381043630995029486, guid: afbe36fb30b8555458096543d178f659,
         type: 3}
@@ -5517,7 +5522,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Roof
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -6188,7 +6193,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -6444,7 +6449,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -8590,7 +8595,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -8866,7 +8871,7 @@ GameObject:
   - component: {fileID: 303826567}
   m_Layer: 0
   m_Name: Roof
-  m_TagString: Untagged
+  m_TagString: ArrowStick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2
@@ -10065,7 +10070,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -12030,7 +12035,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -12259,6 +12264,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5963777822933132648, guid: afbe36fb30b8555458096543d178f659,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
+      objectReference: {fileID: 0}
     - target: {fileID: 6381043630995029486, guid: afbe36fb30b8555458096543d178f659,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12411,7 +12421,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -15289,7 +15299,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -15641,7 +15651,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -16077,7 +16087,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -16967,12 +16977,6 @@ PrefabInstance:
     - {fileID: 1016256255426943819, guid: 22bdb2c5a69178b48aea20443b38d8a8, type: 3}
     - {fileID: 4576150142739666841, guid: 22bdb2c5a69178b48aea20443b38d8a8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 22bdb2c5a69178b48aea20443b38d8a8, type: 3}
---- !u!4 &554418899 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7150367453375487155, guid: f0b609ae1c9429043a5d01d318e26386,
-    type: 3}
-  m_PrefabInstance: {fileID: 7150367453336069263}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &555111310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7489374776238294957, guid: 5186a4d1d5b5d9445b9171a05ba6ad8a,
@@ -17744,7 +17748,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -17823,7 +17827,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -18864,7 +18868,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -20902,7 +20906,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -22786,7 +22790,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -23185,7 +23189,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -23220,7 +23224,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -23673,7 +23677,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -24959,6 +24963,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4094325595883328292, guid: d9298657f80d903469c786dc3ba63abf,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
+      objectReference: {fileID: 0}
     - target: {fileID: 7817717703276502935, guid: d9298657f80d903469c786dc3ba63abf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25293,7 +25302,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -26837,7 +26846,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -27586,6 +27595,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5963777822933132648, guid: afbe36fb30b8555458096543d178f659,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
+      objectReference: {fileID: 0}
     - target: {fileID: 6381043630995029486, guid: afbe36fb30b8555458096543d178f659,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -28328,12 +28342,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3037970157066777240, guid: 5186a4d1d5b5d9445b9171a05ba6ad8a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5186a4d1d5b5d9445b9171a05ba6ad8a, type: 3}
---- !u!1 &908273330 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4250839106936901636, guid: 949f9c20a2772a941844712e9a82ed29,
-    type: 3}
-  m_PrefabInstance: {fileID: 2024094516}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &909104665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7489374776238294957, guid: 5186a4d1d5b5d9445b9171a05ba6ad8a,
@@ -28926,7 +28934,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -30656,7 +30664,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Roof
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -30861,7 +30869,7 @@ GameObject:
   - component: {fileID: 995301026}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: ArrowStick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2
@@ -31305,7 +31313,7 @@ PrefabInstance:
         type: 3}
       propertyPath: brillo
       value: 
-      objectReference: {fileID: 908273330}
+      objectReference: {fileID: 1096428859}
     - target: {fileID: 9082494020295089658, guid: bea34d7df4530b04fb93325fa263f03f,
         type: 3}
       propertyPath: m_Name
@@ -32115,7 +32123,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -32140,6 +32148,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094325595883328292, guid: d9298657f80d903469c786dc3ba63abf,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 7817717703276502935, guid: d9298657f80d903469c786dc3ba63abf,
         type: 3}
@@ -32869,7 +32882,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -33173,6 +33186,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5963777822933132648, guid: afbe36fb30b8555458096543d178f659,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
+      objectReference: {fileID: 0}
     - target: {fileID: 6381043630995029486, guid: afbe36fb30b8555458096543d178f659,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -33402,7 +33420,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -33426,7 +33444,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -33767,7 +33785,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -34283,6 +34301,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7690975299201484605, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
+--- !u!1 &1096428859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 502525479, guid: f0b609ae1c9429043a5d01d318e26386,
+    type: 3}
+  m_PrefabInstance: {fileID: 7150367453336069263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1096469339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7489374776238294957, guid: 5186a4d1d5b5d9445b9171a05ba6ad8a,
@@ -34311,6 +34335,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094325595883328292, guid: d9298657f80d903469c786dc3ba63abf,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 7817717703276502935, guid: d9298657f80d903469c786dc3ba63abf,
         type: 3}
@@ -35213,7 +35242,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -39096,7 +39125,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -39377,7 +39406,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -39660,7 +39689,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -41286,6 +41315,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4094325595883328292, guid: d9298657f80d903469c786dc3ba63abf,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
+      objectReference: {fileID: 0}
     - target: {fileID: 7691398726253220867, guid: d9298657f80d903469c786dc3ba63abf,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -41369,7 +41403,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -41672,7 +41706,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -42406,7 +42440,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -44845,7 +44879,7 @@ GameObject:
   - component: {fileID: 1398881652}
   m_Layer: 0
   m_Name: Roof
-  m_TagString: Untagged
+  m_TagString: ArrowStick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2
@@ -46368,7 +46402,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -46527,7 +46561,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -46827,7 +46861,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -46930,6 +46964,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094325595883328292, guid: d9298657f80d903469c786dc3ba63abf,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 7691398726253220867, guid: d9298657f80d903469c786dc3ba63abf,
         type: 3}
@@ -48299,7 +48338,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -48955,6 +48994,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094325595883328292, guid: d9298657f80d903469c786dc3ba63abf,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 7817717703276502935, guid: d9298657f80d903469c786dc3ba63abf,
         type: 3}
@@ -50670,7 +50714,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -51815,7 +51859,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -51999,7 +52043,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -53549,7 +53593,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -54374,7 +54418,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -56095,7 +56139,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -56420,7 +56464,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -56834,7 +56878,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -57936,6 +57980,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6369419641825240598, guid: 9315cdfc9a715d94c9e8a4b1666f0593,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
+      objectReference: {fileID: 0}
     - target: {fileID: 6628477009450308752, guid: 9315cdfc9a715d94c9e8a4b1666f0593,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -58688,7 +58737,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -58774,6 +58823,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963777822933132648, guid: afbe36fb30b8555458096543d178f659,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 6381043630995029486, guid: afbe36fb30b8555458096543d178f659,
         type: 3}
@@ -59179,6 +59233,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4094325595883328292, guid: d9298657f80d903469c786dc3ba63abf,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
+      objectReference: {fileID: 0}
     - target: {fileID: 7817717703276502935, guid: d9298657f80d903469c786dc3ba63abf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -59441,6 +59500,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094325595883328292, guid: d9298657f80d903469c786dc3ba63abf,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 7817717703276502935, guid: d9298657f80d903469c786dc3ba63abf,
         type: 3}
@@ -63127,75 +63191,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3037970157066777240, guid: 5186a4d1d5b5d9445b9171a05ba6ad8a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5186a4d1d5b5d9445b9171a05ba6ad8a, type: 3}
---- !u!1001 &2024094516
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 554418899}
-    m_Modifications:
-    - target: {fileID: 4250839106936901636, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_Name
-      value: Brillo latigo
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 88.3707
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.285817
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -17.367981
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 949f9c20a2772a941844712e9a82ed29, type: 3}
 --- !u!4 &2024923996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2845507675443360264, guid: 7bebf9c33ca222740ae3d711cd106a1c,
@@ -63401,7 +63396,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -63498,7 +63493,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Roof
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -64613,7 +64608,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -65126,7 +65121,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -65801,7 +65796,7 @@ PrefabInstance:
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa,
         type: 3}
@@ -65957,7 +65952,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -66656,7 +66651,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -66826,7 +66821,7 @@ PrefabInstance:
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: ArrowStick
       objectReference: {fileID: 0}
     - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
         type: 3}
@@ -67396,6 +67391,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6369419641825240598, guid: 9315cdfc9a715d94c9e8a4b1666f0593,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArrowStick
+      objectReference: {fileID: 0}
     - target: {fileID: 6628477009450308752, guid: 9315cdfc9a715d94c9e8a4b1666f0593,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -67500,6 +67500,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6587275913845762333, guid: f0b609ae1c9429043a5d01d318e26386,
+        type: 3}
+      propertyPath: levelIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7150367453375487155, guid: f0b609ae1c9429043a5d01d318e26386,
         type: 3}
       propertyPath: m_LocalPosition.x

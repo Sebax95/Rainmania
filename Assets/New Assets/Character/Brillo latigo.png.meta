@@ -285,12 +285,12 @@ TextureImporter:
       name: Brillo latigo_8
       rect:
         serializedVersion: 2
-        x: 597
-        y: 90
-        width: 43
-        height: 33
+        x: 613
+        y: 52
+        width: 34
+        height: 45
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
