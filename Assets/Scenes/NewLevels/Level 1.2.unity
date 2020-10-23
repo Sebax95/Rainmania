@@ -25855,7 +25855,6 @@ GameObject:
   - component: {fileID: 839817011}
   - component: {fileID: 839817010}
   - component: {fileID: 839817012}
-  - component: {fileID: 839817013}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -26042,102 +26041,6 @@ MonoBehaviour:
   frustumSettings:
     baseSettings: {fileID: 199329675}
     qualitySettings: {fileID: 766431028}
---- !u!82 &839817013
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839817005}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 29727ddfe5ce6a94b89a45a990947a99, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.287
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!4 &841829951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9002630775629021141, guid: ac306cb5a4ee79141929fb1d75578fba,
@@ -31328,20 +31231,15 @@ PrefabInstance:
       propertyPath: crouchCheckLayerMask.m_Bits
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1691721428244040750, guid: bea34d7df4530b04fb93325fa263f03f,
-        type: 3}
-      propertyPath: coyoteDuration
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 3943775699194359029, guid: bea34d7df4530b04fb93325fa263f03f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3943775699194359029, guid: bea34d7df4530b04fb93325fa263f03f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.05
+      value: 0.632
       objectReference: {fileID: 0}
     - target: {fileID: 3943775699194359029, guid: bea34d7df4530b04fb93325fa263f03f,
         type: 3}
@@ -63241,11 +63139,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brillo latigo
       objectReference: {fileID: 0}
-    - target: {fileID: 4250839106936901636, guid: 949f9c20a2772a941844712e9a82ed29,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4250839106936901639, guid: 949f9c20a2772a941844712e9a82ed29,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67607,11 +67500,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6587275913845762333, guid: f0b609ae1c9429043a5d01d318e26386,
-        type: 3}
-      propertyPath: levelIndex
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7150367453375487155, guid: f0b609ae1c9429043a5d01d318e26386,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67671,11 +67559,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Escencial Asssets
-      objectReference: {fileID: 0}
-    - target: {fileID: 7150367453375487156, guid: f0b609ae1c9429043a5d01d318e26386,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8377495250613357084, guid: f0b609ae1c9429043a5d01d318e26386,
         type: 3}
