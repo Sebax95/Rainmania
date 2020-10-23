@@ -12,10 +12,14 @@ public class UpgradesData : ScriptableObject {
 	public NameBoolPair[] boolProperties;
 	
 	public void IncrementIntProperty(string propertyName, int amount) => intProperties[GetIntIndex(propertyName)].value  += amount;
-	public void DecrementFloatProperty(string propertyName, float amount) => floatProperties[GetIntIndex(propertyName)].value -= amount;
-	public void MultiplyFloatProperty(string propertyName, float mult) => floatProperties[GetIntIndex(propertyName)].value *= mult;
-	public void EnableBoolProperty(string propertyName) => boolProperties[GetIntIndex(propertyName)].value = true;
-	
+	public void DecrementFloatProperty(string propertyName, float amount) => floatProperties[GetFloatIndex(propertyName)].value -= amount;
+	public void MultiplyFloatProperty(string propertyName, float mult) => floatProperties[GetFloatIndex(propertyName)].value *= mult;
+	public void EnableBoolProperty(string propertyName) => boolProperties[GetBoolIndex(propertyName)].value = true;
+
+	public int GetInt(string name) => intProperties[GetIntIndex(name)].value;
+	public float GetFloat(string name) => floatProperties[GetFloatIndex(name)].value;
+	public bool GetBool(string name) => boolProperties[GetBoolIndex(name)].value;
+
 	#region Seeker Funcs
 	private int GetIntIndex(string name) {
 		int index = -1;
