@@ -80,7 +80,6 @@ public class Whip : Weapon {
 			if(anchor == null || !anchor.enabled)
 				continue;
 
-			Debug.Log(anchor.transform.position);
 			brillo.transform.position = anchor.transform.position;
 			brillo.SetActive(false);
 			brillo.SetActive(true);
