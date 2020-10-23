@@ -114,13 +114,13 @@ public class Arrow : MonoBehaviour, IDamager {
 
 		//if(collision.collider.gameObject.layer == WALL_LAYER && !collision.collider.gameObject.CompareTag(BAD_ARROW_TAG))
 
-		if(collision.collider.gameObject.CompareTag(ANCHORABLE_TAG)) //If it's a stickable wall
+		if(collision.collider.gameObject.CompareTag(ANCHORABLE_TAG) && canPlatform) //If it's a stickable wall
 		{
 			rigid.isKinematic = true;
 			gameObject.tag = BAD_ARROW_TAG;
 			timer = asPlatformLifetime;
 			//if(collision.collider.gameObject.tag == ANCHORABLE_TAG)
-			anchor.enabled = true;
+			anchor.enabled = canAnchor;
 		} else //otherwise something non-stickable
 		{
 			this.gameObject.layer = 11; //Non-interactable layer

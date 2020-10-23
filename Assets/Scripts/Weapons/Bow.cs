@@ -98,6 +98,7 @@ public class Bow : Weapon {
 		maxArrowcount = data.GetInt("arrowMaxAmount");
 		damage = data.GetInt("arrowDamage");
 		arrownPrefab.canPlatform = data.GetBool("arrowCanPlatform");
+		arrownPrefab.canAnchor = data.GetBool("arrowCanAnchor");
 		InitializePool();
 	}
 

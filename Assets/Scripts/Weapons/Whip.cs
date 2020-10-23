@@ -36,6 +36,10 @@ public class Whip : Weapon {
 		router = GetComponent<CrouchStateRouter>();
 	}
 
+	private void Start() {
+		UpdateStateOnUpgrade(UpgradesManager.Instance.Data);
+	}
+
 	/// <summary>
 	/// Return true if it should break the attack loop early on grab. Otherwise false.
 	/// </summary>
