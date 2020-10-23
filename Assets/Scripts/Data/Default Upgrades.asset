@@ -12,14 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c08dbd4808cb68479a03f510cbc3233, type: 3}
   m_Name: Default Upgrades
   m_EditorClassIdentifier: 
-  playerMaxLife: 0
-  bowAcquired: 0
-  arrowCanPlatform: 0
-  arrowCanAnchor: 0
-  arrowMaxAmount: 0
-  arrowDamage: 0
-  arrowShootSpeed: 0
-  whipAcquired: 0
-  whipCanGrapple: 0
-  whipDamage: 0
-  whipAttackSpeed: 0
+  intProperties:
+  - name: playerMaxLife
+    value: 10
+  - name: arrowMaxAmount
+    value: 3
+  - name: arrowDamage
+    value: 1
+  - name: whipDamage
+    value: 1
+  floatProperties:
+  - name: arrowShootSpeed
+    value: 0.5
+  - name: whipAttackSpeed
+    value: 0.5
+  boolProperties:
+  - name: arrowCanPlatform
+    value: 0
+  - name: arrowCanAnchor
+    value: 0
+  - name: whipAcquired
+    value: 0
+  - name: whipCanGrapple
+    value: 0
