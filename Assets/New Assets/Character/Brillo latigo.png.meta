@@ -16,7 +16,7 @@ TextureImporter:
     second: Brillo latigo_3
   - first:
       213: 775875519551170768
-    second: Brillo latigo_4
+    second: Brillo latigo_8
   - first:
       213: 6809561033105244847
     second: Brillo latigo_5
@@ -277,6 +277,27 @@ TextureImporter:
       bones: []
       spriteID: 5a2184ce01713d4c0800000000000000
       internalID: -4264039060738665819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brillo latigo_8
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 52
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d8e4cc9ca674ca00800000000000000
+      internalID: 775875519551170768
       vertices: []
       indices: 
       edges: []
