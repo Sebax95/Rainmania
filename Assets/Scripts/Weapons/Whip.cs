@@ -29,6 +29,11 @@ public class Whip : Weapon {
 	public const string NAME = "Whip";
 	public override string Name => NAME;
 
+
+	//Agus paso por aqui
+	public GameObject brillo;
+
+
 	private void Awake() {
 		swinger = GetComponent<Swinger>();
 		wielder = GetComponent<IWielder>();
@@ -75,7 +80,12 @@ public class Whip : Weapon {
 			if(anchor == null || !anchor.enabled)
 				continue;
 
-			if(anchor.transformDependant)
+			Debug.Log(anchor.transform.position);
+			brillo.transform.position = anchor.transform.position;
+			brillo.SetActive(false);
+			brillo.SetActive(true);
+
+			if (anchor.transformDependant)
 				swinger.SetupSwing(item.transform);
 			else
 				swinger.SetupSwing(item.transform.position);
