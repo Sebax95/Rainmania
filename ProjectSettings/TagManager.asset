@@ -11,6 +11,7 @@ TagManager:
   - Roof
   - ArrowStick
   - Stairs
+  - Metal
   layers:
   - Default
   - TransparentFX

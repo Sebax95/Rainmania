@@ -35,7 +35,8 @@ public class Arrow : MonoBehaviour, IDamager {
 	private const int PLAYER_LAYER = 8;
 
 	//Agus paso por aqui
-	public ParticleSystem particles;
+	public ParticleSystem wallInpact;
+	public ParticleSystem metalInpact;
 
 	private void Awake() {
 		trail = GetComponentInChildren<TrailRenderer>();
@@ -91,7 +92,8 @@ public class Arrow : MonoBehaviour, IDamager {
 
 	public void SetShooter(Bow source) => shooter = source;
 
-	protected virtual void OnCollisionEnter(Collision collision) {
+	protected virtual void OnCollisionEnter(Collision collision) 
+	{
 		if(!enabled) //Por alguna razon, este metodo se activa aun cuando esta desactivado
 			return;
 
@@ -116,9 +118,11 @@ public class Arrow : MonoBehaviour, IDamager {
 			timer = asPlatformLifetime;
 			//if(collision.collider.gameObject.tag == ANCHORABLE_TAG)
 			anchor.enabled = true;
-			particles.Play();
+			wallInpact.Play();
 		} else //otherwise something non-stickable
 		{
+			if (collision.gameObject.CompareTag("Metal"))
+				metalInpact.Play();
 			this.gameObject.layer = 11; //Non-interactable layer
 			rigid.useGravity = true;
 			rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS;
