@@ -97,6 +97,7 @@ public class Bow : Weapon {
 		attackCooldown = data.GetFloat("arrowShootSpeed");
 		maxArrowcount = data.GetInt("arrowMaxAmount");
 		damage = data.GetInt("arrowDamage");
+		arrownPrefab.canPlatform = data.GetBool("arrowCanPlatform");
 		InitializePool();
 	}
 

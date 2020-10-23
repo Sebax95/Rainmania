@@ -13,6 +13,10 @@ public class Arrow : MonoBehaviour, IDamager {
 	public float grappleTime = 10;
 	private float timer;
 
+	[Header("Propiedades")]
+	public bool canPlatform = true;
+	public bool canAnchor = true;
+
 	//Tags
 	private const string BAD_ARROW_TAG = "UnsusedArrow";
 	private const string ANCHORABLE_TAG = "ArrowStick";
@@ -42,6 +46,10 @@ public class Arrow : MonoBehaviour, IDamager {
 		var cols = GetComponents<Collider>();
 		solidCol = cols[0];
 		triggerCol = cols[1];
+	}
+
+	private void OnEnable() {
+		anchor.enabled = canAnchor;
 	}
 
 	void Update() {
@@ -138,7 +146,7 @@ public class Arrow : MonoBehaviour, IDamager {
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		if(!stop || other.gameObject.layer != PLAYER_LAYER)
+		if(!stop || !canPlatform || other.gameObject.layer != PLAYER_LAYER)
 			return;
 		solidCol.enabled = false;
 	}
