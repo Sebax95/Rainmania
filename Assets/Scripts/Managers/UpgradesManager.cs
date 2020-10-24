@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradesManager : MonoBehaviour {
@@ -6,6 +7,8 @@ public class UpgradesManager : MonoBehaviour {
 	[SerializeField]private UpgradesData data;
 	public event Action<UpgradesData> OnUpdateData;
 	public UpgradesData Data => data;
+
+	private HashSet<string> acquiredUpgrades = new HashSet<string>();
 
 	private void Awake() {
 		if(Instance)
@@ -36,6 +39,9 @@ public class UpgradesManager : MonoBehaviour {
 		data.EnableBoolProperty(propertyName);
 		OnUpdateData?.Invoke(data);
 	}
+
+	public void ConsumeUpgrade(string upgradeId) => acquiredUpgrades.Add(upgradeId);
+	public bool HasUpgradeBeenConsumed(string upgradeId) => acquiredUpgrades.Contains(upgradeId);
 
 	private void OnDestroy() => OnUpdateData = null;
 }

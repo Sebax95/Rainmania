@@ -6,6 +6,7 @@ using CustomMSLibrary.Unity;
 public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, IAddableVelocity {
 	#region Variables/Properties
 	private const float GROUNDED_DISTANCE = 1.1f;
+	public const int PLAYER_LAYER = 8;
 
 	//Mobility
 	public float speed;
