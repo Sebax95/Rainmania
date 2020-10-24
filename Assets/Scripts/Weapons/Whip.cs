@@ -22,6 +22,7 @@ public class Whip : Weapon {
 	public override float FullAttackDuration => attackDelay + attackDuration + attackCooldown;
 
 	private Collider[] boxcastCache = new Collider[10];
+	private bool canAttach = true;
 
 	public override GameObject SourceObject => gameObject;
 	public override Team GetTeam => wielder.GetTeam;
@@ -40,6 +41,10 @@ public class Whip : Weapon {
 		router = GetComponent<CrouchStateRouter>();
 	}
 
+	private void Start() {
+		UpdateStateOnUpgrade(UpgradesManager.Instance.Data);
+	}
+
 	/// <summary>
 	/// Return true if it should break the attack loop early on grab. Otherwise false.
 	/// </summary>
@@ -48,10 +53,12 @@ public class Whip : Weapon {
 
 		DetectHits(router.Current.damageHitbox[(int)direction]);
 		DamageInColliderBuffer();
-
-		DetectHits(router.Current.grabHitbox[(int)direction]);
-		bool grabResult = TryAttachInColliderBuffer();
-
+		bool grabResult = false;
+		if(canAttach)
+		{
+			DetectHits(router.Current.grabHitbox[(int)direction]);
+			grabResult = TryAttachInColliderBuffer();
+		}
 		return grabResult;
 	}
 
@@ -147,6 +154,15 @@ public class Whip : Weapon {
 		yield return new WaitForSeconds(secondDuration);
 		item.SetActive(false);
 	}
+
+	private void UpdateStateOnUpgrade(UpgradesData data) {
+		attackCooldown = data.GetFloat("whipAttackSpeed");
+		damage = data.GetInt("whipDamage");
+		canAttach = data.GetBool("whipCanGrapple");
+	}
+
+	private void OnEnable() => UpgradesManager.Instance.OnUpdateData += UpdateStateOnUpgrade;
+	private void OnDisable() => UpgradesManager.Instance.OnUpdateData -= UpdateStateOnUpgrade;
 
 #if UNITY_EDITOR
 	Vector3[] points = new Vector3[8];

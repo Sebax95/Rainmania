@@ -13,6 +13,10 @@ public class Arrow : MonoBehaviour, IDamager {
 	public float grappleTime = 10;
 	private float timer;
 
+	[Header("Propiedades")]
+	public bool canPlatform = true;
+	public bool canAnchor = true;
+
 	//Tags
 	private const string BAD_ARROW_TAG = "UnsusedArrow";
 	private const string ANCHORABLE_TAG = "ArrowStick";
@@ -46,6 +50,10 @@ public class Arrow : MonoBehaviour, IDamager {
 		var cols = GetComponents<Collider>();
 		solidCol = cols[0];
 		triggerCol = cols[1];
+	}
+
+	private void OnEnable() {
+		anchor.enabled = canAnchor;
 	}
 
 	void Update() {
@@ -111,13 +119,13 @@ public class Arrow : MonoBehaviour, IDamager {
 
 		//if(collision.collider.gameObject.layer == WALL_LAYER && !collision.collider.gameObject.CompareTag(BAD_ARROW_TAG))
 
-		if(collision.collider.gameObject.CompareTag(ANCHORABLE_TAG)) //If it's a stickable wall
+		if(collision.collider.gameObject.CompareTag(ANCHORABLE_TAG) && canPlatform) //If it's a stickable wall
 		{
 			rigid.isKinematic = true;
 			gameObject.tag = BAD_ARROW_TAG;
 			timer = asPlatformLifetime;
 			//if(collision.collider.gameObject.tag == ANCHORABLE_TAG)
-			anchor.enabled = true;
+			anchor.enabled = canAnchor;
 			wallInpact.Play();
 		} else //otherwise something non-stickable
 		{
@@ -146,7 +154,7 @@ public class Arrow : MonoBehaviour, IDamager {
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		if(!stop || other.gameObject.layer != PLAYER_LAYER)
+		if(!stop || !canPlatform || other.gameObject.layer != PLAYER_LAYER)
 			return;
 		solidCol.enabled = false;
 	}

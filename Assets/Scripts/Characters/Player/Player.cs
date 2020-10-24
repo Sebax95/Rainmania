@@ -6,6 +6,7 @@ using CustomMSLibrary.Unity;
 public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, IAddableVelocity {
 	#region Variables/Properties
 	private const float GROUNDED_DISTANCE = 1.1f;
+	public const int PLAYER_LAYER = 8;
 
 	//Mobility
 	public float speed;
@@ -40,11 +41,11 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	private (CapsuleCollider standing, CapsuleCollider crouching, Bounds standChecker) colliders;
 
 	//Attack
-	private bool canAttack = true;
-	private float currentCooldown;
+	private bool allowedToAttack = true;
 	private float attackCooldownTimer = 0;
-	private Weapon activeWeapon;
-	private LoopingList<Weapon> weapons = new LoopingList<Weapon>();
+	private (Weapon weapon, bool enabled) whip = (null, true);
+	private (Weapon weapon, bool enabled) bow = (null, true);
+	private bool CanAttack => allowedToAttack && !isDead;
 
 	//Controller
 	public Controller thisControllerPrefab; //temp
@@ -57,11 +58,9 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	}
 
 	protected override void Start() {
-		weapons.Add(GetComponent<Whip>());
-		weapons.Add(GetComponent<Bow>());
+		whip.weapon = GetComponent<Whip>();
+		bow.weapon = GetComponent<Bow>();
 		momentum = GetComponent<MomentumKeeper>();
-		activeWeapon = weapons.Current;
-		//canMove = true;
 		isDead = false;
 		PlayerAnimator = GetComponent<PlayerAnim>();
 		croucher = GetComponent<CrouchStateRouter>();
@@ -79,6 +78,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		rb = GetComponent<Rigidbody>();
 		PlayerAnimator = GetComponent<PlayerAnim>();
 		InitCollisionMask();
+		UpdateStateOnUpgrade(UpgradesManager.Instance.Data);
 
 		coyoteTimer = 0;
 	}
@@ -90,7 +90,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		CoyoteTime();
 	}
 
-	
+
 	#endregion
 
 	#region Movement
@@ -192,49 +192,44 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	#endregion
 
 	#region Attacking
-	public void Attack(Vector2 direction) {
-		if(!canAttack || isDead)
+	public void Attack(Vector2 direction, Weapon weapon) {
+		if(!CanAttack)
 			return;
 
-		SetCooldown();
+		SetCooldown(weapon.FullAttackDuration);
 		//hack de crouch
 		if(crouched)
 			direction = transform.forward;
 
-		activeWeapon.Attack(direction);
-		PlayerAnimator.Attack(direction, activeWeapon.Name);
+		weapon.Attack(direction);
+		PlayerAnimator.Attack(direction, weapon.Name);
 	}
 
-	public void SwitchWeapons() {
-		activeWeapon = weapons.Next;
+	public void WhipAttack(Vector2 direction) {
+		if(!whip.enabled)
+			return;
+		Attack(direction, whip.weapon);
 	}
-
-	/// <summary>
-	/// Assign Weapon. 0: whip. 1: Bow
-	/// </summary>
-	/// <param name="id"></param>
-	public void SetWeapon(int id) {
-		activeWeapon = weapons[id];
+	public void BowAttack(Vector2 direction) {
+		if(bow.enabled)
+			Attack(direction, bow.weapon);
 	}
-
-	public string ActiveWeaponName => activeWeapon.Name;
 
 	private void AttackTimer() {
-		if(canAttack)
+		if(allowedToAttack)
 			return;
 
-		attackCooldownTimer += Time.deltaTime;
-		if(attackCooldownTimer > currentCooldown)
+		attackCooldownTimer -= Time.deltaTime;
+		if(attackCooldownTimer < 0)
 		{
 			//canMove = true;
-			canAttack = true;
+			allowedToAttack = true;
 		}
 	}
 
-	private void SetCooldown() {
-		canAttack = false;
-		attackCooldownTimer = 0;
-		currentCooldown = activeWeapon.FullAttackDuration;
+	private void SetCooldown(float time) {
+		allowedToAttack = false;
+		attackCooldownTimer = time;
 
 	}
 	#endregion
@@ -317,6 +312,21 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		}
 		crouchCheckLayerMask = layerMask;
 	}
+
+	private void UpdateStateOnUpgrade(UpgradesData data) {
+		//TODO: ver como manejamos mejoras de vida con vida < 100%. Full restore por ahora
+		var newHealth = data.GetInt("playerMaxLife");
+		if(newHealth != maxHealth)
+		{
+			maxHealth = newHealth;
+			Health = newHealth;
+		}
+		whip.enabled = data.GetBool("whipAcquired");
+		bow.enabled = data.GetBool("bowAcquired");
+	}
+
+	private void OnEnable() => UpgradesManager.Instance.OnUpdateData += UpdateStateOnUpgrade;
+	private void OnDisable() => UpgradesManager.Instance.OnUpdateData -= UpdateStateOnUpgrade;
 	#endregion
 
 }

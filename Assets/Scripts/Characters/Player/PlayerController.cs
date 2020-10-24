@@ -27,45 +27,44 @@ public class PlayerController : Controller, IMainController {
 	public string aimModeAxis;
 
 	//JOYSTICK TEMPORAL!!!!
-	[Header("Joystick")] 
+	[Header("Joystick")]
 	public KeyCode joystickJump;
 	public KeyCode joystickArrow;
 	public KeyCode joystickWhip;
 	public KeyCode joystickCrouch;
 	public KeyCode joystickAimMode;
-	
+
 	private Player User => User<Player>();
 
 	protected override void DoMovement() {
 		direction = GetAxises();
-		User?.Move(direction);
-		
+		if(!User)
+			return;
+		User.Move(direction);
+
 		if(Input.GetKeyDown(crouchKey) || Input.GetKeyDown(KeyCode.Joystick1Button1))//JOYSTICK TEMPORAL!!!!
-			User?.ToggleCrouch();
+			User.ToggleCrouch();
 
 		if(Input.GetKeyDown(JumpKey) || Input.GetKeyDown(KeyCode.Joystick1Button0))//JOYSTICK TEMPORAL!!!!
-			User?.Jump();
-		
+			User.Jump();
 
 	}
 
-	protected override void DoActions()
-	{
-		if (Input.GetKeyDown(attackWhipKey) || Input.GetKeyDown(KeyCode.JoystickButton7))//JOYSTICK TEMPORAL!!!!
-		{
-			User?.SetWeapon(0);
-			User?.Attack(direction);
-		}
+	protected override void DoActions() {
+		if(!User)
+			return;
+
+		if(Input.GetKeyDown(attackWhipKey) || Input.GetKeyDown(KeyCode.JoystickButton7))//JOYSTICK TEMPORAL!!!!
+			User.WhipAttack(direction);
+
 		if(Input.GetKeyDown(attackBowKey) || Input.GetKeyDown(KeyCode.JoystickButton5))//JOYSTICK TEMPORAL!!!!
-		{
-			User?.SetWeapon(1);
-			User?.Attack(direction);
-		}
+			User.BowAttack(direction);
+
 
 		if(Input.GetKeyDown(aimModeKey) || Input.GetKeyDown(joystickAimMode))
-			User?.SetAimMode(true);
+			User.SetAimMode(true);
 		else if(Input.GetKeyUp(aimModeKey) || Input.GetKeyUp(joystickAimMode))
-			User?.SetAimMode(false);
+			User.SetAimMode(false);
 
 		//if(Input.GetKeyDown(SwitchWeaponKey))
 		//	User?.SwitchWeapons();

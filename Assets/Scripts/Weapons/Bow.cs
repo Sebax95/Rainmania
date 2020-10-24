@@ -5,7 +5,7 @@ using CustomMSLibrary.Unity;
 
 public class Bow : Weapon {
 
-	private int INITAL_ARROW_COUNT = 5;
+	private int maxArrowcount = 5;
 	public Arrow arrownPrefab;
 	private Pool<Arrow> pool;
 	public Transform[] arrowSources;
@@ -30,7 +30,8 @@ public class Bow : Weapon {
 		wait_shootWindup = new WaitForSeconds(attackWindup);
 		wielder = GetComponent<IWielder>();
 		router = GetComponent<CrouchStateRouter>();
-		pool = new Pool<Arrow>(INITAL_ARROW_COUNT ,ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, false);
+		InitializePool();
+		UpdateStateOnUpgrade(UpgradesManager.Instance.Data);
 	}
 
 	public Arrow ArrownFactory() {
@@ -82,4 +83,25 @@ public class Bow : Weapon {
 		yield return wait_shootWindup;
 		Shoot(direction);
 	}
+
+	private void InitializePool() {
+		if(pool != null)
+			pool.Clear(Destroy);
+
+		pool = new Pool<Arrow>(maxArrowcount, ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, false);
+	}
+
+	private void UpdateStateOnUpgrade(UpgradesData data) {
+		if(data == null)
+			return;
+		attackCooldown = data.GetFloat("arrowShootSpeed");
+		maxArrowcount = data.GetInt("arrowMaxAmount");
+		damage = data.GetInt("arrowDamage");
+		arrownPrefab.canPlatform = data.GetBool("arrowCanPlatform");
+		arrownPrefab.canAnchor = data.GetBool("arrowCanAnchor");
+		InitializePool();
+	}
+
+	private void OnEnable() => UpgradesManager.Instance.OnUpdateData += UpdateStateOnUpgrade;
+	private void OnDisable() => UpgradesManager.Instance.OnUpdateData -= UpdateStateOnUpgrade;
 }
