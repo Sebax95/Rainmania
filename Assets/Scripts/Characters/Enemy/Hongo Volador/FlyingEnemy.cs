@@ -25,6 +25,13 @@ public class FlyingEnemy : Enemy
         _fsm.SetState(StatesEnemies.Fly);
     }
 
+    public override void Reset()
+    {
+        isDead = false;
+        rb.useGravity = false;
+        _fsm.SetState(StatesEnemies.Fly);
+    }
+
     protected override void Start()
     {
         base.Start();

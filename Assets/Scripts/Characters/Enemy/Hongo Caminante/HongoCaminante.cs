@@ -16,6 +16,15 @@ public abstract class HongoCaminante : Enemy
 
     //public bool cdDamage = false;
 
+    public override void Reset()
+    {
+        isDeath = false;
+        canJump = true;
+        stopCor = true;
+        rb.mass = 1;
+        fsm.SetState(StatesEnemies.Walk);
+    }
+
     protected override void Awake()
     {
         target = FindObjectOfType<Player>();
@@ -50,8 +59,7 @@ public abstract class HongoCaminante : Enemy
     {
         var result = base.Damage(amount, source);
 
-        if(!result)
-            return result;
+        if(!result) return result;
 
         rb.mass = 100;
         StatesEnemies tempState = fsm.ActualState;

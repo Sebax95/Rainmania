@@ -87,6 +87,9 @@ namespace AmplifyShaderEditor
 		protected int m_masterNodeCategory = 0;// MasterNodeCategories.SurfaceShader;
 
 		[SerializeField]
+		protected bool m_samplingMacros = false;
+
+		[SerializeField]
 		protected string m_currentShaderData = string.Empty;
 
 		private Texture2D m_masterNodeOnTex;
@@ -315,6 +318,14 @@ namespace AmplifyShaderEditor
 				ContainerGraph.ParentWindow.UpdateTabTitle( ShaderName, true );
 			}
 			m_shaderNameContent.tooltip = m_shaderName;
+		}
+
+		protected void DrawSamplingMacros()
+		{
+			EditorGUI.BeginChangeCheck();
+			m_samplingMacros = EditorGUILayoutToggle( "Use Sampling Macros", m_samplingMacros );
+			if( EditorGUI.EndChangeCheck() )
+				ContainerGraph.SamplingMacros = SamplingMacros;
 		}
 
 		public void DrawShaderKeywords()
@@ -978,6 +989,16 @@ namespace AmplifyShaderEditor
 			set
 			{
 				m_shaderLOD = Mathf.Max( 0, value );
+			}
+		}
+		public bool SamplingMacros 
+		{
+			get { return m_samplingMacros; }
+			set
+			{
+				m_samplingMacros = value;
+				if( IsLODMainMasterNode )
+					ContainerGraph.SamplingMacros = value;
 			}
 		}
 	}

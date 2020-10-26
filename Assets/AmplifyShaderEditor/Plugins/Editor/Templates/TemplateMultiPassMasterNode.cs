@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Linq;
 
 namespace AmplifyShaderEditor
 {
@@ -575,6 +576,12 @@ namespace AmplifyShaderEditor
 
 		public void SetPropertyActionFromItem( TemplateModulesHelper module, TemplateActionItem item )
 		{
+			// this was added because when switching templates the m_mainMasterNodeRef was not properly set yet and was causing issues, there's probably a better place for this
+			if( !m_isMainOutputNode && m_mainMasterNodeRef == null )
+			{
+				m_mainMasterNodeRef = m_containerGraph.CurrentMasterNode as TemplateMultiPassMasterNode;
+			}
+
 			TemplateModulesHelper subShaderModule = m_isMainOutputNode ? m_subShaderModule : m_mainMasterNodeRef.SubShaderModule;
 			switch( item.PropertyAction )
 			{
@@ -903,6 +910,11 @@ namespace AmplifyShaderEditor
 				case PropertyActionsEnum.RenderQueue:
 				{
 					module.TagsHelper.AddSpecialTag( TemplateSpecialTags.Queue, item );
+				}
+				break;
+				case PropertyActionsEnum.DisableBatching:
+				{
+					module.TagsHelper.AddSpecialTag( TemplateSpecialTags.DisableBatching, item );
 				}
 				break;
 			}
@@ -1669,6 +1681,9 @@ namespace AmplifyShaderEditor
 				DrawPrecisionProperty( false );
 				if( EditorGUI.EndChangeCheck() )
 					ContainerGraph.CurrentPrecision = m_currentPrecisionType;
+
+				DrawSamplingMacros();
+
 				m_drawInstancedHelper.Draw( this );
 				m_fallbackHelper.Draw( this );
 				DrawCustomInspector( m_templateMultiPass.SRPtype != TemplateSRPType.BuiltIn );
@@ -2235,6 +2250,30 @@ namespace AmplifyShaderEditor
 			}
 #endif
 
+			// here we add ASE attributes to the material properties that allows materials to communicate with ASE
+			if( m_templateMultiPass.SRPtype != TemplateSRPType.BuiltIn )
+			{
+				List<PropertyDataCollector> list = new List<PropertyDataCollector>( currDataCollector.PropertiesDict.Values );
+				list.Sort( ( x, y ) => { return x.OrderIndex.CompareTo( y.OrderIndex ); } );
+				for( int i = 0; i < list.Count; i++ )
+				{
+					if( !( list[ i ].PropertyName.Contains( "[HideInInspector]" ) || list[ i ].PropertyName.Contains( "//" ) ) )
+					{
+						list[ i ].PropertyName = "[ASEBegin]" + list[ i ].PropertyName;
+						break;
+					}
+				}
+
+				for( int i = list.Count - 1; i >= 0; i-- )
+				{
+					if( !( list[ i ].PropertyName.Contains( "[HideInInspector]" ) || list[ i ].PropertyName.Contains( "//" ) ) )
+					{
+						list[ i ].PropertyName = "[ASEEnd]" + list[ i ].PropertyName;
+						break;
+					}
+				}
+			}
+
 			m_templateMultiPass.SetPropertyData( currDataCollector.BuildUnformatedPropertiesStringArr() );
 		}
 
@@ -2302,6 +2341,7 @@ namespace AmplifyShaderEditor
 				afterNativesIncludePragmaDefineList.AddRange( m_currentDataCollector.DefinesList );
 				//includePragmaDefineList.AddRange( m_optionsDefineContainer.DefinesList );
 				afterNativesIncludePragmaDefineList.AddRange( m_currentDataCollector.PragmasList );
+				m_currentDataCollector.AddASEMacros();
 				afterNativesIncludePragmaDefineList.AddRange( m_currentDataCollector.AfterNativeDirectivesList );
 
 				//includePragmaDefineList.AddRange( m_currentDataCollector.MiscList );
@@ -2890,6 +2930,10 @@ namespace AmplifyShaderEditor
 					m_content.text = GenerateClippedTitle( m_passName );
 				}
 
+				if( UIUtils.CurrentShaderVersion() > 18302 )
+					SamplingMacros = Convert.ToBoolean( GetCurrentParam( ref nodeParams ) );
+				else
+					SamplingMacros = false;
 
 				//if( m_templateMultiPass != null && !m_templateMultiPass.IsSinglePass )
 				//{
@@ -2943,6 +2987,7 @@ namespace AmplifyShaderEditor
 			if( m_isMainOutputNode )
 				IOUtils.AddFieldValueToString( ref nodeInfo, m_mainLODName );
 
+			IOUtils.AddFieldValueToString( ref nodeInfo, m_samplingMacros );
 		}
 
 		public override void ReadFromDeprecated( ref string[] nodeParams, Type oldType = null )
@@ -3084,8 +3129,9 @@ namespace AmplifyShaderEditor
 					{
 						m_passModule.TagsHelper.ReadFromString( ref m_currentReadParamIdx, ref nodeParams );
 					}
-
 				}
+
+				SamplingMacros = false;
 			}
 			catch( Exception e )
 			{

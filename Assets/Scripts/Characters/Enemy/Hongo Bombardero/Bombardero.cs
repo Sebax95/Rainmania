@@ -20,7 +20,18 @@ public class Bombardero : Enemy
     public Vector3 offsetRight;
 
     public GameObject deathParticle;
-    
+
+    public override void Reset()
+    {    
+        _isDead = false;
+        rb.useGravity = false;
+        offsetLeft = transform.position - (Vector3)leftPos;
+        offsetRight = transform.position - (Vector3)rightPos;
+
+        _fsm.SetState(StatesEnemies.Fly);
+        StartCoroutine(ShootPlayer());
+    }
+
     protected override void Awake()
     {
         base.Awake();

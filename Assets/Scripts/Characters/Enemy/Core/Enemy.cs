@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Unity;
@@ -31,6 +32,16 @@ public abstract class Enemy: Character, IDamager
     public Spawner spawner;
     [HideInInspector]
     public Player target;
+
+    public static void TurnOn(Enemy e)
+    {
+        e.gameObject.SetActive(true);
+        e.Reset();
+    }
+
+    public static void TurnOff(Enemy e) => e.gameObject.SetActive(false);
+
+    public abstract void Reset();
 
     protected virtual void Awake()
     {

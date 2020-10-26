@@ -1207,7 +1207,9 @@ namespace AmplifyShaderEditor
 
 		public virtual void CheckIfAutoRegister( ref MasterNodeDataCollector dataCollector )
 		{
-			if( CurrentParameterType != PropertyType.Constant && m_autoRegister && m_connStatus != NodeConnectionStatus.Connected )
+			// Also testing inside shader function because node can be used indirectly over a custom expression and directly over a Function Output node 
+			// That isn't being used externaly making it to not be registered ( since m_connStatus it set to Connected by being connected to an output node
+			if( CurrentParameterType != PropertyType.Constant && m_autoRegister && (m_connStatus != NodeConnectionStatus.Connected || InsideShaderFunction ))
 			{
 				RegisterProperty( ref dataCollector );
 			}
@@ -1615,6 +1617,11 @@ namespace AmplifyShaderEditor
 				m_oldName = m_propertyName;
 			}
 
+			if( m_variableMode == VariableMode.Fetch && m_autoGlobalName )
+			{
+				CurrentVariableMode = VariableMode.Create;
+				CurrentVariableMode = VariableMode.Fetch;
+			}
 		}
 
 		void UpdateTooltip()

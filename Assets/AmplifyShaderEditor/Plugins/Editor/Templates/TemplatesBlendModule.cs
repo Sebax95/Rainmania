@@ -39,7 +39,7 @@ namespace AmplifyShaderEditor
 			new CommonBlendTypes("<OFF>",               AvailableBlendFactor.Zero,              AvailableBlendFactor.Zero ),
 			new CommonBlendTypes("Custom",              AvailableBlendFactor.Zero,              AvailableBlendFactor.Zero ) ,
 			new CommonBlendTypes("Alpha Blend",         AvailableBlendFactor.SrcAlpha,          AvailableBlendFactor.OneMinusSrcAlpha ) ,
-			new CommonBlendTypes("Premultiplied",      AvailableBlendFactor.One,               AvailableBlendFactor.OneMinusSrcAlpha ),
+			new CommonBlendTypes("Premultiplied",		AvailableBlendFactor.One,               AvailableBlendFactor.OneMinusSrcAlpha ),
 			new CommonBlendTypes("Additive",            AvailableBlendFactor.One,               AvailableBlendFactor.One ),
 			new CommonBlendTypes("Soft Additive",       AvailableBlendFactor.OneMinusDstColor,  AvailableBlendFactor.One ),
 			new CommonBlendTypes("Multiplicative",      AvailableBlendFactor.DstColor,          AvailableBlendFactor.Zero ),
@@ -286,6 +286,9 @@ namespace AmplifyShaderEditor
 		{
 			EditorGUI.BeginChangeCheck();
 			{
+				var cache = EditorGUIUtility.labelWidth;
+				EditorGUIUtility.labelWidth = EditorGUIUtility.labelWidth - 20;
+
 				if( m_blendModeEnabled )
 				{
 					// RGB
@@ -417,6 +420,8 @@ namespace AmplifyShaderEditor
 					//m_blendOpAlpha = (AvailableBlendOps)owner.EditorGUILayoutEnumPopup( BlendOpsAlphaStr, m_blendOpAlpha );
 					m_blendOpAlphaInline.CustomDrawer( ref owner, ( x ) => { m_blendOpAlpha = (AvailableBlendOps)x.EditorGUILayoutPopup( BlendOpsAlphaStr, (int)m_blendOpAlpha, BlendOpsHelper.BlendOpsLabels ); }, BlendOpsAlphaStr );
 				}
+
+				EditorGUIUtility.labelWidth = cache;
 			}
 
 			if( EditorGUI.EndChangeCheck() )
