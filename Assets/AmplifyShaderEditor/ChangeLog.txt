@@ -1,4 +1,172 @@
 Release Notes:
+v1.8.6 rev 00:
+* Improvements:
+    * Improved Plane Clip sample
+
+v1.8.5 rev 06:
+* Fixes:
+    * Locking 'Decode Depth Normals' usage to Builtin pipeline and informing of that when used on SRP
+        * Was currently generating compilation errors over SRP
+    * Fixed issue on Auto-Register flag over property nodes not being correctly registered in certain cases
+    * Fixed issue where graph sampling macro flag was incorrectly being set by non main master nodes
+
+* Improvements:
+    * Auto-register check on texture property type node also register sampler if 'Use Sampling Macros' flag is enabled on master node
+    * Adding support for mask maps over 'Four Splats First Pass Terrain' shader function
+        * Only available on SRP and output node must have 'Use Sampling Macros' flag turned on
+
+v1.8.5 rev 05:
+* Fixes:
+    * Fixed issue with incorrect values returned from nodes using internal 'Texture Object' instances
+    * Fixed duplicate uv declarations issue when being requested different sizes by 'Texture Sampler' nodes
+    * Fixed duplicate directives issue caused by adding directives on both 'Outline' node generated surface and main one
+
+v1.8.5 rev 04:
+* Fixes:
+    * Fixed issue on texture node types auto-sampler generator
+
+v1.8.5 rev 03:
+* New Sample:
+    * Plane Clip
+
+* Fixes:
+    * Fixed issue on 'Blend Normals' node preview not taking SRP options into account
+    * Fixed visual issue on node properties menu over nodes:
+        * Template Parameter 
+        * Template Local Var
+        * Template Vertex Data
+        * Template Fragment Data
+
+* Improvements:
+    * Simplified 'Template Parameter' usage
+        * User no longer need to choose scope to parameters to be available
+        * New Advanced View toggle added to switch to old view
+    * Added widget on 'Texture Coordinates' node to change output size directly from the node
+
+v1.8.5 rev 02:
+* New Community Shader Function
+    * Depth Masked Refraction by @saismirk
+
+Fixes:
+    * Fixed incorrect uv variable name being used when set is greater that 3
+    * Fixed incorrect swizzling when using texture sets on vertex data over surface shaders
+    * Fixed issue over texture array tool on not being able to use compressed formats
+
+v1.8.5 rev 01:
+* Fixes:
+    * Fixed issue regarding uv coordinates usage with tessellation on URP PBR template
+
+* Improvements:
+    * Replaced fmod instruction usage on 'Remainder' node by faster true remainder calculation
+
+v1.8.5 rev 00:
+* Fixes:
+    * Fixed desync issue between graph and master node sampling macro flag
+    * Fixed unknown INSTANCEID_SEMANTICS enum  value being thrown on legacy HDRP
+
+v1.8.4 rev 04:
+* Fixes:
+    * Fixed issue on 'Substance Sampler' node
+        * Fixed incorrectly drawn preview on Unity 2018 and above
+        * Prevented incorrect ports types being set when texture order is internally changed on Substance
+    * Fixed variable redefinition on 'Gradient' node when used on shader functions
+    * Fixed duplicate issue when declaring cbuffers on both outline and main surface shaders
+    * Fixed URP Terrain sample layer composition
+
+* Improvements:
+    * 'FWidth' node now throws an ASE console error when connected to non-fragment ports
+        * Also generates dummy value to prevent compilation error
+    * Added terrain holes support on Four Splats First Pass Terrain shader function
+        * Activate Holes option
+    * Added new Final Color x Alpha option on URP PBR template
+        * Required to correctly blend terrain layers
+
+v1.8.4 rev 03:
+* Fixes:
+    * Fixed Color Mask MRT Id not being written on inline properties
+        * Caused HDRP Lit shaders to become invisible when compiled in some versions
+
+v1.8.4 rev 02:
+* New Template:
+    * Legacy/Lit
+        * Mimics behavior of standard surface but without some of its limitations
+            * Can override Baked GI
+            * Removes limitation of using nodes like 'Indirect Specular Light' only on Custom Lighting
+
+* Fixes:
+    * Added missing support for per-pixel normals in terrain shaders for URP (still requires adding the keyword separately)
+    * Fixed issue with alpha clip threshold not working properly in all cases when using the HDRP Lit template
+    * Fixed issue with template loading that was not catching global variable in certain situations (API)
+    * Fixed rare issue where changing shader templates could cause the options to fail to load properly due to not finding the new master node
+    * Fixed issue on Depth Texture macro declaration being incorrectly duplicated when already present on template
+        * Now depth related nodes can be correctly used on Particle Alpha Blended template
+    * Fixed issue on uncaught exception when attempting to load an in-existent Assembly-CSharp-Editor assembly
+        * Could happen when attempting to load invalid nodes
+    * Fixed issue on not being able to connect 'Texture Object' nodes to 'Register Local Var' node
+    * Fixed issue on vertex instructions generated by outline fragment ports to be correctly written on its vertex code
+        * Fixes 'Camera Depth Fade' usage on 'Outline' node
+
+* Improvements:
+    * Updated the Four Splats First Pass Terrain shader function to include a new option for SRP terrain to allow per pixel normals
+    * 'Static Switch' node
+        * Now allows editing of certain parameters while in Fetch mode 
+        * Now allow the explicit naming of the keyword created besides the automatic one with a lock button
+    * Forcing vertex position w component to 1 when setting a new offset or position over Standard Surface type shaders
+        * Prevent real-time shadow issues on vertex manipulation
+
+v1.8.4 rev 01:
+* Improvements:
+    * Added "Open in Shader Editor" button into SRP materials (needs shader save)
+    * Now SRP materials update ASE editor property values while the editor is open (needs shader save)
+    * Remove dependencies for custom shader inspector (now, allows deleting the file)
+
+* Fixes:
+    * Fixed Dots instancing option in URP unlit
+    * Fixed UV generation in Mesh Decals template
+    * Fixed Normals and Emission Bias in Mesh Decals template
+
+v1.8.4 rev 00:
+* New HDRP Samples:
+    * Added new 'Decal Muddy Ground' and 'Decal Scifi Panel' HDRP samples using various types of decals
+
+* Improvements:
+    * Added automatic 'Open and Save All' button in shader function files that tries to compiled all dependency shaders and shader functions
+    * Texture Array tool now allows to create an asset file representing all options in order to save work for later
+    * Texture Array no longer locks width and height at power of two for more recent versions of unity
+    * Added clip shadow threshold and alpha to coverage options to URP PBR and URP Unlit shaders
+
+* Fixes:
+    * Fixed leak in the automatic template importer
+    * Template importer now properly skips non-shaders files when checking for changes
+    * Fixed issue with properties in fetch mode not loading correctly and making some property names hostage
+    * Fixed issue with UVs generation in specific situations where it would create variables with the same name
+
+v1.8.3 rev 03:
+* Improvements:
+    * Global macros sampling option has been removed in favor of another that is set by the shader (older shader load with this option OFF while new ones start with it ON)
+    * Made property panel option labels flexible to the width of the panel
+    * Some help text added to 'Sampler State' node
+
+* Fixes:
+    * Fixed issue with assembly definition files where nodes outside of the assembly would fail to load
+    * Fixed issue of emission channel not working in HDRP decal template
+
+v1.8.3 rev 02:
+* New 'Sampler State' Node:
+    * Allows using the default sampler state of a texture or the creation of a new one with specific options (versions prior to Unity 2018.1 have limited support)
+
+* Improvements:
+    * You can now use custom sampler states when sampling, however, in order for this to work you need to activate the option at Preferences > Amplify Shader Editor > Sampling Macros
+        * Activating this may cause some issues in specific situations, namely, custom expressions that do sampling must be converted to use macros as well so for now this option is OFF by default
+    * There are two new connection types, one for texture arrays and another for sampler states which are supported in function nodes and custom expression nodes
+    * Texture Array node as been deprecated in favor of the regular 'Sampler' node which now supports texture arrays and works inside shader functions
+    * 'Parallax Occlusion Mapping' node and 'Triplanar Sample' node now automatically detect if the input is a texture array and no longer use a toggle to turn ON the support
+
+* Fixes:
+    * Fixed issue with URP 2D templates accessing the wrong uv set
+    * Fixed Bitangent calculation in SRP which wasn't taking tangent sign into account
+    * Fixed issue with 'show and compile' button in shader inspector in unity 2020.1
+
 v1.8.3 rev 01:
 * Fixes:
     * Fixed issues over 'Substance Sample' node

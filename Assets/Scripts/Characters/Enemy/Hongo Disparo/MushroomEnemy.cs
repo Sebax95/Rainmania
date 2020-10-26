@@ -19,6 +19,11 @@ public abstract class MushroomEnemy : Enemy
 
 	public ReusablePool<PoisonBullet> bulletPool;
 
+	public override void Reset()
+	{
+		
+	}
+
 	protected override void Awake() {
 		base.Awake();
 		fsm = new FSM<MushroomEnemy>(this);

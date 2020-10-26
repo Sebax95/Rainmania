@@ -567,13 +567,13 @@ namespace AmplifyShaderEditor
 							// Properties
 							case TemplateCommonTagId.Property:
 							{
-								TemplateHelperFunctions.CreateShaderPropertiesList( m_templateBody.Substring( 0, idx + TemplatesManager.CommonTags[ i ].Id.Length ), ref m_availableShaderProperties, ref duplicatesHelper );
+								TemplateHelperFunctions.CreateShaderPropertiesList( m_templateBody.Substring( 0, idx + TemplatesManager.CommonTags[ i ].Id.Length ), ref m_availableShaderProperties, ref duplicatesHelper,-1,-1 );
 							}
 							break;
 							// Globals
 							case TemplateCommonTagId.Global:
 							{
-								TemplateHelperFunctions.CreateShaderGlobalsList( m_templateBody.Substring( 0, idx + TemplatesManager.CommonTags[ i ].Id.Length ), ref m_availableShaderProperties, ref duplicatesHelper );
+								TemplateHelperFunctions.CreateShaderGlobalsList( m_templateBody.Substring( 0, idx + TemplatesManager.CommonTags[ i ].Id.Length ), ref m_availableShaderProperties, ref duplicatesHelper,-1,-1 );
 							}
 							break;
 

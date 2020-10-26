@@ -22,24 +22,24 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Swing/PlayerSwingerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/Bombardero.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Arrow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/FlyingEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/States/MovingState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/Embestidor.cs" />
         <option value="$PROJECT_DIR$/Assets/TrailWhipEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/HongoCaminante.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerAnim.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/ReusablePool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Bow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/GreenMushroom.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/RedMushroom.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/EnemyView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/PoisonBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/MushroomEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/GreenMushroom.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/MushroomEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/FlyingEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/HongoCaminante.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/Bombardero.cs" />
       </list>
     </option>
   </component>
@@ -118,6 +118,7 @@
       <workItem from="1603060648131" duration="1791000" />
       <workItem from="1603132514791" duration="19675000" />
       <workItem from="1603218395190" duration="12483000" />
+      <workItem from="1603664737759" duration="3832000" />
     </task>
     <servers />
   </component>

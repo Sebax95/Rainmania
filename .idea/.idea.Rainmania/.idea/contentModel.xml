@@ -21,6 +21,8 @@
               </e>
               <e p="Constants.cs" t="Include" />
               <e p="CustomDrawers" t="Include">
+                <e p="ASEBeginDecorator.cs" t="Include" />
+                <e p="ASEEndDecorator.cs" t="Include" />
                 <e p="EditableIf.cs" t="Include" />
                 <e p="RemapSliders.cs" t="Include" />
                 <e p="SingleLineTexture.cs" t="Include" />
@@ -399,6 +401,7 @@
                   <e p="PannerNode.cs" t="Include" />
                   <e p="RotatorNode.cs" t="Include" />
                   <e p="SamplerNode.cs" t="Include" />
+                  <e p="SamplerStateNode.cs" t="Include" />
                   <e p="SubstanceSamplerNode.cs" t="Include" />
                   <e p="TextureCoordinatesNode.cs" t="Include" />
                   <e p="TexturePropertyNode.cs" t="Include" />
@@ -503,6 +506,7 @@
                 <e p="RectExtension.cs" t="Include" />
                 <e p="SamplerStateAutoGenerator.cs" t="Include" />
                 <e p="ShortcutsManager.cs" t="Include" />
+                <e p="TextureArrayCreatorAsset.cs" t="Include" />
                 <e p="TipsWindow.cs" t="Include" />
                 <e p="UIUtils.cs" t="Include" />
                 <e p="UndoUtils.cs" t="Include" />
@@ -727,6 +731,7 @@
                 <e p="CustomRTUpdate.shader" t="Include" />
                 <e p="Legacy" t="Include">
                   <e p="DefaultUnlit.shader" t="Include" />
+                  <e p="Lit.shader" t="Include" />
                   <e p="MultiPassUnlit.shader" t="Include" />
                   <e p="Particle Alpha Blend.shader" t="Include" />
                   <e p="PostProcess.shader" t="Include" />
@@ -1186,6 +1191,7 @@
           <e p="Data" t="Include">
             <e p="Team.cs" t="Include" />
           </e>
+          <e p="EnemysRespawn.cs" t="Include" />
           <e p="Entities" t="Include">
             <e p="CollapsablePlatform.cs" t="Include" />
             <e p="Healer.cs" t="Include" />
@@ -1244,6 +1250,7 @@
               <e p="MiscUnityUtilities.cs" t="Include" />
             </e>
           </e>
+          <e p="ResetEffect.cs" t="Include" />
           <e p="Scripts.asmdef" t="Include" />
           <e p="Test" t="Include">
             <e p="Test_Swinger.cs" t="Include" />
@@ -1296,6 +1303,7 @@
             <e p="Gancho.shader" t="Include" />
             <e p="GanchoNuevo.shader" t="Include" />
           </e>
+          <e p="Test Caida.shader" t="Include" />
           <e p="Test.shader" t="Include" />
           <e p="Trail Whip" t="Include">
             <e p="WhipTrail.shader" t="Include" />
