@@ -12,6 +12,7 @@ public class ResetEffect : MonoBehaviour
 
     private void OnEnable()
     {
+        if(_anim != null)
         _anim.Play("Brillo");
     }
 }

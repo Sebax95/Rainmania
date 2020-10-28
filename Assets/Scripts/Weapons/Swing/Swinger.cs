@@ -47,30 +47,30 @@ public class Swinger : Controllable, IMoveOverride {
 	}
 
 	[MethodImpl(MethodImplOptions.NoOptimization)]
-	public void SetupSwing(Transform anchor) {
+	public void SetupSwing(Transform anchor, Transform _trans) {
 		anchorTransform = anchor;
 		dependOnTransform = true;
 		Vector3 relativePos = transform.RelativePosTo(anchor);
-		Internal_SetupSwing(relativePos);
+		Internal_SetupSwing(relativePos, _trans);
 	}
 
 	[MethodImpl(MethodImplOptions.NoOptimization)]
-	public void SetupSwing(Vector3 anchor) {
+	public void SetupSwing(Vector3 anchor, Transform _trans) {
 		anchorPos = anchor;
 		anchorTransform = null;
 		dependOnTransform = false;
 		Vector3 relativePos = anchor - transform.position;
-		Internal_SetupSwing(relativePos);
+		Internal_SetupSwing(relativePos, _trans);
 	}
 
 	[MethodImpl(MethodImplOptions.NoOptimization)]
-	private void Internal_SetupSwing(Vector3 relativePos) {
+	private void Internal_SetupSwing(Vector3 relativePos,Transform _trans) {
 		initialAngle = Vector3.SignedAngle(Vector3.down, -relativePos.ZeroZ(), Vector3.forward) * Mathf.Deg2Rad;
 		float max = MaxSwingAngleRad;
 		initialAngle = Mathf.Clamp(initialAngle, -max, max);
 		initialAngleDirection = (sbyte)(initialAngle > 0 ? 1 : -1);
 		//distanceFromAnchor = relativePos.magnitude;
-		anim.BeginSwing();
+		anim.BeginSwing(_trans);
 		anchorTime = Time.time;
 		whipDistance = relativePos.magnitude;
 		initialState = Mathf.Sqrt(gravityMult / whipDistance);

@@ -130,6 +130,7 @@ MonoBehaviour:
   AssignTeam: {fileID: 0}
   gravity: {x: 0, y: 0, z: 0}
   useGravity: 0
+  isChildRotating: 0
 --- !u!1 &9182990082147484252
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9182990082147484252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.22000313}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.662552, y: 1.662552, z: 1.662552}
   m_Children: []
   m_Father: {fileID: 2614553126292014062}
