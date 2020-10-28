@@ -31,7 +31,7 @@ public class GreenMushroom : MushroomEnemy
         var obj = bulletPool.GetObject();
         if(!obj) return;
         obj.SetSource(this);
-        obj.SetValues(output.transform.position, output.transform.right, Quaternion.identity);
+        obj.SetValues(output.transform.position, output.transform.forward, true);
         obj.AssignTeam = GetTeam;
         
         viewEnem.PlaySound(EnemyView.AudioEnemys.Shoot);

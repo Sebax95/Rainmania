@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: ed2dfc880eabe52449bd8b9f2d42b94f
+<<<<<<< Updated upstream:Assets/Scenes/Mati Scene/shaders Test.meta
+guid: bd5ccc20cc146b3428a19d24dbfe71ad
+=======
+guid: 759bc1e188bc64642ab48a2c9c642342
+>>>>>>> Stashed changes:Assets/ShadersThing/Bullet.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

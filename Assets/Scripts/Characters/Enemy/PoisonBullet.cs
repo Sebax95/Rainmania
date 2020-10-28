@@ -15,21 +15,27 @@ public class PoisonBullet : MonoBehaviour, IDamager
     public GameObject SourceObject => gameObject;
     public Vector3 gravity;
     public bool useGravity;
+    private Transform auraChild;
+    public bool isChildRotating; 
     public Team GetTeam => AssignTeam;
     private MushroomEnemy sourcePool;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        auraChild = transform.GetChild(0);
         rb.useGravity = false;
         gravity = Physics.gravity;
+        isChildRotating = false;
         gameObject.SetActive(false);
     }
 
     public void Reset()
     {
+        isChildRotating = false;
         rb.useGravity = false;
         gravity = Physics.gravity;
+        transform.forward = Vector3.zero;
         rb.velocity = Vector3.zero;
         StartCoroutine(WaitForBullet(5));
     }
@@ -50,11 +56,11 @@ public class PoisonBullet : MonoBehaviour, IDamager
 
     public void SetSource(MushroomEnemy source) => sourcePool = source;
     
-    public void SetValues(Vector3 pos, Vector3 forw, Quaternion rot)
+    public void SetValues(Vector3 pos, Vector3 forw, bool canRotate)
     {
+        isChildRotating = canRotate;
         transform.position = pos;
         transform.forward = forw;
-        transform.rotation = rot;
     }
     
     private void FixedUpdate()
@@ -63,6 +69,12 @@ public class PoisonBullet : MonoBehaviour, IDamager
             rb.AddForce(gravity.y * Vector3.up);
         else
             transform.position += transform.forward * speed * Time.deltaTime;
+    }
+
+    private void LateUpdate()
+    {
+        if(isChildRotating)
+            auraChild.forward = rb.velocity.normalized;
     }
 
     private void OnTriggerEnter(Collider other)

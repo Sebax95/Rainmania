@@ -737,12 +737,16 @@
                   <e p="PostProcess.shader" t="Include" />
                   <e p="Sprites-Default.shader" t="Include" />
                   <e p="UIDefault.shader" t="Include" />
+                  <e p="Unlit.shader" t="Include" />
                   <e p="UnlitLightmap.shader" t="Include" />
                 </e>
                 <e p="LightWeightSRPPBR.shader" t="Include" />
                 <e p="LightWeightSRPUnlit.shader" t="Include" />
                 <e p="PPStack.shader" t="Include" />
                 <e p="SRP" t="Include">
+                  <e p="README.txt" t="Include" />
+                </e>
+                <e p="SRP (Legacy)" t="Include">
                   <e p="README.txt" t="Include" />
                 </e>
                 <e p="Unlit.shader" t="Include" />
@@ -1131,6 +1135,13 @@
             <e p="ThirdPartyLicenses.txt" t="Include" />
           </e>
         </e>
+        <e p="Scenes" t="Include">
+          <e p="Mati Scene" t="Include">
+            <e p="shaders Test" t="Include">
+              <e p="bricks piso.shader" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Characters" t="Include">
             <e p="Character.cs" t="Include" />
@@ -1190,6 +1201,7 @@
           </e>
           <e p="Data" t="Include">
             <e p="Team.cs" t="Include" />
+            <e p="UpgradesData.cs" t="Include" />
           </e>
           <e p="EnemysRespawn.cs" t="Include" />
           <e p="Entities" t="Include">
@@ -1197,6 +1209,7 @@
             <e p="Healer.cs" t="Include" />
             <e p="HealerView.cs" t="Include" />
             <e p="Spawner.cs" t="Include" />
+            <e p="UpgraderEntity.cs" t="Include" />
           </e>
           <e p="Feedback" t="Include">
             <e p="Scripts ref.asmref" t="Include" />
@@ -1211,6 +1224,7 @@
           <e p="Managers" t="Include">
             <e p="ControllerHandler.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
+            <e p="UpgradesManager.cs" t="Include" />
           </e>
           <e p="Misc" t="Include">
             <e p="Movement" t="Include">
@@ -1274,6 +1288,12 @@
           </e>
         </e>
         <e p="ShadersThing" t="Include">
+          <e p="Agua Caida.shader" t="Include" />
+          <e p="Agua Normal.shader" t="Include" />
+          <e p="Bullet" t="Include">
+            <e p="AuraBullet.shader" t="Include" />
+            <e p="BulletShader.shader" t="Include" />
+          </e>
           <e p="EnemyShader" t="Include">
             <e p="Embestidor" t="Include">
               <e p="EnemyShaderTest.shader" t="Include" />
@@ -1303,8 +1323,10 @@
             <e p="Gancho.shader" t="Include" />
             <e p="GanchoNuevo.shader" t="Include" />
           </e>
-          <e p="Test Caida.shader" t="Include" />
-          <e p="Test.shader" t="Include" />
+          <e p="New Water" t="Include">
+            <e p="Agua Caida.shader" t="Include" />
+            <e p="Agua Normal.shader" t="Include" />
+          </e>
           <e p="Trail Whip" t="Include">
             <e p="WhipTrail.shader" t="Include" />
           </e>

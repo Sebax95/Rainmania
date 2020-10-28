@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 69e8137eaf6eeb34a978e8d082d050a8
+<<<<<<< Updated upstream:Assets/Scenes/Mati Scene.meta
+guid: c3cd732daf471d24b825b8a1f282b81f
+=======
+guid: 8ab8599a9c215d14a9b32ddb5379a668
+>>>>>>> Stashed changes:Assets/New Assets/Level Assets.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

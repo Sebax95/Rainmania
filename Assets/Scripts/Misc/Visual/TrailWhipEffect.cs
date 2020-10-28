@@ -92,7 +92,8 @@ public class TrailWhipEffect : StateMachineBehaviour
             }
             break;
         }
-        if(!posWhip) posWhip = pA.whip.transform;
+
+        if (!posWhip) posWhip = pA.whipRig.transform;
         var trail = trailPool.GetObject();
         if(!trail) return;
         if(!play) play = pA.GetComponent<Transform>();

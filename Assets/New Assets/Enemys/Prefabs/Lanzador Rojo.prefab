@@ -775,15 +775,10 @@ MonoBehaviour:
   spawner: {fileID: 0}
   target: {fileID: 0}
   isInvulnerable: 0
-  jumpingPad: {fileID: 0}
   forceJump: 4
   bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
     type: 3}
   canShoot: 0
-  shootSound: {fileID: 8300000, guid: 01818cb8720d300428bf1bddbc438365, type: 3}
-  jumpingPadSound: {fileID: 8300000, guid: 3703d2cfb5571214babb7c7da8d5177f, type: 3}
-  hitSound: {fileID: 8300000, guid: 5f5acf83d1072714d82c209d7ef67a13, type: 3}
-  dieSound: {fileID: 0}
 --- !u!82 &2967099489121580718
 AudioSource:
   m_ObjectHideFlags: 0

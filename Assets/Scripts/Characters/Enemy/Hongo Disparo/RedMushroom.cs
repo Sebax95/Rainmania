@@ -18,7 +18,7 @@ public class RedMushroom : MushroomEnemy
         StartCoroutine(CdShoot());
         var obj = bulletPool.GetObject();
         obj.SetSource(this);
-        obj.SetValues(output.transform.position, output.transform.right, Quaternion.identity);
+        obj.SetValues(output.transform.position, output.transform.forward, false);
         obj.AssignTeam = GetTeam;
         viewEnem.PlaySound(EnemyView.AudioEnemys.Shoot);
         viewEnem.Au.Play();

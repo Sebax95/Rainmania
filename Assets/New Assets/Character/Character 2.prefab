@@ -3123,7 +3123,7 @@ MonoBehaviour:
   attackDelay: 0.2
   attackDuration: 0.3
   attackCooldown: 0.2
-  brillo: {fileID: 0}
+  brillo: {fileID: 5572639529165718260, guid: 949f9c20a2772a941844712e9a82ed29, type: 3}
 --- !u!114 &1691721428244040750
 MonoBehaviour:
   m_ObjectHideFlags: 0
