@@ -1,0 +1,632 @@
+fileFormatVersion: 2
+guid: 7456c63f470a6bd438eb6a9b36acb683
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2987249772840873133
+    second: windlines256grey_0
+  - first:
+      213: -150459747114101078
+    second: windlines256grey_1
+  - first:
+      213: -7445286841980511711
+    second: windlines256grey_2
+  - first:
+      213: -724088442991738366
+    second: windlines256grey_3
+  - first:
+      213: 4475336682163043641
+    second: windlines256grey_4
+  - first:
+      213: 1754898305174060618
+    second: windlines256grey_5
+  - first:
+      213: -1672671341329874539
+    second: windlines256grey_6
+  - first:
+      213: 3527726925996443267
+    second: windlines256grey_7
+  - first:
+      213: -774960938414730618
+    second: windlines256grey_8
+  - first:
+      213: -6303872518795497439
+    second: windlines256grey_9
+  - first:
+      213: 6236153718340748581
+    second: windlines256grey_10
+  - first:
+      213: -2591160368711721883
+    second: windlines256grey_11
+  - first:
+      213: 6097133018106299410
+    second: windlines256grey_12
+  - first:
+      213: 6465364662118834796
+    second: windlines256grey_13
+  - first:
+      213: 4393886649332867251
+    second: windlines256grey_14
+  - first:
+      213: -1021153763171583950
+    second: windlines256grey_15
+  - first:
+      213: -6578841450950116224
+    second: windlines256grey_16
+  - first:
+      213: -8663582742460811364
+    second: windlines256grey_17
+  - first:
+      213: -3047312450138005386
+    second: windlines256grey_18
+  - first:
+      213: -1354187303270725785
+    second: windlines256grey_19
+  - first:
+      213: 2113695237716720835
+    second: windlines256grey_20
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: windlines256grey_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 562
+        width: 150
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3531472a8282b86d0800000000000000
+      internalID: -2987249772840873133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_1
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 562
+        width: 152
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6d44c38a579edf0800000000000000
+      internalID: -150459747114101078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_2
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 562
+        width: 152
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a9cd460170da890800000000000000
+      internalID: -7445286841980511711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_3
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 562
+        width: 151
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2020381c56583f5f0800000000000000
+      internalID: -724088442991738366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_4
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 562
+        width: 153
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93d7a9640079b1e30800000000000000
+      internalID: 4475336682163043641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_5
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 562
+        width: 151
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4eb5d0f5b6aa5810800000000000000
+      internalID: 1754898305174060618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_6
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 562
+        width: 151
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5918e0af64a79c8e0800000000000000
+      internalID: -1672671341329874539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_7
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 312
+        width: 151
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3864990d2f005f030800000000000000
+      internalID: 3527726925996443267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_8
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 312
+        width: 151
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6829cf6e129ce35f0800000000000000
+      internalID: -774960938414730618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_9
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 312
+        width: 152
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 120f8dfe7552488a0800000000000000
+      internalID: -6303872518795497439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_10
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 312
+        width: 151
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5258e6a24c44b8650800000000000000
+      internalID: 6236153718340748581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_11
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 312
+        width: 153
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c1eda8f595a0cd0800000000000000
+      internalID: -2591160368711721883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_12
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 312
+        width: 151
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 214088c0d2e5d9450800000000000000
+      internalID: 6097133018106299410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_13
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 312
+        width: 151
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c62e4fcb7e699b950800000000000000
+      internalID: 6465364662118834796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_14
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 65
+        width: 151
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b021d4b0a83afc30800000000000000
+      internalID: 4393886649332867251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_15
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 65
+        width: 151
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238ba1d001224d1f0800000000000000
+      internalID: -1021153763171583950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_16
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 65
+        width: 152
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08cb08a7e8243b4a0800000000000000
+      internalID: -6578841450950116224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_17
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 65
+        width: 137
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c973b69b565c4c780800000000000000
+      internalID: -8663582742460811364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_18
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 65
+        width: 126
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67026e1d875c5b5d0800000000000000
+      internalID: -3047312450138005386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_19
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 65
+        width: 112
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767443d82d5f43de0800000000000000
+      internalID: -1354187303270725785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windlines256grey_20
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 65
+        width: 98
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc3a8fae9a555d10800000000000000
+      internalID: 2113695237716720835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1fc5e2d6adb6bfa43acd3f1e62b78daa
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -31,9 +31,6 @@ public class Whip : Weapon {
 	public override string Name => NAME;
 
 
-	//Agus paso por aqui
-	public GameObject brillo;
-
 
 	private void Awake() {
 		swinger = GetComponent<Swinger>();
@@ -87,14 +84,10 @@ public class Whip : Weapon {
 			if(anchor == null || !anchor.enabled)
 				continue;
 
-			brillo.transform.position = anchor.transform.position;
-			brillo.SetActive(false);
-			brillo.SetActive(true);
-
 			if (anchor.transformDependant)
-				swinger.SetupSwing(item.transform);
+				swinger.SetupSwing(item.transform,anchor.transform);
 			else
-				swinger.SetupSwing(item.transform.position);
+				swinger.SetupSwing(item.transform.position,anchor.transform);
 
 			swinger.StartSwing();
 			return true;

@@ -3006,11 +3006,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 9082494020295089658}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.09
-  m_Height: 0.4404521
+  m_Height: 0.70476615
   m_Direction: 1
-  m_Center: {x: 0, y: -0.29477394, z: 0}
+  m_Center: {x: 0, y: -0.16261691, z: 0}
 --- !u!114 &953379170742318666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3123,7 +3123,6 @@ MonoBehaviour:
   attackDelay: 0.2
   attackDuration: 0.3
   attackCooldown: 0.2
-  brillo: {fileID: 5572639529165718260, guid: 949f9c20a2772a941844712e9a82ed29, type: 3}
 --- !u!114 &1691721428244040750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3150,7 +3149,7 @@ MonoBehaviour:
   crouchSpeedModifier: 0.7
   crouchCheckLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   groundedTreshold: 1
   groundCheckOffset: {x: 0, y: 0, z: 0}
   coyoteDuration: 0.5
@@ -3171,6 +3170,8 @@ MonoBehaviour:
   swingingParameter: Balanceo
   swingValueParameter: BalanceAngle
   wrappedSwingingParameter: WrappedAngle
+  brilloPrefab: {fileID: 3344457996314850489, guid: 80b814eee9d5a7a4bb4c1554730b7082,
+    type: 3}
 --- !u!114 &5196582193175230516
 MonoBehaviour:
   m_ObjectHideFlags: 0

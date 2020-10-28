@@ -8,11 +8,25 @@ public class SwingAnim : MonoBehaviour {
 	private Animator animator;
 	private float lastAngle;
 
-	private void Start() =>
-		animator = GetComponent<Animator>();
+	//Agus paso por aqui
+	public GameObject brilloPrefab;
+	GameObject brillo;
 
-	public void BeginSwing() =>
+	private void Start()
+    {
+		animator = GetComponent<Animator>();
+		brillo = Instantiate(brilloPrefab);
+		brillo.transform.position = new Vector3(00,0, 0);
+    }
+
+	public void BeginSwing(Transform _trans)
+    {
+		brillo.transform.position = _trans.position;
+		brillo.SetActive(false);
+		brillo.SetActive(true);
 		animator.SetBool(swingingParameter, true);
+
+    }
 
 	public void EndSwing() =>
 		animator.SetBool(swingingParameter, false);

@@ -13,7 +13,7 @@ public class Test_Swinger : MonoBehaviour {
 	void Start() {
 		swinger = GetComponent<Swinger>();
 		thisRB = GetComponent<Rigidbody>();
-		swinger.SetupSwing(anchor);
+		swinger.SetupSwing(anchor,anchor);
 	}
 
 	// Update is called once per frame

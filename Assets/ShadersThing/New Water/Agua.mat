@@ -108,7 +108,7 @@ Material:
     - _TreshBorder: 0.24
     - _UVSec: 0
     - _Waves: 2.45
-    - _WavesTess: 0.44
+    - _WavesTess: 0.19
     - _ZWrite: 1
     - __dirty: 0
     - _x: 0.02
