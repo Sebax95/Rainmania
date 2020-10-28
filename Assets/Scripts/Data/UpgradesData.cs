@@ -32,7 +32,7 @@ public class UpgradesData : ScriptableObject {
 				return index;
 			}
 		}
-		throw new KeyNotFoundException("Given property name does not exist.");
+		throw new KeyNotFoundException($"Given property name \"{name}\" does not exist.");
 	}
 	private int GetFloatIndex(string name) {
 		int index = -1;

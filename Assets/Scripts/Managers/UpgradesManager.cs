@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class UpgradesManager : MonoBehaviour {
 	public static UpgradesManager Instance { get; private set; }
-	[SerializeField]private UpgradesData data;
+	[SerializeField]private UpgradesData dataTemplate;
+	private UpgradesData data;
 	public event Action<UpgradesData> OnUpdateData;
 	public UpgradesData Data => data;
 
@@ -17,6 +18,7 @@ public class UpgradesManager : MonoBehaviour {
 			return;
 		}
 		Instance = this;
+		data = Instantiate(dataTemplate);
 		DontDestroyOnLoad(this);
 	}
 
