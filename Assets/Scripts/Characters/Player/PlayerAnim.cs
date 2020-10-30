@@ -28,10 +28,15 @@ public class PlayerAnim : MonoBehaviour {
 	public AudioClip jumpSound;
 	public AudioClip whipSound;
 	public AudioClip bowSound;
-	public AudioClip stepSound;
 	public AudioClip dieSound;
+	public AudioClip[] stepSoundsGround;
+	public AudioClip[] stepSoundsWater;
 
 	private AudioSource _audioSource;
+	
+	private AudioClip RandomGroundStep => stepSoundsGround[Random.Range(0, stepSoundsGround.Length)];
+	private AudioClip RandomWaterStep => stepSoundsWater[Random.Range(0, stepSoundsWater.Length)];
+	public bool InWater { get; set; }
 
 	private enum AudioCue {
 		Hurt, Jump, Whip, Bow, Step, Die
@@ -189,7 +194,7 @@ public class PlayerAnim : MonoBehaviour {
 				selected = bowSound;
 				break;
 			case AudioCue.Step:
-				selected = stepSound;
+				selected = InWater ? RandomWaterStep : RandomGroundStep;
 				break;
 			case AudioCue.Die:
 				selected = dieSound;
