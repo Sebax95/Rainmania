@@ -8,18 +8,24 @@ public class FlyState : State<FlyingEnemy>
 
     private Vector3 _move;
     private float rand;
+    private float count;
 
     public override void Enter()
     {
+        count = 0;
         if(_owner.minRandomAmplitud != _owner.maxRandomAmplitud)
             rand = Random.Range(_owner.minRandomAmplitud, _owner.maxRandomAmplitud);
     }
 
-    public override void UpdateState() { }
+    public override void UpdateState()
+    {
+        count = (_owner.contadorOrTime) ?  count + 1 * Time.deltaTime : Time.time;
+        Debug.Log(count);
+    }
 
     public override void FixedUpdateState()
     {
-        _move = (Vector3.up * Mathf.Sin((Time.time) * Mathf.PI * _owner.frecuency) * _owner.amplitud);
+        _move = (Vector3.up * Mathf.Sin((count) * Mathf.PI * _owner.frecuency) * (_owner.amplitud + rand));
         _move += _owner.transform.forward * 2 * _owner.speed;
 
         /* _move = new Vector3(_owner.transform.position.x * 2 * _owner.speed * Time.fixedDeltaTime,

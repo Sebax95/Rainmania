@@ -6,6 +6,7 @@ using UnityEngine;
 public class FlyingEnemy : Enemy
 {
     public float lifeTime;
+    public bool contadorOrTime;
     public float minRandomAmplitud;
     public float maxRandomAmplitud;
     public float frecuency, amplitud;
@@ -27,6 +28,7 @@ public class FlyingEnemy : Enemy
 
     public override void Reset()
     {
+        base.Reset();
         isDead = false;
         rb.useGravity = false;
         _fsm.SetState(StatesEnemies.Fly);
@@ -42,6 +44,12 @@ public class FlyingEnemy : Enemy
     public override void Move(Vector2 direction) => rb.velocity = direction;
 
     public void Move(Vector3 direction) => rb.velocity = direction;
+
+    private void Update()
+    {
+        if(_isDead) return;
+        _fsm.Update();
+    }
 
     private void FixedUpdate()
     {
@@ -77,14 +85,15 @@ public class FlyingEnemy : Enemy
     public override void Die(IDamager source)
     {
         _isDead = true;
-
+        viewEnem.PlaySound(EnemyView.AudioEnemys.Die);
         if(spawner)
-            spawner.DestroyObject(gameObject);
+            spawner.DestroyObject(this);
         else
-            Destroy(gameObject);
+            TurnOff(this);
         
         var part = Instantiate(deathParticle, transform.position, Quaternion.identity);
         Destroy(part, 1);
     }
-    
+
+    public void SoundMove() => viewEnem.PlaySound(EnemyView.AudioEnemys.Move);
 }

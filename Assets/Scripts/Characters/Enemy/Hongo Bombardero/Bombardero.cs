@@ -23,6 +23,7 @@ public class Bombardero : Enemy
 
     public override void Reset()
     {    
+        base.Reset();
         _isDead = false;
         rb.useGravity = false;
         offsetLeft = transform.position - (Vector3)leftPos;
@@ -31,6 +32,7 @@ public class Bombardero : Enemy
         _fsm.SetState(StatesEnemies.Fly);
         StartCoroutine(ShootPlayer());
     }
+    
 
     protected override void Awake()
     {
@@ -70,14 +72,14 @@ public class Bombardero : Enemy
     public override void Die(IDamager source)
     {
         _isDead = true;
-
+        viewEnem.PlaySound(EnemyView.AudioEnemys.Die);
         var part = Instantiate(deathParticle, transform.position, Quaternion.identity);
         Destroy(part, 1);
         
         if(spawner)
-            spawner.DestroyObject(gameObject);
+            spawner.DestroyObject(this);
         else
-            Destroy(gameObject);
+            TurnOff(this);
     }
 
     IEnumerator ShootPlayer()
@@ -91,6 +93,8 @@ public class Bombardero : Enemy
 
     public void Shoot()
     {
+        viewEnem.PlaySound(EnemyView.AudioEnemys.Attack);
+        //TODO: implentar pool 
         var obj = Instantiate(bulletPref, output.transform.position, Quaternion.identity);
         obj.transform.forward = Vector3.down; 
         obj.GetComponent<PoisonBullet>().AssignTeam = GetTeam;

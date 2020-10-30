@@ -17,6 +17,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2FEAF16E-8000-4E0C-ADAE-3F2E05F2A3FA/2e/73909c86/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/0c/74dffd80/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9B956647-017D-4DC1-B8D3-D25EEF012467/46/39b07108/Physics.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4AF5BEA1-B7B2-4424-94FD-73F6F9B3D7F4/29/1f4adebd/Canvas.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -26,22 +27,27 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Arrow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/States/MovingState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/Embestidor.cs" />
         <option value="$PROJECT_DIR$/Assets/TrailWhipEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerAnim.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/ReusablePool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Bow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/EnemyView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipPool.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/MushroomEnemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/FlyingEnemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/HongoCaminante.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/Bombardero.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/PoisonBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/MushroomEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/States/FlyState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Entities/Spawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/RedMushroom.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/GreenMushroom.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/HongoCaminante.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/Bombardero.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/FlyingEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/Saltador.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/Embestidor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/EnemyView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemysRespawn.cs" />
       </list>
     </option>
   </component>
@@ -122,6 +128,9 @@
       <workItem from="1603218395190" duration="12483000" />
       <workItem from="1603664737759" duration="3832000" />
       <workItem from="1603839113148" duration="4146000" />
+      <workItem from="1603909947699" duration="9583000" />
+      <workItem from="1604006991563" duration="21195000" />
+      <workItem from="1604079158789" duration="6936000" />
     </task>
     <servers />
   </component>
