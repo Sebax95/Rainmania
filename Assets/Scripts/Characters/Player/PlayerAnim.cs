@@ -176,7 +176,7 @@ public class PlayerAnim : MonoBehaviour {
 		ChangeBool(2, state);
 	}
 
-	private void PlaySound(AudioCue sound) {
+	private void PlaySound(AudioCue sound, float volume = 1) {
 		AudioClip selected = null;
 
 		switch(sound)
@@ -201,7 +201,7 @@ public class PlayerAnim : MonoBehaviour {
 				break;
 		}
 		if(selected)
-			_audioSource.PlayOneShot(selected);
+			_audioSource.PlayOneShot(selected,volume);
 	}
 
 	//Eventos de animation
@@ -214,7 +214,7 @@ public class PlayerAnim : MonoBehaviour {
 		whip.SetActive(true);
 	}
 
-	public void Step() => PlaySound(AudioCue.Step);
+	public void Step(float volume) => PlaySound(AudioCue.Step, volume);
 
 	public void WhipOff()
 	{
