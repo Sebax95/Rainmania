@@ -2916,11 +2916,11 @@ GameObject:
   - component: {fileID: 1076777813789619754}
   - component: {fileID: 8060324658222789953}
   - component: {fileID: 953379170742318666}
-  - component: {fileID: 9075815607506070855}
-  - component: {fileID: 4727816423271630307}
-  - component: {fileID: 827735113966670542}
-  - component: {fileID: 8736888454845942043}
   - component: {fileID: 1691721428244040750}
+  - component: {fileID: 4727816423271630307}
+  - component: {fileID: 8736888454845942043}
+  - component: {fileID: 827735113966670542}
+  - component: {fileID: 9075815607506070855}
   - component: {fileID: 2599668707758089970}
   - component: {fileID: 5196582193175230516}
   - component: {fileID: 94915785019324390}
@@ -3024,105 +3024,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decayRate: 5
---- !u!114 &9075815607506070855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9082494020295089658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d375bec7c2231db4c890ec2d3c913921, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravityMult: 9
-  maxSwingAngle: 75
-  swingAddingStrength: 0.2
-  firstFrame: 0
---- !u!114 &4727816423271630307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9082494020295089658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a591cd5b7b312347b7ad2f0d20dbeb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  directionAnimMultiplier: {x: 1, y: 1}
-  whipRig: {fileID: 2306368609079403813}
-  whip: {fileID: 2757894314613027622}
-  bow: {fileID: 9008258882033172526}
-  param_horizontalSpeed: SpeedX
-  param_verticalSpeed: SpeedY
-  param_triggers:
-  - jump
-  - Hit
-  - Whip
-  - Bow
-  param_bools:
-  - inGround
-  - isDead
-  - isCrouched
-  hurtSound: {fileID: 8300000, guid: 332d59ab0c364f249b5edf8e94ef82a9, type: 3}
-  jumpSound: {fileID: 8300000, guid: b1faeeed3f3080b4daf9b7c15b318199, type: 3}
-  whipSound: {fileID: 8300000, guid: fee3407e6d091dd4cb39788f811138e1, type: 3}
-  bowSound: {fileID: 8300000, guid: f07ed3b4abcd5834f921bf3ee6518a58, type: 3}
-  stepSound: {fileID: 0}
-  dieSound: {fileID: 0}
---- !u!114 &827735113966670542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9082494020295089658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14c86e9e4e8b4954684b10321479be28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  arrownPrefab: {fileID: -335030869947608966, guid: 8bb3437b9c69b0f47abbde53c37ef009,
-    type: 3}
-  arrowSources:
-  - {fileID: 3540944613691951438}
-  - {fileID: 67740709604551672}
-  - {fileID: 7944931631656711970}
-  attackWindup: 0
-  attackCooldown: 0.25
-  wallDistanceCheck: 1
-  closeWallArrowFixOffset: 0
---- !u!114 &8736888454845942043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9082494020295089658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee4a06d1595a8f74eb6f32428b7a0cf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 3
-  grabHitboxes:
-  - closePoint: {x: 0, y: 0, z: 0.04}
-    halfExtends: {x: 0.3, y: 0.6, z: 1.19}
-    orientation: {x: 0, y: 0, z: 0}
-  - closePoint: {x: 0, y: 0, z: 0.18}
-    halfExtends: {x: 0.3, y: 0.6, z: 1}
-    orientation: {x: -45, y: 0, z: 0}
-  - closePoint: {x: 0, y: 0, z: 0.3}
-    halfExtends: {x: 0.3, y: 0.6, z: 1}
-    orientation: {x: -90, y: 0, z: 0}
-  speed: 2.5
-  attackDelay: 0.2
-  attackDuration: 0.3
-  attackCooldown: 0.2
 --- !u!114 &1691721428244040750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3155,6 +3056,105 @@ MonoBehaviour:
   coyoteDuration: 0.5
   thisControllerPrefab: {fileID: 6141289527529480240, guid: da9a90c09023bd940933fadf419fe298,
     type: 3}
+--- !u!114 &4727816423271630307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082494020295089658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a591cd5b7b312347b7ad2f0d20dbeb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionAnimMultiplier: {x: 1, y: 1}
+  whipRig: {fileID: 2306368609079403813}
+  whip: {fileID: 2757894314613027622}
+  bow: {fileID: 9008258882033172526}
+  param_horizontalSpeed: SpeedX
+  param_verticalSpeed: SpeedY
+  param_triggers:
+  - jump
+  - Hit
+  - Whip
+  - Bow
+  param_bools:
+  - inGround
+  - isDead
+  - isCrouched
+  hurtSound: {fileID: 8300000, guid: 332d59ab0c364f249b5edf8e94ef82a9, type: 3}
+  jumpSound: {fileID: 8300000, guid: b1faeeed3f3080b4daf9b7c15b318199, type: 3}
+  whipSound: {fileID: 8300000, guid: fee3407e6d091dd4cb39788f811138e1, type: 3}
+  bowSound: {fileID: 8300000, guid: f07ed3b4abcd5834f921bf3ee6518a58, type: 3}
+  stepSound: {fileID: 8300000, guid: f07ed3b4abcd5834f921bf3ee6518a58, type: 3}
+  dieSound: {fileID: 0}
+--- !u!114 &8736888454845942043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082494020295089658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4a06d1595a8f74eb6f32428b7a0cf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3
+  grabHitboxes:
+  - closePoint: {x: 0, y: 0, z: 0.04}
+    halfExtends: {x: 0.3, y: 0.6, z: 1.19}
+    orientation: {x: 0, y: 0, z: 0}
+  - closePoint: {x: 0, y: 0, z: 0.18}
+    halfExtends: {x: 0.3, y: 0.6, z: 1}
+    orientation: {x: -45, y: 0, z: 0}
+  - closePoint: {x: 0, y: 0, z: 0.3}
+    halfExtends: {x: 0.3, y: 0.6, z: 1}
+    orientation: {x: -90, y: 0, z: 0}
+  speed: 2.5
+  attackDelay: 0.2
+  attackDuration: 0.3
+  attackCooldown: 0.2
+--- !u!114 &827735113966670542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082494020295089658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c86e9e4e8b4954684b10321479be28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  arrownPrefab: {fileID: -335030869947608966, guid: 8bb3437b9c69b0f47abbde53c37ef009,
+    type: 3}
+  arrowSources:
+  - {fileID: 3540944613691951438}
+  - {fileID: 67740709604551672}
+  - {fileID: 7944931631656711970}
+  attackWindup: 0
+  attackCooldown: 0.25
+  wallDistanceCheck: 1
+  closeWallArrowFixOffset: 0
+--- !u!114 &9075815607506070855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082494020295089658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d375bec7c2231db4c890ec2d3c913921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityMult: 9
+  maxSwingAngle: 75
+  swingAddingStrength: 0.2
+  firstFrame: 0
 --- !u!114 &2599668707758089970
 MonoBehaviour:
   m_ObjectHideFlags: 0
