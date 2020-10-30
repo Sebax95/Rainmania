@@ -11,6 +11,7 @@ public abstract class Enemy: Character, IDamager
     public EnemyView viewEnem;
     public LayerMask groundMask;
     public GameObject SourceObject => gameObject;
+    protected Vector3 startPos;
 
     [Header("Shooting", order = 2)]
     public float cdTimer;
@@ -36,13 +37,32 @@ public abstract class Enemy: Character, IDamager
     public static void TurnOn(Enemy e)
     {
         e.gameObject.SetActive(true);
+        e.startPos = e.transform.position;
         e.Reset();
     }
 
     public static void TurnOff(Enemy e) => e.gameObject.SetActive(false);
 
-    public abstract void Reset();
+    public static void TurnOff(Enemy e, float time) => e.StartCoroutine(e.WaitToOff(e, time));
 
+    IEnumerator WaitToOff(Enemy e,float time)
+    {
+        yield return new WaitForSeconds(time);
+        TurnOff(e);
+    }
+
+    public virtual void Reset()
+    {
+        Health = maxHealth;
+        transform.position = startPos;
+    }
+
+    public void SetValues(Vector3 pos, Vector3 forw)
+    {
+        transform.position = pos;
+        transform.forward = forw;
+    }
+    
     protected virtual void Awake()
     {
         target = FindObjectOfType<Player>();

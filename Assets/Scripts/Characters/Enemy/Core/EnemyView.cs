@@ -17,7 +17,7 @@ public class EnemyView : MonoBehaviour
     public List<AudioClip> audios = new List<AudioClip>();
 
     public enum AudioEnemys {
-        Hurt, Die, Shoot, JumpingPad
+        Die, Attack, JumpingPad, Move
     }
     
     void Awake()
@@ -39,10 +39,10 @@ public class EnemyView : MonoBehaviour
     
     
     /// <summary>
-    /// 0: Hurt
-    /// 1: Die
-    /// 2: Shoot
-    /// 3: JumpingPad
+    /// 0: Die
+    /// 1: Attack
+    /// 2: JumpingPad
+    /// 3: Move
     /// </summary>
     /// <param name="sound"></param>
     public void PlaySound(AudioEnemys sound) {
@@ -50,22 +50,22 @@ public class EnemyView : MonoBehaviour
 
         switch (sound)
         {
-            case AudioEnemys.Hurt:
+            case AudioEnemys.Die:
                 selected = audios[0];
                 break;
-            case AudioEnemys.Die:
+            case AudioEnemys.Attack:
                 selected = audios[1];
                 break;
-            case AudioEnemys.Shoot:
+            case AudioEnemys.JumpingPad:
                 selected = audios[2];
                 break;
-            case AudioEnemys.JumpingPad:
+            case AudioEnemys.Move:
                 selected = audios[3];
                 break;
         }
 
         if(selected)
-            au.PlayOneShot(selected);
+            au?.PlayOneShot(selected);
     }
 
     IEnumerator ChangeColor()

@@ -26,7 +26,7 @@ public class GreenMushroom : MushroomEnemy
 
     public override void ShootBullet()
     {
-        if (!target) return;
+        if (!target || isDead) return;
         StartCoroutine(CdShoot());
         var obj = bulletPool.GetObject();
         if(!obj) return;
@@ -34,7 +34,7 @@ public class GreenMushroom : MushroomEnemy
         obj.SetValues(output.transform.position, output.transform.forward, true);
         obj.AssignTeam = GetTeam;
         
-        viewEnem.PlaySound(EnemyView.AudioEnemys.Shoot);
+        viewEnem.PlaySound(EnemyView.AudioEnemys.Attack);
         viewEnem.Au.Play();
         
         var dist = Vector3.Distance(transform.position, target.transform.position) / 3;

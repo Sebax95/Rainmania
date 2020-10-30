@@ -18,6 +18,7 @@ public abstract class HongoCaminante : Enemy
 
     public override void Reset()
     {
+        base.Reset();
         isDeath = false;
         canJump = true;
         stopCor = true;
@@ -84,9 +85,10 @@ public abstract class HongoCaminante : Enemy
         isDeath = true;
         viewEnem.ActivateBool(1, false);
         viewEnem.ActivateTriggers(1);
+        viewEnem.PlaySound(EnemyView.AudioEnemys.Die);
         rb.isKinematic = true;
         GetComponent<CapsuleCollider>().enabled = false;
-        Destroy(gameObject, 2);
+        TurnOff(this, 2f);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -97,7 +99,7 @@ public abstract class HongoCaminante : Enemy
             var jump = obj.gameObject.GetComponent<IAppliableForce>();
             if (jump != null)
             {
-                jump.ApplyForce((Vector3.up * 4) + (-transform.forward * 2), ForceMode.Impulse);
+                jump.ApplyForce((Vector3.up * 8) + (-transform.forward * 2), ForceMode.Impulse);
                 obj.Damage(damage, this);
             }
         }
@@ -129,6 +131,8 @@ public abstract class HongoCaminante : Enemy
         yield return new WaitForSeconds(cdTimer);
         canJump = true;
     }
+
+    public void Step() => viewEnem.PlaySound(EnemyView.AudioEnemys.Move);
 
     public void ChangeState(StatesEnemies state) => fsm.SetState(state);
     
