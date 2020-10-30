@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class Spawner : MonoBehaviour
 {
     public Transform player;
-    public GameObject toSpawn;
+    public Enemy toSpawn;
     public Transform spawnPos1;
     public Transform spawnPos2;
     public float spawnRate;
@@ -16,7 +16,11 @@ public class Spawner : MonoBehaviour
 
     private float _dist;
     private bool _isEnabled;
-    private List<GameObject> spawned = new List<GameObject>();
+    private List<Enemy> spawned = new List<Enemy>();
+
+    private ReusablePool<Enemy> _pool;
+
+    private void Awake() => _pool = new ReusablePool<Enemy>(toSpawn, spawnLimit, Enemy.TurnOn, Enemy.TurnOff, false);
 
     private void Start() => StartCoroutine(DetectPlayer());
 
@@ -54,21 +58,22 @@ public class Spawner : MonoBehaviour
             if (spawned.Count < spawnLimit)
             {
                 Vector3 newPos = new Vector3(spawnPos1.position.x, Random.Range(spawnPos1.position.y,spawnPos2.position.y), spawnPos1.position.z);
-                var obj = Instantiate(toSpawn, newPos, spawnPos1.rotation);
+                var obj = _pool.GetObject();
+                obj.SetValues( newPos, spawnPos1.forward);
                 spawned.Add(obj);
-                obj.GetComponent<Enemy>().spawner = this;
+                obj.spawner = this;
             }
             yield return waiter;
 
         }
     }
     
-    public void DestroyObject(GameObject obj)
+    public void DestroyObject(Enemy obj)
     {
         if (spawned.Contains(obj))
         {
             spawned.Remove(obj);
-            Destroy(obj);
+            _pool.DisableObject(obj);
         }
     }
 

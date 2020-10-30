@@ -20,6 +20,7 @@ public class Embestidor : HongoCaminante
         var waitTime = 0f;
         var tempSpeed = speed;
         viewEnem.ActivateBool(1, true);
+        viewEnem.PlaySound(EnemyView.AudioEnemys.Attack);
         speed = speed * 3;
         while (true)
         {

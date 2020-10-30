@@ -21,7 +21,10 @@ public abstract class MushroomEnemy : Enemy
 
 	public override void Reset()
 	{
-		
+		base.Reset();
+		canShoot = true;
+		isInvicible = false;
+		fsm.SetState(StatesEnemies.Idle);
 	}
 
 	protected override void Awake() {
@@ -70,7 +73,7 @@ public abstract class MushroomEnemy : Enemy
         viewEnem.PlaySound(EnemyView.AudioEnemys.Die);
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<SphereCollider>().enabled = false;
-        Destroy(gameObject, 2);
+        TurnOff(this, 2f);
     }
 
     public abstract void Shoot();

@@ -14,13 +14,13 @@ public class RedMushroom : MushroomEnemy
     }
     public override void ShootBullet()
     {
-        if(target == null) return;
+        if(target == null || isDead) return;
         StartCoroutine(CdShoot());
         var obj = bulletPool.GetObject();
         obj.SetSource(this);
         obj.SetValues(output.transform.position, output.transform.forward, false);
         obj.AssignTeam = GetTeam;
-        viewEnem.PlaySound(EnemyView.AudioEnemys.Shoot);
+        viewEnem.PlaySound(EnemyView.AudioEnemys.Attack);
         viewEnem.Au.Play();
         
         obj.useGravity = false;
