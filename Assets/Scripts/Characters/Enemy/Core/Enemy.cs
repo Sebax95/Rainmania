@@ -4,21 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Unity;
 
-public abstract class Enemy: Character, IDamager
+public abstract class Enemy : Character, IDamager
 {
-    [Header("Enemy Variables", order = 0)]
-    public float speed;
+    [Header("Enemy Variables", order = 0)] public float speed;
     public EnemyView viewEnem;
     public LayerMask groundMask;
     public GameObject SourceObject => gameObject;
     protected Vector3 startPos;
 
-    [Header("Shooting", order = 2)]
-    public float cdTimer;
+    [Header("Shooting", order = 2)] public float cdTimer;
     public Transform output;
 
-    [Header("Line Of Sight", order = 1)]
-    public float viewAngle;
+    [Header("Line Of Sight", order = 1)] public float viewAngle;
     public float viewDistance;
     public Vector3 offsetLOS;
     private Vector3 _posLOS;
@@ -31,8 +28,7 @@ public abstract class Enemy: Character, IDamager
     public bool showGizmos;
 
     public Spawner spawner;
-    [HideInInspector]
-    public Player target;
+    [HideInInspector] public Player target;
 
     public static void TurnOn(Enemy e)
     {
@@ -45,7 +41,7 @@ public abstract class Enemy: Character, IDamager
 
     public static void TurnOff(Enemy e, float time) => e.StartCoroutine(e.WaitToOff(e, time));
 
-    IEnumerator WaitToOff(Enemy e,float time)
+    IEnumerator WaitToOff(Enemy e, float time)
     {
         yield return new WaitForSeconds(time);
         TurnOff(e);
@@ -62,7 +58,7 @@ public abstract class Enemy: Character, IDamager
         transform.position = pos;
         transform.forward = forw;
     }
-    
+
     protected virtual void Awake()
     {
         target = FindObjectOfType<Player>();
@@ -95,27 +91,29 @@ public abstract class Enemy: Character, IDamager
         else
             return false;
     }
-    
+
     public override void Move(Vector2 direction)
     {
         var tempVel = rb.velocity;
         Vector3 newVel = new Vector3(direction.x * speed, tempVel.y);
         rb.velocity = newVel;
     }
-    
+
+
     public Vector3 ParabolicShot(Transform tar, float height, Vector3 gravity)
     {
         float displacementY = tar.position.y - output.position.y;
-        Vector3 displacementXZ = new Vector3(tar.position.x - output.position.x, 0, tar.transform.position.z - output.position.z);
+        Vector3 displacementXZ = new Vector3(tar.position.x - output.position.x, 0, tar.position.z - output.position.z);
 
-        float time = Mathf.Sqrt(Mathf.Abs(-2 * height / gravity.y)) + Mathf.Sqrt(Mathf.Abs(2 * (displacementY - height) / gravity.y));
+        float time = Mathf.Sqrt(Mathf.Abs(-2 * height / gravity.y)) +
+                     Mathf.Sqrt(2 * (displacementY - height) / gravity.y);
 
-        Vector3 velocityY = Vector3.up * Mathf.Sqrt(Mathf.Abs(2 * gravity.y * height));
+        Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity.y * height);
         Vector3 velocityXZ = displacementXZ / time;
 
-        return velocityXZ + velocityY * -Mathf.Sign(gravity.y);
-    }
+        return velocityXZ + (velocityY * -Mathf.Sign(gravity.y));
 
+    }
 
     private void OnDrawGizmosSelected()
     {
@@ -132,7 +130,7 @@ public abstract class Enemy: Character, IDamager
 
         Vector3 leftLimit = Quaternion.AngleAxis(-viewAngle, transform.up) * transform.forward;
         Gizmos.DrawLine(posLOS, posLOS + (leftLimit * viewDistance));
-        
+
         Vector3 upLimit = Quaternion.AngleAxis(-viewAngle, transform.right) * transform.forward;
         Gizmos.DrawLine(posLOS, posLOS + (upLimit * viewDistance));
 

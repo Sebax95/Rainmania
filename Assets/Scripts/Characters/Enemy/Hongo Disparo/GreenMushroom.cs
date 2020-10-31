@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEngine;
 
 public class GreenMushroom : MushroomEnemy
 {
-    [Header("Shoot Variables")]
-    [Range(-5f, 5f)]
+    [Header("Shoot Variables")] [Range(-5f, 5f)]
     public float altBullet = 2;
+
     private float _altBulletSave;
     public bool shootWithGravity;
 
@@ -15,11 +16,10 @@ public class GreenMushroom : MushroomEnemy
         base.Start();
         _altBulletSave = altBullet;
     }
-
     public override void Shoot()
     {
-        if(!canShoot) return;
-       
+        if (!canShoot) return;
+
         canShoot = false;
         viewEnem.ActivateTriggers(3);
     }
@@ -29,14 +29,14 @@ public class GreenMushroom : MushroomEnemy
         if (!target || isDead) return;
         StartCoroutine(CdShoot());
         var obj = bulletPool.GetObject();
-        if(!obj) return;
+        if (!obj) return;
         obj.SetSource(this);
         obj.SetValues(output.transform.position, output.transform.forward, true);
         obj.AssignTeam = GetTeam;
-        
+
         viewEnem.PlaySound(EnemyView.AudioEnemys.Attack);
         viewEnem.Au.Play();
-        
+
         var dist = Vector3.Distance(transform.position, target.transform.position) / 3;
         if (altBullet >= 0)
         {
@@ -49,7 +49,7 @@ public class GreenMushroom : MushroomEnemy
                 altBullet += -dist;
             obj.gravity.y *= -1;
         }
-        
+
         obj.useGravity = true;
         obj.rb.velocity = ParabolicShot(target.transform, altBullet, obj.gravity);
         altBullet = _altBulletSave;

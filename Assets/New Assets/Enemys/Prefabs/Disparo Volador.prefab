@@ -356,6 +356,11 @@ MonoBehaviour:
   triggersNames:
   - Shoot
   boolsNames: []
+  audios:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5319364447846255410
 GameObject:
   m_ObjectHideFlags: 0

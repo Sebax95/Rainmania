@@ -40,7 +40,6 @@ public class PoisonBullet : MonoBehaviour, IDamager
         StartCoroutine(WaitForBullet(5));
     }
 
-
     public static void Enable(PoisonBullet p) 
     {
         p.gameObject.SetActive(true);
@@ -91,13 +90,5 @@ public class PoisonBullet : MonoBehaviour, IDamager
             //DetachParticle();
             sourcePool.ReturnBullet(this);
         }
-    }
-
-    void DetachParticle()
-    {
-        var childPart = transform.GetChild(0);
-        childPart.transform.parent = null;
-        childPart.transform.position = transform.position;
-        Destroy(childPart.gameObject, 1f);
     }
 }

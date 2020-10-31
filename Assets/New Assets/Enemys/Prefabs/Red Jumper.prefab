@@ -392,6 +392,11 @@ MonoBehaviour:
   boolsNames:
   - inGround
   - Attaking
+  audios:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3098719244664361758
 GameObject:
   m_ObjectHideFlags: 0
