@@ -3054,6 +3054,7 @@ MonoBehaviour:
   groundedTreshold: 1
   groundCheckOffset: {x: 0, y: 0, z: 0}
   coyoteDuration: 0.5
+  coyoteSupressionTime: 0.5
   thisControllerPrefab: {fileID: 6141289527529480240, guid: da9a90c09023bd940933fadf419fe298,
     type: 3}
 --- !u!114 &4727816423271630307

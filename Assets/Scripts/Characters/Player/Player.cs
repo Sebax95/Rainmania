@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using CustomMSLibrary.Core;
 using CustomMSLibrary.Unity;
@@ -31,8 +32,11 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public bool Grounded { get; private set; }
 
 	public float coyoteDuration;
+	public float coyoteSupressionTime;
 	private float coyoteTimer;
 	private bool CanCoyoteJump => coyoteTimer <= coyoteDuration;
+	private bool supressCoyote = false;
+	private WaitForSeconds waitSupressCoyote;
 
 	//References
 	private MomentumKeeper momentum;
@@ -81,6 +85,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		UpdateStateOnUpgrade(UpgradesManager.Instance.Data);
 
 		coyoteTimer = 0;
+		waitSupressCoyote = new WaitForSeconds(coyoteSupressionTime);
 	}
 	private void Update() {
 		if(isDead)
@@ -95,7 +100,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 	#region Movement
 	public void Jump() {
-		if(!Grounded && !CanCoyoteJump)
+		if(!(Grounded || (CanCoyoteJump && !supressCoyote)))
 			return;
 
 		bool wasCrouched = crouched; //TEST
@@ -109,8 +114,10 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		rb.velocity = rb.velocity.ZeroY();
 		PlayerAnimator.TriggerAction(0);
 		ForceJump();
+		Grounded =false;
 		coyoteTimer = coyoteDuration + 1;
 		groundedFramesCounter = 0;
+		StartCoroutine(SupressCoyote());
 		//} else
 		//overriding.Release(this);
 	}
@@ -118,7 +125,6 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public void ForceJump() {
 		rb.AddForce(Vector3.up * forceJump, ForceMode.VelocityChange);
 		PlayerAnimator.Jump();
-
 	}
 
 	public override void Move(Vector2 direction) {
@@ -187,6 +193,12 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 			return;
 		}
 		coyoteTimer += Time.deltaTime;
+	}
+
+	private IEnumerator SupressCoyote() {
+		supressCoyote = true;
+		yield return waitSupressCoyote;
+		supressCoyote = false;
 	}
 
 	#endregion
