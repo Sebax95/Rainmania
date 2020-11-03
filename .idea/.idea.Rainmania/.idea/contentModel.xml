@@ -1135,13 +1135,6 @@
             <e p="ThirdPartyLicenses.txt" t="Include" />
           </e>
         </e>
-        <e p="Scenes" t="Include">
-          <e p="Mati Scene" t="Include">
-            <e p="shaders Test" t="Include">
-              <e p="bricks piso.shader" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="Scripts" t="Include">
           <e p="Characters" t="Include">
             <e p="Character.cs" t="Include" />

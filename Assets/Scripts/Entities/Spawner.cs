@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
 
     private float _dist;
     private bool _isEnabled;
+    [SerializeField]
     private List<Enemy> spawned = new List<Enemy>();
 
     private ReusablePool<Enemy> _pool;
