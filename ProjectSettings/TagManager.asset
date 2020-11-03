@@ -12,6 +12,7 @@ TagManager:
   - ArrowStick
   - Stairs
   - Metal
+  - Fly
   layers:
   - Default
   - TransparentFX

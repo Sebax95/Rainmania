@@ -12,6 +12,7 @@ public class FlyState : State<FlyingEnemy>
 
     public override void Enter()
     {
+        Debug.Log("entrada");
         count = 0;
         if(_owner.minRandomAmplitud != _owner.maxRandomAmplitud)
             rand = Random.Range(_owner.minRandomAmplitud, _owner.maxRandomAmplitud);
@@ -20,7 +21,6 @@ public class FlyState : State<FlyingEnemy>
     public override void UpdateState()
     {
         count = (_owner.contadorOrTime) ?  count + 1 * Time.deltaTime : Time.time;
-        Debug.Log(count);
     }
 
     public override void FixedUpdateState()
@@ -33,5 +33,11 @@ public class FlyState : State<FlyingEnemy>
         _owner.Move(_move);
     }
 
-    public override void Exit() { }
+    public override void Exit()
+    {
+        Debug.Log("salida");
+        count = 0;
+        rand = 0;
+        _move = Vector3.zero;
+    }
 }

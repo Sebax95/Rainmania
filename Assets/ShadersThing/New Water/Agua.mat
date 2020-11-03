@@ -108,7 +108,7 @@ Material:
     - _TreshBorder: 0.24
     - _UVSec: 0
     - _Waves: 2.45
-    - _WavesTess: 0.19
+    - _WavesTess: 0.41
     - _ZWrite: 1
     - __dirty: 0
     - _x: 0.02
@@ -124,4 +124,4 @@ Material:
     - _Offset: {r: -0.5, g: 0, b: 0, a: 0}
     - _ReflexColor: {r: 0, g: 0, b: 0, a: 1}
     - _TestColorWater: {r: 1, g: 0, b: 0, a: 0}
-    - _WaterColor: {r: 0, g: 1, b: 0.36862755, a: 0.43137255}
+    - _WaterColor: {r: 0, g: 1, b: 0.36862755, a: 0.6117647}
