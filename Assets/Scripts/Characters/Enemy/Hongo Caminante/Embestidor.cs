@@ -25,7 +25,8 @@ public class Embestidor : HongoCaminante
         while (true)
         {
             if (waitTime > maxTime || FrontChecker()) break;
-            waitTime += Time.deltaTime + 0.1f;
+            waitTime += 1 + Time.deltaTime;
+            Debug.Log(waitTime);
             Move(transform.forward);
             yield return new WaitForSeconds(0.1f);
         }

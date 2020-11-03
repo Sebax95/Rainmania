@@ -13,7 +13,9 @@ public class PlayerAnim : MonoBehaviour {
 	public GameObject whipRig;
 	public GameObject whip;
 	public GameObject bow;
-
+	public Transform targetHead;
+	public Transform[] anchorPos;
+	
 	[Header("Animation parameters")]
 	public string param_horizontalSpeed;
 	public string param_verticalSpeed;
@@ -62,9 +64,35 @@ public class PlayerAnim : MonoBehaviour {
 	public void SetSpeeds(Vector2 speeds) {
 		thisAnimator.SetFloat(param_horizontalSpeed, Mathf.Abs(speeds.x * directionAnimMultiplier.x));
 		thisAnimator.SetFloat(param_verticalSpeed, speeds.y * directionAnimMultiplier.y);
-
+		HeadFollower(speeds);
 	}
 
+	public void HeadFollower(Vector2 position)
+	{
+		var selected = anchorPos[0].position;
+		if(position == new Vector2(0,1))
+			selected = anchorPos[2].position;
+		else if(position == new Vector2(1,1) || position == new Vector2(-1,1))
+			selected = anchorPos[1].position;
+		else
+			selected = anchorPos[0].position;
+		targetHead.position = selected;
+		//StartCoroutine(LerpMovement(selected));
+	}
+
+	IEnumerator LerpMovement(Vector2 pos)
+	{
+		var initTimer = 0f;
+		var finalTimer = 1f;
+		var startPos = pos;
+		while (initTimer < finalTimer)
+		{
+			targetHead.position = Vector3.Lerp(targetHead.position, startPos, (initTimer / finalTimer));
+			initTimer += Time.deltaTime;
+			yield return new WaitForSeconds(0.1f);
+		}
+	}
+	
 	/// <summary>
 	/// 0: Jump
 	/// 1: Hurt
