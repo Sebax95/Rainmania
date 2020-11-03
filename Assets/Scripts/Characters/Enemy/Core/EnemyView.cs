@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class EnemyView : MonoBehaviour
 {
 
@@ -39,6 +40,7 @@ public class EnemyView : MonoBehaviour
     
     
     /// <summary>
+    /// Array Audios tiene que tener 4 si o si
     /// 0: Die
     /// 1: Attack
     /// 2: JumpingPad
@@ -68,6 +70,7 @@ public class EnemyView : MonoBehaviour
             au?.PlayOneShot(selected);
     }
 
+    public void Move() => PlaySound(AudioEnemys.Move);
     IEnumerator ChangeColor()
     {
         var maxTime = 0.3f;
