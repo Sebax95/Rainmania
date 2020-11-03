@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Unity;
 
+[SelectionBase]
 public abstract class Enemy : Character, IDamager
 {
     [Header("Enemy Variables", order = 0)] public float speed;

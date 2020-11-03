@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class FlyingEnemy : Enemy
@@ -32,13 +33,14 @@ public class FlyingEnemy : Enemy
         isDead = false;
         rb.useGravity = false;
         _fsm.SetState(StatesEnemies.Fly);
+        StartCoroutine(DieTimer());
     }
 
     protected override void Start()
     {
         base.Start();
         rb.useGravity = false;
-        StartCoroutine(DieTimer());
+        gameObject.SetActive(false);
     }
     
     public override void Move(Vector2 direction) => rb.velocity = direction;
@@ -60,11 +62,11 @@ public class FlyingEnemy : Enemy
     private void OnTriggerEnter(Collider other)
     {
         var obj = other.gameObject.GetComponent<Character>();
+        if (obj.CompareTag("Fly")) return;
         if (obj)
-        {
             obj.Damage(damage, this);
-            Die(this);
-        }
+        Die(this);
+        
     }
 
     IEnumerator DieTimer()
@@ -94,6 +96,5 @@ public class FlyingEnemy : Enemy
         var part = Instantiate(deathParticle, transform.position, Quaternion.identity);
         Destroy(part, 1);
     }
-
-    public void SoundMove() => viewEnem.PlaySound(EnemyView.AudioEnemys.Move);
+    
 }

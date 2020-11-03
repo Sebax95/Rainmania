@@ -80,16 +80,14 @@ ModelImporter:
       - time: 0.9323983
         functionName: Move
         data: 
-        objectReferenceParameter: {fileID: 8300000, guid: 376775a5453e91f46b71bded839d4791,
-          type: 3}
+        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.33096558
         functionName: Move
         data: 
-        objectReferenceParameter: {fileID: 8300000, guid: 376775a5453e91f46b71bded839d4791,
-          type: 3}
+        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
