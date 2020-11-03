@@ -132,8 +132,6 @@ public abstract class HongoCaminante : Enemy
         canJump = true;
     }
 
-    public void Step() => viewEnem.PlaySound(EnemyView.AudioEnemys.Move);
-
     public void ChangeState(StatesEnemies state) => fsm.SetState(state);
     
     public abstract IEnumerator Attack();

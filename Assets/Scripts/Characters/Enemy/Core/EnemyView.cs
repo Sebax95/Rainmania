@@ -68,6 +68,7 @@ public class EnemyView : MonoBehaviour
             au?.PlayOneShot(selected);
     }
 
+    public void Move() => PlaySound(EnemyView.AudioEnemys.Move);
     IEnumerator ChangeColor()
     {
         var maxTime = 0.3f;
