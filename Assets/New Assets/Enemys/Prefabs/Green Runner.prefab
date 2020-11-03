@@ -440,10 +440,10 @@ MonoBehaviour:
   - inGround
   - Attaking
   audios:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 3f5810c7a91c74542b60fc1f82cdfe11, type: 3}
+  - {fileID: 8300000, guid: 376775a5453e91f46b71bded839d4791, type: 3}
+  - {fileID: 8300000, guid: 376775a5453e91f46b71bded839d4791, type: 3}
+  - {fileID: 8300000, guid: 376775a5453e91f46b71bded839d4791, type: 3}
 --- !u!1 &3481109823148704038
 GameObject:
   m_ObjectHideFlags: 0
