@@ -9745,11 +9745,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7739503368036451217, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
-        type: 3}
-      propertyPath: viewDistance
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71aa9910eb27eb84ba3ab40b39f92ad2, type: 3}
 --- !u!1001 &329577545
@@ -25903,7 +25898,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839817005}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &839817007
 Camera:
   m_ObjectHideFlags: 0
@@ -29698,6 +29693,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 374926877}
     m_Modifications:
+    - target: {fileID: 1242166670, guid: 71aa9910eb27eb84ba3ab40b39f92ad2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242166670, guid: 71aa9910eb27eb84ba3ab40b39f92ad2, type: 3}
+      propertyPath: MinDistance
+      value: 1.1305084
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242166670, guid: 71aa9910eb27eb84ba3ab40b39f92ad2, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2143160431509541361, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
         type: 3}
       propertyPath: m_Name
@@ -37682,6 +37689,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 374926877}
     m_Modifications:
+    - target: {fileID: 2967099489121580718, guid: afcd9a290f5eede459dd04adbb910503,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3867458716645398585, guid: afcd9a290f5eede459dd04adbb910503,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -54578,6 +54590,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1211525386}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1745941139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9082494020295089658, guid: bea34d7df4530b04fb93325fa263f03f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1007148113}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &1745941155
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745941139}
+  m_Enabled: 1
 --- !u!1001 &1748379085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65540,6 +65566,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1056104652}
     m_Modifications:
+    - target: {fileID: 1242166670, guid: 71aa9910eb27eb84ba3ab40b39f92ad2, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2143160431509541361, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
         type: 3}
       propertyPath: m_Name
