@@ -3084,13 +3084,14 @@ MonoBehaviour:
   - inGround
   - isDead
   - isCrouched
-  hurtSound: {fileID: 8300000, guid: 332d59ab0c364f249b5edf8e94ef82a9, type: 3}
-  jumpSound: {fileID: 8300000, guid: b1faeeed3f3080b4daf9b7c15b318199, type: 3}
+  hurtSound: {fileID: 8300000, guid: 8bc71eed61116f144874351b840f62f7, type: 3}
+  jumpSound: {fileID: 8300000, guid: 183782120296fd240b2c95aac7e9092b, type: 3}
   whipSound: {fileID: 8300000, guid: fee3407e6d091dd4cb39788f811138e1, type: 3}
   bowSound: {fileID: 8300000, guid: f07ed3b4abcd5834f921bf3ee6518a58, type: 3}
-  dieSound: {fileID: 0}
+  dieSound: {fileID: 8300000, guid: 567c251ca98ba33468b759aeeae7c534, type: 3}
   stepSoundsGround:
-  - {fileID: 8300000, guid: c8a94c5ad2610ac4a98934124a91b95b, type: 3}
+  - {fileID: 8300000, guid: 0817b3f4566ba3c4aa091ba14ed2c6c1, type: 3}
+  - {fileID: 8300000, guid: 33104992ffed82a48aae7e8d8011dcbd, type: 3}
   stepSoundsWater:
   - {fileID: 8300000, guid: 641d5825da401ed43966ce66827890a9, type: 3}
 --- !u!114 &8736888454845942043
