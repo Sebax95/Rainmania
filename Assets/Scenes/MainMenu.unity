@@ -98,7 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 1dfd542d3c6bf9e46b9741e416c61118,
+  m_LightingDataAsset: {fileID: 112000000, guid: dc692b2d56a08e7418c6a331cc5f5ee3,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -284,7 +284,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &45748732
 PrefabInstance:
@@ -1072,6 +1072,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1126,6 +1131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -1316,6 +1326,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Pared Ca\xF1eria (4)"
       objectReference: {fileID: 0}
+    - target: {fileID: 393016817705733385, guid: 8b28dfaaf223bf24cb3764978e28f09e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5333425274289467938, guid: 8b28dfaaf223bf24cb3764978e28f09e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1476,6 +1491,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1530,6 +1550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -2134,6 +2159,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2188,6 +2218,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -2666,6 +2701,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2720,6 +2760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -4048,6 +4093,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cascada Salida (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3007237437498889594, guid: 28620cf86cb35ad45895fc557b6334b9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3972941753497721899, guid: 28620cf86cb35ad45895fc557b6334b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4213,6 +4263,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4267,6 +4322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -4674,7 +4734,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &621399712
 Transform:
@@ -4694,7 +4754,7 @@ Transform:
   - {fileID: 139320591}
   - {fileID: 1732592267}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &631464964 stripped
 Transform:
@@ -4863,6 +4923,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cascada (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7330722966481460727, guid: 6c49ab3faba89374b8bf4df7fb5afdc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c49ab3faba89374b8bf4df7fb5afdc3, type: 3}
 --- !u!4 &676181536 stripped
@@ -4947,6 +5012,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cascada (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7330722966481460727, guid: 6c49ab3faba89374b8bf4df7fb5afdc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c49ab3faba89374b8bf4df7fb5afdc3, type: 3}
@@ -5037,6 +5107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5091,6 +5166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -5196,6 +5276,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5250,6 +5335,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -5604,6 +5694,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781789808}
   m_CullTransparentMesh: 0
+--- !u!1 &784109135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 784109137}
+  - component: {fileID: 784109136}
+  m_Layer: 0
+  m_Name: Directional Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &784109136
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784109135}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.54
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &784109137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784109135}
+  m_LocalRotation: {x: 0.3054191, y: -0.10747824, z: -0.18635812, w: 0.9275981}
+  m_LocalPosition: {x: 88.04472, y: 4.512004, z: -1.7380896}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 31.773, y: -21.62, z: -28.94}
 --- !u!1001 &785073907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5701,6 +5883,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5755,6 +5942,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -5839,6 +6031,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Cascada '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7330722966481460727, guid: 6c49ab3faba89374b8bf4df7fb5afdc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c49ab3faba89374b8bf4df7fb5afdc3, type: 3}
@@ -6249,6 +6446,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6303,6 +6505,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -6538,6 +6745,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6592,6 +6804,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -7131,6 +7348,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7185,6 +7407,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -7571,6 +7798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7625,6 +7857,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -7815,6 +8052,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7870,6 +8112,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -7888,6 +8135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Water (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -7943,6 +8195,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -8588,6 +8845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cascada (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7330722966481460727, guid: 6c49ab3faba89374b8bf4df7fb5afdc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c49ab3faba89374b8bf4df7fb5afdc3, type: 3}
@@ -9283,6 +9545,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9337,6 +9604,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -9430,45 +9702,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1273574606}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1292205988 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4592869205239133084, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-    type: 3}
-  m_PrefabInstance: {fileID: 4592869204142435863}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1292205991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292205988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strength: 0.25
-  useScattering: 0
-  overrideScattering: 0
-  overridingScattering: 0.5
-  scatteringBias: 0
-  useColorTemperatureTint: 0
-  overrideColor: 0
-  overridingColor: {r: 1, g: 1, b: 1, a: 1}
-  useShadow: 1
-  useCookie: 1
-  cookieMapRenderTexture: {fileID: 0}
-  enableOutOfPhaseColor: 0
-  outOfPhaseColorStrength: 0.1
-  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
-  customDistanceFalloffThreshold: 0.5
-  customDistanceFalloffPower: 2
-  customCookieDistanceFalloffStartThreshold: 0.1
-  customCookieDistanceFalloffEndThreshold: 0.25
-  customCookieDistanceFalloffPower: 2
-  customAngularFalloffThreshold: 0.8
-  customAngularFalloffPower: 2
 --- !u!1001 &1296226254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9480,6 +9713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Water (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -9535,6 +9773,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -9722,6 +9965,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9776,6 +10024,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -9920,7 +10173,7 @@ RectTransform:
   - {fileID: 781789809}
   - {fileID: 820992322}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10363,6 +10616,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Pared Ca\xF1eria (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 393016817705733385, guid: 8b28dfaaf223bf24cb3764978e28f09e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5333425274289467938, guid: 8b28dfaaf223bf24cb3764978e28f09e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10432,6 +10690,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10487,6 +10750,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -10505,6 +10773,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cascada Salida (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007237437498889594, guid: 28620cf86cb35ad45895fc557b6334b9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3972941753497721899, guid: 28620cf86cb35ad45895fc557b6334b9,
         type: 3}
@@ -10586,6 +10859,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10640,6 +10918,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -10901,7 +11184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 13.269001, y: 0, z: 0}
 --- !u!114 &1427357610
 MonoBehaviour:
@@ -11026,6 +11309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11080,6 +11368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -11371,6 +11664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Cascada Salida '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007237437498889594, guid: 28620cf86cb35ad45895fc557b6334b9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3972941753497721899, guid: 28620cf86cb35ad45895fc557b6334b9,
         type: 3}
@@ -11826,6 +12124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cascada (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7330722966481460727, guid: 6c49ab3faba89374b8bf4df7fb5afdc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c49ab3faba89374b8bf4df7fb5afdc3, type: 3}
 --- !u!1 &1548523294
@@ -11976,6 +12279,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12030,6 +12338,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -12311,6 +12624,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12365,6 +12683,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -12449,6 +12772,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cascada (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7330722966481460727, guid: 6c49ab3faba89374b8bf4df7fb5afdc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c49ab3faba89374b8bf4df7fb5afdc3, type: 3}
@@ -12549,6 +12877,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12603,6 +12936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -12921,7 +13259,7 @@ PrefabInstance:
     - target: {fileID: 4445801479032808352, guid: 1fdfbb659653c8a43aaf71d5e4ae2ae2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4445801479032808352, guid: 1fdfbb659653c8a43aaf71d5e4ae2ae2,
         type: 3}
@@ -12969,7 +13307,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1732592267
 Transform:
@@ -13258,6 +13596,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13313,6 +13656,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -13337,6 +13685,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Water (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -13392,6 +13745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -13668,6 +14026,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13722,6 +14085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -14042,7 +14410,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1906236829
 PrefabInstance:
@@ -14226,6 +14594,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14280,6 +14653,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -14390,6 +14768,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "Pared Ca\xF1eria (3)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 393016817705733385, guid: 8b28dfaaf223bf24cb3764978e28f09e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5333425274289467938, guid: 8b28dfaaf223bf24cb3764978e28f09e,
         type: 3}
@@ -14640,6 +15023,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3706597772605731914, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4082250488410557137, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14694,6 +15082,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996283236742193717, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6654062099089942452, guid: 3321afcb6031e8c4a8c92ee4be7b61bd,
         type: 3}
@@ -15479,120 +15872,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1708198252}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4592869204142435863
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -41.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.41281587
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.2746205
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.28925818
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.8188384
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 56.609
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -382.535
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133082, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 26.664001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.9339623
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.88474303
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.6828498
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_BounceIntensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_Lightmapping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133083, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133084, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_Name
-      value: Directional Light
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592869205239133084, guid: c78486afdf3b4ea40bb5a6d8a468eb64,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c78486afdf3b4ea40bb5a6d8a468eb64, type: 3}
 --- !u!1001 &7602462227730693427
 PrefabInstance:
   m_ObjectHideFlags: 0
