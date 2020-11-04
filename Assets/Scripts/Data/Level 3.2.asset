@@ -28,7 +28,7 @@ MonoBehaviour:
     value: 0.5
   boolProperties:
   - name: arrowCanPlatform
-    value: 0
+    value: 1
   - name: arrowCanAnchor
     value: 1
   - name: whipAcquired
