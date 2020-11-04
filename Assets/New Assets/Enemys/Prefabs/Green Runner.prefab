@@ -441,10 +441,14 @@ MonoBehaviour:
   - inGround
   - Attaking
   audios:
-  - {fileID: 8300000, guid: 3f5810c7a91c74542b60fc1f82cdfe11, type: 3}
+  - {fileID: 8300000, guid: 5bc5e39a50438cd43961248238db8e94, type: 3}
   - {fileID: 8300000, guid: 376775a5453e91f46b71bded839d4791, type: 3}
   - {fileID: 8300000, guid: 376775a5453e91f46b71bded839d4791, type: 3}
   - {fileID: 8300000, guid: c8a94c5ad2610ac4a98934124a91b95b, type: 3}
+  stepRandom:
+  - {fileID: 8300000, guid: 3f5810c7a91c74542b60fc1f82cdfe11, type: 3}
+  stepWaterRandom:
+  - {fileID: 8300000, guid: 376775a5453e91f46b71bded839d4791, type: 3}
 --- !u!82 &1242166670
 AudioSource:
   m_ObjectHideFlags: 0
