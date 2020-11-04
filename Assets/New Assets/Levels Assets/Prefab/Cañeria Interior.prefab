@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8483372301425982491}
   - component: {fileID: 2976326616826039234}
   - component: {fileID: 5268414639607502063}
-  m_Layer: 0
+  - component: {fileID: 2998037190742556065}
+  - component: {fileID: 4435338345462736600}
+  m_Layer: 14
   m_Name: "Ca\xF1eria Interior"
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2998037190742556065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2474748735171909533}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 0.28969097, z: 0.4199108}
+  m_Center: {x: 0, y: 0.9859884, z: -0.9436906}
+--- !u!65 &4435338345462736600
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2474748735171909533}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 0.3417511, z: 0.27663946}
+  m_Center: {x: 0, y: -0.9599583, z: 0.9908893}

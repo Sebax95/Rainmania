@@ -10,7 +10,7 @@ Material:
   m_Name: Water -x
   m_Shader: {fileID: 4800000, guid: 7b709479d73d24e448c9fe1e5b12757a, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -21,6 +21,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _Border: 2.9
+    - _BorderIntensity: 0
     - _Divide: 21.99
     - _ScalarSpeed: 1
     - _Speed: 0.34
@@ -30,8 +31,9 @@ Material:
     - _WavesTess: 0.34
     - __dirty: 0
     m_Colors:
+    - _BorderColor: {r: 0, g: 0.42745098, b: 1, a: 1}
     - _Espuma: {r: 1, g: 1, b: 1, a: 0}
     - _EspumaInterna: {r: 1, g: 1, b: 1, a: 0}
     - _Offset: {r: 0.5, g: 0, b: 0, a: 0}
     - _ReflexColor: {r: 0.3237356, g: 1, b: 0, a: 1}
-    - _WaterColor: {r: 0, g: 1, b: 0.5080173, a: 0.74509805}
+    - _WaterColor: {r: 0.4627451, g: 0.93333334, b: 0.89411765, a: 0.9411765}
