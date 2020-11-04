@@ -16,7 +16,13 @@ public class EnemyView : MonoBehaviour
     [Header("Audio")]
     [SerializeField]
     public List<AudioClip> audios = new List<AudioClip>();
+    public List<AudioClip> stepRandom = new List<AudioClip>();
+    public List<AudioClip> stepWaterRandom = new List<AudioClip>();
 
+    public bool InWater { get; set;}
+    private AudioClip RandomGroundStep => stepRandom[Random.Range(0, stepRandom.Count)];
+    private AudioClip RandomWaterStep => stepRandom[Random.Range(0, stepWaterRandom.Count)];
+    
     public enum AudioEnemys {
         Die, Attack, JumpingPad, Move
     }
@@ -62,7 +68,7 @@ public class EnemyView : MonoBehaviour
                 selected = audios[2];
                 break;
             case AudioEnemys.Move:
-                selected = audios[3];
+                selected = InWater ? RandomWaterStep : RandomGroundStep;
                 break;
         }
 

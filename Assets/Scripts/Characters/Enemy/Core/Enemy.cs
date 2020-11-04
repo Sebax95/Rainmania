@@ -52,6 +52,7 @@ public abstract class Enemy : Character, IDamager
     {
         Health = maxHealth;
         transform.position = startPos;
+        isDead = false;
     }
 
     public void SetValues(Vector3 pos, Vector3 forw)

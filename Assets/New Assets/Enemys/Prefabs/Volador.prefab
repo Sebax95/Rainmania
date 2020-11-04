@@ -467,7 +467,7 @@ MonoBehaviour:
   spawner: {fileID: 0}
   target: {fileID: 0}
   lifeTime: 5
-  contadorOrTime: 1
+  contadorOrTime: 0
   minRandomAmplitud: 0
   maxRandomAmplitud: 0
   frecuency: 0.82

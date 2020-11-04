@@ -12,8 +12,7 @@ public class FlyingEnemy : Enemy
     public float maxRandomAmplitud;
     public float frecuency, amplitud;
     public int damage;
-
-    private bool _isDead;
+    
     private FSM<FlyingEnemy> _fsm;
     
     public GameObject deathParticle;
@@ -21,7 +20,7 @@ public class FlyingEnemy : Enemy
     protected override void Awake()
     {
         base.Awake();
-        _isDead = false;
+        isDead = false;
         _fsm = new FSM<FlyingEnemy>(this);
         _fsm.AddState(StatesEnemies.Fly, new FlyState(this, _fsm));
         _fsm.SetState(StatesEnemies.Fly);
@@ -30,10 +29,9 @@ public class FlyingEnemy : Enemy
     public override void Reset()
     {
         base.Reset();
-        isDead = false;
         rb.useGravity = false;
         _fsm.SetState(StatesEnemies.Fly);
-        StartCoroutine(DieTimer());
+        StartCoroutine(DieTimer());  
     }
 
     protected override void Start()
@@ -49,13 +47,13 @@ public class FlyingEnemy : Enemy
 
     private void Update()
     {
-        if(_isDead) return;
+        if (isDead) return;
         _fsm.Update();
     }
 
     private void FixedUpdate()
     {
-        if(_isDead) return;
+        if(isDead) return;
         _fsm.FixedUpdate();
     }
 
@@ -65,6 +63,7 @@ public class FlyingEnemy : Enemy
         if (obj.CompareTag("Fly")) return;
         if (obj)
             obj.Damage(damage, this);
+        StopCoroutine(DieTimer());
         Die(this);
         
     }
@@ -86,7 +85,7 @@ public class FlyingEnemy : Enemy
     
     public override void Die(IDamager source)
     {
-        _isDead = true;
+        isDead = true;
         viewEnem.PlaySound(EnemyView.AudioEnemys.Die);
         if(spawner)
             spawner.DestroyObject(this);
