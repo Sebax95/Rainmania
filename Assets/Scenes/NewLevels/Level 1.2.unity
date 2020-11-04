@@ -29704,7 +29704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1242166670, guid: 71aa9910eb27eb84ba3ab40b39f92ad2, type: 3}
       propertyPath: MinDistance
-      value: 1.1305084
+      value: 0.18833447
       objectReference: {fileID: 0}
     - target: {fileID: 1242166670, guid: 71aa9910eb27eb84ba3ab40b39f92ad2, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
@@ -29770,6 +29770,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3109421488539365527, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: stepRandom.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109421488539365527, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: stepWaterRandom.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109421488539365527, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: stepRandom.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f5810c7a91c74542b60fc1f82cdfe11, type: 3}
+    - target: {fileID: 3109421488539365527, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: stepWaterRandom.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 376775a5453e91f46b71bded839d4791, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71aa9910eb27eb84ba3ab40b39f92ad2, type: 3}
 --- !u!1001 &953287330
@@ -37694,11 +37714,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 374926877}
     m_Modifications:
-    - target: {fileID: 2967099489121580718, guid: afcd9a290f5eede459dd04adbb910503,
-        type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3867458716645398585, guid: afcd9a290f5eede459dd04adbb910503,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37754,25 +37769,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3867458716645398585, guid: afcd9a290f5eede459dd04adbb910503,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3867458716645398585, guid: afcd9a290f5eede459dd04adbb910503,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5000001
-      objectReference: {fileID: 0}
     - target: {fileID: 4530666970153173635, guid: afcd9a290f5eede459dd04adbb910503,
         type: 3}
       propertyPath: m_Name
       value: Lanzador Rojo
-      objectReference: {fileID: 0}
-    - target: {fileID: 7246049895362126012, guid: afcd9a290f5eede459dd04adbb910503,
-        type: 3}
-      propertyPath: viewDistance
-      value: 8.87
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcd9a290f5eede459dd04adbb910503, type: 3}
