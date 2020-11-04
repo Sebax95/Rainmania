@@ -35,7 +35,7 @@ public class PoisonBullet : MonoBehaviour, IDamager
         isChildRotating = false;
         rb.useGravity = false;
         gravity = Physics.gravity;
-        transform.forward = Vector3.zero;
+        transform.rotation = Quaternion.identity;
         rb.velocity = Vector3.zero;
         StartCoroutine(WaitForBullet(5));
     }

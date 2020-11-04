@@ -27,8 +27,6 @@ public class StairDrop : MonoBehaviour, IDamageable
     {
         if (trigger)
             transform.position = transform.position + new Vector3(0, -1, 0) * speed;
-
-        Debug.Log(trigger);
     }
 
    
