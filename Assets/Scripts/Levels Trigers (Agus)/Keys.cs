@@ -8,7 +8,10 @@ public class Keys : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-    //    if (other.CompareTag("Player"))
-    //        EventsManager.TriggerEvent(EventType.GP_KeyTipe, key);
+        if (other.CompareTag("Player"))
+        {
+            EventsManager.TriggerEvent(EventsAgus.GP_KeyTipe, key);
+            Destroy(this.gameObject);
+        }
     }
 }

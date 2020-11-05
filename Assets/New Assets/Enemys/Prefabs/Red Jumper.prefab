@@ -318,7 +318,7 @@ MonoBehaviour:
   stopCor: 0
   frontCheckerLayer:
     serializedVersion: 2
-    m_Bits: 49152
+    m_Bits: 49665
 --- !u!1 &2051574716539584795
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +398,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  stepRandom: []
+  stepWaterRandom: []
 --- !u!82 &5886780892531963428
 AudioSource:
   m_ObjectHideFlags: 0
