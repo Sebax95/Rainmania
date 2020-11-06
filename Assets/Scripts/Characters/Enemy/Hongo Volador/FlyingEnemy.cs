@@ -59,8 +59,8 @@ public class FlyingEnemy : Enemy
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Fly") || other.gameObject.layer == 0 || other.gameObject.layer == 9) return;
         var obj = other.gameObject.GetComponent<Character>();
-        if (obj.CompareTag("Fly")) return;
         if (obj)
             obj.Damage(damage, this);
         StopCoroutine(DieTimer());
@@ -78,7 +78,6 @@ public class FlyingEnemy : Enemy
     {
         var result = base.Damage(amount, source);
         if (!result) return result;
-        viewEnem.DamageFeedback();
 
         return result;
     }

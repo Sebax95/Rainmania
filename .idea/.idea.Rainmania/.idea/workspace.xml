@@ -51,10 +51,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/HongoCaminante.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/States/FlyState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/FlyingEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/EnemyView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DetectorZone.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemysRespawn.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/FlyingEnemy.cs" />
       </list>
     </option>
   </component>
@@ -142,6 +142,7 @@
       <workItem from="1604348189546" duration="9828000" />
       <workItem from="1604512672307" duration="7407000" />
       <workItem from="1604607766742" duration="15879000" />
+      <workItem from="1604685485628" duration="2186000" />
     </task>
     <servers />
   </component>

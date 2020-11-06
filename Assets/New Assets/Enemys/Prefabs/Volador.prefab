@@ -434,6 +434,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  stepRandom: []
+  stepWaterRandom: []
 --- !u!114 &6089467153419627069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,8 +468,8 @@ MonoBehaviour:
   showGizmos: 1
   spawner: {fileID: 0}
   target: {fileID: 0}
-  lifeTime: 5
-  contadorOrTime: 0
+  lifeTime: 30
+  contadorOrTime: 1
   minRandomAmplitud: 0
   maxRandomAmplitud: 0
   frecuency: 0.82

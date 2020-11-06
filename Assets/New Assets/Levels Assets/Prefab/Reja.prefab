@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8711486234344867354}
   - component: {fileID: 4541802630726187120}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Reja
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4763369608322732111}
   - component: {fileID: 3296646886848147279}
   - component: {fileID: 2021564509816169889}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Rectangle001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
