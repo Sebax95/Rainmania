@@ -1196,6 +1196,7 @@
             <e p="Team.cs" t="Include" />
             <e p="UpgradesData.cs" t="Include" />
           </e>
+          <e p="DetectorZone.cs" t="Include" />
           <e p="EnemysRespawn.cs" t="Include" />
           <e p="Entities" t="Include">
             <e p="CollapsablePlatform.cs" t="Include" />
@@ -1213,6 +1214,10 @@
             <e p="Pool.cs" t="Include" />
           </e>
           <e p="Interfaces.cs" t="Include" />
+          <e p="Levels Trigers (Agus)" t="Include">
+            <e p="ResetEffect.cs" t="Include" />
+            <e p="StairDrop.cs" t="Include" />
+          </e>
           <e p="MainMenu.cs" t="Include" />
           <e p="Managers" t="Include">
             <e p="ControllerHandler.cs" t="Include" />
@@ -1257,7 +1262,6 @@
               <e p="MiscUnityUtilities.cs" t="Include" />
             </e>
           </e>
-          <e p="ResetEffect.cs" t="Include" />
           <e p="Scripts.asmdef" t="Include" />
           <e p="Test" t="Include">
             <e p="Test_Swinger.cs" t="Include" />
