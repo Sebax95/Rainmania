@@ -74,12 +74,17 @@ namespace AmplifyShaderEditor
 		[MenuItem( "Assets/Create/Amplify Shader/Legacy/Lit", false, 85 )]
 		public static void ApplyTemplateLegacyLit()
 		{
-			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "b91cc2aa59161c240a3fcddc329560ff" );
+			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "ed95fe726fd7b4644bb42f4d1ddd2bcd" );
 		}
 		[MenuItem( "Assets/Create/Amplify Shader/Templates/Unlit", false, 85 )]
 		public static void ApplyTemplateTemplatesUnlit()
 		{
-			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "26f8b577e945e7c4badb30b7d80b6d58" );
+			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "07f9b0fbbdab30d4e9ea6f6ca8f21646" );
+		}
+		[MenuItem( "Assets/Create/Amplify Shader/ASETemplateShaders/UsePassUnlit", false, 85 )]
+		public static void ApplyTemplateASETemplateShadersUsePassUnlit()
+		{
+			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "88d4695f530db2a46ae0f0a37e3684b4" );
 		}
 	}
 }
