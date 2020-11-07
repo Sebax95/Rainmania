@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CharacterCarcaj Mask 2
+  m_Name: CharacterKnifeMask
   m_Shader: {fileID: 4800000, guid: cc53e40cac73f5046808580379fe45ec, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
