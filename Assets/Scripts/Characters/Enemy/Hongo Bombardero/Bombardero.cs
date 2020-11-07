@@ -6,29 +6,25 @@ using Random = UnityEngine.Random;
 
 public class Bombardero : Enemy
 {
-    private bool _isDead;
     private bool _canShoot;
     public int damage;
     private FSM<Bombardero> _fsm;
     
-    public GameObject bulletPref;
-
     public Vector2 leftPos;
     public Vector2 rightPos;
 
     public Vector3 offsetLeft;
     public Vector3 offsetRight;
-
+    
     public GameObject deathParticle;
 
     public override void Reset()
     {    
         base.Reset();
-        _isDead = false;
+        isDead = false;
         rb.useGravity = false;
         offsetLeft = transform.position - (Vector3)leftPos;
         offsetRight = transform.position - (Vector3)rightPos;
-
         _fsm.SetState(StatesEnemies.Fly);
         StartCoroutine(ShootPlayer());
     }
@@ -39,7 +35,7 @@ public class Bombardero : Enemy
         base.Awake();
         _fsm = new FSM<Bombardero>(this);
         _fsm.AddState(StatesEnemies.Fly, new MovingState(this, _fsm));
-        _isDead = false;
+        isDead = false;
     }
 
     protected override void Start()
@@ -54,7 +50,7 @@ public class Bombardero : Enemy
     
     private void FixedUpdate()
     {
-        if(_isDead) return;
+        if(isDead) return;
         _fsm.FixedUpdate();
     }
 
@@ -71,7 +67,7 @@ public class Bombardero : Enemy
 
     public override void Die(IDamager source)
     {
-        _isDead = true;
+        isDead = true;
         viewEnem.PlaySound(EnemyView.AudioEnemys.Die);
         var part = Instantiate(deathParticle, transform.position, Quaternion.identity);
         Destroy(part, 1);
@@ -84,7 +80,7 @@ public class Bombardero : Enemy
 
     IEnumerator ShootPlayer()
     {
-        while (!_isDead)
+        while (!isDead)
         {
             viewEnem.ActivateTriggers(0);
             yield return new WaitForSeconds(cdTimer);
@@ -94,10 +90,11 @@ public class Bombardero : Enemy
     public void Shoot()
     {
         viewEnem.PlaySound(EnemyView.AudioEnemys.Attack);
-        //TODO: implentar pool 
-        var obj = Instantiate(bulletPref, output.transform.position, Quaternion.identity);
-        obj.transform.forward = Vector3.down; 
-        obj.GetComponent<PoisonBullet>().AssignTeam = GetTeam;
+        var obj = bulletPool.GetObject();
+        if (!obj) return;
+        obj.SetSource(this);
+        obj.SetValues(output.transform.position, output.transform.forward, false);
+        obj.AssignTeam = GetTeam;
     }
 
     private void OnDrawGizmos()
@@ -116,4 +113,6 @@ public class Bombardero : Enemy
             Gizmos.DrawSphere(offsetRight, 0.2f);
         }
     }
+    
+
 }
