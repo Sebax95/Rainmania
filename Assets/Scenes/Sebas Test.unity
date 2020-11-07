@@ -1241,19 +1241,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 832906048, guid: bea34d7df4530b04fb93325fa263f03f, type: 3}
-      propertyPath: m_RigLayers.Array.data[0].active
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1558272633, guid: bea34d7df4530b04fb93325fa263f03f, type: 3}
-      propertyPath: drawBones
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 799791941467861062, guid: bea34d7df4530b04fb93325fa263f03f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 770632e9c12a77d43a29501ed4b85a54, type: 2}
     - target: {fileID: 3943775699194359029, guid: bea34d7df4530b04fb93325fa263f03f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1308,16 +1295,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7773105215248390546, guid: bea34d7df4530b04fb93325fa263f03f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.631
-      objectReference: {fileID: 0}
-    - target: {fileID: 7773105215248390546, guid: bea34d7df4530b04fb93325fa263f03f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.136
       objectReference: {fileID: 0}
     - target: {fileID: 9082494020295089658, guid: bea34d7df4530b04fb93325fa263f03f,
         type: 3}

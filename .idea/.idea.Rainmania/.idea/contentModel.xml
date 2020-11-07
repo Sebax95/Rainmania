@@ -1294,6 +1294,10 @@
             <e p="AuraBullet.shader" t="Include" />
             <e p="BulletShader.shader" t="Include" />
           </e>
+          <e p="Character" t="Include">
+            <e p="CharacterBody.shader" t="Include" />
+            <e p="CharacterBodyMask.shader" t="Include" />
+          </e>
           <e p="EnemyShader" t="Include">
             <e p="Embestidor" t="Include">
               <e p="EnemyShaderTest.shader" t="Include" />
