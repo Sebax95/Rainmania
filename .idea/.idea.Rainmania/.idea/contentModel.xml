@@ -1205,6 +1205,7 @@
             <e p="Spawner.cs" t="Include" />
             <e p="UpgraderEntity.cs" t="Include" />
           </e>
+          <e p="EventsManager.cs" t="Include" />
           <e p="Feedback" t="Include">
             <e p="Scripts ref.asmref" t="Include" />
             <e p="UIManager.cs" t="Include" />
@@ -1215,6 +1216,8 @@
           </e>
           <e p="Interfaces.cs" t="Include" />
           <e p="Levels Trigers (Agus)" t="Include">
+            <e p="Doors.cs" t="Include" />
+            <e p="Keys.cs" t="Include" />
             <e p="ResetEffect.cs" t="Include" />
             <e p="StairDrop.cs" t="Include" />
           </e>
@@ -1290,6 +1293,10 @@
           <e p="Bullet" t="Include">
             <e p="AuraBullet.shader" t="Include" />
             <e p="BulletShader.shader" t="Include" />
+          </e>
+          <e p="Character" t="Include">
+            <e p="CharacterBody.shader" t="Include" />
+            <e p="CharacterBodyMask.shader" t="Include" />
           </e>
           <e p="EnemyShader" t="Include">
             <e p="Embestidor" t="Include">
