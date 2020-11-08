@@ -40,21 +40,21 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Visual/TrailWhipEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/RedMushroom.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/Bombardero.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/Saltador.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/PoisonBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/GreenMushroom.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/MushroomEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/Embestidor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Entities/Spawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerAnim.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/HongoCaminante.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/States/FlyState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/EnemyView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DetectorZone.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemysRespawn.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/FlyingEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/PoisonBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/MushroomEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/Bombardero.cs" />
       </list>
     </option>
   </component>
@@ -143,6 +143,7 @@
       <workItem from="1604512672307" duration="7407000" />
       <workItem from="1604607766742" duration="15879000" />
       <workItem from="1604685485628" duration="3477000" />
+      <workItem from="1604781879129" duration="1722000" />
     </task>
     <servers />
   </component>

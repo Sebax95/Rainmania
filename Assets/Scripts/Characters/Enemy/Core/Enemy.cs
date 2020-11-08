@@ -30,6 +30,8 @@ public abstract class Enemy : Character, IDamager
 
     public Spawner spawner;
     [HideInInspector] public Player target;
+    public ReusablePool<PoisonBullet> bulletPool;
+    public PoisonBullet bulletPref;
 
     public static void TurnOn(Enemy e)
     {
@@ -37,6 +39,9 @@ public abstract class Enemy : Character, IDamager
         e.startPos = e.transform.position;
         e.Reset();
     }
+    
+    public void ReturnBullet(PoisonBullet p) => bulletPool.DisableObject(p);
+
 
     public static void TurnOff(Enemy e) => e.gameObject.SetActive(false);
 
@@ -66,6 +71,8 @@ public abstract class Enemy : Character, IDamager
         target = FindObjectOfType<Player>();
         viewEnem = GetComponent<EnemyView>();
         rb = GetComponent<Rigidbody>();
+        if(bulletPref!= null)
+            bulletPool = new ReusablePool<PoisonBullet>(bulletPref, 5, PoisonBullet.Enable, PoisonBullet.Disable, false);
     }
 
     public bool LineOfSight()
@@ -100,7 +107,6 @@ public abstract class Enemy : Character, IDamager
         Vector3 newVel = new Vector3(direction.x * speed, tempVel.y);
         rb.velocity = newVel;
     }
-
 
     public Vector3 ParabolicShot(Transform tar, float height, Vector3 gravity)
     {
@@ -138,5 +144,11 @@ public abstract class Enemy : Character, IDamager
 
         Vector3 downLimit = Quaternion.AngleAxis(viewAngle, transform.right) * transform.forward;
         Gizmos.DrawLine(posLOS, posLOS + (downLimit * viewDistance));
+    }
+    
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        bulletPool?.Clear();
     }
 }

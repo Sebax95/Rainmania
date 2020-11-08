@@ -18,7 +18,7 @@ public class PoisonBullet : MonoBehaviour, IDamager
     private Transform auraChild;
     public bool isChildRotating; 
     public Team GetTeam => AssignTeam;
-    private MushroomEnemy sourcePool;
+    private Enemy sourcePool;
 
     private void Awake()
     {
@@ -53,7 +53,7 @@ public class PoisonBullet : MonoBehaviour, IDamager
         sourcePool.ReturnBullet(this);
     }
 
-    public void SetSource(MushroomEnemy source) => sourcePool = source;
+    public void SetSource(Enemy source) => sourcePool = source;
     
     public void SetValues(Vector3 pos, Vector3 forw, bool canRotate)
     {

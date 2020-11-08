@@ -1295,8 +1295,12 @@
             <e p="BulletShader.shader" t="Include" />
           </e>
           <e p="Character" t="Include">
-            <e p="CharacterBody.shader" t="Include" />
-            <e p="CharacterBodyMask.shader" t="Include" />
+            <e p="Mask" t="Include">
+              <e p="CharacterBodyMask.shader" t="Include" />
+            </e>
+            <e p="Textures" t="Include">
+              <e p="CharacterBody.shader" t="Include" />
+            </e>
           </e>
           <e p="EnemyShader" t="Include">
             <e p="Embestidor" t="Include">
