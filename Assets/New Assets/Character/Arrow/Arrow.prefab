@@ -241,10 +241,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  asPlatformLifetime: 10
-  droppedArrowLifetime: 2
-  maxFlightTime: 0.75
-  grappleTime: 10
+  totalLifeTime: 6
+  maxFlightTime: 0.85
+  canPlatform: 0
+  canAnchor: 1
   wallInpact: {fileID: 6646829585929682574}
   metalInpact: {fileID: 2415914137449952218}
 --- !u!54 &5142224958579746064

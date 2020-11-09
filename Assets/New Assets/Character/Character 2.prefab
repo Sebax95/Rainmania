@@ -49,7 +49,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 88bd1418a3958b2459a25505b781f5f0, type: 2}
+  - {fileID: 2100000, guid: d2f3bb28fb3d3924c95b579231cd8ec0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2304,7 +2304,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 770632e9c12a77d43a29501ed4b85a54, type: 2}
+  - {fileID: 2100000, guid: 01e8923c9eba53c44a7a6a2544a539e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3938,7 +3938,7 @@ MonoBehaviour:
   - {fileID: 67740709604551672}
   - {fileID: 7944931631656711970}
   attackWindup: 0
-  attackCooldown: 0.75
+  attackCooldown: 1
   wallDistanceCheck: 1
   closeWallArrowFixOffset: 0
 --- !u!114 &9075815607506070855

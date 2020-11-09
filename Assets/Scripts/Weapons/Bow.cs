@@ -96,6 +96,7 @@ public class Bow : Weapon {
 			return;
 		attackCooldown = data.GetFloat("arrowShootSpeed");
 		maxArrowcount = data.GetInt("arrowMaxAmount");
+		UIManager.Instance._arrows = data.GetInt("arrowMaxAmount");
 		damage = data.GetInt("arrowDamage");
 		arrownPrefab.canPlatform = data.GetBool("arrowCanPlatform");
 		arrownPrefab.canAnchor = data.GetBool("arrowCanAnchor");
