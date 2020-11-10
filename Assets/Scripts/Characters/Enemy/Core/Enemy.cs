@@ -36,7 +36,6 @@ public abstract class Enemy : Character, IDamager
     public static void TurnOn(Enemy e)
     {
         e.gameObject.SetActive(true);
-        e.startPos = e.transform.position;
         e.Reset();
     }
     
@@ -58,6 +57,12 @@ public abstract class Enemy : Character, IDamager
         Health = maxHealth;
         transform.position = startPos;
         isDead = false;
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        startPos = transform.position;
     }
 
     public void SetValues(Vector3 pos, Vector3 forw)

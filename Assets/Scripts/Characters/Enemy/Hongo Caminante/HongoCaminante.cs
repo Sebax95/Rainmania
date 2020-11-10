@@ -22,6 +22,8 @@ public abstract class HongoCaminante : Enemy
         isDeath = false;
         canJump = true;
         stopCor = true;
+        GetComponent<CapsuleCollider>().enabled = true;
+        rb.isKinematic = false;
         rb.mass = 1;
         fsm.SetState(StatesEnemies.Walk);
     }

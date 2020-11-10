@@ -8,6 +8,7 @@ using UnityEditor;
 
 public class EnemysRespawn : MonoBehaviour
 {
+    public bool isInitialZone;
     public Vector3 sizeArea;
     public LayerMask enemyLayer;
     private List<Enemy> enemy = new List<Enemy>();
@@ -22,7 +23,8 @@ public class EnemysRespawn : MonoBehaviour
         foreach (var item in col)
             _colliders.Add(item);
         DetectEnemyes();
-        TurnOffEnemys();
+        if(!isInitialZone)
+            TurnOffEnemys();
     }
 
     private void DetectEnemyes()
