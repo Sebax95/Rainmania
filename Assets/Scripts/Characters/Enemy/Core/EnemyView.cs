@@ -67,9 +67,9 @@ public class EnemyView : MonoBehaviour
             case AudioEnemys.JumpingPad:
                 selected = audios[2];
                 break;
-           /*case AudioEnemys.Move:
+           case AudioEnemys.Move:
                 selected = InWater ? RandomWaterStep : RandomGroundStep;
-                break;*/
+                break;
         }
 
         if(selected)
