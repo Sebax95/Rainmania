@@ -16,7 +16,7 @@ MonoBehaviour:
   - name: playerMaxLife
     value: 10
   - name: arrowMaxAmount
-    value: 3
+    value: 0
   - name: arrowDamage
     value: 1
   - name: whipDamage
@@ -34,6 +34,6 @@ MonoBehaviour:
   - name: whipAcquired
     value: 0
   - name: whipCanGrapple
-    value: 0
+    value: 1
   - name: bowAcquired
     value: 0

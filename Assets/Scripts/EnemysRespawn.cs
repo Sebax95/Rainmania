@@ -71,19 +71,19 @@ public class EnemysRespawn : MonoBehaviour
     private void EnterZone()
     {
         TurnOnEnemys();
-        StartCoroutine(DesactivateCollider(inArea));
+       // StartCoroutine(DesactivateCollider(inArea));
     }
 
     private void ExitZone()
     {
         TurnOffEnemys();
-        StartCoroutine(DesactivateCollider(inArea));
+       // StartCoroutine(DesactivateCollider(inArea));
     }
 
     IEnumerator DesactivateCollider(DetectorZone zone)
     {
         ModifyCollider(zone, false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.1f);
         ModifyCollider(zone, true);
     }
 
