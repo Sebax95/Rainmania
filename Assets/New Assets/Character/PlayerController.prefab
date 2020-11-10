@@ -46,10 +46,10 @@ MonoBehaviour:
   horizontalAxis: Horizontal
   verticalAxis: Vertical
   JumpKey: 32
-  attackWhipKey: 99
-  attackBowKey: 120
-  crouchKey: 306
-  aimModeKey: 122
+  attackWhipKey: 115
+  attackBowKey: 97
+  crouchKey: 274
+  aimModeKey: 304
   jumpAxis: 
   attackWhipAxis: 
   attackBowAxis: 
