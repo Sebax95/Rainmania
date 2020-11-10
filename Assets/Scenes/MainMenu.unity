@@ -2622,8 +2622,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07448111, y: 0.10987602}
   m_AnchorMax: {x: 0.9002429, y: 0.92100006}
-  m_AnchoredPosition: {x: 8.399994, y: -6.100006}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 8.399994, y: -45}
+  m_SizeDelta: {x: 0, y: 77.76901}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &261501822
 MonoBehaviour:
@@ -2657,8 +2657,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Movement: Right and Left Arrow\r\n\nAttacks:\r\n\tBow:  X\r\n\tWhip: C\r\n\nAim
-    UP : Up Arrow\r\n\nJump: Space Bar"
+  m_Text: "Movement: Right and Left Arrow\r\n\nAttacks:\r\n\tBow:  A\r\n\tWhip: S\r\n\nAim
+    UP : Up Arrow\r\n\nJump: Space Bar\n\nCrounch: Down Arrow\n\nStay To Aim: Left
+    Shift"
 --- !u!222 &261501823
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6632,10 +6633,10 @@ RectTransform:
   m_Father: {fileID: 1330569714}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.46825, y: 0.45800003}
-  m_AnchorMax: {x: 0.90375006, y: 0.9402213}
-  m_AnchoredPosition: {x: 0, y: 0.1000061}
-  m_SizeDelta: {x: 0, y: -3}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 149, y: 43.6}
+  m_SizeDelta: {x: 348, y: 306.00845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &689403550
 MonoBehaviour:
@@ -7742,7 +7743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &820992322
 RectTransform:
   m_ObjectHideFlags: 0
