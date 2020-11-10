@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: de439c1602e10ab44900d7f30a945c62, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -67681,20 +67681,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1221255973259236410, guid: f0b609ae1c9429043a5d01d318e26386,
+    - target: {fileID: 7122692960842003548, guid: f0b609ae1c9429043a5d01d318e26386,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 122
+      propertyPath: m_AnchoredPosition.x
+      value: -3.4001465
       objectReference: {fileID: 0}
-    - target: {fileID: 1221255973259236410, guid: f0b609ae1c9429043a5d01d318e26386,
+    - target: {fileID: 7122692960842003548, guid: f0b609ae1c9429043a5d01d318e26386,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 6587275913845762333, guid: f0b609ae1c9429043a5d01d318e26386,
-        type: 3}
-      propertyPath: levelIndex
-      value: 2
+      propertyPath: m_AnchoredPosition.y
+      value: 8.429993
       objectReference: {fileID: 0}
     - target: {fileID: 7150367453375487155, guid: f0b609ae1c9429043a5d01d318e26386,
         type: 3}
@@ -67785,6 +67780,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7278268564753240097, guid: 155060e3114063c489eb115291e02509,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7278268565490685961, guid: 155060e3114063c489eb115291e02509,
         type: 3}
       propertyPath: m_Color.r
@@ -67799,6 +67799,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278268565490685961, guid: 155060e3114063c489eb115291e02509,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7278268565512923297, guid: 155060e3114063c489eb115291e02509,
         type: 3}
@@ -67815,6 +67820,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7278268565512923297, guid: 155060e3114063c489eb115291e02509,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7278268565614678930, guid: 155060e3114063c489eb115291e02509,
         type: 3}
       propertyPath: m_Color.r
@@ -67829,6 +67839,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278268565614678930, guid: 155060e3114063c489eb115291e02509,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7278268565648692160, guid: 155060e3114063c489eb115291e02509,
         type: 3}
@@ -67845,6 +67860,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7278268565648692160, guid: 155060e3114063c489eb115291e02509,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7278268565773841486, guid: 155060e3114063c489eb115291e02509,
         type: 3}
       propertyPath: m_Color.r
@@ -67859,6 +67879,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278268565773841486, guid: 155060e3114063c489eb115291e02509,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7278268566389673929, guid: 155060e3114063c489eb115291e02509,
         type: 3}
