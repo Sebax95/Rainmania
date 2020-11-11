@@ -332,9 +332,9 @@ MonoBehaviour:
   showGizmos: 0
   spawner: {fileID: 0}
   target: {fileID: 0}
-  damage: 1
-  bulletPref: {fileID: 2614553126292014050, guid: 975c0eb07705dbf4eba59808cea4a3a0,
+  bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
     type: 3}
+  damage: 1
   leftPos: {x: 6.5, y: 0}
   rightPos: {x: -6.5, y: 0}
   offsetLeft: {x: 0, y: 0, z: 0}
@@ -362,6 +362,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  stepRandom: []
+  stepWaterRandom: []
 --- !u!82 &5740937354156374057
 AudioSource:
   m_ObjectHideFlags: 0

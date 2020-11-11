@@ -30,7 +30,7 @@ MonoBehaviour:
   - name: arrowCanPlatform
     value: 0
   - name: arrowCanAnchor
-    value: 1
+    value: 0
   - name: whipAcquired
     value: 1
   - name: whipCanGrapple

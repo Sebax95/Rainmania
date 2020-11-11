@@ -40,9 +40,12 @@ public abstract class Character : Controllable, IDamageable, IHealable, ITeam, I
 			return false;
 		Health -= amount;
 		if(Health <= 0)
+		{
 			Die(source);
+			return true;
+		}
 
-		StartCoroutine(Coroutine_InvinsibleTime());
+		GameManager.Instance.StartCoroutine(Coroutine_InvinsibleTime());
 		return true;
 	}
 	public virtual bool Heal(int amount, IHealer source) {

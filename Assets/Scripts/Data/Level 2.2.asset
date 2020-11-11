@@ -23,14 +23,14 @@ MonoBehaviour:
     value: 1
   floatProperties:
   - name: arrowShootSpeed
-    value: 0.5
+    value: 1
   - name: whipAttackSpeed
     value: 0.5
   boolProperties:
   - name: arrowCanPlatform
     value: 0
   - name: arrowCanAnchor
-    value: 1
+    value: 0
   - name: whipAcquired
     value: 0
   - name: whipCanGrapple

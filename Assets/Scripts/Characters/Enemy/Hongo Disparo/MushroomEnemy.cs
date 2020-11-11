@@ -12,12 +12,9 @@ public abstract class MushroomEnemy : Enemy
     [Header("Jump Variables")]
 	private SphereCollider jumpingPad;
 	public float forceJump;
-
-   
-	public PoisonBullet bulletPref;
+	
 	public bool canShoot;
-
-	public ReusablePool<PoisonBullet> bulletPool;
+	
 
 	public override void Reset()
 	{
@@ -41,7 +38,6 @@ public abstract class MushroomEnemy : Enemy
 		base.Start();
 		fsm.SetState(StatesEnemies.Idle);
 		canShoot = true;
-		bulletPool = new ReusablePool<PoisonBullet>(bulletPref, 5, PoisonBullet.Enable, PoisonBullet.Disable, false);
 	}
 
 	public void Update() {
@@ -96,12 +92,4 @@ public abstract class MushroomEnemy : Enemy
 			viewEnem.Au.Play();
 		}
 	}
-
-    public void ReturnBullet(PoisonBullet p) => bulletPool.DisableObject(p);
-    
-    protected override void OnDestroy()
-    {
-	    base.OnDestroy();
-	    bulletPool.Clear();
-    }
 }

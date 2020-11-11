@@ -240,14 +240,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029738222156751914}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.70710677}
   m_LocalPosition: {x: 51.590908, y: 0.1343725, z: -41.054268}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1671812899056884641}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!136 &2029738222156751913
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -300,8 +300,8 @@ MonoBehaviour:
     m_Bits: 512
   cdTimer: 1
   output: {fileID: 0}
-  viewAngle: 26.61
-  viewDistance: 4
+  viewAngle: 26.89
+  viewDistance: 5
   offsetLOS: {x: 0.27, y: 0.44, z: 0}
   lastPosition: {x: 0, y: 0, z: 0}
   gameAreaMask:
@@ -310,6 +310,7 @@ MonoBehaviour:
   showGizmos: 1
   spawner: {fileID: 0}
   target: {fileID: 0}
+  bulletPref: {fileID: 0}
   isDeath: 0
   canJump: 1
   jumpForce: 7
@@ -318,7 +319,7 @@ MonoBehaviour:
   stopCor: 0
   frontCheckerLayer:
     serializedVersion: 2
-    m_Bits: 49152
+    m_Bits: 49665
 --- !u!1 &2051574716539584795
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,10 +395,13 @@ MonoBehaviour:
   - inGround
   - Attaking
   audios:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5bc5e39a50438cd43961248238db8e94, type: 3}
+  - {fileID: 8300000, guid: 2f5acb4bfb9f5004d928e6d045fe5e81, type: 3}
+  - {fileID: 8300000, guid: 2f5acb4bfb9f5004d928e6d045fe5e81, type: 3}
+  - {fileID: 8300000, guid: 3f5810c7a91c74542b60fc1f82cdfe11, type: 3}
+  stepRandom:
+  - {fileID: 8300000, guid: 376775a5453e91f46b71bded839d4791, type: 3}
+  stepWaterRandom: []
 --- !u!82 &5886780892531963428
 AudioSource:
   m_ObjectHideFlags: 0
@@ -410,7 +414,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.372
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -454,7 +458,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
