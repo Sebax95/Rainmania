@@ -65,12 +65,12 @@ public class Arrow : MonoBehaviour, IDamager {
 
 	}
 
-	//TODO: set timer to countDOWN, set timer time on corresponding event, then simply check to 0
 	private void ExpirationTimers() {
 		timer -= Time.deltaTime;
 
 		if(timer < 0)
-			shooter.ReturnArrow(this); //Return to pool
+			gameObject.SetActive(false);
+			//shooter.ReturnArrow(this); //Return to pool
 	}
 
 	public void Reset() {
@@ -138,7 +138,7 @@ public class Arrow : MonoBehaviour, IDamager {
 		}
 
 		if(collision.collider.gameObject.layer == 15) //Enemy layer
-			shooter.ReturnArrow(this);
+			gameObject.SetActive(false);
 	}
 
 	private void SetIsFlying(bool value) {
