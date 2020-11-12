@@ -153,7 +153,6 @@ public abstract class Enemy : Character, IDamager
     
     protected override void OnDestroy()
     {
-        base.OnDestroy();
         bulletPool?.Clear();
     }
 }

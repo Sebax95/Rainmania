@@ -60,7 +60,6 @@ public class Bombardero : Enemy
     {
         var result = base.Damage(amount, source);
         if (!result) return result;
-        viewEnem.DamageFeedback();
 
         return result;
     }
@@ -71,6 +70,7 @@ public class Bombardero : Enemy
         viewEnem.PlaySound(EnemyView.AudioEnemys.Die);
         var part = Instantiate(deathParticle, transform.position, Quaternion.identity);
         Destroy(part, 1);
+        StopCoroutine(ShootPlayer());
         
         if(spawner)
             spawner.DestroyObject(this);
