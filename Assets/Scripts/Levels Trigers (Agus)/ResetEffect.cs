@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetEffect : MonoBehaviour
+public class ResetEffect : TimedBehaviour
 {
     Animator _anim;
     void Start()

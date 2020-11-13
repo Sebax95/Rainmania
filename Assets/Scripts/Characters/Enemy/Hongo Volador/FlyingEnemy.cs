@@ -45,14 +45,13 @@ public class FlyingEnemy : Enemy
 
     public void Move(Vector3 direction) => rb.velocity = direction;
 
-    private void Update()
+	protected override void OnUpdate()
     {
         if (isDead) return;
         _fsm.Update();
     }
 
-    private void FixedUpdate()
-    {
+	protected override void OnFixedUpdate() { 
         if(isDead) return;
         _fsm.FixedUpdate();
     }

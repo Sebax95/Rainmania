@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour, IDamager {
+public class Arrow : TimedBehaviour, IDamager {
 
 	public float speed;
 
@@ -56,8 +56,7 @@ public class Arrow : MonoBehaviour, IDamager {
 		anchor.enabled = canAnchor;
 	}
 
-	void Update() {
-
+	protected override void OnUpdate() {
 		if(!stop)
 			rigid.velocity = transform.forward * speed;
 

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HealerView : MonoBehaviour {
+public class HealerView : TimedBehaviour {
 
 	public float spinSpeed;
 
@@ -18,7 +16,7 @@ public class HealerView : MonoBehaviour {
 		Active = true;
 	}
 
-	private void Update() {
+	protected override void OnUpdate(){
 		if(!Active)
 			return;
 		child.Rotate(axis, spinSpeed * Time.deltaTime);

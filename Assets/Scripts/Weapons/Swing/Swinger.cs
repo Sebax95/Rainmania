@@ -6,7 +6,7 @@ public class Swinger : Controllable, IMoveOverride {
 	public float gravityMult;
 
 	private float anchorTime;
-	private float whipDistance;
+	public float WhipDistance { private get; set; }
 	[Range(0f, 90f)] public float maxSwingAngle;
 	public float swingAddingStrength;
 
@@ -72,12 +72,11 @@ public class Swinger : Controllable, IMoveOverride {
 		//distanceFromAnchor = relativePos.magnitude;
 		anim.BeginSwing(_trans);
 		anchorTime = Time.time;
-		whipDistance = relativePos.magnitude;
-		initialState = Mathf.Sqrt(gravityMult / whipDistance);
+		WhipDistance = relativePos.magnitude;
+		initialState = Mathf.Sqrt(gravityMult / WhipDistance);
 		firstFrame = true;
 	}
-
-	private void FixedUpdate() {
+	protected override void OnFixedUpdate() {
 		if(!overriding)
 			return;
 		thisRB.position = UpdateSwing();
@@ -94,13 +93,13 @@ public class Swinger : Controllable, IMoveOverride {
 		movingRight = initialAngleDirection * angleSin < 0; //If the sine is negative, it's moving right
 
 		return new Vector3(
-			anchorPos.x + (Mathf.Sin(newAngle) * whipDistance),
-			anchorPos.y - (Mathf.Cos(newAngle) * whipDistance),
+			anchorPos.x + (Mathf.Sin(newAngle) * WhipDistance),
+			anchorPos.y - (Mathf.Cos(newAngle) * WhipDistance),
 			transform.position.z);
 	}
 
 	public Vector3 GetVelocity() {
-		float velocity = initialAngle * Mathf.Sqrt(whipDistance * gravityMult) * Mathf.Sin(initialState * GetTime);
+		float velocity = initialAngle * Mathf.Sqrt(WhipDistance * gravityMult) * Mathf.Sin(initialState * GetTime);
 		float newAngle = initialAngle * Mathf.Cos(initialState * GetTime);
 
 		Vector3 addedVelocity = Vector3.zero;

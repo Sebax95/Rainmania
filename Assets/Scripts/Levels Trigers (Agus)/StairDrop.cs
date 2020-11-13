@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StairDrop : MonoBehaviour, IDamageable
+public class StairDrop : TimedBehaviour, IDamageable
 {
     
     BoxCollider _box;
@@ -22,8 +22,7 @@ public class StairDrop : MonoBehaviour, IDamageable
         trigger = false;
     }
 
-    
-    void Update()
+	protected override void OnUpdate()
     {
         if (trigger)
             transform.position = transform.position + new Vector3(0, -1, 0) * speed;

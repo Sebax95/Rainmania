@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : TimedBehaviour {
 
     public static GameManager Instance { get; private set; }
     Action test;

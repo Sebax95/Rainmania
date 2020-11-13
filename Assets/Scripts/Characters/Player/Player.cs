@@ -87,7 +87,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		coyoteTimer = 0;
 		waitSupressCoyote = new WaitForSeconds(coyoteSupressionTime);
 	}
-	private void Update() {
+	protected override void OnUpdate(){
 		if(isDead)
 			return;
 		DetectGround();

@@ -132,6 +132,9 @@ public class Whip : Weapon {
 		float timer = 0;
 		while(timer < attackDuration)
 		{
+			if(!RunUpdates)
+				yield return null;
+
 			timer += Time.deltaTime;
 			bool breakLoop = WhipAttack(direction);
 			if(breakLoop)

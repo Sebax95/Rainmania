@@ -40,11 +40,11 @@ public abstract class MushroomEnemy : Enemy
 		canShoot = true;
 	}
 
-	public void Update() {
+	protected override void OnUpdate(){
         if (isDead) return;
 		fsm.Update();
     }
-    public void FixedUpdate() {
+	protected override void OnFixedUpdate(){
         if (isDead) return;    
         fsm.FixedUpdate();
 	}

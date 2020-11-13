@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallRepulsion : MonoBehaviour
+public class WallRepulsion : TimedBehaviour
 {
     private Collider col;
     private PhysicMaterial standard;

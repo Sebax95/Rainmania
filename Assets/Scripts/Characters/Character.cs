@@ -72,7 +72,7 @@ public abstract class Character : Controllable, IDamageable, IHealable, ITeam, I
 	public GameObject SourceObject => gameObject;
 }
 
-public abstract class Controllable : MonoBehaviour {
+public abstract class Controllable : TimedBehaviour {
 	public abstract void Move(Vector2 direction);
 
 	protected virtual void OnDestroy() {

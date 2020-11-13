@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Spawner : MonoBehaviour
+public class Spawner : TimedBehaviour
 {
     public Transform player;
     public Enemy toSpawn;

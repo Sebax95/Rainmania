@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerAnim : MonoBehaviour {
+public class PlayerAnim : TimedBehaviour {
 
 	[Header("Animation")]
 	private Animator thisAnimator;
@@ -57,7 +57,7 @@ public class PlayerAnim : MonoBehaviour {
 		UI = Fetchable.FetchComponent<UIManager>("PlayerHUD");
 	}
 
-	private void Update() {
+	protected override void OnUpdate(){
 		DetectGround();
 	}
 

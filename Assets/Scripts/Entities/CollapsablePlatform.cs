@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollapsablePlatform : MonoBehaviour {
+public class CollapsablePlatform : TimedBehaviour {
 	public float stableTime;
 	public float respawnDelay;
 	public float forgiveTime;
@@ -34,8 +34,7 @@ public class CollapsablePlatform : MonoBehaviour {
 		ResetState();
 	}
 
-
-	private void LateUpdate() {
+	protected override void OnLateUpdate() { 
 		if(isCollapsed || !isShaking)
 			return;
 		int c = collapsables.Length;

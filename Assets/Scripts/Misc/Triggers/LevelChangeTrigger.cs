@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelChangeTrigger : MonoBehaviour {
+public class LevelChangeTrigger : TimedBehaviour {
 	public int levelIndex;
 	public Animator anim;
 
