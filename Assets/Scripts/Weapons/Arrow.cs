@@ -102,14 +102,12 @@ public class Arrow : MonoBehaviour, IDamager {
 	public static void TurnOn(Arrow a) {
 		a.Reset();
 		a.gameObject.SetActive(true);
-		UIManager.Instance._arrows -= 1;
-		
+		UIManager.Instance.ArrowAmount(-1);
 	}
 
 	public static void TurnOff(Arrow a) {
 		a.gameObject.SetActive(false);
-		UIManager.Instance._arrows += 1;
-		
+		UIManager.Instance.ArrowAmount(+1);
 	}
 
 	public void SetShooter(Bow source) => shooter = source;

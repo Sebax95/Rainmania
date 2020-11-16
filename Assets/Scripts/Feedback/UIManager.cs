@@ -28,10 +28,16 @@ public class UIManager : MonoBehaviour {
 		_player = FindObjectOfType<Player>();
 	}
 
-    private void Update()
+  
+
+	public void ArrowAmount(int _arrowss)
     {
+		_arrows += _arrowss;
 		_amountArrows.text = "" + _arrows;
-    }
+	}
+
+
+
 
     public void SetHealthbarPercent(float value) 
 	{
