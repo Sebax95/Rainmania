@@ -208,7 +208,7 @@ MonoBehaviour:
   idName: Amunition 02
   upgradeType: 0
   propertyName: arrowMaxAmount
-  value: 3
+  value: 2
   destroyDelay: 0
 --- !u!65 &2407945231065973627
 BoxCollider:
