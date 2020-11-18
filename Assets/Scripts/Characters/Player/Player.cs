@@ -334,9 +334,14 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 			Health = newHealth;
 		}
 		whip.enabled = data.GetBool("whipAcquired");
+		bow.enabled = data.GetBool("bowAcquired");
+
+		UpdateUI();	
+	}
+	void UpdateUI()
+    {
 		if (whip.enabled)
 			UIManager.Instance.FoundWhip();
-		bow.enabled = data.GetBool("bowAcquired");
 		if (bow.enabled)
 			UIManager.Instance.FoundArcher();
 	}
