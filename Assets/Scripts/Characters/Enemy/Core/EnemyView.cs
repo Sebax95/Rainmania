@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class EnemyView : MonoBehaviour
+public class EnemyView : TimedBehaviour
 {
 
     private Animator anim;

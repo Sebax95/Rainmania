@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradesManager : MonoBehaviour {
+public class UpgradesManager : TimedBehaviour {
 	public static UpgradesManager Instance { get; private set; }
 	[SerializeField]private UpgradesData dataTemplate;
 	private UpgradesData data;

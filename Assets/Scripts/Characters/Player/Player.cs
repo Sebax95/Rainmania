@@ -87,7 +87,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		coyoteTimer = 0;
 		waitSupressCoyote = new WaitForSeconds(coyoteSupressionTime);
 	}
-	private void Update() {
+	protected override void OnUpdate(){
 		if(isDead)
 			return;
 		DetectGround();
@@ -170,7 +170,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 				throw new ArgumentNullException("Oi, shit-ass. You've changed the collider type, didn't you? Ya fucked up. Not really. Just update the code here to compensate.");
 
 			Bounds checkBounds = colliders.standChecker;
-			bool solidAboveMe = Physics.CheckBox(transform.position + checkBounds.center, checkBounds.extents, transform.rotation, crouchCheckLayerMask);
+			bool solidAboveMe = Physics.CheckBox(transform.position + checkBounds.center, checkBounds.extents, transform.rotation, crouchCheckLayerMask, QueryTriggerInteraction.Ignore);
 			if(solidAboveMe)
 				return;
 		}

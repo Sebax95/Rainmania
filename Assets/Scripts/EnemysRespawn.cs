@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public class EnemysRespawn : MonoBehaviour
+public class EnemysRespawn : TimedBehaviour
 {
     public bool isInitialZone;
     public Vector3 sizeArea;

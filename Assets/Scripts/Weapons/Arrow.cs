@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour, IDamager {
+public class Arrow : TimedBehaviour, IDamager {
 
 	public float speed;
 
 	[Header("Tiempos")]
-	//public float asPlatformLifetime = 5;
-	//public float droppedArrowLifetime = 5;
-	//public float grappleTime = 10;
-	public float totalLifeTime;
-	public float maxFlightTime;
+	public float asPlatformLifetime = 3;
+	public float droppedArrowLifetime = 1;
+	public float maxFlightTime = 5;
+	public float grappleTime = 10;
 	private float timer;
-	bool _collision;
 
 	[Header("Propiedades")]
 	public bool canPlatform = true;
@@ -58,8 +56,7 @@ public class Arrow : MonoBehaviour, IDamager {
 		anchor.enabled = canAnchor;
 	}
 
-	void Update() {
-
+	protected override void OnUpdate() {
 		if(!stop)
 			rigid.velocity = transform.forward * speed;
 
@@ -67,27 +64,19 @@ public class Arrow : MonoBehaviour, IDamager {
 
 	}
 
-	//TODO: set timer to countDOWN, set timer time on corresponding event, then simply check to 0
 	private void ExpirationTimers() {
 		timer -= Time.deltaTime;
 
-		if (timer < totalLifeTime - maxFlightTime)
-			if (!_collision)
-				this.gameObject.layer = 11;
-			else
-				this.gameObject.layer = 10;
-
-		if (timer < 0)
-			shooter.ReturnArrow(this); //Return to pool
+		if(timer < 0)
+			gameObject.SetActive(false);
+			//shooter.ReturnArrow(this); //Return to pool
 	}
 
 	public void Reset() {
 		stop = false;
-		_collision = false;
 		//isStair = false;
 		//isAnchor = false;
-		//timer = maxFlightTime;
-		timer = totalLifeTime;
+		timer = maxFlightTime;
 		rigid.isKinematic = false;
 		rigid.velocity = transform.forward * speed;
 		rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS;
@@ -133,10 +122,9 @@ public class Arrow : MonoBehaviour, IDamager {
 
 		if(collision.collider.gameObject.CompareTag(ANCHORABLE_TAG) && canPlatform) //If it's a stickable wall
 		{
-			_collision = true;
 			rigid.isKinematic = true;
 			gameObject.tag = BAD_ARROW_TAG;
-			//timer = asPlatformLifetime;
+			timer = asPlatformLifetime;
 			//if(collision.collider.gameObject.tag == ANCHORABLE_TAG)
 			anchor.enabled = canAnchor;
 			wallInpact.Play();
@@ -147,11 +135,11 @@ public class Arrow : MonoBehaviour, IDamager {
 			this.gameObject.layer = 11; //Non-interactable layer
 			rigid.useGravity = true;
 			rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS;
-			//timer = droppedArrowLifetime;
+			timer = droppedArrowLifetime;
 		}
 
 		if(collision.collider.gameObject.layer == 15) //Enemy layer
-			shooter.ReturnArrow(this);
+			gameObject.SetActive(false);
 	}
 
 	private void SetIsFlying(bool value) {
@@ -161,13 +149,12 @@ public class Arrow : MonoBehaviour, IDamager {
 		rigid.velocity = Vector3.zero;
 	}
 
-    //public void OnGrapple()
-    //{
-    //    //isAnchor = true;
-    //    //timer = grappleTime;
-    //}
+	public void OnGrapple() {
+		//isAnchor = true;
+		timer = grappleTime;
+	}
 
-    private void OnTriggerEnter(Collider other) {
+	private void OnTriggerEnter(Collider other) {
 		if(!stop || !canPlatform || other.gameObject.layer != PLAYER_LAYER)
 			return;
 		solidCol.enabled = false;

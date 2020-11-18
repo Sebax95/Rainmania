@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Core;
 
-public class ControllerHandler : MonoBehaviour {
+public class ControllerHandler : TimedBehaviour {
 	private Dictionary<Controller, Controllable> controllerToCharacter = new Dictionary<Controller, Controllable>();
 	private Dictionary<Controllable, Controller> characterToController = new Dictionary<Controllable, Controller>();
 

@@ -6,7 +6,7 @@ using System;
 using UnityEditor;
 #endif
 
-class HurtAndRespawn : MonoBehaviour, IDamager {
+class HurtAndRespawn : TimedBehaviour, IDamager {
 
 	public int damage;
 	public float respawnDelay;

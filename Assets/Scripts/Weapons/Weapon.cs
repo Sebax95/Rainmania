@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour, IWeapon, IDamager {
+public abstract class Weapon : TimedBehaviour, IWeapon, IDamager {
 	public int damage;
 	public abstract string Name { get; }
 	public enum TargetDirection {

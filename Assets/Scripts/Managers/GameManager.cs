@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager :  MonoBehaviour {
+public class GameManager : TimedBehaviour {
 
     public static GameManager Instance { get; private set; }
     Action test;
@@ -17,9 +17,6 @@ public class GameManager :  MonoBehaviour {
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        
-
-
     }
     //no me putees manu, taba probando algo piola
     IEnumerator WaitAndExecute(float timer, Action function)
@@ -40,5 +37,4 @@ public class GameManager :  MonoBehaviour {
         var scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
-
 }
