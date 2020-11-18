@@ -38,10 +38,23 @@ public class UIManager : MonoBehaviour {
 	void Start()
 	{
 		_player = FindObjectOfType<Player>();
-		_Bow.enabled = false;
-		_Wip.enabled = false;
-		_amountArrows.enabled = false;
+		if (UpgradesManager.Instance.Data.GetBool("whipAcquired"))
+			_Wip.enabled = true;
+		else
+			_Wip.enabled = false;
+		if (UpgradesManager.Instance.Data.GetBool("bowAcquired"))
+        {
+			_Bow.enabled = true;
+			_amountArrows.enabled = true;
+		}
+		else
+        {
+			_Bow.enabled = false;
+			_amountArrows.enabled = false;
+		}
+		
 		_pauseMenu.SetActive(_active);
+	
 	}
 
     private void Update()
@@ -57,6 +70,7 @@ public class UIManager : MonoBehaviour {
 
 	public void BackMenu()
 	{
+		GameManager.SetPause(false);
 		SceneManager.LoadScene(0);
 	}
 
