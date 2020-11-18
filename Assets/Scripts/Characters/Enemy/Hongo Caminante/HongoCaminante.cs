@@ -46,13 +46,13 @@ public abstract class HongoCaminante : Enemy
         canJump = true;
         stopCor = true;
     }
-    private void Update()
+	protected override void OnUpdate()
     {
         if (isDeath) return;
         fsm.Update();
     }
 
-    private void FixedUpdate()
+	protected override void OnFixedUpdate()
     {
         if (isDeath) return;
         fsm.FixedUpdate();

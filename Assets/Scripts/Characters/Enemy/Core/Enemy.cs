@@ -10,7 +10,6 @@ public abstract class Enemy : Character, IDamager
     [Header("Enemy Variables", order = 0)] public float speed;
     public EnemyView viewEnem;
     public LayerMask groundMask;
-    public GameObject SourceObject => gameObject;
     protected Vector3 startPos;
 
     [Header("Shooting", order = 2)] public float cdTimer;

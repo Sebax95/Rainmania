@@ -47,8 +47,8 @@ public class Bombardero : Enemy
         _fsm.SetState(StatesEnemies.Fly);
         StartCoroutine(ShootPlayer());
     }
-    
-    private void FixedUpdate()
+
+	protected override void OnFixedUpdate()
     {
         if(isDead) return;
         _fsm.FixedUpdate();

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Keys : MonoBehaviour
+public class Keys : TimedBehaviour
 {
     public int key;
 

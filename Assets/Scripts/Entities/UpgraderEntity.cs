@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgraderEntity : MonoBehaviour {
+public class UpgraderEntity : TimedBehaviour {
 
 	[Tooltip("MAKE SURE IT'S UNIQUE. Unique upgrade identifier. Makes sure it doesn't respawn.")]
 	public string idName;

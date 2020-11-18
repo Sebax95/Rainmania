@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Core;
 
-public abstract class Controller : MonoBehaviour {
+public abstract class Controller : TimedBehaviour {
 	public int ID { get; protected set; }
 	//protected Controllable basePawn;
 
 	protected abstract void DoMovement();
 	protected abstract void DoActions();
 
-	protected virtual void Update() {
+	protected override void OnUpdate(){
 		DoMovement();
 		DoActions();
 	}

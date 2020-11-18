@@ -6,16 +6,6 @@ public class TeleportZone : MonoBehaviour
 {
     public Transform newPosition;
     public Camera camera;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

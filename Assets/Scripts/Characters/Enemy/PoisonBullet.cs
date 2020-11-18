@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Resources;
 using UnityEngine;
 
-public class PoisonBullet : MonoBehaviour, IDamager
+public class PoisonBullet : TimedBehaviour, IDamager
 {
     public Rigidbody rb;
     [SerializeField]
@@ -61,8 +61,8 @@ public class PoisonBullet : MonoBehaviour, IDamager
         transform.position = pos;
         transform.forward = forw;
     }
-    
-    private void FixedUpdate()
+
+	protected override void OnFixedUpdate()
     {
         if(useGravity)
             rb.AddForce(gravity.y * Vector3.up);
@@ -70,7 +70,7 @@ public class PoisonBullet : MonoBehaviour, IDamager
             transform.position += transform.forward * speed * Time.deltaTime;
     }
 
-    private void LateUpdate()
+	protected override void OnLateUpdate()
     {
         if(isChildRotating)
             auraChild.forward = rb.velocity.normalized;

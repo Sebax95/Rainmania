@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SwingAnim : MonoBehaviour {
+public class SwingAnim : TimedBehaviour {
 	public string swingingParameter;
 	public string swingValueParameter;
 	public string wrappedSwingingParameter;

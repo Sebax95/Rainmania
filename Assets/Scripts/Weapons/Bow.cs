@@ -14,8 +14,10 @@ public class Bow : Weapon {
 	public float attackCooldown;
 	public float wallDistanceCheck = 1;
 	public float closeWallArrowFixOffset;
+	public float timeToReturnArrow;
 	public override float FullAttackDuration => attackWindup + attackCooldown;
 	private WaitForSeconds wait_shootWindup;
+	private WaitForSeconds wait_arrowReturnTime;
 
 	private IWielder wielder;
 	private CrouchStateRouter router;
@@ -28,6 +30,7 @@ public class Bow : Weapon {
 	private void Start() {
 		// motivo por el cual no ataca al tpque.
 		wait_shootWindup = new WaitForSeconds(attackWindup);
+		wait_arrowReturnTime = new WaitForSeconds(timeToReturnArrow);
 		wielder = GetComponent<IWielder>();
 		router = GetComponent<CrouchStateRouter>();
 		InitializePool();
@@ -59,6 +62,7 @@ public class Bow : Weapon {
 		{
 			trans.position = hit.point + trans.forward * closeWallArrowFixOffset;
 		}
+		GameManager.Instance.StartCoroutine(Coroutine_ReturnArrowToPool(arrow));
 
 	}
 
@@ -101,6 +105,11 @@ public class Bow : Weapon {
 		arrownPrefab.canPlatform = data.GetBool("arrowCanPlatform");
 		arrownPrefab.canAnchor = data.GetBool("arrowCanAnchor");
 		InitializePool();
+	}
+
+	private IEnumerator Coroutine_ReturnArrowToPool(Arrow item) {
+		yield return wait_arrowReturnTime;
+		ReturnArrow(item);
 	}
 
 	private void OnEnable() => UpgradesManager.Instance.OnUpdateData += UpdateStateOnUpgrade;
