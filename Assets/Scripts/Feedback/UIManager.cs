@@ -57,6 +57,8 @@ public class UIManager : MonoBehaviour {
 
 	public void BackMenu()
 	{
+		GameManager.SetPause(false);
+
 		SceneManager.LoadScene(0);
 	}
 
