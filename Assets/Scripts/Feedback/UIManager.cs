@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour {
 	public int _arrows;
 	public GameObject _pauseMenu;
 	bool _active;
+	bool _pause;
 
 
 
@@ -30,6 +31,7 @@ public class UIManager : MonoBehaviour {
 		_Bow = transform.Find("Arrows").GetComponent<Image>();
 		_Wip = transform.Find("Whip").GetComponent<Image>();
 		_active = false;
+		_pause = true;
 		
 	}
 
@@ -47,7 +49,9 @@ public class UIManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
 			_active = !_active;
+			_pause = !_pause;
 			_pauseMenu.SetActive(_active);
+			GameManager.SetPause(!_pause);
         }
     }
 
@@ -65,6 +69,7 @@ public class UIManager : MonoBehaviour {
     {
 		_active = false;
 		_pauseMenu.SetActive(false);
+		GameManager.SetPause(false);
 	}
 	public void ArrowAmount(int _arrowss)
 	{
