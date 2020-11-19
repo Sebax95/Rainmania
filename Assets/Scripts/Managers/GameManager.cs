@@ -8,6 +8,7 @@ public class GameManager : TimedBehaviour {
 
     public static GameManager Instance { get; private set; }
     Action test;
+    public bool IsPause => !TimedBehaviour.RunUpdates;
 
     private void Awake() {
         if (Instance != null)
@@ -36,5 +37,10 @@ public class GameManager : TimedBehaviour {
     {
         var scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
+    }
+
+    public void DestroyOnMenu()
+    {
+        Destroy(gameObject);
     }
 }
