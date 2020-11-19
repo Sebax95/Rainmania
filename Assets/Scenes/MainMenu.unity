@@ -18,7 +18,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
   m_FogMode: 2
-  m_FogDensity: 0.02
+  m_FogDensity: 0.32
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -12632,6 +12632,7 @@ MonoBehaviour:
   controls: {fileID: 689403548}
   credits: {fileID: 781789808}
   levels: {fileID: 820992321}
+  audioS: {fileID: 0}
 --- !u!82 &1427357611
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12646,7 +12647,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.15
   m_Pitch: -0.99
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
