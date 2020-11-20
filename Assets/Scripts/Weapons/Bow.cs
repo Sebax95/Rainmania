@@ -90,7 +90,7 @@ public class Bow : Weapon {
 
 	private void InitializePool() {
 		if(pool != null)
-			pool.Clear(Destroy);
+			pool.Clear(DestroyGO);
 
 		pool = new Pool<Arrow>(maxArrowcount, ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, false);
 	}
@@ -111,6 +111,8 @@ public class Bow : Weapon {
 		yield return wait_arrowReturnTime;
 		ReturnArrow(item);
 	}
+
+	private void DestroyGO(Arrow item) => Destroy(item.gameObject);
 
 	private void OnEnable() => UpgradesManager.Instance.OnUpdateData += UpdateStateOnUpgrade;
 	private void OnDisable() => UpgradesManager.Instance.OnUpdateData -= UpdateStateOnUpgrade;
