@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject controls;
     public GameObject credits;
     public GameObject levels;
+    public AudioSource audioS;
     bool _true = false;
     bool _true2 = false;
     bool _true3 = false;
@@ -17,6 +18,7 @@ public class MainMenu : MonoBehaviour
         controls.SetActive(false);
         credits.SetActive(false);
         levels.SetActive(false);
+        audioS = GetComponent<AudioSource>();
     }
 
 
@@ -28,23 +30,43 @@ public class MainMenu : MonoBehaviour
         Exit();
     }*/
 
+    IEnumerator Corrutine_PLay(int indexlvl) 
+    {
+        audioS.Play();
+        yield return new WaitForSeconds(0.5F);
+        SceneManager.LoadScene(indexlvl);
+
+    }
+
+    IEnumerator Corrutine_Exit()
+    {
+        audioS.Play();
+        yield return new WaitForSeconds(0.5F);
+        Application.Quit();
+
+    }
+
+
     public void Play()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(Corrutine_PLay(1));
+        
     }
 
     public void Level2()
     {
-        SceneManager.LoadScene(2);
+        StartCoroutine(Corrutine_PLay(2));
     }
 
     public void Level3()
     {
-        SceneManager.LoadScene(3);
+        StartCoroutine(Corrutine_PLay(3));
+
     }
 
     public void Controls()
     {
+        audioS.Play();
         _true =! _true;
         _true3 = false;
         controls.SetActive(_true);
@@ -53,6 +75,7 @@ public class MainMenu : MonoBehaviour
 
     public void Credits()
     {
+        audioS.Play();
         _true2 =! _true2;
         _true3 = false;
         credits.SetActive(_true2);
@@ -61,6 +84,7 @@ public class MainMenu : MonoBehaviour
 
     public void Levels()
     {
+        audioS.Play();
         _true = false;
         _true2 = false;
         _true3 = !_true3;
@@ -72,6 +96,7 @@ public class MainMenu : MonoBehaviour
 
     public void Exit()
     {
-        Application.Quit();
+        StartCoroutine(Corrutine_Exit());
+        
     }
 }
