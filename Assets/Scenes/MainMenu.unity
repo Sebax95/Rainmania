@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.25
+  m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: de439c1602e10ab44900d7f30a945c62, type: 2}
@@ -34,7 +34,7 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 1024
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
@@ -510,6 +510,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!4 &50999053 stripped
@@ -590,6 +595,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -820,6 +830,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &82251354 stripped
@@ -980,6 +995,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared Arco (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9018066893191124548, guid: 8350726157b1a2a43937eb01fcc55ccf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8350726157b1a2a43937eb01fcc55ccf, type: 3}
 --- !u!1001 &89037809
@@ -993,6 +1013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Piso (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 469859068369465500, guid: 49c47b9d4086c4f409a77c2fc061886f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4827600922417633179, guid: 49c47b9d4086c4f409a77c2fc061886f,
         type: 3}
@@ -1123,6 +1148,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -1559,6 +1589,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &142983018 stripped
@@ -1634,6 +1669,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &145589734 stripped
@@ -1708,6 +1748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -1953,6 +1998,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &198426752
@@ -2105,6 +2155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -2261,6 +2316,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared Arco (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9018066893191124548, guid: 8350726157b1a2a43937eb01fcc55ccf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8350726157b1a2a43937eb01fcc55ccf, type: 3}
 --- !u!1001 &243215234
@@ -2414,6 +2474,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -3074,6 +3139,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &313273876
@@ -3142,6 +3212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -3729,6 +3804,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared Arco (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 9018066893191124548, guid: 8350726157b1a2a43937eb01fcc55ccf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8350726157b1a2a43937eb01fcc55ccf, type: 3}
 --- !u!1001 &383810162
@@ -3797,6 +3877,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -4048,6 +4133,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -4464,6 +4554,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &435641689
@@ -4486,6 +4581,16 @@ PrefabInstance:
     - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
         type: 3}
       propertyPath: m_Intensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Lightmapping
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6003254766314321539, guid: b217d504ae21d9142aa064dee7d02e15,
@@ -4611,6 +4716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -4781,6 +4891,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -5122,6 +5237,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared Arco (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9018066893191124548, guid: 8350726157b1a2a43937eb01fcc55ccf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8350726157b1a2a43937eb01fcc55ccf, type: 3}
 --- !u!4 &468461410 stripped
@@ -5228,6 +5348,16 @@ PrefabInstance:
     - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
         type: 3}
       propertyPath: m_Intensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Lightmapping
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6003254766314321539, guid: b217d504ae21d9142aa064dee7d02e15,
@@ -5354,6 +5484,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!4 &502786650 stripped
@@ -5435,6 +5570,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &534229135 stripped
@@ -5509,6 +5649,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Vigas madera (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
@@ -5662,6 +5807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -5953,6 +6103,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &617053803 stripped
@@ -6061,6 +6216,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piso (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 469859068369465500, guid: 49c47b9d4086c4f409a77c2fc061886f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4827600922417633179, guid: 49c47b9d4086c4f409a77c2fc061886f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6146,6 +6306,16 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6003254766314321539, guid: b217d504ae21d9142aa064dee7d02e15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6229,6 +6399,16 @@ PrefabInstance:
     - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
         type: 3}
       propertyPath: m_Intensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Lightmapping
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6003254766314321539, guid: b217d504ae21d9142aa064dee7d02e15,
@@ -6433,6 +6613,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &668289620
@@ -6585,6 +6770,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -6826,6 +7016,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &725845160
@@ -6894,6 +7089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -7049,6 +7249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -7300,6 +7505,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &754729167 stripped
@@ -7374,6 +7584,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -8094,6 +8309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &872207917 stripped
@@ -8253,6 +8473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Vigas madera (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
@@ -8646,6 +8871,16 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6003254766314321539, guid: b217d504ae21d9142aa064dee7d02e15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8869,6 +9104,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared Arco (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9018066893191124548, guid: 8350726157b1a2a43937eb01fcc55ccf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8350726157b1a2a43937eb01fcc55ccf, type: 3}
 --- !u!1001 &952434987
@@ -8937,6 +9177,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -9434,6 +9679,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &1044157293
@@ -9689,6 +9939,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &1057811410 stripped
@@ -9763,6 +10018,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -9934,6 +10194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &1072507883 stripped
@@ -10093,6 +10358,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &1087988271 stripped
@@ -10168,6 +10438,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &1108250000
@@ -10236,6 +10511,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared Arco (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018066893191124548, guid: 8350726157b1a2a43937eb01fcc55ccf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8350726157b1a2a43937eb01fcc55ccf, type: 3}
@@ -10391,6 +10671,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &1118297415 stripped
@@ -10465,6 +10750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -11519,6 +11809,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &1297604917
@@ -11587,6 +11882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Vigas madera (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
@@ -11830,6 +12130,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -12795,6 +13100,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &1466535597
@@ -13520,6 +13830,16 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285539064783651180, guid: b217d504ae21d9142aa064dee7d02e15,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6003254766314321539, guid: b217d504ae21d9142aa064dee7d02e15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13644,6 +13964,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &1574038468 stripped
@@ -13718,6 +14043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Vigas madera (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
@@ -13967,6 +14297,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &1615424628 stripped
@@ -14127,6 +14462,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &1632420367
@@ -14195,6 +14535,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -14440,6 +14785,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -14770,6 +15120,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &1699351780
@@ -14779,10 +15134,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 621399712}
     m_Modifications:
+    - target: {fileID: 48190703349464908, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 691919015080270228, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 884642342665986970, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856681131461517736, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992527853190596425, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044236995411829399, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2143160431509541361, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
         type: 3}
       propertyPath: m_Name
       value: Green Runner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143160431509541361, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2276268090681058252, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2342048826779626835, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
         type: 3}
@@ -14838,6 +15233,71 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532928935969459651, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109421488539365522, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481109823148704038, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615420581360739865, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794593561741210736, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881481369116925561, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232615151920847994, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706720636047555882, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922217622084925232, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264520714117142376, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990960366866008613, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445119210829562847, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497445586377672144, guid: 71aa9910eb27eb84ba3ab40b39f92ad2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71aa9910eb27eb84ba3ab40b39f92ad2, type: 3}
@@ -14997,6 +15457,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -15268,6 +15733,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &1736410536 stripped
@@ -15512,6 +15982,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -16276,6 +16751,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &1815660867 stripped
@@ -16543,6 +17023,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vigas madera (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
 --- !u!1001 &1867533200
@@ -16776,6 +17261,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &1896439032 stripped
@@ -16983,6 +17473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Vigas madera (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
@@ -17370,6 +17865,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -17870,6 +18370,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &2024269768 stripped
@@ -18030,6 +18535,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &2030232097 stripped
@@ -18104,6 +18614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
@@ -18355,6 +18870,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Vigas madera (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362846541432348828, guid: b875aa2c9ac71a44983c1845f7d7a576,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b875aa2c9ac71a44983c1845f7d7a576, type: 3}
@@ -18793,6 +19313,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pared (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
 --- !u!4 &2113173937 stripped
@@ -18873,6 +19398,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
