@@ -335,8 +335,8 @@ MonoBehaviour:
   bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
     type: 3}
   damage: 1
-  leftPos: {x: 6.5, y: 0}
-  rightPos: {x: -6.5, y: 0}
+  leftPos: {x: 2, y: 0}
+  rightPos: {x: -1.5, y: 0}
   offsetLeft: {x: 0, y: 0, z: 0}
   offsetRight: {x: 0, y: 0, z: 0}
   deathParticle: {fileID: 7847483149508383075, guid: 5e099aba4458ac24891b7c03fe9128b7,
@@ -358,7 +358,7 @@ MonoBehaviour:
   - Shoot
   boolsNames: []
   audios:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 4e7f7fc8519752043a7f9969eefc42fe, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -375,7 +375,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
