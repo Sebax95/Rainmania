@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject controls;
     public GameObject credits;
     public GameObject levels;
-    public AudioSource audioS;
+    AudioSource audioS;
     bool _true = false;
     bool _true2 = false;
     bool _true3 = false;
