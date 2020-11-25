@@ -56,6 +56,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	private IMoveOverride overriding;
 	#endregion
 
+
 	#region Monobehaviour
 	private void Awake() {
 		ControllerHandler.Instance.RequestAssignation(Instantiate(thisControllerPrefab), this);
@@ -348,6 +349,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 	private void OnEnable() => UpgradesManager.Instance.OnUpdateData += UpdateStateOnUpgrade;
 	private void OnDisable() => UpgradesManager.Instance.OnUpdateData -= UpdateStateOnUpgrade;
-	#endregion
+    #endregion
 
+   
 }

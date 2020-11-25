@@ -57,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _IntensityNormal1: 1
-    - _TessValue: 16
+    - _TessValue: 1
     - _Tilling1: 1
     - _Tilling2: 1
     - _Tilling3: 1
