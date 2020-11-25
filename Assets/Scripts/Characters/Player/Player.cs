@@ -4,6 +4,7 @@ using UnityEngine;
 using CustomMSLibrary.Core;
 using CustomMSLibrary.Unity;
 
+[SelectionBase]
 public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, IAddableVelocity {
 	#region Variables/Properties
 	private const float GROUNDED_DISTANCE = 1.1f;
@@ -87,7 +88,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		coyoteTimer = 0;
 		waitSupressCoyote = new WaitForSeconds(coyoteSupressionTime);
 	}
-	protected override void OnUpdate(){
+	protected override void OnUpdate() {
 		if(isDead)
 			return;
 		DetectGround();
@@ -114,7 +115,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		rb.velocity = rb.velocity.ZeroY();
 		PlayerAnimator.TriggerAction(0);
 		ForceJump();
-		Grounded =false;
+		Grounded = false;
 		coyoteTimer = coyoteDuration + 1;
 		groundedFramesCounter = 0;
 		StartCoroutine(SupressCoyote());
@@ -296,8 +297,8 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		var crouchCol = colliders.crouching;
 
 		Vector3 center = standCol.center;
-		float standTrueHeight = standCol.height + standCol.radius;
-		float crouchTrueHeight = crouchCol.height + crouchCol.radius;
+		float standTrueHeight = standCol.height;
+		float crouchTrueHeight = crouchCol.height;
 
 		float deltaHeight = standTrueHeight - crouchTrueHeight;
 		float floorHeight = center.y - (standTrueHeight / 2f);
@@ -307,8 +308,9 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		Vector3 newCenter = new Vector3(center.x, newCenterHeight, center.z);
 		colliders.standChecker = new Bounds() {
 			center = newCenter,
-			extents = Vector3.one * radius
+			extents = new Vector3(radius, deltaHeight / 2f, radius)
 		};
+
 	}
 
 	private void InitCollisionMask() {
@@ -336,13 +338,12 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		whip.enabled = data.GetBool("whipAcquired");
 		bow.enabled = data.GetBool("bowAcquired");
 
-		UpdateUI();	
+		UpdateUI();
 	}
-	void UpdateUI()
-    {
-		if (whip.enabled)
+	void UpdateUI() {
+		if(whip.enabled)
 			UIManager.Instance.FoundWhip();
-		if (bow.enabled)
+		if(bow.enabled)
 			UIManager.Instance.FoundArcher();
 	}
 
