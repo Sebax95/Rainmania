@@ -3311,7 +3311,7 @@ MonoBehaviour:
   crouchSpeedModifier: 0.7
   crouchCheckLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 16385
   groundedTreshold: 1
   groundCheckOffset: {x: 0, y: 0, z: 0}
   coyoteDuration: 0.5

@@ -82,7 +82,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 		rb = GetComponent<Rigidbody>();
 		PlayerAnimator = GetComponent<PlayerAnim>();
-		InitCollisionMask();
+		//InitCollisionMask();
 		UpdateStateOnUpgrade(UpgradesManager.Instance.Data);
 
 		coyoteTimer = 0;
@@ -148,7 +148,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 			mult *= crouchSpeedModifier;
 
 		var vel = rb.velocity;
-		Vector3 newVel = new Vector3(direction.x * speed * mult, vel.y) + addedVelocity.ZeroY();
+		Vector3 newVel = new Vector3(direction.x * speed * mult, vel.y,0) + addedVelocity.ZeroY();
 
 		rb.velocity = newVel + momentum.velocity.ZeroY();
 
@@ -171,6 +171,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 				throw new ArgumentNullException("Oi, shit-ass. You've changed the collider type, didn't you? Ya fucked up. Not really. Just update the code here to compensate.");
 
 			Bounds checkBounds = colliders.standChecker;
+			//var coli = Physics.OverlapBox(transform.position + checkBounds.center, checkBounds.extents, transform.rotation,		, QueryTriggerInteraction.Ignore);
 			bool solidAboveMe = Physics.CheckBox(transform.position + checkBounds.center, checkBounds.extents, transform.rotation, crouchCheckLayerMask, QueryTriggerInteraction.Ignore);
 			if(solidAboveMe)
 				return;
@@ -313,19 +314,19 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 	}
 
-	private void InitCollisionMask() {
-		int myLayer = gameObject.layer;
-		int layerMask = 0;
+	//private void InitCollisionMask() {
+	//	int myLayer = gameObject.layer;
+	//	int layerMask = 0;
 
-		for(int i = 0; i < 32; i++)
-		{
-			if(!Physics.GetIgnoreLayerCollision(myLayer, i))
-			{
-				layerMask = layerMask | (1 << i);
-			}
-		}
-		crouchCheckLayerMask = layerMask;
-	}
+	//	for(int i = 0; i < 32; i++)
+	//	{
+	//		if(!Physics.GetIgnoreLayerCollision(myLayer, i))
+	//		{
+	//			layerMask = layerMask | (1 << i);
+	//		}
+	//	}
+	//	crouchCheckLayerMask = layerMask;
+	//}
 
 	private void UpdateStateOnUpgrade(UpgradesData data) {
 		//TODO: ver como manejamos mejoras de vida con vida < 100%. Full restore por ahora
