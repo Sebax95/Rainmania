@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0034514645, g: 0.00018824158, b: 0.000000042100982,
+  m_IndirectSpecularColor: {r: 0.0002671412, g: 0.000014569782, b: 0.0000000032585898,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -21758,6 +21758,16 @@ PrefabInstance:
       propertyPath: _capsu
       value: 
       objectReference: {fileID: 981865923}
+    - target: {fileID: 1691721428244040750, guid: bea34d7df4530b04fb93325fa263f03f,
+        type: 3}
+      propertyPath: groundCheckOffset.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691721428244040750, guid: bea34d7df4530b04fb93325fa263f03f,
+        type: 3}
+      propertyPath: groundedTreshold
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3943775699194359029, guid: bea34d7df4530b04fb93325fa263f03f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -56094,6 +56104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891647802203825718, guid: 38fc5b70d0e81d149a9500625771da68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38fc5b70d0e81d149a9500625771da68, type: 3}
