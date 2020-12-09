@@ -66,6 +66,7 @@ public class Bombardero : Enemy
 
     public override void Die(IDamager source)
     {
+        
         isDead = true;
         viewEnem.PlaySound(EnemyView.AudioEnemys.Die);
         var part = Instantiate(deathParticle, transform.position, Quaternion.identity);

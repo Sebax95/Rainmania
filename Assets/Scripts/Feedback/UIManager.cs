@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
@@ -14,6 +15,10 @@ public class UIManager : MonoBehaviour {
 	Image _Wip;
 	private Text _amountArrows;
 	public int _arrows;
+	public GameObject _pauseMenu;
+	bool _active;
+	
+
 
 
 	private void Awake()
@@ -25,6 +30,8 @@ public class UIManager : MonoBehaviour {
 		_amountArrows = transform.Find("Amount").GetComponent<Text>();
 		_Bow = transform.Find("Arrows").GetComponent<Image>();
 		_Wip = transform.Find("Whip").GetComponent<Image>();
+		_active = false;
+		
 	}
 
 	void Start()
@@ -33,10 +40,40 @@ public class UIManager : MonoBehaviour {
 		_Bow.enabled = false;
 		_Wip.enabled = false;
 		_amountArrows.enabled = false;
+		_pauseMenu.SetActive(_active);
+		GameManager.SetPause(false);
+
 	}
 
+	private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+			_active = !_active;
+			_pauseMenu.SetActive(_active);
+			GameManager.SetPause(!GameManager.Instance.IsPause);
+        }
+    }
 
+	public void BackMenu()
+	{
+		_pauseMenu.SetActive(false);
+		GameManager.SetPause(false);
+		GameManager.Instance.DestroyOnMenu();
+		SceneManager.LoadScene(0);
+	}
 
+	public void Exit()
+    {
+		Application.Quit();
+	}
+
+	public void Resume()
+    {
+		_active = false;
+		_pauseMenu.SetActive(false);
+		GameManager.SetPause(false);
+	}
 	public void ArrowAmount(int _arrowss)
 	{
 		_arrows += _arrowss;

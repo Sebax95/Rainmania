@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public abstract class TimedBehaviour : MonoBehaviour {
+public abstract class TimedBehaviour : MonoBehaviour
+{
 	protected static bool RunUpdates { get; set; } = true;
 	public const float DEFAULT_TIMESCALE = 1;
 
