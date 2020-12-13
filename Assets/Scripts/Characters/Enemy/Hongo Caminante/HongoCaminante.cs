@@ -85,11 +85,11 @@ public abstract class HongoCaminante : Enemy
     public override void Die(IDamager source)
     {
         isDeath = true;
+        gameObject.layer = 11;
         viewEnem.ActivateBool(1, false);
         viewEnem.ActivateTriggers(1);
         viewEnem.PlaySound(EnemyView.AudioEnemys.Die);
-        rb.isKinematic = true;
-        GetComponent<CapsuleCollider>().enabled = false;
+        //GetComponent<CapsuleCollider>().enabled = false;
         TurnOff(this, 2f);
     }
 
