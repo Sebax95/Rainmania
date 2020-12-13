@@ -57,6 +57,12 @@ ModelImporter:
   - first:
       74: 4740976204825652515
     second: EndJump
+  - first:
+      74: 3316098014906022577
+    second: BowRIdle
+  - first:
+      74: -771905174444587769
+    second: BowDIdle
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -654,6 +660,64 @@ ModelImporter:
       internalID: 0
       firstFrame: 43
       lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BowRIdle
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 100
+      lastFrame: 100.1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BowDIdle
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 120
+      lastFrame: 120.09999
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
