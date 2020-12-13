@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CustomMSLibrary.Unity;
+using UnityEditor;
 
 [SelectionBase]
 public abstract class Enemy : Character, IDamager
@@ -12,12 +13,15 @@ public abstract class Enemy : Character, IDamager
     public LayerMask groundMask;
     protected Vector3 startPos;
 
-    [Header("Shooting", order = 2)] public float cdTimer;
+    [Header("Shooting")]
+    public float cdTimer;
     public Transform output;
 
-    [Header("Line Of Sight", order = 1)] public float viewAngle;
+    [Header("Line Of Sight")] 
+    public bool needLOS;
+    public float viewAngle;
     public float viewDistance;
-    public Vector3 offsetLOS;
+    public Transform offsetLOS;
     private Vector3 _posLOS;
     private Vector3 _dirToTarget;
     private float _anglesToAngle;
@@ -81,16 +85,15 @@ public abstract class Enemy : Character, IDamager
 
     public bool LineOfSight()
     {
-        if (target == null) return false;
-        _posLOS = transform.position + offsetLOS;
+        if (target == null || !needLOS) return false;
         _dirToTarget = target.transform.position - transform.position;
         _anglesToAngle = Vector3.Angle(transform.forward, _dirToTarget);
-        _distanceToTarget = Vector3.Distance(_posLOS, target.transform.position);
+        _distanceToTarget = Vector3.Distance(offsetLOS.position, target.transform.position);
         if (_anglesToAngle <= viewAngle && _distanceToTarget <= viewDistance)
         {
             RaycastHit rch;
             bool obstacleBetween = false;
-            if (Physics.Raycast(_posLOS, _dirToTarget, out rch, _distanceToTarget))
+            if (Physics.Raycast(offsetLOS.position, _dirToTarget, out rch, _distanceToTarget))
                 if (gameAreaMask.ContainsLayer(rch.collider.gameObject.layer))
                     obstacleBetween = true;
             if (!obstacleBetween)
@@ -129,25 +132,25 @@ public abstract class Enemy : Character, IDamager
 
     private void OnDrawGizmosSelected()
     {
-        if (!showGizmos) return;
-        var posLOS = transform.position + offsetLOS;
+        if (!showGizmos || !needLOS) return;
+        
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(posLOS, viewDistance);
+        Gizmos.DrawWireSphere(offsetLOS.position, viewDistance);
 
         Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(posLOS, posLOS + (transform.forward * viewDistance));
+        Gizmos.DrawLine(offsetLOS.position, offsetLOS.position + (transform.forward * viewDistance));
 
         Vector3 rightLimit = Quaternion.AngleAxis(viewAngle, transform.up) * transform.forward;
-        Gizmos.DrawLine(posLOS, posLOS + (rightLimit * viewDistance));
+        Gizmos.DrawLine(offsetLOS.position, offsetLOS.position + (rightLimit * viewDistance));
 
         Vector3 leftLimit = Quaternion.AngleAxis(-viewAngle, transform.up) * transform.forward;
-        Gizmos.DrawLine(posLOS, posLOS + (leftLimit * viewDistance));
+        Gizmos.DrawLine(offsetLOS.position, offsetLOS.position + (leftLimit * viewDistance));
 
         Vector3 upLimit = Quaternion.AngleAxis(-viewAngle, transform.right) * transform.forward;
-        Gizmos.DrawLine(posLOS, posLOS + (upLimit * viewDistance));
+        Gizmos.DrawLine(offsetLOS.position, offsetLOS.position + (upLimit * viewDistance));
 
         Vector3 downLimit = Quaternion.AngleAxis(viewAngle, transform.right) * transform.forward;
-        Gizmos.DrawLine(posLOS, posLOS + (downLimit * viewDistance));
+        Gizmos.DrawLine(offsetLOS.position, offsetLOS.position + (downLimit * viewDistance));
     }
     
     protected override void OnDestroy()

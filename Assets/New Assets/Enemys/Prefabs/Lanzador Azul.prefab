@@ -42,6 +42,7 @@ Transform:
   - {fileID: 5115842937310465595}
   - {fileID: 1460998312677377752}
   - {fileID: 6535211444116493297}
+  - {fileID: 3345045929003375343}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -127,6 +128,9 @@ MonoBehaviour:
   - ShootDiagonal
   boolsNames:
   - isDead
+  audios: []
+  stepRandom: []
+  stepWaterRandom: []
 --- !u!82 &1662000185128951702
 AudioSource:
   m_ObjectHideFlags: 0
@@ -245,9 +249,10 @@ MonoBehaviour:
     m_Bits: 512
   cdTimer: 1000
   output: {fileID: 6535211444116493297}
+  needLOS: 0
   viewAngle: 25
   viewDistance: 10
-  offsetLOS: {x: 0, y: 0.73, z: 0.26}
+  offsetLOS: {fileID: 3345045929003375343}
   lastPosition: {x: 0, y: 0, z: 0}
   gameAreaMask:
     serializedVersion: 2
@@ -255,15 +260,10 @@ MonoBehaviour:
   showGizmos: 1
   spawner: {fileID: 0}
   target: {fileID: 0}
-  isInvulnerable: 1
-  jumpingPad: {fileID: 0}
-  forceJump: 10
   bulletPref: {fileID: 0}
+  isInvulnerable: 1
+  forceJump: 10
   canShoot: 0
-  shootSound: {fileID: 0}
-  jumpingPadSound: {fileID: 8300000, guid: 3703d2cfb5571214babb7c7da8d5177f, type: 3}
-  hitSound: {fileID: 0}
-  dieSound: {fileID: 0}
 --- !u!1 &206306491940074669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,6 +1393,36 @@ Transform:
   - {fileID: 2165007291512211728}
   m_Father: {fileID: 8110148385721484078}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7838474939766319438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3345045929003375343}
+  m_Layer: 15
+  m_Name: LineOfSight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3345045929003375343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7838474939766319438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.523, z: 0.169}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 834894540514537729}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8005865235929608442
 GameObject:

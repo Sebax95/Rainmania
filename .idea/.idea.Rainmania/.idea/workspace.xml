@@ -54,8 +54,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemysRespawn.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/EnemyView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/Bombardero.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
       </list>
     </option>
   </component>
@@ -147,6 +147,9 @@
       <workItem from="1604781879129" duration="1722000" />
       <workItem from="1605031956668" duration="7711000" />
       <workItem from="1607540663719" duration="843000" />
+      <workItem from="1607695829708" duration="6142000" />
+      <workItem from="1607818028763" duration="426000" />
+      <workItem from="1607882170144" duration="1894000" />
     </task>
     <servers />
   </component>
