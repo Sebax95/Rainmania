@@ -19,9 +19,9 @@ public class SwingAnim : TimedBehaviour {
 		brillo.transform.position = new Vector3(00,0, 0);
     }
 
-	public void BeginSwing(Transform _trans)
+	public void BeginSwing(Vector3 anchorPos)
     {
-		brillo.transform.position = _trans.position;
+		brillo.transform.position = anchorPos;
 		brillo.SetActive(false);
 		brillo.SetActive(true);
 		animator.SetBool(swingingParameter, true);

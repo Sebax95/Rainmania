@@ -164,6 +164,14 @@ public class Arrow : TimedBehaviour, IDamager {
 		timer = grappleTime;
 	}
 
+	public void LockExistance() {
+		timer = float.PositiveInfinity;
+	}
+
+	public void UnlockExistance() {
+		timer = grappleTime;
+	}
+
 	private void OnTriggerEnter(Collider other) {
 		if(!stop || !canPlatform || other.gameObject.layer != PLAYER_LAYER)
 			return;
