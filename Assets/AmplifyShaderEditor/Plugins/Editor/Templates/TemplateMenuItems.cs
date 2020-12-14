@@ -81,10 +81,5 @@ namespace AmplifyShaderEditor
 		{
 			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "07f9b0fbbdab30d4e9ea6f6ca8f21646" );
 		}
-		[MenuItem( "Assets/Create/Amplify Shader/ASETemplateShaders/UsePassUnlit", false, 85 )]
-		public static void ApplyTemplateASETemplateShadersUsePassUnlit()
-		{
-			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "88d4695f530db2a46ae0f0a37e3684b4" );
-		}
 	}
 }

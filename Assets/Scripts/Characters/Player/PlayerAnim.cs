@@ -14,11 +14,14 @@ public class PlayerAnim : TimedBehaviour {
 	public GameObject whip;
 	public GameObject bow;
 	public Transform targetHead;
+	public GameObject[] headTargets; //Temp es lo del rigging bug
 	public Transform[] anchorPos;
 	
-	[Header("Animation parameters")]
+	[Header("Animation parameters")] 
 	public string param_horizontalSpeed;
 	public string param_verticalSpeed;
+	public string param_horizontalAim;
+	public string param_verticalAim;
 
 	public string[] param_triggers;
 	public string[] param_bools;
@@ -64,7 +67,7 @@ public class PlayerAnim : TimedBehaviour {
 	public void SetSpeeds(Vector2 speeds) {
 		thisAnimator.SetFloat(param_horizontalSpeed, Mathf.Abs(speeds.x * directionAnimMultiplier.x));
 		thisAnimator.SetFloat(param_verticalSpeed, speeds.y * directionAnimMultiplier.y);
-		HeadFollower(speeds);
+		//HeadFollower(speeds);
 	}
 
 	public void HeadFollower(Vector2 position)
@@ -80,6 +83,14 @@ public class PlayerAnim : TimedBehaviour {
 		//StartCoroutine(LerpMovement(selected));
 	}
 
+	//Temp es lo del rigging bug
+	public void DesactivateHeadFollower()
+	{
+		foreach (var item in headTargets)
+			item.SetActive(false);
+	}
+	
+	//TODO: fixear esto para que la transicion de donde mire sea smooth
 	IEnumerator LerpMovement(Vector2 pos)
 	{
 		var initTimer = 0f;

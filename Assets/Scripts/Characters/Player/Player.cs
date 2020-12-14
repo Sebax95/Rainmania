@@ -139,10 +139,14 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		else if(direction.x < 0)
 			transform.rotation = Quaternion.Euler(0, 270, 0);
 
+		PlayerAnimator.HeadFollower(direction);
 		PlayerAnimator.SetSpeeds(direction);
-
-		if(aimMode)
-			return;
+		
+		if (aimMode)
+		{
+			PlayerAnimator.SetSpeeds(Vector2.zero);
+			return;	
+		}
 
 		float mult = 1;
 		if(crouched)
@@ -272,6 +276,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public override void Die(IDamager source) {
 		isDead = true;
 		//PlayerAnimator.ChangeBool(1, true);
+		//PlayerAnimator.DesactivateHeadFollower(); //Desactivador de donde mire el pj pero ta bug 
 		PlayerAnimator.Die();
 		//canMove = false;
 		GameManager.Instance.PlayerDie();

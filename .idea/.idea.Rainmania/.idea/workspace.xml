@@ -18,6 +18,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2FEAF16E-8000-4E0C-ADAE-3F2E05F2A3FA/f8/f4aea541/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2FEAF16E-8000-4E0C-ADAE-3F2E05F2A3FA/d6/65c28f7c/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9B956647-017D-4DC1-B8D3-D25EEF012467/46/39b07108/Physics.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.animation.rigging@0.2.7-preview/Runtime/AnimationRig/Rig.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DetectorZone.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/7b/fc18066a/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/83/3ee99eed/Thread.cs" root0="SKIP_HIGHLIGHTING" />
@@ -44,7 +45,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Disparo/GreenMushroom.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/Embestidor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Entities/Spawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerAnim.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/States/FlyState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DetectorZone.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Volador/FlyingEnemy.cs" />
@@ -53,9 +53,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemysRespawn.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/EnemyView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Bombardero/Bombardero.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Core/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy/Hongo Caminante/HongoCaminante.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/PlayerAnim.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Player/Player.cs" />
       </list>
     </option>
   </component>
@@ -150,6 +151,9 @@
       <workItem from="1607695829708" duration="6142000" />
       <workItem from="1607818028763" duration="426000" />
       <workItem from="1607882170144" duration="2579000" />
+      <workItem from="1607967730242" duration="3604000" />
+      <workItem from="1607972017348" duration="1231000" />
+      <workItem from="1607973939124" duration="6880000" />
     </task>
     <servers />
   </component>
@@ -234,9 +238,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1602978392488" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1603163879330">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1607977097260">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1603163879330" />
+    <state x="616" y="240" key="run.anything.popup/-1440.175.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1607977097260" />
   </component>
 </project>
