@@ -75,19 +75,16 @@ public class Whip : Weapon {
 	}
 
 	private bool TryAttachInColliderBuffer() {
-		foreach(var item in boxcastCache)
+		foreach(var col in boxcastCache)
 		{
-			if(item == null)
+			if(col == null)
 				continue;
 
-			var anchor = item.GetComponent<SwingAnchor>();
+			var anchor = col.GetComponent<SwingAnchor>();
 			if(anchor == null || !anchor.enabled)
 				continue;
 
-			if (anchor.transformDependant)
-				swinger.SetupSwing(item.transform,anchor.transform);
-			else
-				swinger.SetupSwing(item.transform.position,anchor.transform);
+			anchor.AttachSwinger(swinger);
 
 			swinger.StartSwing();
 			return true;
@@ -112,20 +109,22 @@ public class Whip : Weapon {
 	}
 
 	public override void Attack(Vector2 direction) {
+		#region Deprecated with big box hitbox
+		//bool vertical = direction.y > 0;
+		//bool horizontal = direction.x != 0;
+		//TargetDirection directionIndex;
 
-		bool vertical = direction.y > 0;
-		bool horizontal = direction.x != 0;
-		TargetDirection directionIndex;
+		//if(vertical)
+		//	if(horizontal)
+		//		directionIndex = TargetDirection.Diagonal;
+		//	else
+		//		directionIndex = TargetDirection.Vertical;
+		//else
+		//	directionIndex = TargetDirection.Horizontal;
 
-		if(vertical)
-			if(horizontal)
-				directionIndex = TargetDirection.Diagonal;
-			else
-				directionIndex = TargetDirection.Vertical;
-		else
-			directionIndex = TargetDirection.Horizontal;
-
-		StartCoroutine(Coroutine_RepeatAttack(directionIndex));
+		//StartCoroutine(Coroutine_RepeatAttack(directionIndex));
+		#endregion
+		StartCoroutine(Coroutine_RepeatAttack(0));
 	}
 
 	private IEnumerator Coroutine_RepeatAttack(TargetDirection direction) {

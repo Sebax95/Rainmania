@@ -84,6 +84,7 @@ public class Arrow : TimedBehaviour, IDamager {
 		gameObject.layer = originalLayer;
 		rigid.useGravity = false;
 		anchor.enabled = false;
+		solidCol.enabled = true;
 
 		SetIsFlying(true);
 
@@ -122,24 +123,33 @@ public class Arrow : TimedBehaviour, IDamager {
 
 		if(collision.collider.gameObject.CompareTag(ANCHORABLE_TAG) && canPlatform) //If it's a stickable wall
 		{
-			rigid.isKinematic = true;
-			gameObject.tag = BAD_ARROW_TAG;
-			timer = asPlatformLifetime;
-			//if(collision.collider.gameObject.tag == ANCHORABLE_TAG)
-			anchor.enabled = canAnchor;
-			wallInpact.Play();
+			StickToWall(collision);
 		} else //otherwise something non-stickable
 		{
-			if (collision.gameObject.CompareTag("Metal"))
-				metalInpact.Play();
-			this.gameObject.layer = 11; //Non-interactable layer
-			rigid.useGravity = true;
-			rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS;
-			timer = droppedArrowLifetime;
+			DropLimp(collision);
 		}
 
 		if(collision.collider.gameObject.layer == 15) //Enemy layer
 			gameObject.SetActive(false);
+	}
+
+	private void DropLimp(Collision collision) {
+		if(collision.gameObject.CompareTag("Metal"))
+			metalInpact.Play();
+		gameObject.layer = 11; //Non-interactable layer
+		rigid.useGravity = true;
+		rigid.constraints = (RigidbodyConstraints)FLIGHT_CONSTRAINTS;
+		timer = droppedArrowLifetime;
+	}
+
+	private void StickToWall(Collision collision) {
+		rigid.isKinematic = true;
+		gameObject.tag = BAD_ARROW_TAG;
+		timer = asPlatformLifetime;
+		//if(collision.collider.gameObject.tag == ANCHORABLE_TAG)
+		anchor.enabled = canAnchor;
+		transform.forward = -collision.GetContact(0).normal;
+		wallInpact.Play();
 	}
 
 	private void SetIsFlying(bool value) {
@@ -151,6 +161,14 @@ public class Arrow : TimedBehaviour, IDamager {
 
 	public void OnGrapple() {
 		//isAnchor = true;
+		timer = grappleTime;
+	}
+
+	public void LockExistance() {
+		timer = float.PositiveInfinity;
+	}
+
+	public void UnlockExistance() {
 		timer = grappleTime;
 	}
 
