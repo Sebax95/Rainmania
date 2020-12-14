@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0.8
   m_Effectors:
   - m_Transform: {fileID: 1411970311}
     m_Style:
@@ -219,7 +219,7 @@ MonoBehaviour:
       m_Length: 1
       m_Item0:
         transform: {fileID: 1411970311}
-        weight: 1
+        weight: 0.8
       m_Item1:
         transform: {fileID: 0}
         weight: 0
@@ -3335,12 +3335,15 @@ MonoBehaviour:
   whip: {fileID: 2757894314613027622}
   bow: {fileID: 9008258882033172526}
   targetHead: {fileID: 1411970311}
+  headRig: {fileID: 650686375}
   anchorPos:
   - {fileID: 3540944613691951438}
   - {fileID: 67740709604551672}
   - {fileID: 7944931631656711970}
   param_horizontalSpeed: SpeedX
   param_verticalSpeed: SpeedY
+  param_horizontalAim: AimX
+  param_verticalAim: AimY
   param_triggers:
   - jump
   - Hit

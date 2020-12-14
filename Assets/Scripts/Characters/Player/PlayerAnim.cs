@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Animations.Rigging;
+using Random = UnityEngine.Random;
 
 public class PlayerAnim : TimedBehaviour {
 
@@ -14,7 +15,7 @@ public class PlayerAnim : TimedBehaviour {
 	public GameObject whip;
 	public GameObject bow;
 	public Transform targetHead;
-	public GameObject[] headTargets; //Temp es lo del rigging bug
+	public Rig headRig;
 	public Transform[] anchorPos;
 	
 	[Header("Animation parameters")] 
@@ -70,6 +71,12 @@ public class PlayerAnim : TimedBehaviour {
 		//HeadFollower(speeds);
 	}
 
+	public void SetAims(Vector2 aims)
+	{
+		thisAnimator.SetFloat(param_horizontalAim, Mathf.Abs(aims.x * directionAnimMultiplier.x));
+		thisAnimator.SetFloat(param_verticalAim, aims.y * directionAnimMultiplier.y);
+	}
+
 	public void HeadFollower(Vector2 position)
 	{
 		var selected = anchorPos[0].position;
@@ -84,11 +91,8 @@ public class PlayerAnim : TimedBehaviour {
 	}
 
 	//Temp es lo del rigging bug
-	public void DesactivateHeadFollower()
-	{
-		foreach (var item in headTargets)
-			item.SetActive(false);
-	}
+	public void DeActivateHeadFollower() => headRig.weight = 0;
+	public void ActivateHeadFollower() => headRig.weight = 0.8f;
 	
 	//TODO: fixear esto para que la transicion de donde mire sea smooth
 	IEnumerator LerpMovement(Vector2 pos)
@@ -207,6 +211,7 @@ public class PlayerAnim : TimedBehaviour {
 	}
 
 	public void Die() {
+		DeActivateHeadFollower();
 		ChangeBool(1, true);
 		PlaySound(AudioCue.Die);
 	}
@@ -260,4 +265,8 @@ public class PlayerAnim : TimedBehaviour {
 		whipRig.SetActive(false);
 		whip.SetActive(false);
 	}
+
+	private void OnEnable() => ActivateHeadFollower();
+
+	private void OnDisable() => DeActivateHeadFollower();
 }

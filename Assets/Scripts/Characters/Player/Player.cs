@@ -144,6 +144,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 		PlayerAnimator.HeadFollower(direction);
 		PlayerAnimator.SetSpeeds(direction);
+		PlayerAnimator.SetAims(direction);
 		
 		if (aimMode)
 		{
@@ -279,7 +280,6 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public override void Die(IDamager source) {
 		isDead = true;
 		//PlayerAnimator.ChangeBool(1, true);
-		//PlayerAnimator.DesactivateHeadFollower(); //Desactivador de donde mire el pj pero ta bug 
 		PlayerAnimator.Die();
 		//canMove = false;
 		GameManager.Instance.PlayerDie();
