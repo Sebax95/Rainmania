@@ -105,6 +105,9 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		if(!(Grounded || (CanCoyoteJump && !supressCoyote)))
 			return;
 
+		if(!gameObject.activeSelf)
+			return;
+
 		bool wasCrouched = crouched; //TEST
 
 		ToggleCrouch(false);
