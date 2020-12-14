@@ -110,12 +110,12 @@ Material:
     - _Waves: 2.45
     - _WavesTess: 0.41
     - _ZWrite: 1
-    - __dirty: 0
+    - __dirty: 1
     - _x: 0.02
     - _y: 0.02
     m_Colors:
     - _2: {r: 0, g: 0.580643, b: 0.9607843, a: 0.7137255}
-    - _BorderColor: {r: 0, g: 0.42745098, b: 1, a: 0.9411765}
+    - _BorderColor: {r: 0, g: 0.42745095, b: 1, a: 0.9411765}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 0.39215684, g: 1, b: 0.5166987, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -124,4 +124,4 @@ Material:
     - _Offset: {r: -0.5, g: 0, b: 0, a: 0}
     - _ReflexColor: {r: 0, g: 0, b: 0, a: 1}
     - _TestColorWater: {r: 1, g: 0, b: 0, a: 0}
-    - _WaterColor: {r: 0.4627451, g: 0.93333334, b: 0.89411765, a: 0.9411765}
+    - _WaterColor: {r: 0.462745, g: 0.93333334, b: 0.89411765, a: 0.9411765}

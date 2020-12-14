@@ -43,8 +43,8 @@ Material:
     - _ASEOutlineWidth: 0
     - _Glossiness: 0.5
     - _Metallic: 0
-    - _XRayIntensity1: 1.5
+    - _XRayIntensity1: 0.5
     - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorXray1: {r: 0.48627454, g: 0.92549026, b: 1, a: 1}
+    - _ColorXray1: {r: 1, g: 1, b: 1, a: 1}

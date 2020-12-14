@@ -991,10 +991,22 @@
             </e>
           </e>
         </e>
+        <e p="Editor" t="Include">
+          <e p="BuildAssetChecker.cs" t="Include" />
+          <e p="DependencyChecker.cs" t="Include" />
+          <e p="Editor.asmdef" t="Include" />
+          <e p="Readme-DependencyChecker.txt" t="Include" />
+        </e>
         <e p="New Assets" t="Include">
           <e p="Enemys" t="Include">
             <e p="Suicide" t="Include">
               <e p="Alas.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Levels Assets" t="Include">
+            <e p="MoveTest.cs" t="Include" />
+            <e p="New Shade" t="Include">
+              <e p="Terrain Vertex Color.shader" t="Include" />
             </e>
           </e>
         </e>
@@ -1220,6 +1232,7 @@
             <e p="Keys.cs" t="Include" />
             <e p="ResetEffect.cs" t="Include" />
             <e p="StairDrop.cs" t="Include" />
+            <e p="TutoText.cs" t="Include" />
           </e>
           <e p="MainMenu.cs" t="Include" />
           <e p="Managers" t="Include">
@@ -1270,6 +1283,7 @@
             <e p="Test_Swinger.cs" t="Include" />
             <e p="tester.asmdef" t="Include" />
           </e>
+          <e p="TimedBehaviour.cs" t="Include" />
           <e p="Tools" t="Include">
             <e p="GameObjectSelector.cs" t="Include" />
             <e p="Tools.asmdef" t="Include" />
@@ -1295,9 +1309,6 @@
             <e p="BulletShader.shader" t="Include" />
           </e>
           <e p="Character" t="Include">
-            <e p="Mask" t="Include">
-              <e p="CharacterBodyMask.shader" t="Include" />
-            </e>
             <e p="Textures" t="Include">
               <e p="CharacterBody.shader" t="Include" />
             </e>
@@ -1343,12 +1354,44 @@
             <e p="Toon Water.shader" t="Include" />
           </e>
         </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+            <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+            <e p="TMP_Bitmap.shader" t="Include" />
+            <e p="TMP_SDF Overlay.shader" t="Include" />
+            <e p="TMP_SDF SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+            <e p="TMP_SDF-Mobile SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface.shader" t="Include" />
+            <e p="TMP_SDF.shader" t="Include" />
+            <e p="TMP_Sprite.shader" t="Include" />
+            <e p="TMPro.cginc" t="Include" />
+            <e p="TMPro_Mobile.cginc" t="Include" />
+            <e p="TMPro_Properties.cginc" t="Include" />
+            <e p="TMPro_Surface.cginc" t="Include" />
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
         <e p="Textures" t="Include">
           <e p="Splash.shader" t="Include" />
         </e>
       </e>
       <e p="Aura2_Core.csproj" t="IncludeRecursive" />
       <e p="Aura2_Editor.csproj" t="IncludeRecursive" />
+      <e p="Editor.csproj" t="IncludeRecursive" />
       <e p="Generic.csproj" t="IncludeRecursive" />
       <e p="HongoEditor.csproj" t="IncludeRecursive" />
       <e p="MSLib.csproj" t="IncludeRecursive" />

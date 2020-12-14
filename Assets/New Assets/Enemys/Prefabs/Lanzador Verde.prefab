@@ -258,6 +258,7 @@ Transform:
   - {fileID: 6486882253772809708}
   - {fileID: 630410730304810255}
   - {fileID: 5064461811892140070}
+  - {fileID: 5981255309550332722}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -345,9 +346,10 @@ MonoBehaviour:
     m_Bits: 512
   cdTimer: 1
   output: {fileID: 5064461811892140070}
+  needLOS: 1
   viewAngle: 21
   viewDistance: 9.26
-  offsetLOS: {x: -0.22, y: 0.73, z: 0}
+  offsetLOS: {fileID: 5981255309550332722}
   lastPosition: {x: 0, y: 0, z: 0}
   gameAreaMask:
     serializedVersion: 2
@@ -355,16 +357,11 @@ MonoBehaviour:
   showGizmos: 1
   spawner: {fileID: 0}
   target: {fileID: 0}
-  isInvulnerable: 0
-  jumpingPad: {fileID: 0}
-  forceJump: 4
   bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
     type: 3}
+  isInvulnerable: 0
+  forceJump: 4
   canShoot: 0
-  shootSound: {fileID: 8300000, guid: 01818cb8720d300428bf1bddbc438365, type: 3}
-  jumpingPadSound: {fileID: 8300000, guid: 3703d2cfb5571214babb7c7da8d5177f, type: 3}
-  hitSound: {fileID: 8300000, guid: 5f5acf83d1072714d82c209d7ef67a13, type: 3}
-  dieSound: {fileID: 0}
   altBullet: 2
   shootWithGravity: 1
 --- !u!114 &3672705873796715339
@@ -392,6 +389,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5f5acf83d1072714d82c209d7ef67a13, type: 3}
   - {fileID: 8300000, guid: 01818cb8720d300428bf1bddbc438365, type: 3}
   - {fileID: 8300000, guid: 3703d2cfb5571214babb7c7da8d5177f, type: 3}
+  stepRandom: []
+  stepWaterRandom: []
 --- !u!82 &8996868583944488465
 AudioSource:
   m_ObjectHideFlags: 0
@@ -729,6 +728,36 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0057393834, y: -0.15103029, z: 0.11204012}
     m_Extent: {x: 0.10551341, y: 0.09844051, z: 0.08042161}
   m_DirtyAABB: 0
+--- !u!1 &3813065381635674344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5981255309550332722}
+  m_Layer: 15
+  m_Name: LineOfSight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5981255309550332722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813065381635674344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.527, z: 0.163}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1688582854473489110}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3877859817087587408
 GameObject:
   m_ObjectHideFlags: 0

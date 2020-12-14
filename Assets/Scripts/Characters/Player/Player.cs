@@ -352,6 +352,5 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	private void OnEnable() => UpgradesManager.Instance.OnUpdateData += UpdateStateOnUpgrade;
 	private void OnDisable() => UpgradesManager.Instance.OnUpdateData -= UpdateStateOnUpgrade;
     #endregion
-
-   
+    
 }
