@@ -245,8 +245,8 @@ MonoBehaviour:
   droppedArrowLifetime: 1
   maxFlightTime: 0.85
   grappleTime: 10
-  canPlatform: 0
-  canAnchor: 0
+  canPlatform: 1
+  canAnchor: 1
   wallInpact: {fileID: 6646829585929682574}
   metalInpact: {fileID: 2415914137449952218}
 --- !u!54 &5142224958579746064
@@ -278,6 +278,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformDependant: 1
+  onGrapple:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -335030869947608966}
+        m_MethodName: LockExistance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -335030869947608966}
+        m_MethodName: UnlockExistance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &7116778686521765596
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -289,8 +317,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05935387, y: 0.093256816, z: 0.30844876}
-  m_Center: {x: 0, y: -0.037526708, z: -0.020610612}
+  m_Size: {x: 0.05935387, y: 0.14469741, z: 0.33896992}
+  m_Center: {x: -3.2301244e-16, y: -0.063246936, z: -0.035871148}
 --- !u!1001 &419108561165934610
 PrefabInstance:
   m_ObjectHideFlags: 0
