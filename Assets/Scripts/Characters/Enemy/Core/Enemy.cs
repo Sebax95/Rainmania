@@ -36,6 +36,16 @@ public abstract class Enemy : Character, IDamager
     public ReusablePool<PoisonBullet> bulletPool;
     public PoisonBullet bulletPref;
 
+    private void OnEnable()
+    {
+        if (isDead)
+        {
+            Debug.Log("asdsadasdasd");
+            gameObject.SetActive(false); //TODO: arreglar esta crotedad
+        }
+    
+    }
+
     public static void TurnOn(Enemy e)
     {
         e.gameObject.SetActive(true);
@@ -47,7 +57,7 @@ public abstract class Enemy : Character, IDamager
 
     public static void TurnOff(Enemy e) => e.gameObject.SetActive(false);
 
-    public static void TurnOff(Enemy e, float time) => e.StartCoroutine(e.WaitToOff(e, time));
+    public static void TurnOff(Enemy e, float time) => GameManager.Instance.StartCoroutine(e.WaitToOff(e, time));
 
     IEnumerator WaitToOff(Enemy e, float time)
     {
@@ -58,7 +68,7 @@ public abstract class Enemy : Character, IDamager
     public virtual void Reset()
     {
         Health = maxHealth;
-        transform.position = startPos;
+        transform.position = startPos.ZeroZ();
         isDead = false;
     }
 

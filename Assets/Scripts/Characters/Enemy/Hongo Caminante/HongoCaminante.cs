@@ -6,7 +6,6 @@ using UnityEngine;
 public abstract class HongoCaminante : Enemy
 {
     protected FSM<HongoCaminante> fsm;
-    public bool isDeath;
     public bool canJump;
     public float jumpForce;
     public int damage;
@@ -19,7 +18,7 @@ public abstract class HongoCaminante : Enemy
     public override void Reset()
     {
         base.Reset();
-        isDeath = false;
+        isDead = false;
         canJump = true;
         stopCor = true;
         GetComponent<CapsuleCollider>().enabled = true;
@@ -48,13 +47,13 @@ public abstract class HongoCaminante : Enemy
     }
 	protected override void OnUpdate()
     {
-        if (isDeath) return;
+        if (isDead) return;
         fsm.Update();
     }
 
 	protected override void OnFixedUpdate()
     {
-        if (isDeath) return;
+        if (isDead) return;
         fsm.FixedUpdate();
     }
     
@@ -84,7 +83,7 @@ public abstract class HongoCaminante : Enemy
 
     public override void Die(IDamager source)
     {
-        isDeath = true;
+        isDead = true;
         gameObject.layer = 11;
         viewEnem.ActivateBool(1, false);
         viewEnem.ActivateTriggers(1);

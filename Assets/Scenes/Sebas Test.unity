@@ -1241,35 +1241,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 501099999, guid: bea34d7df4530b04fb93325fa263f03f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1173823481, guid: bea34d7df4530b04fb93325fa263f03f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1411970310, guid: bea34d7df4530b04fb93325fa263f03f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1802637317, guid: bea34d7df4530b04fb93325fa263f03f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804994443, guid: bea34d7df4530b04fb93325fa263f03f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881856624, guid: bea34d7df4530b04fb93325fa263f03f, type: 3}
-      propertyPath: m_Data.m_SourceObjects.m_Item0.weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 799791941467861062, guid: bea34d7df4530b04fb93325fa263f03f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 770632e9c12a77d43a29501ed4b85a54, type: 2}
     - target: {fileID: 3943775699194359029, guid: bea34d7df4530b04fb93325fa263f03f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4195,7 +4166,7 @@ PrefabInstance:
     - target: {fileID: 136188611652456366, guid: 866f8a92c82039e42802673f587d6685,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.4000854
+      value: -3.4001465
       objectReference: {fileID: 0}
     - target: {fileID: 136188611652456366, guid: 866f8a92c82039e42802673f587d6685,
         type: 3}
@@ -4622,7 +4593,12 @@ PrefabInstance:
     - target: {fileID: 2029738222156751914, guid: c3098fb882df7d64fa1dda805e0eeeed,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029738222156751915, guid: c3098fb882df7d64fa1dda805e0eeeed,
+        type: 3}
+      propertyPath: damage
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2029738222156751918, guid: c3098fb882df7d64fa1dda805e0eeeed,
         type: 3}
