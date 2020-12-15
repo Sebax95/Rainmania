@@ -37,6 +37,11 @@ public class Spawner : TimedBehaviour
         while (true)
         {
             yield return waiter;
+			if(!player)
+			{
+                Disable();
+                break;
+			}
             _dist = (player.position - transform.position).sqrMagnitude;
             if (_dist < radiusDetection * radiusDetection)
             {

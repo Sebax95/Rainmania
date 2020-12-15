@@ -31,7 +31,7 @@ public class FlyingEnemy : Enemy
         base.Reset();
         rb.useGravity = false;
         _fsm.SetState(StatesEnemies.Fly);
-        StartCoroutine(DieTimer());  
+        GameManager.Instance.StartCoroutine(DieTimer());  
     }
 
     protected override void Start()

@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  asPlatformLifetime: 3
+  asPlatformLifetime: 8
   droppedArrowLifetime: 1
   maxFlightTime: 0.85
   grappleTime: 10

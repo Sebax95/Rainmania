@@ -40,7 +40,6 @@ public abstract class Enemy : Character, IDamager
     {
         if (isDead)
         {
-            Debug.Log("asdsadasdasd");
             gameObject.SetActive(false); //TODO: arreglar esta crotedad
         }
     
@@ -131,9 +130,12 @@ public abstract class Enemy : Character, IDamager
         Vector3 displacementXZ = new Vector3(tar.position.x - output.position.x, 0, tar.position.z - output.position.z);
 
         float time = Mathf.Sqrt(Mathf.Abs(-2 * height / gravity.y)) +
-                     Mathf.Sqrt(2 * (displacementY - height) / gravity.y);
+                     Mathf.Sqrt(Mathf.Abs( 2 * (displacementY - height) / gravity.y));
 
-        Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity.y * height);
+        if(time == 0 || float.IsNaN(time))
+            time = 0.01f;
+
+        Vector3 velocityY = Vector3.up * Mathf.Sqrt(Mathf.Abs(-2 * gravity.y * height));
         Vector3 velocityXZ = displacementXZ / time;
 
         return velocityXZ + (velocityY * -Mathf.Sign(gravity.y));
