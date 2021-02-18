@@ -10,8 +10,8 @@ public class EnemyView : TimedBehaviour
     private AudioSource au;
     public Renderer mat;
 
-    public string[] triggersNames;
-    public string[] boolsNames;
+    public string[] triggersNames = new string[4];
+    public string[] boolsNames = new string[1];
     
     [Header("Audio")]
     [SerializeField]

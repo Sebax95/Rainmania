@@ -28,6 +28,8 @@ public abstract class Enemy : Character, IDamager
     private float _distanceToTarget;
     public Vector3 lastPosition;
     public LayerMask gameAreaMask;
+    public bool AxisY = true;
+    public bool AxisX = true;
 
     public bool showGizmos;
 
@@ -142,7 +144,7 @@ public abstract class Enemy : Character, IDamager
 
     }
 
-    private void OnDrawGizmosSelected()
+   /* private void OnDrawGizmosSelected()
     {
         if (!showGizmos || !needLOS) return;
         
@@ -164,7 +166,7 @@ public abstract class Enemy : Character, IDamager
         Vector3 downLimit = Quaternion.AngleAxis(viewAngle, transform.right) * transform.forward;
         Gizmos.DrawLine(offsetLOS.position, offsetLOS.position + (downLimit * viewDistance));
     }
-    
+    */
     protected override void OnDestroy()
     {
         bulletPool?.Clear();

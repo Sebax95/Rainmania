@@ -14,7 +14,8 @@ public abstract class MushroomEnemy : Enemy
 	public float forceJump;
 	
 	public bool canShoot;
-	
+
+	public Team team;
 
 	public override void Reset()
 	{
@@ -26,6 +27,7 @@ public abstract class MushroomEnemy : Enemy
 
 	protected override void Awake() {
 		base.Awake();
+		myTeam = team;
 		fsm = new FSM<MushroomEnemy>(this);
 		jumpingPad = GetComponent<SphereCollider>();
 		isInvicible = false;

@@ -651,10 +651,10 @@ GameObject:
   - component: {fileID: 3867458716645398585}
   - component: {fileID: 3612239068081563994}
   - component: {fileID: 8843232840393475990}
+  - component: {fileID: 7246049895362126012}
   - component: {fileID: 484753754607737599}
   - component: {fileID: 3971774068593098566}
   - component: {fileID: 1170063535660781988}
-  - component: {fileID: 7246049895362126012}
   - component: {fileID: 2967099489121580718}
   m_Layer: 15
   m_Name: Lanzador Rojo
@@ -718,6 +718,47 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.18
   m_Center: {x: 0, y: 0.49, z: -0.07}
+--- !u!114 &7246049895362126012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4530666970153173635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc054797c113b1b4ab01ceb1150a6746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
+  maxHealth: 1
+  invincibleTime: 1
+  speed: 0
+  viewEnem: {fileID: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 512
+  cdTimer: 1
+  output: {fileID: 7245272767905053385}
+  needLOS: 1
+  viewAngle: 90
+  viewDistance: 11
+  offsetLOS: {fileID: 6842495353784789650}
+  lastPosition: {x: 0, y: 0, z: 0}
+  gameAreaMask:
+    serializedVersion: 2
+    m_Bits: 16896
+  AxisY: 1
+  AxisX: 1
+  showGizmos: 1
+  spawner: {fileID: 0}
+  target: {fileID: 0}
+  bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
+    type: 3}
+  isInvulnerable: 0
+  forceJump: 4
+  canShoot: 0
+  team: {fileID: 0}
 --- !u!136 &484753754607737599
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -775,44 +816,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3703d2cfb5571214babb7c7da8d5177f, type: 3}
   stepRandom: []
   stepWaterRandom: []
---- !u!114 &7246049895362126012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4530666970153173635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc054797c113b1b4ab01ceb1150a6746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTeam: {fileID: 11400000, guid: ec41041341390d149b4c6bf0dba4c63f, type: 2}
-  maxHealth: 1
-  invincibleTime: 1
-  speed: 0
-  viewEnem: {fileID: 0}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 512
-  cdTimer: 1
-  output: {fileID: 7245272767905053385}
-  needLOS: 1
-  viewAngle: 90
-  viewDistance: 11
-  offsetLOS: {fileID: 6842495353784789650}
-  lastPosition: {x: 0, y: 0, z: 0}
-  gameAreaMask:
-    serializedVersion: 2
-    m_Bits: 16896
-  showGizmos: 1
-  spawner: {fileID: 0}
-  target: {fileID: 0}
-  bulletPref: {fileID: 2614553126292014056, guid: 975c0eb07705dbf4eba59808cea4a3a0,
-    type: 3}
-  isInvulnerable: 0
-  forceJump: 4
-  canShoot: 0
 --- !u!82 &2967099489121580718
 AudioSource:
   m_ObjectHideFlags: 0

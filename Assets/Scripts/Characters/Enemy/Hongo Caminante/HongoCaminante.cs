@@ -13,6 +13,8 @@ public abstract class HongoCaminante : Enemy
     public bool stopCor = true;
     public LayerMask frontCheckerLayer;
 
+    public Team team;
+
     //public bool cdDamage = false;
 
     public override void Reset()
@@ -29,6 +31,7 @@ public abstract class HongoCaminante : Enemy
 
     protected override void Awake()
     {
+        myTeam = team;
         target = FindObjectOfType<Player>();
         viewEnem = GetComponentInChildren<EnemyView>();
         rb = GetComponent<Rigidbody>();
