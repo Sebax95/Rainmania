@@ -21,6 +21,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _Border: 2.9
+    - _BorderIntensity: 0
     - _Divide: 21.99
     - _ScalarSpeed: 1
     - _Speed: 0.34
@@ -30,6 +31,7 @@ Material:
     - _WavesTess: 0.13
     - __dirty: 0
     m_Colors:
+    - _BorderColor: {r: 0, g: 0, b: 0, a: 0}
     - _Espuma: {r: 1, g: 1, b: 1, a: 0}
     - _EspumaInterna: {r: 1, g: 1, b: 1, a: 0}
     - _Offset: {r: 0, g: 0.5, b: 0, a: 0}

@@ -121,7 +121,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &1276261958
+--- !u!1001 &1143207544
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -131,17 +131,17 @@ PrefabInstance:
     - target: {fileID: 1658958452910182754, guid: dd39bb67bd6203f4d922e66599362829,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: -4.8459496
       objectReference: {fileID: 0}
     - target: {fileID: 1658958452910182754, guid: dd39bb67bd6203f4d922e66599362829,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 4.31513
       objectReference: {fileID: 0}
     - target: {fileID: 1658958452910182754, guid: dd39bb67bd6203f4d922e66599362829,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -24.711235
       objectReference: {fileID: 0}
     - target: {fileID: 1658958452910182754, guid: dd39bb67bd6203f4d922e66599362829,
         type: 3}
@@ -166,7 +166,7 @@ PrefabInstance:
     - target: {fileID: 1658958452910182754, guid: dd39bb67bd6203f4d922e66599362829,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1658958452910182754, guid: dd39bb67bd6203f4d922e66599362829,
         type: 3}
@@ -280,7 +280,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1671300813
 GameObject:

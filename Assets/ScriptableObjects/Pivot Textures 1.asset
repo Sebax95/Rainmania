@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d85e0c17da6d74dbef47fce71eaaa8, type: 3}
+  m_Name: Pivot Textures 1
+  m_EditorClassIdentifier: 
+  piso:
+  - {fileID: 469859068369465500, guid: 49c47b9d4086c4f409a77c2fc061886f, type: 3}
+  - {fileID: 246103589227130732, guid: 97357ccd3277e3244b060b7b5725e65b, type: 3}
+  - {fileID: 2156265630043890562, guid: f239380db3984c944a448b02900ef65d, type: 3}
+  pared:
+  - {fileID: 3212684731119843722, guid: 7bebf9c33ca222740ae3d711cd106a1c, type: 3}
+  techo:
+  - {fileID: 601636068577910479, guid: 49314f255168c2d49a10cdd54dcc28fa, type: 3}

@@ -36,6 +36,8 @@ public class PivotScriptable : Editor
             _assets.piso = _assets.data.piso;
             _assets.pared = _assets.data.pared;
             _assets.techo = _assets.data.techo;
+
+
         }
 
         EditorGUILayout.Space();
