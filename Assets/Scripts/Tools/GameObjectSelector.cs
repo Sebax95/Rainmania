@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,12 +10,12 @@ using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using CustomMSLibrary.Core;
 using CustomMSLibrary.Unity;
-using System;
 
 public class GameObjectSelector : EditorWindow {
 
 	private (bool enabled, LayerMask mask) selectedLayers;
 	private (bool enabled, string tag) selectedTag;
+	private bool isRecursiveSearch;
 
 	private enum Axis { x, y, z }
 
@@ -42,13 +43,36 @@ public class GameObjectSelector : EditorWindow {
 
 	private void CommitSelection() {
 		var currentSelection = Selection.objects;
-		var roots = currentSelection == null || currentSelection.Length == 0 ?
-			SceneManager.GetActiveScene().GetRootGameObjects() :
-			currentSelection.Cast<GameObject>().SelectMany(x => x.transform.GetAllChildrenArray()).Select(x => x.gameObject);
+		IEnumerable<GameObject> roots;
+		IEnumerable<GameObject> newSelect;
+		if(isRecursiveSearch)
+		{
+			roots = SceneManager.GetActiveScene().GetRootGameObjects();
+			var temp = roots.Select(go => go.transform).SelectMany(RecursiveSearch).Select(tra => tra.gameObject);
+			newSelect = Filter(temp);
+		} else
+		{
+			roots = currentSelection == null || currentSelection.Length == 0 ?
+				SceneManager.GetActiveScene().GetRootGameObjects() :
+				currentSelection.Cast<GameObject>().SelectMany(x => x.transform.GetAllChildrenArray()).Select(x => x.gameObject);
 
-		var newSelect = roots.Where(x => CheckLayer(x) && CheckTag(x) && CheckRotation(x));
-
+			newSelect = Filter(roots);
+		}
 		Selection.objects = newSelect.ToArray();
+	}
+
+	private IEnumerable<Transform> RecursiveSearch(Transform parent) {
+		IEnumerable<Transform> children = Enumerable.Empty<Transform>();
+		foreach(Transform child in parent)
+		{
+			children.Append(child);
+		}
+		children.Concat(children.SelectMany(RecursiveSearch));
+		return children;
+	}
+
+	private IEnumerable<GameObject> Filter(IEnumerable<GameObject> items) {
+		return items.Where(x => CheckLayer(x) && CheckTag(x) && CheckRotation(x));
 	}
 
 	#region UI structure

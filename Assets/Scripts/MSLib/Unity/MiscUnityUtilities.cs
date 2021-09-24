@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Globalization;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -219,6 +221,39 @@ namespace CustomMSLibrary.Unity {
 		/// <returns></returns>
 		public static LayerMask IntToLayerMask(int layer) {
 			return (1 << layer);
+		}
+
+		/// <summary>
+		/// Converts a hex code into corresponding color. Supports RGB and RGBA
+		/// </summary>
+		/// <param name="hex">Color hex code, without prefixes.</param>
+		/// <returns></returns>
+		public static Color ParseColor(string hex) {
+			int length = hex.Length;
+			if(!(length == 6 || length == 8))
+				throw new ArgumentException($"Color Hex code {hex} is not a valid hex code.");
+
+			var color = new Color32();
+			if(
+				byte.TryParse(hex.Substring(0, 2), NumberStyles.AllowHexSpecifier, NumberFormatInfo.InvariantInfo, out byte r) &&
+				byte.TryParse(hex.Substring(2, 2), NumberStyles.AllowHexSpecifier, NumberFormatInfo.InvariantInfo, out byte g) &&
+				byte.TryParse(hex.Substring(4, 2), NumberStyles.AllowHexSpecifier, NumberFormatInfo.InvariantInfo, out byte b))
+			{
+				color.r = r;
+				color.b = b;
+				color.g = g;
+			} else
+				throw new ArgumentException($"Color Hex code {hex} is not a valid hex code.");
+
+			if(length == 8)
+				if(byte.TryParse(hex.Substring(6, 2), NumberStyles.AllowHexSpecifier, NumberFormatInfo.InvariantInfo, out byte a))
+					color.a = a;
+				else
+					throw new ArgumentException($"Color Hex code {hex} is not a valid hex code.");
+			else
+				color.a = 0xFF;
+
+			return color;
 		}
 	}
 }
