@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelChangeTrigger : TimedBehaviour {
 	public int levelIndex;
+	public int otherSceneCpId;
 	public Animator anim;
 
 	private void OnTriggerEnter(Collider other) {
@@ -32,6 +33,6 @@ public class LevelChangeTrigger : TimedBehaviour {
 
 	public void OnFadeComplete() 
 	{
-		SceneManager.LoadScene(levelIndex);
+		LevelManager.Load(levelIndex, otherSceneCpId);
 	}
 }

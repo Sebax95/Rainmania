@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class UpgradesManager : TimedBehaviour {
 	public static UpgradesManager Instance { get; private set; }
-	[SerializeField]private UpgradesData dataTemplate;
-	private UpgradesData data;
-	public event Action<UpgradesData> OnUpdateData;
-	public UpgradesData Data => data;
+	[SerializeField]private UpgradeData dataTemplate;
+	private UpgradeData data;
+	public event Action<UpgradeData> OnUpdateData;
+	public UpgradeData Data => data;
 
 	private HashSet<string> acquiredUpgrades = new HashSet<string>();
 
@@ -44,6 +44,13 @@ public class UpgradesManager : TimedBehaviour {
 
 	public void ConsumeUpgrade(string upgradeId) => acquiredUpgrades.Add(upgradeId);
 	public bool HasUpgradeBeenConsumed(string upgradeId) => acquiredUpgrades.Contains(upgradeId);
+
+	public void ForceSetData(UpgradeData data) {
+		this.data = data;
+		//OnUpdateData?.Invoke(Data);
+	}
+
+	public void ForceSetData(string serializedData) => this.data = GenericDataPack.CreateFromJson<UpgradeData>(serializedData);
 
 	private void OnDestroy() => OnUpdateData = null;
 }

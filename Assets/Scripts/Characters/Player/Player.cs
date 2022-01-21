@@ -95,6 +95,12 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		DetectGround();
 		AttackTimer();
 		CoyoteTime();
+
+		//DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG 
+		if(Input.GetKeyDown(KeyCode.Alpha1))
+			SaveManager.LoadData(0);
+		if(Input.GetKeyDown(KeyCode.Alpha2))
+			SaveManager.LoadData(1);
 	}
 
 
@@ -337,7 +343,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	//	crouchCheckLayerMask = layerMask;
 	//}
 
-	private void UpdateStateOnUpgrade(UpgradesData data) {
+	private void UpdateStateOnUpgrade(GenericDataPack data) {
 		//TODO: ver como manejamos mejoras de vida con vida < 100%. Full restore por ahora
 		var newHealth = data.GetInt("playerMaxLife");
 		if(newHealth != maxHealth)
@@ -362,3 +368,4 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
     #endregion
     
 }
+

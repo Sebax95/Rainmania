@@ -12,6 +12,8 @@ public class CameraMovement : TimedBehaviour {
 	public float valorMinimoInicio;
 
 	public void Start() {
+		if(!player)
+			player = Fetchable.FetchRaw("player").transform;
 		transform.position = player.position + offset;
 	}
 

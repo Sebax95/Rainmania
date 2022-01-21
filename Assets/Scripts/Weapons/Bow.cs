@@ -95,7 +95,7 @@ public class Bow : Weapon {
 		pool = new Pool<Arrow>(maxArrowcount, ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, false);
 	}
 
-	private void UpdateStateOnUpgrade(UpgradesData data) {
+	private void UpdateStateOnUpgrade(GenericDataPack data) {
 		if(data == null)
 			return;
 		attackCooldown = data.GetFloat("arrowShootSpeed");
@@ -109,6 +109,8 @@ public class Bow : Weapon {
 
 	private IEnumerator Coroutine_ReturnArrowToPool(Arrow item) {
 		yield return wait_arrowReturnTime;
+		if(!this)
+			yield break;
 		ReturnArrow(item);
 	}
 

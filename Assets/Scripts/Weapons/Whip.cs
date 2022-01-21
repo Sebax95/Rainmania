@@ -150,7 +150,7 @@ public class Whip : Weapon {
 		item.SetActive(false);
 	}
 
-	private void UpdateStateOnUpgrade(UpgradesData data) {
+	private void UpdateStateOnUpgrade(GenericDataPack data) {
 		attackCooldown = data.GetFloat("whipAttackSpeed");
 		damage = data.GetInt("whipDamage");
 		canAttach = data.GetBool("whipCanGrapple");

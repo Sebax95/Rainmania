@@ -3,7 +3,7 @@
 public abstract class TimedBehaviour : MonoBehaviour
 {
 	protected static bool RunUpdates { get; set; } = true;
-	public const float DEFAULT_TIMESCALE = 1;
+	protected const float DEFAULT_TIMESCALE = 1;
 
 	void Update() {
 		if(RunUpdates)
