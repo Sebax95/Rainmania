@@ -18,6 +18,8 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public LayerMask validFloorLayers;
 	public bool test_preventJumpWhenCrouched;
 	private bool aimMode = false;
+	private byte airJumps = 0;
+	private byte airJumpsPerformed = 0;
 
 	//Crouched mobility
 	private bool crouched = false;
@@ -96,23 +98,21 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		AttackTimer();
 		CoyoteTime();
 
-		//DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG 
-		if(Input.GetKeyDown(KeyCode.Alpha1))
-			SaveManager.LoadData(0);
-		if(Input.GetKeyDown(KeyCode.Alpha2))
-			SaveManager.LoadData(1);
-	}
 
+	}
 
 	#endregion
 
 	#region Movement
 	public void Jump() {
-		if(!(Grounded || (CanCoyoteJump && !supressCoyote)))
-			return;
-
 		if(!gameObject.activeSelf)
 			return;
+
+		if(!(Grounded || (CanCoyoteJump && !supressCoyote)))
+		{
+			TryAirJump();
+			return;
+		}
 
 		bool wasCrouched = crouched; //TEST
 
@@ -151,11 +151,11 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		PlayerAnimator.HeadFollower(direction);
 		PlayerAnimator.SetSpeeds(direction);
 		PlayerAnimator.SetAims(direction);
-		
-		if (aimMode)
+
+		if(aimMode)
 		{
 			PlayerAnimator.SetSpeeds(Vector2.zero);
-			return;	
+			return;
 		}
 
 		float mult = 1;
@@ -163,7 +163,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 			mult *= crouchSpeedModifier;
 
 		var vel = rb.velocity;
-		Vector3 newVel = new Vector3(direction.x * speed * mult, vel.y,0) + addedVelocity.ZeroY();
+		Vector3 newVel = new Vector3(direction.x * speed * mult, vel.y, 0) + addedVelocity.ZeroY();
 
 		rb.velocity = newVel + momentum.velocity.ZeroY();
 
@@ -176,6 +176,8 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 			return;
 		groundedFramesCounter = 0;
 		Grounded = Physics.Raycast(transform.position + groundCheckOffset, Vector3.down, out _, groundedTreshold, validFloorLayers);
+
+		airJumpsPerformed = Grounded ? (byte)0 : airJumpsPerformed;
 	}
 
 	public void ToggleCrouch(bool state) {
@@ -216,6 +218,13 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		supressCoyote = true;
 		yield return waitSupressCoyote;
 		supressCoyote = false;
+	}
+
+	private void TryAirJump() {
+		if(airJumpsPerformed >= airJumps)
+			return;
+		ForceJump();
+		airJumpsPerformed++;
 	}
 
 	#endregion
@@ -353,6 +362,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 		}
 		whip.enabled = data.GetBool("whipAcquired");
 		bow.enabled = data.GetBool("bowAcquired");
+		airJumps = (byte)data.GetInt("airJumps");
 
 		UpdateUI();
 	}
@@ -365,7 +375,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 
 	private void OnEnable() => UpgradesManager.Instance.OnUpdateData += UpdateStateOnUpgrade;
 	private void OnDisable() => UpgradesManager.Instance.OnUpdateData -= UpdateStateOnUpgrade;
-    #endregion
-    
+	#endregion
+
 }
 

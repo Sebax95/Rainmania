@@ -21,6 +21,8 @@ MonoBehaviour:
     value: 1
   - name: whipDamage
     value: 1
+  - name: airJumps
+    value: 1
   floatProperties:
   - name: arrowShootSpeed
     value: 0.5
