@@ -146,3 +146,4 @@ public class NameBoolPair {
 	public bool value;
 }
 
+public enum DataType { Bool, Int, Float, String}

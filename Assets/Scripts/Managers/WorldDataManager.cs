@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-10)]
 public class WorldDataManager : MonoBehaviour {
 
 	public static WorldDataManager Instance { get; private set; }
