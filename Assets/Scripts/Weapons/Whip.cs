@@ -75,6 +75,7 @@ public class Whip : Weapon {
 	}
 
 	private bool TryAttachInColliderBuffer() {
+
 		foreach(var col in boxcastCache)
 		{
 			if(col == null)

@@ -25,6 +25,7 @@ public class Swinger : Controllable, IMoveOverride {
 
 
 	private Rigidbody thisRB;
+	private Player player; //Fuck it, breaking SOLID
 	private SwingAnim anim;
 	private MomentumKeeper momentum;
 	private SwingAnchor activeAnchor = null;
@@ -43,11 +44,15 @@ public class Swinger : Controllable, IMoveOverride {
 		momentum = GetComponent<MomentumKeeper>();
 		swingOverrider = GetComponent<IMoveOverrideable>();
 		anim = GetComponent<SwingAnim>();
+		player = GetComponent<Player>(); //No time for SOLID anymore
 
 		ControllerHandler.Instance.RequestAssignation(Controller.Create<PlayerSwingerController>(), this);
 	}
 
 	public void SetupSwing(SwingAnchor anchor) {
+		if(player.Grounded)
+			return;
+
 		activeAnchor = anchor;
 
 		if(anchor.transformDependant)
@@ -164,6 +169,8 @@ public class Swinger : Controllable, IMoveOverride {
 	}
 
 	public void StartSwing() {
+		if(!activeAnchor)
+			return;
 		Attach(swingOverrider);
 	}
 

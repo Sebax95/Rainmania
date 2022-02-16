@@ -46,6 +46,7 @@ public class Player : Character, IWielder, IMoveOverrideable, IAppliableForce, I
 	public PlayerAnim PlayerAnimator { get; private set; }
 	private CrouchStateRouter croucher;
 	private (CapsuleCollider standing, CapsuleCollider crouching, Bounds standChecker) colliders;
+	public CapsuleCollider ActiveCollider => crouched ? colliders.crouching : colliders.standing;
 
 	//Attack
 	private bool allowedToAttack = true;
