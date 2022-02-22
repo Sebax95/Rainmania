@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Arrow : TimedBehaviour, IDamager {
@@ -148,9 +149,16 @@ public class Arrow : TimedBehaviour, IDamager {
 		timer = asPlatformLifetime;
 		//if(collision.collider.gameObject.tag == ANCHORABLE_TAG)
 		anchor.enabled = canAnchor;
-		transform.forward = -collision.GetContact(0).normal;
+
+		Vector3 normal = -collision.GetContact(0).normal;
+		if(Vector3.Angle(normal, transform.forward) > 50f)
+			normal = transform.forward;
+		transform.forward = normal;
+
 		wallInpact.Play();
+
 	}
+
 
 	private void SetIsFlying(bool value) {
 		stop = !value;

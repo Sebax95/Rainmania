@@ -135,10 +135,10 @@ namespace Aura2API
         /// </summary>
         public void Release()
         {
-            _buffers[0].Release();
-            _buffers[0].Destroy();
-            _buffers[1].Release();
-            _buffers[1].Destroy();
+            _buffers[0]?.Release();
+            _buffers[0]?.Destroy();
+            _buffers[1]?.Release();
+            _buffers[1]?.Destroy();
             _buffers = null;
         }
         #endregion
