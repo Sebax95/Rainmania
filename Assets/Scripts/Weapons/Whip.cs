@@ -110,22 +110,22 @@ public class Whip : Weapon {
 	}
 
 	public override void Attack(Vector2 direction) {
-		#region Deprecated with big box hitbox
-		//bool vertical = direction.y > 0;
-		//bool horizontal = direction.x != 0;
-		//TargetDirection directionIndex;
+		#region UnDeprecated
+		bool vertical = direction.y > 0;
+		bool horizontal = direction.x != 0;
+		TargetDirection directionIndex;
 
-		//if(vertical)
-		//	if(horizontal)
-		//		directionIndex = TargetDirection.Diagonal;
-		//	else
-		//		directionIndex = TargetDirection.Vertical;
-		//else
-		//	directionIndex = TargetDirection.Horizontal;
+		if(vertical)
+			if(horizontal)
+				directionIndex = TargetDirection.Diagonal;
+			else
+				directionIndex = TargetDirection.Vertical;
+		else
+			directionIndex = TargetDirection.Horizontal;
 
-		//StartCoroutine(Coroutine_RepeatAttack(directionIndex));
+		StartCoroutine(Coroutine_RepeatAttack(directionIndex));
 		#endregion
-		StartCoroutine(Coroutine_RepeatAttack(0));
+		//StartCoroutine(Coroutine_RepeatAttack(0));
 	}
 
 	private IEnumerator Coroutine_RepeatAttack(TargetDirection direction) {
