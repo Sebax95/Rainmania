@@ -14,10 +14,12 @@ public class Bow : Weapon {
 	public float attackCooldown;
 	public float wallDistanceCheck = 1;
 	public float closeWallArrowFixOffset;
-	public float timeToReturnArrow;
+	public float arrowRegenSpeed;
+	public float arrowDespawnTime;
 	public override float FullAttackDuration => attackWindup + attackCooldown;
 	private WaitForSeconds wait_shootWindup;
 	private WaitForSeconds wait_arrowReturnTime;
+	private CooldownTracker cdTracker;
 
 	private IWielder wielder;
 	private CrouchStateRouter router;
@@ -30,11 +32,18 @@ public class Bow : Weapon {
 	private void Start() {
 		// motivo por el cual no ataca al tpque.
 		wait_shootWindup = new WaitForSeconds(attackWindup);
-		wait_arrowReturnTime = new WaitForSeconds(timeToReturnArrow);
+		wait_arrowReturnTime = new WaitForSeconds(arrowDespawnTime);
+		cdTracker = new CooldownTracker(arrowRegenSpeed, maxArrowcount);
 		wielder = GetComponent<IWielder>();
 		router = GetComponent<CrouchStateRouter>();
-		InitializePool();
+		//InitializePool();
+		cdTracker.OnAmountUpdate += UIManager.Instance.SetArrowAmount;
 		UpdateStateOnUpgrade(UpgradesManager.Instance.Data);
+	}
+
+	protected override void OnUpdate() {
+		base.OnUpdate();
+		cdTracker.Update(Time.deltaTime);
 	}
 
 	public Arrow ArrownFactory() {
@@ -46,6 +55,8 @@ public class Bow : Weapon {
 	public void ReturnArrow(Arrow item) => pool.DisableObject(item);
 
 	private void Shoot(TargetDirection direction) {
+		if(!cdTracker.TryTriggerOnce())
+			return;
 		var arrow = pool.GetObject();
 		if(!arrow)
 			return;
@@ -58,7 +69,7 @@ public class Bow : Weapon {
 		trans.rotation = source.rotation;
 
 		RaycastHit hit;
-		if(Physics.Raycast(transform.position,trans.forward,out hit, wallDistanceCheck, ~MiscUnityUtilities.IntToLayerMask(gameObject.layer)))
+		if(Physics.Raycast(transform.position,trans.forward,out hit, wallDistanceCheck, ~MiscUnityUtilities.IntToLayerMask(gameObject.layer),QueryTriggerInteraction.Ignore))
 		{
 			trans.position = hit.point + trans.forward * closeWallArrowFixOffset;
 		}
@@ -92,7 +103,7 @@ public class Bow : Weapon {
 		if(pool != null)
 			pool.Clear(DestroyGO);
 
-		pool = new Pool<Arrow>(maxArrowcount, ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, false);
+		pool = new Pool<Arrow>(maxArrowcount, ArrownFactory, Arrow.TurnOn, Arrow.TurnOff, true);
 	}
 
 	private void UpdateStateOnUpgrade(GenericDataPack data) {
@@ -104,6 +115,9 @@ public class Bow : Weapon {
 		damage = data.GetInt("arrowDamage");
 		arrownPrefab.canPlatform = data.GetBool("arrowCanPlatform");
 		arrownPrefab.canAnchor = data.GetBool("arrowCanAnchor");
+		cdTracker.SetMaxCount(maxArrowcount);
+		cdTracker.SetCooldown(arrowRegenSpeed);
+		cdTracker.ForceRefresh();
 		InitializePool();
 	}
 
@@ -118,4 +132,66 @@ public class Bow : Weapon {
 
 	private void OnEnable() => UpgradesManager.Instance.OnUpdateData += UpdateStateOnUpgrade;
 	private void OnDisable() => UpgradesManager.Instance.OnUpdateData -= UpdateStateOnUpgrade;
+}
+
+public class CooldownTracker {
+	private int _maxCount;
+	private float _cdDuration;
+	private float _cdTimer;
+
+	public int AvailableCount { get;  private set; }
+
+	public bool CanTrigger => AvailableCount > 0;
+	public float CurrentCdPercent => _cdTimer / _cdDuration;
+
+	public event System.Action<int> OnAmountUpdate;
+
+	public CooldownTracker(float cooldownDuration, int maxAmount = 1) {
+		_cdDuration = cooldownDuration;
+		_maxCount = maxAmount;
+		ForceRefresh();
+	}
+
+	public bool TryTriggerOnce() {
+		if(!CanTrigger)
+			return false;
+
+		AvailableCount--;
+		OnAmountUpdate?.Invoke(AvailableCount);
+
+		return true;
+	}
+
+	public int TryTriggerMultiple(int amount) {
+		int total = Mathf.Min(amount, AvailableCount);
+		AvailableCount -= total;
+		OnAmountUpdate?.Invoke(AvailableCount);
+		return total;
+	}
+
+	public void Update(float deltaTime) {
+		if(AvailableCount >= _maxCount)
+		{
+			_cdTimer = 0;
+			return;
+		}
+		_cdTimer += deltaTime;
+		if(_cdTimer < _cdDuration)
+			return;
+		AvailableCount += 1;
+		_cdTimer -= _cdDuration;
+
+		OnAmountUpdate?.Invoke(AvailableCount);
+	}
+
+	public void ForceRefresh() {
+		AvailableCount = _maxCount;
+		_cdTimer = 0;
+
+		OnAmountUpdate?.Invoke(AvailableCount);
+	}
+
+
+	public void SetCooldown(float duration) => _cdDuration = duration;
+	public void SetMaxCount(int amount) => _maxCount = amount;
 }

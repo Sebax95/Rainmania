@@ -3414,7 +3414,8 @@ MonoBehaviour:
   attackCooldown: 0.75
   wallDistanceCheck: 1
   closeWallArrowFixOffset: 0
-  timeToReturnArrow: 4
+  arrowRegenSpeed: 2
+  arrowDespawnTime: 4
 --- !u!114 &9075815607506070855
 MonoBehaviour:
   m_ObjectHideFlags: 0

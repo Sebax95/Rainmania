@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[DefaultExecutionOrder(-1)]
 public class UIManager : MonoBehaviour {
 
 	public static UIManager Instance { get { return _Instance; } }
@@ -74,10 +75,15 @@ public class UIManager : MonoBehaviour {
 		_pauseMenu.SetActive(false);
 		GameManager.SetPause(false);
 	}
-	public void ArrowAmount(int _arrowss)
+	public void ArrowAmount(int deltaAmount)
 	{
-		_arrows += _arrowss;
-		_amountArrows.text = "" + _arrows;
+		_arrows += deltaAmount;
+		_amountArrows.text = _arrows.ToString();
+	}
+
+	public void SetArrowAmount (int arrows) {
+		_arrows = arrows;
+		_amountArrows.text = _arrows.ToString();
 	}
 
 	public void FoundArcher()

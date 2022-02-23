@@ -16,7 +16,7 @@ MonoBehaviour:
   - name: playerMaxLife
     value: 10
   - name: arrowMaxAmount
-    value: 3
+    value: 20
   - name: arrowDamage
     value: 1
   - name: whipDamage

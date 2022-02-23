@@ -62,7 +62,6 @@ public class Arrow : TimedBehaviour, IDamager {
 			rigid.velocity = transform.forward * speed;
 
 		ExpirationTimers();
-
 	}
 
 	private void ExpirationTimers() {
@@ -93,12 +92,12 @@ public class Arrow : TimedBehaviour, IDamager {
 	public static void TurnOn(Arrow a) {
 		a.Reset();
 		a.gameObject.SetActive(true);
-		UIManager.Instance.ArrowAmount(-1);
+		//UIManager.Instance.ArrowAmount(-1);
 	}
 
 	public static void TurnOff(Arrow a) {
 		a.gameObject.SetActive(false);
-		UIManager.Instance.ArrowAmount(+1);
+		//UIManager.Instance.ArrowAmount(+1);
 	}
 
 	public void SetShooter(Bow source) => shooter = source;
