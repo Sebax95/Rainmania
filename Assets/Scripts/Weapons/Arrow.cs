@@ -69,7 +69,7 @@ public class Arrow : TimedBehaviour, IDamager {
 
 		if(timer < 0)
 			gameObject.SetActive(false);
-			//shooter.ReturnArrow(this); //Return to pool
+		//shooter.ReturnArrow(this); //Return to pool
 	}
 
 	public void Reset() {
@@ -102,8 +102,7 @@ public class Arrow : TimedBehaviour, IDamager {
 
 	public void SetShooter(Bow source) => shooter = source;
 
-	protected virtual void OnCollisionEnter(Collision collision) 
-	{
+	protected virtual void OnCollisionEnter(Collision collision) {
 		if(!enabled) //Por alguna razon, este metodo se activa aun cuando esta desactivado
 			return;
 
@@ -111,10 +110,11 @@ public class Arrow : TimedBehaviour, IDamager {
 			return;
 
 		var dmg = collision.collider.GetComponent<IDamageable>();
+		bool damaged = false;
 		if(dmg != null)
 		{
 			if(dmg.SourceObject != shooter.SourceObject)
-				dmg.Damage(shooter.damage, this);
+				damaged = dmg.Damage(shooter.damage, this);
 		}
 
 		SetIsFlying(false);
@@ -122,12 +122,12 @@ public class Arrow : TimedBehaviour, IDamager {
 		//if(collision.collider.gameObject.layer == WALL_LAYER && !collision.collider.gameObject.CompareTag(BAD_ARROW_TAG))
 
 		if(collision.collider.gameObject.CompareTag(ANCHORABLE_TAG) && canPlatform) //If it's a stickable wall
-		{
 			StickToWall(collision);
-		} else //otherwise something non-stickable
-		{
+		else if(damaged) //if it hit an enemy already, dissapear
+			TurnOff(this);
+		else //otherwise something non-stickable
 			DropLimp(collision);
-		}
+
 
 		if(collision.collider.gameObject.layer == 15) //Enemy layer
 			gameObject.SetActive(false);
