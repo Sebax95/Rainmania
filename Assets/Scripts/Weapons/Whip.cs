@@ -221,4 +221,50 @@ public struct BoxCastParams {
 	public Vector3 CenterOffset => Quaternion.Euler(orientation) * new Vector3(closePoint.x, closePoint.y, (closePoint.z + halfExtends.z));
 	public Quaternion GetAdjustedOrientation(Quaternion parentRotation) => parentRotation * Quaternion.Euler(orientation);
 
+	public int PerformBoxcastNonAlloc(
+		Vector3 position,
+		Quaternion parentRotation,
+		Collider[] colliderCache,
+		int mask = -1,
+		QueryTriggerInteraction triggerInteratcions = QueryTriggerInteraction.Collide) {
+
+		return Physics.OverlapBoxNonAlloc(position + parentRotation * CenterOffset, halfExtends,
+			colliderCache, GetAdjustedOrientation(parentRotation), Physics.AllLayers, QueryTriggerInteraction.Collide);
+	}
+
+	public Collider[] PerformBoxcast(
+		Vector3 position,
+		Quaternion parentRotation,
+		int mask = -1,
+		QueryTriggerInteraction triggerInteratcions = QueryTriggerInteraction.Collide) {
+
+		return Physics.OverlapBox(position + parentRotation * CenterOffset, halfExtends,
+			GetAdjustedOrientation(parentRotation), Physics.AllLayers, QueryTriggerInteraction.Collide);
+	}
+
+#if UNITY_EDITOR
+	public static Vector3[] points;
+	public void DrawGizmo(Vector3 position, Quaternion rotation) {
+		if(points == null)
+			points = new Vector3[8];
+
+		Vector3 centre = position + rotation * CenterOffset;
+		#region points
+		points[0] = centre + GetAdjustedOrientation(rotation) * new Vector3(halfExtends.x, halfExtends.y, halfExtends.z);
+		points[1] = centre + GetAdjustedOrientation(rotation) * new Vector3(halfExtends.x, halfExtends.y, -halfExtends.z);
+		points[2] = centre + GetAdjustedOrientation(rotation) * new Vector3(halfExtends.x, -halfExtends.y, halfExtends.z);
+		points[3] = centre + GetAdjustedOrientation(rotation) * new Vector3(halfExtends.x, -halfExtends.y, -halfExtends.z);
+		points[4] = centre + GetAdjustedOrientation(rotation) * new Vector3(-halfExtends.x, halfExtends.y, halfExtends.z);
+		points[5] = centre + GetAdjustedOrientation(rotation) * new Vector3(-halfExtends.x, halfExtends.y, -halfExtends.z);
+		points[6] = centre + GetAdjustedOrientation(rotation) * new Vector3(-halfExtends.x, -halfExtends.y, halfExtends.z);
+		points[7] = centre + GetAdjustedOrientation(rotation) * new Vector3(-halfExtends.x, -halfExtends.y, -halfExtends.z);
+		#endregion
+
+		for(byte i = 0; i < 7; i++)
+			for(byte j = 1; j < 8; j++)
+				if((i.GetBit(0).XNOR(j.GetBit(0)) ^ i.GetBit(1).XNOR(j.GetBit(1)) ^ !i.GetBit(2).XNOR(j.GetBit(2))) && (i + j != 7))
+					Gizmos.DrawLine(points[i], points[j]);
+	}
+#endif
+
 }

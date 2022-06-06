@@ -32,6 +32,18 @@ namespace BossMachine {
 			}
 		}
 
+		public void Feed(T feed, params object[] args) {
+			FiniteState<T> next = currentState.GetTransition(feed);
+
+			if(next != null)
+			{
+				currentState.Exit();
+				currentState = next;
+				currentState.Enter();
+				currentState.PassArguments(args);
+			}
+		}
+
 		public void Update() {
 			currentState?.Update();
 		}
@@ -42,6 +54,8 @@ namespace BossMachine {
 			currentState = initialState;
 			currentState.Enter();
 		}
+
+		public void FeedArguments(params object[] args) => currentState.PassArguments(args);
 	}
 
 	public abstract class FiniteState<T> {
@@ -49,23 +63,35 @@ namespace BossMachine {
 		protected Transform transform;
 		protected Dictionary<T, FiniteState<T>> _transitions = new Dictionary<T, FiniteState<T>>();
 
-		public FiniteState(){}
+		public FiniteState(Transform transform) {
+			this.transform = transform;
+		}
 		public FiniteState(StateMachine<T> owner) {
 			fsm = owner;
 			transform = owner.transform;
 		}
 
-		public virtual void Enter() {}
-		public virtual void Update() {}
-		public virtual void Exit() {}
+		public virtual void Enter() { }
+		public virtual void Update() { }
+		public virtual void Exit() { }
 
-		public FiniteState<T> GetTransition(T feed) =>
-			_transitions.TryGetValue(feed, out var state) ? state : null;
+		public FiniteState<T> GetTransition(T feed) {
+			if(feed == null)
+				return null;
+			return _transitions.TryGetValue(feed, out var state) ? state : null;
+		}
 
-		public void AddTransition(T feed, FiniteState<T> transitionTarget) => _transitions.Add(feed, transitionTarget);
-		public virtual void SetStateMachine(StateMachine<T> machine) {
+		public FiniteState<T> AddTransition(T feed, FiniteState<T> transitionTarget) {
+			_transitions.Add(feed, transitionTarget);
+			return this;
+		}
+
+		public virtual FiniteState<T> SetStateMachine(StateMachine<T> machine) {
 			fsm = machine;
 			transform = machine.transform;
+			return this;
 		}
+
+		public virtual void PassArguments(params object[] args) { }
 	}
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8805033990612899505}
+  - component: {fileID: 2556508903480005351}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -31,6 +32,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2556508903480005351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2174618723028242086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01c4af1ec3abb64fbf422409676da80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootType: 1
+  sinkRiseSpeed: 2
+  riseHeight: 2
+  boss: {fileID: 0}
+  components:
+    _transform: {fileID: 0}
+    _animator: {fileID: 0}
+    _roots: []
+    _team: {fileID: 0}
+  hitboxes:
+  - closePoint: {x: -0.11, y: 6.18, z: 0}
+    halfExtends: {x: 0.28, y: 8, z: 4.41}
+    orientation: {x: 0, y: 0, z: 0}
+  - closePoint: {x: -0.11, y: 4.23, z: 0.1}
+    halfExtends: {x: 1.5, y: 3.48, z: 3.74}
+    orientation: {x: 0, y: 0, z: 0}
+  - closePoint: {x: -0.11, y: 2.71, z: 0.1}
+    halfExtends: {x: 1.5, y: 1.07, z: 7.62}
+    orientation: {x: 0, y: 0, z: 0}
+  - closePoint: {x: -0.11, y: 1.86, z: -0.2}
+    halfExtends: {x: 8.97, y: 1.07, z: 5.93}
+    orientation: {x: -6, y: 0, z: 0}
 --- !u!95 &630777162065015177
 Animator:
   serializedVersion: 3

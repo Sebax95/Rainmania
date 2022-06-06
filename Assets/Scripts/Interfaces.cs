@@ -55,3 +55,7 @@ public interface IAddableVelocity {
 	void AddVelocity(Vector3 velocity);
 	void ClearAddedVelocity();
 }
+
+public interface IAnimationEndActivable {
+	void OnAnimationEnd();
+}

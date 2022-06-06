@@ -17,7 +17,7 @@ public class ControllerHandler : TimedBehaviour {
 		if(Instance == null)
 		{
 			Instance = this;
-			DontDestroyOnLoad(this);
+			DontDestroyOnLoad(gameObject);
 		} else
 			Destroy(gameObject);
 
